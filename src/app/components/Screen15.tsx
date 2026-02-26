@@ -30,9 +30,9 @@ export function Screen15({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
         { id: 'C', text: 'C) Kombinace kanálů pomáhá oslovit různé skupiny kandidátů bez závislosti na jednom zdroji.' }
       ]}
       correctPairs={{
-        '1': 'B',  // Nechce řešit více nástrojů → Řízení je na Nelise
-        '2': 'A',  // Nechce mechanické kopírování → Každý kanál má jinou roli
-        '3': 'C'   // Chce rozšířit zásah → Kombinace kanálů osloví různé skupiny
+        '1': 'B',         // Nechce řešit více nástrojů → Řízení je na Nelise
+        '2': ['A', 'C'],  // Nechce mechanické kopírování → Každý kanál má jinou roli NEBO Kombinace kanálů
+        '3': ['C', 'A']   // Chce rozšířit zásah → Kombinace kanálů NEBO Každý kanál má jinou roli
       }}
       explanationText={'Multi-channel není samoúčelný seznam kanálů. Smysl je v tom, že systém hledá, kde a jak doručit nabídku co nejefektivněji, a průběžně optimizuje doručování. Klient tak nekupuje „budeme všude", ale strategii doručování a řízení výkonu. To je rozdíl oproti jednorázovému nákupu prostoru.'}
       onNext={onNext}

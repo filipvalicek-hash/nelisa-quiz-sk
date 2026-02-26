@@ -21,12 +21,12 @@ export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit }
   ];
 
   const rightItems = [
-    { id: 'A', text: 'U běžné inzerce jste zvyklí platit za jeden měsíc na jednom jobboardu a čekat, kdo se ozve.\nU Nelisy běží po stejnou dobu aktivní kampaň napříč zhruba 16 kanály, která jde za výrazně větším publikem.\nSoučástí ceny jsou navíc služby jako firemní profil, tvorba bannerů a přehledné statistiky.\nDává smysl to ověřit pilotně na jedné roli a podle výsledků se rozhodnout dál.' },
-    { id: 'B', text: 'Právě období bez akutní potřeby je ideální chvíle řešit nábor s předstihem.\nMůžete budovat databázi kandidátů, posílit employer branding a mít kampaně připravené tak, aby šly rychle spustit ve chvíli, kdy potřeba reálně vznikne.' },
     { id: 'C', text: 'Agentury i interní marketing obvykle řeší hlavně produktové nebo brandové kampaně.\nNelisa má za sebou více než 4 roky praxe a tisíce HR kampaní, ze kterých vychází specializované know-how.\nDíky tomu optimalizujeme rychle podle dat a oproti interní nebo agenturní správě často šetříme čas i náklady.' },
-    { id: 'D', text: 'Proces je nastavený jednoduše – od založení profilu dokážeme spustit kampaň do 3 pracovních dnů.\nDíky integracím jdou kandidáti přímo do ATS, takže HR nepřibývá další nástroj ani manuální práce.\nNejlepší je vyzkoušet první kampaň pilotně.' },
-    { id: 'E', text: 'Je důležité podívat se na to, proč předchozí pokus nefungoval – často chybí správné nastavení cílové skupiny nebo optimalizace v průběhu kampaně.\nDíky zkušenostem s tisíci kampaní víme, kde bývají slabá místa a jak je včas upravit.' },
     { id: 'F', text: 'Jobboardy fungují primárně na aktivní kandidáty.\nNelisa oslovuje i pasivní publikum napříč sociálními sítěmi a dalšími kanály, čímž výrazně rozšiřuje zásah a šanci najít relevantní kandidáty.' },
+    { id: 'A', text: 'U běžné inzerce jste zvyklí platit za jeden měsíc na jednom jobboardu a čekat, kdo se ozve.\nU Nelisy běží po stejnou dobu aktivní kampaň napříč zhruba 16 kanály, která jde za výrazně větším publikem.\nSoučástí ceny jsou navíc služby jako firemní profil, tvorba bannerů a přehledné statistiky.\nDává smysl to ověřit pilotně na jedné roli a podle výsledků se rozhodnout dál.' },
+    { id: 'D', text: 'Proces je nastavený jednoduše – od založení profilu dokážeme spustit kampaň do 3 pracovních dnů.\nDíky integracím jdou kandidáti přímo do ATS, takže HR nepřibývá další nástroj ani manuální práce.\nNejlepší je vyzkoušet první kampaň pilotně.' },
+    { id: 'B', text: 'Právě období bez akutní potřeby je ideální chvíle řešit nábor s předstihem.\nMůžete budovat databázi kandidátů, posílit employer branding a mít kampaně připravené tak, aby šly rychle spustit ve chvíli, kdy potřeba reálně vznikne.' },
+    { id: 'E', text: 'Je důležité podívat se na to, proč předchozí pokus nefungoval – často chybí správné nastavení cílové skupiny nebo optimalizace v průběhu kampaně.\nDíky zkušenostem s tisíci kampaní víme, kde bývají slabá místa a jak je včas upravit.' },
   ];
 
   const correctPairs: Record<string, string> = {

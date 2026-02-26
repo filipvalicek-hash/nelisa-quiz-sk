@@ -20,7 +20,7 @@ interface AutoAdvanceMatchingChallengeProps {
     text: string;
     icon?: React.ReactNode;
   }>;
-  correctPairs: Record<string, string>;
+  correctPairs: Record<string, string | string[]>;
   explanationText: string;
   onNext: () => void;
   onBack: () => void;
@@ -252,9 +252,11 @@ export function AutoAdvanceMatchingChallenge({
     return PAIRING_COLORS[pairingIndex % PAIRING_COLORS.length];
   };
 
-  // Check if a pairing is correct
+  // Check if a pairing is correct (supports multiple correct answers)
   const isPairingCorrect = (leftId: string, rightId: string): boolean => {
-    return correctPairs[leftId] === rightId;
+    const correct = correctPairs[leftId];
+    if (Array.isArray(correct)) return correct.includes(rightId);
+    return correct === rightId;
   };
 
   return (

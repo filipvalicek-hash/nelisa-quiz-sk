@@ -42,7 +42,7 @@ export function Screen19({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
     </>
   );
 
-  const explanationText = 'Klient potřebuje vědět, co se optimalizuje a proč. Když je cíl zvolený bez vysvětlení, je těžké obhájit výsledek a vyhodnotit, co se vlastně stalo. Správná odpověď ukazuje, že cíl ovlivňuje doručování a výsledky, a že se volí podle toho, jestli chceme reakce, návštěvy, nebo jiný dopad. Díky tomu je spolupráce čitelná a důvěryhodná.';
+  const explanationText = 'Klient potřebuje vědět, co se optimalizuje a proč. Když se to nevysvětlí, je těžké obhájit výsledek a vyhodnotit, co se vlastně stalo. Správná odpověď ukazuje, že doručování není „ruční cílení" podle demografie, ale algoritmická optimalizace podle chování lidí v online prostoru – podobně jako v e-commerce: systém sleduje, jak uživatelé na reklamy reagují, a postupně upravuje, komu se nabídka zobrazuje, aby ji viděli co nejrelevantnější kandidáti. Zároveň je důležité, že Nelisa nestaví jen na tom, co umí samotná platforma, ale využívá nejlepší dostupné cílení, které dnes technologie a trh nabízí, a k tomu i vlastní know-how a data z tisíců HR kampaní, díky kterým umíme kampaně rychleji správně nastavit, interpretovat a průběžně zlepšovat. Díky tomu je spolupráce čitelná, měřitelná a důvěryhodná.';
 
   return (
     <CardSelectionChallenge

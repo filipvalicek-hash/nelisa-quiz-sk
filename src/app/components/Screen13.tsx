@@ -219,10 +219,13 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
             {isConfirmed && (
               <ExplanationBlock>
                 <p>
-                  Copy není přepsaný popis pozice, ale nástroj, který má přimět relevantního člověka udělat krok. To nejde bez kontextu, protože každá cílovka má jiné motivace, obavy a jazyk.
+                  Copy není přepsaný popis pozice, ale výkonový nástroj, který rozhoduje o tom, jestli relevantní člověk udělá další krok. U kampaní to platí dvojnásob: klient do nich investuje nemalé částky a bez správného a kvalitního copy se kampaň typicky „nechytí" – rozpočet se může protočit na zobrazení a prokliky, ale nepřijde dost kvalitních reakcí.
                 </p>
                 <p>
-                  Proto je správný postup ten, který sbírá podklady a doptává se. Kvalita vstupních informací od klienta ovlivňuje výsledek kampaně víc než „hezké věty".
+                  To nejde udělat bez kontextu, protože každá cílovka má jiné motivace, obavy a jazyk. Navíc pasivní kandidát se chová jinak než aktivní: práci aktivně nehledá, takže ho potřebuješ zaujmout rychle, „chytit za srdce" a nadchnout pro myšlenku změny ještě dřív, než začne řešit detaily.
+                </p>
+                <p>
+                  Proto je správný postup ten, který sbírá podklady a doptává se – kvalita vstupních informací od klienta často ovlivní výsledek kampaně víc než samotné „hezké věty".
                 </p>
               </ExplanationBlock>
             )}

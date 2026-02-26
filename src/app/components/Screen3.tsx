@@ -42,9 +42,9 @@ export function Screen3({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
     </>
   );
 
-  const explanationText = `Zájem vzniká, když klient pozná, že řešíme jeho problém a že to dává obchodní smysl. Pokud začneš funkcemi, klient si to neumí zařadit a vnímá to jako další nástroj.
+  const explanationText = `Zájem vzniká, když klient pozná, že řešíme jeho problém a že to dává obchodní smysl. Proto se vyplatí postupovat v pořadí Proč – Co – Jak: nejdřív ukázat Proč (reálné užitky a dopad na nábor: kvalita, rychlost, rozšíření zásahu, úspora času), potom vysvětlit Co (že toho dosahujeme pomocí řízených kampaní, které oslovují i pasivní kandidáty mimo portály), a teprve nakonec ukázat Jak (Admin a procesy, jak se to zadává, sleduje a zapadá do ATS).
 
-Když začneš dopadem na nábor (kvalita, rychlost, rozšíření zásahu, úspora času), má klient důvod poslouchat a teprve potom dává smysl ukázat, jak to funguje.`;
+Pokud začneš funkcemi, klient si to neumí zařadit a vnímá to jako další nástroj; když začneš dopadem, má důvod poslouchat a „Co" a „Jak" už pak logicky zapadnou.`;
 
   return (
     <CardSelectionChallenge

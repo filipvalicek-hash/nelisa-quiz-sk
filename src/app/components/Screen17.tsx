@@ -48,14 +48,14 @@ export function Screen17({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
 
   const leftItems = [
     { id: '1', text: 'Seniorní specialisté, expertní role, důraz na profesní kontext.' },
-    { id: '2', text: 'Širší publikum, kombinace brandu a výkonu napříč kanály.' },
-    { id: '3', text: 'Zásah mimo sociální sítě, podpora viditelnosti u běžné populace.' }
+    { id: '2', text: 'Širší publikum, kombinace brandu a výkonu napříč kanály. Typicky může oslovit například uživatelé YouTube.' },
+    { id: '3', text: 'Zásah mimo sociální sítě, podpora viditelnosti u běžné populace. Typicky zasáhne například čtenáře zpravodajských webů.' }
   ];
 
   const rightItems = [
     { id: 'A', text: 'Google Demand Gen', icon: 'google' },
     { id: 'B', text: 'Seznam Native', icon: 'seznam' },
-    { id: 'C', text: 'LinkedIn Channels', icon: 'linkedin' }
+    { id: 'C', text: 'LinkedIn Channels a banner', icon: 'linkedin' }
   ];
 
   // Correct mapping: 1→C, 2→A, 3→B (stored internally, not shown to user)

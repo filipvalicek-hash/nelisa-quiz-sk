@@ -161,7 +161,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
 
   const wordOptions = [
     { id: 'opt1', text: 'Adminu Nelisy' },
-    { id: 'opt2', text: 'ATS' },
+    { id: 'opt2', text: 'Teamio nebo jiného ATS' },
     { id: 'opt3', text: 'Meta Business Manageru' },
     { id: 'opt4', text: 'CRM systému' },
     { id: 'opt5', text: 'Google Ads účtu' },
@@ -169,8 +169,8 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   ];
 
   const blanks = [
-    { id: 'blank1', correctWord: 'Meta Business Manageru' },
-    { id: 'blank2', correctWord: 'ATS' }
+    { id: 'blank1', correctWord: 'Adminu Nelisy' },
+    { id: 'blank2', correctWord: 'Teamio nebo jiného ATS' }
   ];
 
   const sensors = useSensors(
@@ -233,8 +233,8 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   const allFilled = blanks.every(blank => filledBlanks[blank.id]);
   const activeWord = wordOptions.find(w => w.id === activeId);
 
-  const blank1Correct = filledBlanks['blank1']?.wordText === 'Meta Business Manageru';
-  const blank2Correct = filledBlanks['blank2']?.wordText === 'ATS';
+  const blank1Correct = filledBlanks['blank1']?.wordText === 'Adminu Nelisy';
+  const blank2Correct = filledBlanks['blank2']?.wordText === 'Teamio nebo jiného ATS';
 
   return (
     <DndContext 
@@ -295,7 +295,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                     <DropSlot
                       blankId="blank1"
                       filledWord={filledBlanks['blank1']?.wordText || null}
-                      correctWord="Meta Business Manageru"
+                      correctWord="Adminu Nelisy"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank1'}
                       showResult={isConfirmed}
@@ -306,7 +306,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                     <DropSlot
                       blankId="blank2"
                       filledWord={filledBlanks['blank2']?.wordText || null}
-                      correctWord="ATS"
+                      correctWord="Teamio nebo jiného ATS"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank2'}
                       showResult={isConfirmed}

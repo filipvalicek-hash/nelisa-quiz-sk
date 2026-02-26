@@ -19,7 +19,7 @@ interface SituationCard {
   id: string;
   label: string;
   text: string;
-  correctPriority: 'HIGH' | 'MID' | 'LOW';
+  correctPriorities: ('HIGH' | 'MID' | 'LOW')[];
 }
 
 export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }: Screen2Props) {
@@ -32,37 +32,37 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
       id: 'A',
       label: 'A',
       text: 'Výrobní firma, 180 zaměstnanců. Jedna HR generalistka řeší nábor, onboarding i administrativu. Ví, že by měla pracovat s pasivními kandidáty, ale nemá na to čas ani know-how.',
-      correctPriority: 'HIGH'
+      correctPriorities: ['HIGH']
     },
     {
       id: 'B',
       label: 'B',
       text: 'Startup o 15 lidech. Hledá jednoho seniorního specialistu ročně. Portály nefungují, potřebují oslovit pasivní kandidáty.',
-      correctPriority: 'HIGH'
+      correctPriorities: ['HIGH', 'MID']
     },
     {
       id: 'C',
       label: 'C',
       text: 'Velká firma s HR týmem, spolupracuje s agenturami, má vlastní interní kampaně a chce „zkusit něco navíc".',
-      correctPriority: 'MID'
+      correctPriorities: ['MID']
     },
     {
       id: 'D',
       label: 'D',
       text: 'Firma aktuálně nenabírá, ale chce si dlouhodobě budovat databázi kandidátů a employer brand.',
-      correctPriority: 'MID'
+      correctPriorities: ['MID', 'HIGH']
     },
     {
       id: 'E',
       label: 'E',
       text: 'Klient říká: „My nejsme velká firma jako Lidl nebo PPF, to pro nás nebude."',
-      correctPriority: 'HIGH'
+      correctPriorities: ['HIGH', 'MID']
     },
     {
       id: 'F',
       label: 'F',
       text: 'Firma obsazuje jednu juniorní pozici ročně, portály jí fungují a nechce měnit zavedený postup.',
-      correctPriority: 'LOW'
+      correctPriorities: ['LOW']
     }
   ];
 
@@ -100,7 +100,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
     if (!allAssigned) return;
 
     setIsConfirmed(true);
-    const allCorrect = situations.every(card => assignments[card.id] === card.correctPriority);
+    const allCorrect = situations.every(card => card.correctPriorities.includes(assignments[card.id] as 'HIGH' | 'MID' | 'LOW'));
     const assignmentLabel = situations.map(card => `${card.label}→${assignments[card.id] ?? '?'}`).join(', ');
     onAnswerSubmit?.(allCorrect, assignmentLabel);
   }, [allAssigned, situations, assignments, onAnswerSubmit]);
@@ -226,8 +226,8 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
             <div className="grid grid-cols-1 gap-4 mb-8">
               {visibleSituations.map((card, index) => {
                 const assignedPriority = assignments[card.id];
-                const isCorrect = isConfirmed && assignedPriority === card.correctPriority;
-                const isIncorrect = isConfirmed && assignedPriority && assignedPriority !== card.correctPriority;
+                const isCorrect = isConfirmed && assignedPriority !== null && card.correctPriorities.includes(assignedPriority);
+                const isIncorrect = isConfirmed && assignedPriority !== null && !card.correctPriorities.includes(assignedPriority);
                 const isFromSecondBatch = index >= 3;
 
                 return (
@@ -261,7 +261,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
                       {(['HIGH', 'MID', 'LOW'] as const).map(priority => {
                         const colors = getPriorityColor(priority);
                         const isSelected = assignedPriority === priority;
-                        const isCorrectAnswer = card.correctPriority === priority;
+                        const isCorrectAnswer = card.correctPriorities.includes(priority);
                         
                         return (
                           <button
@@ -338,7 +338,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
                         animate={{ opacity: 1, height: 'auto' }}
                         className="mt-3 pl-11 text-sm text-green-700 font-medium"
                       >
-                        Správná odpověď: {card.correctPriority}
+                        Správná odpověď: {card.correctPriorities.join(' nebo ')}
                       </motion.div>
                     )}
                   </motion.div>

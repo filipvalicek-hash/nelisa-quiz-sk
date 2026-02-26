@@ -57,11 +57,11 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
     { id: 'C', text: 'C) Copywriting zvyšuje důvěru a ochotu reagovat u lidí, kteří původně změnu práce neřešili.' }
   ];
 
-  // Correct mapping: 1→B, 2→A, 3→C
-  const correctPairs: Record<string, string> = {
-    '1': 'B', // Copywriting pomáhá vysvětlit smysl role
-    '2': 'A', // Copywriting překládá HR jazyk
-    '3': 'C'  // Copywriting zvyšuje důvěru
+  // Correct mapping: 1→B nebo C, 2→A, 3→C nebo B
+  const correctPairs: Record<string, string[]> = {
+    '1': ['B', 'C'], // Copywriting pomáhá vysvětlit smysl role NEBO zvyšuje důvěru
+    '2': ['A'],      // Copywriting překládá HR jazyk
+    '3': ['C', 'B']  // Copywriting zvyšuje důvěru NEBO pomáhá vysvětlit smysl role
   };
 
   // Calculate line positions when pairings change
@@ -217,9 +217,9 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
     return PAIRING_COLORS[pairingIndex % PAIRING_COLORS.length];
   };
 
-  // Check if a pairing is correct
+  // Check if a pairing is correct (supports multiple correct answers)
   const isPairingCorrect = (leftId: string, rightId: string): boolean => {
-    return correctPairs[leftId] === rightId;
+    return correctPairs[leftId]?.includes(rightId) ?? false;
   };
 
   const handleConfirm = () => {

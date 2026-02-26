@@ -211,13 +211,13 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                 {isConfirmed && (
                   <ExplanationBlock>
                     <p>
-                      Klient často porovnává cenu kampaně s inzercí, protože obě věci „vypadají jako nábor\". Rozdíl je v mechanismu.
+                      Klient často porovnává cenu kampaně s inzercí, protože obě věci „vypadají jako nábor". Rozdíl je v mechanismu i rozsahu: u inzerátu typicky platíš za 1 místo na job boardu a čekáš, kdo přijde.
                     </p>
                     <p>
-                      Inzerát je vystavení nabídky na jednom místě a čekání, kdo přijde. Kampaň je aktivní distribuce napříč kanály a průběžné řízení doručování na výkon.
+                      Kampaň je naopak aktivní distribuce napříč zhruba 16 kanály a průběžné řízení doručování na výkon.
                     </p>
                     <p>
-                      Proto nejde srovnávat 1:1, je potřeba vysvětlit, že klient nekupuje jen prostor, ale i řízení a optimalizaci.
+                      Proto to nejde srovnávat 1:1 – klient nekupuje jen „prostor" nebo nástroj na CVčka, ale řízenou HR marketingovou kampaň (se sekundárním efektem na employer branding) včetně optimalizace.
                     </p>
                   </ExplanationBlock>
                 )}

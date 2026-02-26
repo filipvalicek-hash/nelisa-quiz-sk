@@ -299,7 +299,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
                       isOver={overBlankId === 'blank1'}
                       showResult={isConfirmed}
                     />
-                    <span>a hledá práci, tam míří portály."</span>
+                    <span>, hledá práci, na ně cílí portály."</span>
                   </p>
                   
                   <p>
@@ -342,10 +342,10 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
               {isConfirmed && (
                 <ExplanationBlock>
                   <p>
-                    Cílem není odrecitovat procenta, ale ukázat logiku trhu práce. Část lidí aktivně hledá a je zachytitelná přes portály. Velká část lidí práci nehledá, ale změnu udělá, když uvidí relevantní nabídku ve správný moment.
+                    Cílem není odrecitovat procenta, ale ukázat logiku trhu práce. Portály typicky zachytí hlavně část lidí, kteří aktivně hledají. Velká část trhu práci aktivně neřeší, ale může být otevřená změně, když uvidí relevantní nabídku ve správný moment – a právě tam kampaně rozšiřují zásah mimo „rybník" portálů a přinášejí jiný typ reakcí.
                   </p>
                   <p>
-                    To je důvod, proč kampaně rozšiřují zásah mimo „rybník" portálů a přináší jiný typ reakcí. Klient si z toho má odnést jednoduché pochopení, proč má smysl kombinace.
+                    Zároveň je dobré nezapomenout, že v online prostoru, kde kampaně Nelisy běží (sociální sítě, vyhledávače, agregátory), se pohybují i aktivní kandidáti: kampaně je umí „pushnout" ke konkrétní nabídce včas. Prakticky tak klient kampaní zasahuje pasivní i aktivní část trhu – tedy mnohem blíž k „100 % trhu", ne jen k té pasivní části.
                   </p>
                 </ExplanationBlock>
               )}

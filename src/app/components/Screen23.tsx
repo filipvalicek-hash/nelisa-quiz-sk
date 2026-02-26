@@ -28,32 +28,32 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
     {
       id: 'A',
       label: 'A',
-      text: '„Pošlu vám prezentaci a můžete se na to podívat ve svém čase."',
+      text: '„Portály řeší lidi, kteří už práci aktivně hledají. Kampaně pomáhají oslovit i ty, kteří práci neřeší, ale mohou o změně uvažovat."',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: '„Rozumím. Domluvíme se na konkrétní termín, kdy to společně probereme, abych mohl zodpovědět případné dotazy?"',
-      isCorrect: true
+      text: '„Portály jsou dnes základ a kampaně jsou jejich modernější náhrada."',
+      isCorrect: false
     },
     {
       id: 'C',
       label: 'C',
-      text: '„Samozřejmě, pošlu materiály. Ozvěte se, až budete mít čas."',
+      text: '„Pokud vám portály fungují, dává smysl je zachovat a Nelisu využít tam, kde samotná inzerce nestačí."',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: '„V pořádku, pošlu vám kompletní nabídku a můžete mi pak dát vědět, jak jste se rozhodli."',
-      isCorrect: false
+      text: '„Portály pracují s existující poptávkou. Kampaně pomáhají tu poptávku aktivně vytvářet a rozšiřovat mimo portály."',
+      isCorrect: true
     }
   ];
 
-  const questionText = 'Klient říká: „Pošlete mi podklady a já to proberu interně." Jak schůzku profesionálně uzavřeš?'; 
+  const questionText = 'Klient říká: „Hele, my ty portály máme docela vychytané. Zatím nám fungují." Vyber odpověď, která nejlépe vysvětluje, kde Nelisa doplní portály.';
 
-  const explanationText = `Poslat materiály a čekat je risk, že klient ztratí kontext. Lepší je poslat podklady, ale zároveň navrhnout, že se na to podíváte společně. Tím udržíš kontrolu nad tím, jak klient Nelisu vnímá, a nedáváš mu prostor na to, aby si to špatně interpretoval sám.`;
+  const explanationText = `Klient nechce slyšet, že jeho současné řešení je špatně. Když začneš shazovat portály, vyvoláš odpor a obrannou reakci. Správný přístup je portály respektovat a vysvětlit doplnění. Kampaně rozšiřují zásah mimo existující poptávku, a tím přivádí jiné publikum i jiné reakce. Díky tomu se klient cítí pochopený a zároveň vidí důvod, proč přidat další vrstvu.`;
 
   const handleCheck = () => {
     if (selectedOption) {
@@ -94,7 +94,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                 <MessageSquare className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                 <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                  OTÁZKA · UZAVŘENÍ SCHŮZKY
+                  VÝBĚR JEDNÉ ODPOVĚDI
                 </span>
               </div>
             </div>
@@ -109,7 +109,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
                 letterSpacing: 0
               }}
             >
-              Jak nejlépe <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>uzavřít schůzku</span> s klientem?
+              Vyber odpověď, která nejlépe vysvětlí, jak <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Nelisa doplní portály</span>.
             </h3>
 
             {/* Context paragraph */}

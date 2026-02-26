@@ -160,17 +160,17 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   const [overBlankId, setOverBlankId] = useState<string | null>(null);
 
   const wordOptions = [
-    { id: 'opt1', text: 'vyfakturování' },
+    { id: 'opt1', text: 'vyfakturování služeb' },
     { id: 'opt2', text: 'podpisu pracovní smlouvy' },
     { id: 'opt3', text: 'prvním měsíci kampaně' },
-    { id: 'opt4', text: 'základní nastavení a orientaci v Adminu' },
+    { id: 'opt4', text: 'základní nastavení a orientaci v Nelisa Adminu' },
     { id: 'opt5', text: 'detailní nastavení reklamních systémů' },
     { id: 'opt6', text: 'vyhodnocení výkonu kampaně' }
   ];
 
   const blanks = [
-    { id: 'blank1', correctWord: 'vyfakturování' },
-    { id: 'blank2', correctWord: 'základní nastavení a orientaci v Adminu' }
+    { id: 'blank1', correctWord: 'vyfakturování služeb' },
+    { id: 'blank2', correctWord: 'základní nastavení a orientaci v Nelisa Adminu' }
   ];
 
   const sensors = useSensors(
@@ -233,8 +233,8 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   const allFilled = blanks.every(blank => filledBlanks[blank.id]);
   const activeWord = wordOptions.find(w => w.id === activeId);
 
-  const blank1Correct = filledBlanks['blank1']?.wordText === 'vyfakturování';
-  const blank2Correct = filledBlanks['blank2']?.wordText === 'základní nastavení a orientaci v Adminu';
+  const blank1Correct = filledBlanks['blank1']?.wordText === 'vyfakturování služeb';
+  const blank2Correct = filledBlanks['blank2']?.wordText === 'základní nastavení a orientaci v Nelisa Adminu';
 
   return (
     <DndContext 
@@ -294,24 +294,24 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                     <DropSlot
                       blankId="blank1"
                       filledWord={filledBlanks['blank1']?.wordText || null}
-                      correctWord="vyfakturování"
+                      correctWord="vyfakturování služeb"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank1'}
                       showResult={isConfirmed}
                     />
 
-                    <span>služeb, kde společně projdeme</span>
+                    <span>, kde společně projdeme</span>
 
                     <DropSlot
                       blankId="blank2"
                       filledWord={filledBlanks['blank2']?.wordText || null}
-                      correctWord="základní nastavení a orientaci v Adminu"
+                      correctWord="základní nastavení a orientaci v Nelisa Adminu"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank2'}
                       showResult={isConfirmed}
                     />
 
-                    <span>v Nelisa Adminu."</span>
+                    <span>."</span>
                   </div>
                 </div>
               </div>

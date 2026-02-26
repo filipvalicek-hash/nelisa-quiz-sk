@@ -53,7 +53,7 @@ export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
         {
           id: 'option-g',
           text: 'Dohodnutá očekávání a cíle kampaně',
-          isCorrect: false
+          isCorrect: true
         }
       ]}
       correctFeedback={{
@@ -74,13 +74,13 @@ export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
       explanationText={
         <>
           <p>
-            Zklamání většinou nevzniká z toho, že by kampaň neměla žádný dopad, ale z toho, že si klient představoval něco jiného.
+            Zklamání většinou nevzniká z toho, že by kampaň neměla žádný dopad, ale z toho, že si klient představoval něco jiného. Proto je dobré držet 3 základní kroky:
           </p>
           <p>
-            Proto je klíčové vyjasnit role, vstupy, harmonogram a co je úspěch. Když se to neudělá, klient čeká okamžitý výsledek, nedodá podklady nebo hodnotí podle špatné metriky.
+            <strong>Nastavení očekávání a ujasnění cílovky</strong> – vyjasnit role, vstupy, harmonogram a hlavně koho klient skutečně hledá a co bude považovat za úspěch. <strong>Průběžné vyhodnocení</strong> – domluvit si kontrolní body, sbírat zpětnou vazbu na kvalitu kandidátů a mít prostor na případnou úpravu kampaně. <strong>Závěrečné vyhodnocení</strong> – společně uzavřít kampaň, shrnout co fungovalo a co zlepšit příště; to je často začátek retence a navazující spolupráce.
           </p>
           <p>
-            Dobře nastavené očekávání snižuje tření a zvyšuje spokojenost.
+            Když se toto neudělá, klient čeká okamžitý výsledek, nedodá podklady nebo hodnotí podle špatné metriky. Dobře vedený proces snižuje tření a zvyšuje spokojenost.
           </p>
         </>
       }

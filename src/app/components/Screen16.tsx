@@ -43,7 +43,7 @@ export function Screen16({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
           isCorrect: false
         }
       ]}
-      explanationText="Nadstandard má být odpověď na potřebu, ne první věta prezentace. Když s ním začneš moc brzy, klient to slyší jako upsell a přestane věřit, že řešíš jeho problém. Když s ním přijdeš moc pozdě, můžeš propásnout příležitost, protože klient si už vytvořil rámec rozpočtu a očekávání. Správné načasování je po pochopení cíle a cílovky."
+      explanationText="Nadstandard má být odpověď na potřebu, ne první věta prezentace. Když s ním začneš moc brzy, klient to vnímá jako upsell a přestane věřit, že řešíš jeho problém. Když s ním přijdeš moc pozdě, můžeš propásnout příležitost, protože klient si už vytvořil rámec rozpočtu a očekávání. Správné načasování je po pochopení cíle a cílovky."
       onNext={onNext}
       onBack={onBack}
       onLogoClick={onLogoClick}

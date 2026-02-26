@@ -13,25 +13,25 @@ export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
     {
       id: 'A',
       label: 'A',
-      text: 'Hlavní je, že banner dobře vypadá a působí profesionálně.',
+      text: 'Detailní nastavení cílení v Meta Business Manageru.',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Banner není samostatný obrázek – je navržený pro konkrétní prostředí (feed, display), dlouhodobě se testuje a upravuje podle toho, co na kandidáty reálně funguje.',
+      text: 'Ukázku kandidátské cesty (banner → nabídka → formulář), aby pochopil „co uvidí člověk venku".',
       isCorrect: true
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Používáme jednotný design, takže kandidáti reklamu lépe poznají.',
+      text: 'Přehled všech nadstandardních formátů.',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Upřímně, většina grafiků neumí bannery pro kampaně dělat správně.',
+      text: 'Ceník.',
       isCorrect: false
     }
   ];
@@ -44,7 +44,9 @@ export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
 
   const explanationText = (
     <>
-      Nejlépe funguje <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>ukázat jednu konkrétní cestu kandidáta</span>, protože to klientovi zhmotní <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>celý princip během chvíle</span>. Když klient vidí banner, detail nabídky a odpověď, přestane to být abstraktní „nějaká kampaň". Zároveň tím obchodník vysvětlí, co se děje na straně kandidáta a proč má smysl obsah, profil a formulář. To je často rychlejší než vysvětlovat technologii nebo cílení.
+      Nejlépe funguje <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>ukázat jednu konkrétní cestu kandidáta</span> například formou <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>krátkého příběhu</span>. Je to rychlejší a účinnější než vysvětlovat technologii nebo cílení:
+      <br /><br />
+      <em>„Představte si kandidáta, který je zrovna v tramvaji nebo na lanovce, scrolluje Facebook a práci aktivně neřeší. Najednou vidí banner → klikne na nabídku, která ho chytne za srdce → má pozitivní emoci a během pár vteřin jednoduše odpoví → a reakce se rovnou propíše do Teamia / ATS, kde s ním HR začne komunikovat."</em>
     </>
   );
 

@@ -118,7 +118,7 @@ export default function App() {
       questionNumber: 1,
       questionText: 'Přiřaď každé situaci prioritu, jak moc jsi daného klienta schopen/schopna posunout pomocí Nelisy.',
       selectedAnswer: 'Priorita HIGH: A, B, E | Priorita MID: C, D | Priorita LOW: F',
-      correctAnswer: 'Priorita HIGH: A, B, E | Priorita MID: C, D | Priorita LOW: F',
+      correctAnswer: 'A→HIGH, B→HIGH nebo MID, C→MID, D→MID nebo HIGH, E→HIGH nebo MID, F→LOW',
       isCorrect: questionResults[0],
       explanation: 'Nelisa cílí na ty, co potřebují pracovat s pasivními kandidáty, ale nemají na to kapacitu, znalosti nebo strukturu. Když klient má funkční HR a spolupracuje s agenturami, může Nelisu doplnit, ale není to jeho hlavní bolest. A pokud nemá objem pozic nebo má jen jednoduché role s dostatkem aktivních kandidátů, Nelisa mu prakticky nepomůže.'
     },
@@ -312,7 +312,7 @@ export default function App() {
       selectedAnswer: questionResults[24] ? 'Všechny odpovědi správně' : 'Některé odpovědi nesprávně',
       correctAnswer: 'ANO: Nastavení očekávání | Průběžné schůzky | Vyhodnocovací schůzka | Sledování výsledků | NE: Pravidelné změny copywritingu | Prodej brandingu | Ignorování uspokojivých výsledků',
       isCorrect: questionResults[24],
-      explanation: 'Retenci nejvíc zvyšuje to, že klient má průběžně jistotu, že je o kampaň postaráno a že existuje jasný rytmus komunikace. Nastavení očekávání na startu je základ, průběžná kontrola a domluvený check-in brání tomu, aby klient dělal závěry po pár dnech. Vyhodnocovací schůzka po kampani uzavírá spolupráci profesionálně a otevírá prostor pro další krok. Naopak „nechat to být, když to jde dobře" je nejrychlejší cesta, jak ztratit vztah a příležitost pro další objednávku.'
+      explanation: 'Retenci nejvíc zvyšuje to, že klient má průběžně jistotu, že je o kampaň postaráno a že existuje jasný rytmus komunikace. Nastavení očekávání na startu je základ, průběžná kontrola a domluvený check-in brání tomu, aby klient dělal závěry po pár dnech. Nově je to ještě jednodušší udržet i procesně: s průběžným vyhodnocením kampaně aktivně pomáhá i Nelisa – klientům posíláme e-mail s dotazem na spokojenost a sbíráme zpětnou vazbu, kterou můžeme rychle promítnout do dalšího postupu. Vyhodnocovací schůzka po kampani uzavírá spolupráci profesionálně a otevírá prostor pro další krok – ideálně by měla být standard/povinný krok po každém pilotu, aby se výsledky správně interpretovaly a navázalo se retencí. Naopak „nechat to být, když to jde dobře" je nejrychlejší cesta, jak ztratit vztah a příležitost pro další objednávku. A změny copy nebo prodej jiného brandingu nejsou automaticky retence, pokud nenavazují na potřebu klienta a cíl kampaně.'
     }
   ];
 
