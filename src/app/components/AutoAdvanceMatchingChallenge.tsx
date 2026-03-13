@@ -431,9 +431,20 @@ export function AutoAdvanceMatchingChallenge({
                                 : { minHeight: '80px' }
                             }
                           >
-                            <span className="leading-relaxed flex-1 text-gray-900" style={{ fontSize: '16px', fontWeight: 400, fontFamily: 'Poppins, sans-serif', lineHeight: '1.35' }}>
-                              {leftItem.text}
-                            </span>
+                            <div className="flex items-start gap-3 flex-1">
+                              <div
+                                className="w-8 h-8 rounded-lg flex items-center justify-center font-semibold text-sm flex-shrink-0"
+                                style={{
+                                  backgroundColor: '#F3F4F6',
+                                  color: '#4B5563'
+                                }}
+                              >
+                                {leftItem.id}
+                              </div>
+                              <span className="leading-relaxed flex-1 text-gray-900" style={{ fontSize: '16px', fontWeight: 400, fontFamily: 'Poppins, sans-serif', lineHeight: '1.35' }}>
+                                {leftItem.text.replace(/^\d+\)\s*/, '')}
+                              </span>
+                            </div>
                           </motion.button>
 
                           {/* Right Card */}

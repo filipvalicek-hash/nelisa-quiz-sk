@@ -163,16 +163,16 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
   const [overBlankId, setOverBlankId] = useState<string | null>(null);
 
   const wordOptions = [
-    { id: 'w1', text: 'aktivních' },
-    { id: 'w2', text: 'hledajících' },
+    { id: 'w1', text: 'aktivní' },
+    { id: 'w2', text: 'nespokojení' },
     { id: 'w3', text: 'pasivní' },
-    { id: 'w4', text: 'zaměstnaných' },
-    { id: 'w5', text: 'uchazečů' },
-    { id: 'w6', text: 'spokojených' },
+    { id: 'w4', text: 'zaměstnaní' },
+    { id: 'w5', text: 'stabilní' },
+    { id: 'w6', text: 'stávající' },
   ];
 
   const blanks = [
-    { id: 'blank1', correctWord: 'aktivních' },
+    { id: 'blank1', correctWord: 'aktivní' },
     { id: 'blank2', correctWord: 'pasivní' }
   ];
 
@@ -241,7 +241,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
   const allFilled = blanks.every(blank => filledBlanks[blank.id]);
   const activeWord = wordOptions.find(w => w.id === activeId);
 
-  const blank1Correct = filledBlanks['blank1']?.wordText === 'aktivních';
+  const blank1Correct = filledBlanks['blank1']?.wordText === 'aktivní';
   const blank2Correct = filledBlanks['blank2']?.wordText === 'pasivní';
 
   return (
@@ -298,22 +298,22 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
               <div className="mb-8 p-10 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-100">
                 <div className="text-gray-900 space-y-4 font-normal" style={{ fontSize: '16px', lineHeight: '1.58' }}>
                   <p className="flex flex-wrap items-center gap-2">
-                    <span>„Zhruba 30 % trhu je</span>
+                    <span>„Zhruba 30 % trhu tvoří</span>
                     <DropSlot
                       blankId="blank1"
                       filledWord={filledBlanks['blank1']?.wordText || null}
-                      correctWord="aktivních"
+                      correctWord="aktivní"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank1'}
                       showResult={isConfirmed}
                     />
-                    <span>, hledá práci, na ně cílí portály."</span>
+                    <span>kandidáti — hledají práci, cílí na ně portály.</span>
                   </p>
-                  
+
                   <p>
-                    70 % práci nehledá, ale může být otevřená změně, když se jí nabídka dostane do cesty.
+                    70 % práci aktivně nehledá, ale může být otevřeno změně.
                   </p>
-                  
+
                   <p className="flex flex-wrap items-center gap-2">
                     <span>My rozšiřujeme zásah i na</span>
                     <DropSlot
@@ -324,7 +324,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                       isOver={overBlankId === 'blank2'}
                       showResult={isConfirmed}
                     />
-                    <span>část, takže zvyšujeme šanci najít lidi mimo běžnou konkurenci."</span>
+                    <span>část trhu, takže zvyšujeme šanci najít lidi mimo běžnou konkurenci."</span>
                   </p>
                 </div>
               </div>

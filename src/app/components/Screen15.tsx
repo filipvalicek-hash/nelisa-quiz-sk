@@ -24,18 +24,18 @@ export function Screen15({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
       rightColumnTitle="ARGUMENTY"
       leftItems={[
         { id: '1', text: '1) Nechce řešit více nástrojů a reportů.' },
-        { id: '2', text: '2) Nechce, aby se stejný obsah jen mechanicky kopíroval všude.' },
-        { id: '3', text: '3) Chce rozšířit zásah, ale zachovat jednoduchost.' }
+        { id: '2', text: '2) Chce, aby byla pracovní nabídka cílena na různé kanály, avšak jednoduše a se stejným obsahem.' },
+        { id: '3', text: '3) Chce rozšířit zásah, ale jednoduše, bez složitého procesu na jednotlivých kanálech.' }
       ]}
       rightItems={[
-        { id: 'A', text: 'A) Každý kanál má jinou roli – někde budujeme povědomí, jinde sbíráme reakce.' },
-        { id: 'B', text: 'B) Řízení, optimalizace i reporting je na Nelise, klient dodává jen vstupy.' },
-        { id: 'C', text: 'C) Kombinace kanálů pomáhá oslovit různé skupiny kandidátů bez závislosti na jednom zdroji.' }
+        { id: 'A', text: 'A) Každý kanál má jinou roli – někde budujeme povědomí, jinde sbíráme reakce, ale vždy u stejné cílové skupiny.' },
+        { id: 'B', text: 'B) Reporting i řízení a optimalizace kampaní je na straně Nelisy, klient dodává jen pracovní nabídku.' },
+        { id: 'C', text: 'C) Na Nelise kombinujeme kanály automatizovaným systémem bez náročného procesu na straně klienta.' }
       ]}
       correctPairs={{
-        '1': 'B',         // Nechce řešit více nástrojů → Řízení je na Nelise
-        '2': ['A', 'C'],  // Nechce mechanické kopírování → Každý kanál má jinou roli NEBO Kombinace kanálů
-        '3': ['C', 'A']   // Chce rozšířit zásah → Kombinace kanálů NEBO Každý kanál má jinou roli
+        '1': 'B',  // Nechce řešit více nástrojů → Reporting/řízení je na Nelise
+        '2': 'A',  // Chce různé kanály ale stejný obsah → Každý kanál má jinou roli
+        '3': 'C'   // Chce rozšířit zásah jednoduše → kombinujeme kanály automatizovaně
       }}
       explanationText={'Multi-channel není samoúčelný seznam kanálů. Smysl je v tom, že systém hledá, kde a jak doručit nabídku co nejefektivněji, a průběžně optimizuje doručování. Klient tak nekupuje „budeme všude", ale strategii doručování a řízení výkonu. To je rozdíl oproti jednorázovému nákupu prostoru.'}
       onNext={onNext}
