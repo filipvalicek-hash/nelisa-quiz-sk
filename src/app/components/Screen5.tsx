@@ -25,6 +25,9 @@ interface Screen5Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Record<string, { wordId: string; wordText: string }>;
+  onStoreSelection?: (sel: Record<string, { wordId: string; wordText: string }>) => void;
 }
 
 interface DraggableWordProps {
@@ -153,9 +156,9 @@ function DropSlot({ blankId, filledWord, correctWord, onRemove, isOver, showResu
   );
 }
 
-export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen5Props) {
-  const [filledBlanks, setFilledBlanks] = useState<Record<string, { wordId: string; wordText: string }>>({});
-  const [isConfirmed, setIsConfirmed] = useState(false);
+export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen5Props) {
+  const [filledBlanks, setFilledBlanks] = useState<Record<string, { wordId: string; wordText: string }>>(initialSelection ?? {});
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [overBlankId, setOverBlankId] = useState<string | null>(null);
 
@@ -206,16 +209,21 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
     const wordText = active.data.current?.wordText as string;
     
     if (wordText && blankId) {
-      setFilledBlanks((prev) => ({ ...prev, [blankId]: { wordId, wordText } }));
+      setFilledBlanks((prev) => {
+        const next = { ...prev, [blankId]: { wordId, wordText } };
+        onStoreSelection?.(next);
+        return next;
+      });
     }
   };
 
   const handleRemove = (blankId: string) => {
     if (isConfirmed) return;
-    
+
     setFilledBlanks((prev) => {
       const newFilled = { ...prev };
       delete newFilled[blankId];
+      onStoreSelection?.(newFilled);
       return newFilled;
     });
   };
@@ -353,13 +361,15 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
               {/* Action Buttons */}
               <div className="flex items-center justify-between pt-8 border-t border-gray-100">
                 <div className="flex items-center gap-4">
-                  <Button
-                    variant="ghost"
-                    onClick={onBack}
-                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                  >
-                    Zpět na příběh
-                  </Button>
+                  {!isConfirmed && (
+                    <Button
+                      variant="ghost"
+                      onClick={onBack}
+                      className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                    >
+                      Zpět na příběh
+                    </Button>
+                  )}
                   {!isConfirmed && onSkip && (
                     <Button
                       variant="ghost"

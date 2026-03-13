@@ -8,9 +8,12 @@ interface Screen26Props {
   onSkip?: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Array<{ leftId: string; rightId: string }>;
+  onStoreSelection?: (sel: Array<{ leftId: string; rightId: string }>) => void;
 }
 
-export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit }: Screen26Props) {
+export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen26Props) {
   const leftItems = [
     { id: '1', text: '„Oproti běžné inzerci je to moc drahé."' },
     { id: '2', text: '„Aktuálně nemáme žádnou náborovou potřebu."' },
@@ -23,7 +26,7 @@ export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit }
   const rightItems = [
     { id: 'C', text: 'Agentury i interní marketing obvykle řeší hlavně produktové nebo brandové kampaně.\nNelisa má za sebou více než 4 roky praxe a tisíce HR kampaní, ze kterých vychází specializované know-how.\nDíky tomu optimalizujeme rychle podle dat a oproti interní nebo agenturní správě často šetříme čas i náklady.' },
     { id: 'F', text: 'Jobboardy fungují primárně na aktivní kandidáty.\nNelisa oslovuje i pasivní publikum napříč sociálními sítěmi a dalšími kanály, čímž výrazně rozšiřuje zásah a šanci najít relevantní kandidáty.' },
-    { id: 'A', text: 'U běžné inzerce jste zvyklí platit za jeden měsíc na jednom jobboardu a čekat, kdo se ozve.\nU Nelisy běží po stejnou dobu aktivní kampaň napříč zhruba 16 kanály, která jde za výrazně větším publikem.\nSoučástí ceny jsou navíc služby jako firemní profil, tvorba bannerů a přehledné statistiky.\nDává smysl to ověřit pilotně na jedné roli a podle výsledků se rozhodnout dál.' },
+    { id: 'A', text: 'U běžné inzerce jste zvyklí platit za jeden měsíc na jednom jobboardu a čekat, kdo se ozve.\nU Nelisy běží po stejnou dobu aktivní kampaň napříč minimálně 16 kanály, která jde za výrazně větším publikem.\nSoučástí ceny jsou navíc služby jako firemní profil, tvorba bannerů a přehledné statistiky.\nDává smysl to ověřit pilotně na jedné roli a podle výsledků se rozhodnout dál.' },
     { id: 'D', text: 'Proces je nastavený jednoduše – od založení profilu dokážeme spustit kampaň do 3 pracovních dnů.\nDíky integracím jdou kandidáti přímo do ATS, takže HR nepřibývá další nástroj ani manuální práce.\nNejlepší je vyzkoušet první kampaň pilotně.' },
     { id: 'B', text: 'Právě období bez akutní potřeby je ideální chvíle řešit nábor s předstihem.\nMůžete budovat databázi kandidátů, posílit employer branding a mít kampaně připravené tak, aby šly rychle spustit ve chvíli, kdy potřeba reálně vznikne.' },
     { id: 'E', text: 'Je důležité podívat se na to, proč předchozí pokus nefungoval – často chybí správné nastavení cílové skupiny nebo optimalizace v průběhu kampaně.\nDíky zkušenostem s tisíci kampaní víme, kde bývají slabá místa a jak je včas upravit.' },
@@ -43,16 +46,19 @@ export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit }
       <div className="mb-6">
         <QuestionTypeTag text="PŘIŘAZOVÁNÍ" icon={Link2} />
       </div>
-      <h3 
-        className="text-gray-900 mb-4 leading-tight" 
-        style={{ 
-          fontSize: '24px', 
-          fontWeight: 600, 
+      <h3
+        className="text-gray-900 mb-4 leading-tight"
+        style={{
+          fontSize: '24px',
+          fontWeight: 600,
           lineHeight: '130%'
         }}
       >
-        Ke každé námitce přiřaď nejvhodnější argumentaci, kterou bys použil/a při obchodním jednání.
+        Ke každé námitce přiřaď nejvhodnější informaci, kterou bys zmínil/a při obchodním jednání.
       </h3>
+      <p className="text-gray-500 text-sm leading-relaxed">
+        Argumentace se samozřejmě liší podle situace na obchodním jednání a přístupu protistrany. Během schůzky je při argumentování také potřeba myslet na principy „Nárazníku".
+      </p>
     </div>
   );
 
@@ -63,7 +69,7 @@ export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit }
       questionNumber={25}
       questionText={questionText}
       leftColumnTitle="NÁMITKY"
-      rightColumnTitle="ARGUMENTACE"
+      rightColumnTitle="Informace, které by měly zaznít"
       leftItems={leftItems}
       rightItems={rightItems}
       correctPairs={correctPairs}
@@ -87,6 +93,9 @@ export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit }
       onLogoClick={onLogoClick}
       onAnswerSubmit={onAnswerSubmit}
       singleAttempt={true}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

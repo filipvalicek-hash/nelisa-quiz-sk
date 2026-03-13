@@ -27,6 +27,9 @@ interface AutoAdvanceMatchingChallengeProps {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Array<{ leftId: string; rightId: string }>;
+  onStoreSelection?: (selection: Array<{ leftId: string; rightId: string }>) => void;
 }
 
 interface Pairing {
@@ -55,12 +58,15 @@ export function AutoAdvanceMatchingChallenge({
   onLogoClick,
   onSkip,
   onAnswerSubmit,
+  initialConfirmed = false,
+  initialSelection,
+  onStoreSelection,
 }: AutoAdvanceMatchingChallengeProps) {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
-  const [pairings, setPairings] = useState<Pairing[]>([]);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [showExplanation, setShowExplanation] = useState(false);
+  const [pairings, setPairings] = useState<Pairing[]>(initialSelection ?? []);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
+  const [showExplanation, setShowExplanation] = useState(initialConfirmed);
 
   // Refs for position calculation
   const leftRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -221,11 +227,12 @@ export function AutoAdvanceMatchingChallenge({
   const createPairing = (leftId: string, rightId: string) => {
     // Remove any existing pairings with these items
     const newPairings = pairings.filter(p => p.leftId !== leftId && p.rightId !== rightId);
-    
+
     // Add new pairing
     newPairings.push({ leftId, rightId });
-    
+
     setPairings(newPairings);
+    onStoreSelection?.(newPairings);
     setSelectedLeft(null);
     setSelectedRight(null);
   };

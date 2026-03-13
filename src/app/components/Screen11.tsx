@@ -1,14 +1,17 @@
 import { ChecklistChallenge } from '@/app/components/ChecklistChallenge';
 
 interface Screen11Props {
+  initialSelection?: string[];
+  onStoreSelection?: (sel: string[]) => void;
   onBack: () => void;
   onNext: () => void;
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
 }
 
-export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen11Props) {
+export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen11Props) {
   const questionText = (
     <>
       Vyber položky, které je potřeba mít <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>připravené před spuštěním</span> kampaně.
@@ -21,23 +24,18 @@ export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
       questionText={questionText}
       options={[
         {
-          id: 'option-a',
-          text: 'Registrace',
-          isCorrect: true
-        },
-        {
-          id: 'option-b',
-          text: 'Vyplněný firemní profil',
-          isCorrect: true
-        },
-        {
           id: 'option-c',
           text: 'Základní podklady k pozici (název, lokalita, typ role)',
           isCorrect: true
         },
         {
-          id: 'option-d',
-          text: 'Fakturační údaje',
+          id: 'option-a',
+          text: 'Registrace',
+          isCorrect: true
+        },
+        {
+          id: 'option-f',
+          text: 'Finálně schválený text nabídky',
           isCorrect: true
         },
         {
@@ -46,13 +44,18 @@ export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
           isCorrect: false
         },
         {
-          id: 'option-f',
-          text: 'Finálně schválený text nabídky',
-          isCorrect: false
-        },
-        {
           id: 'option-g',
           text: 'Dohodnutá očekávání a cíle kampaně',
+          isCorrect: true
+        },
+        {
+          id: 'option-d',
+          text: 'Fakturační údaje',
+          isCorrect: true
+        },
+        {
+          id: 'option-b',
+          text: 'Vyplněný firemní profil',
           isCorrect: true
         }
       ]}
@@ -89,6 +92,9 @@ export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

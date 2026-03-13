@@ -29,6 +29,9 @@ interface CardSelectionChallengeProps {
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
   hideCorrectness?: boolean; // New prop to hide green/red feedback
   singleColumn?: boolean; // Force single column layout
+  initialConfirmed?: boolean; // Start in confirmed/locked state (user already answered)
+  initialSelection?: string | null; // Restore previously selected card
+  onStoreSelection?: (selection: string | null) => void; // Persist selection to parent
 }
 
 export function CardSelectionChallenge({ 
@@ -45,10 +48,13 @@ export function CardSelectionChallenge({
   onSkip,
   onAnswerSubmit,
   hideCorrectness = false, // Default value for hideCorrectness
-  singleColumn = false // Default value for singleColumn
+  singleColumn = false, // Default value for singleColumn
+  initialConfirmed = false, // Start in confirmed/locked state
+  initialSelection = null,
+  onStoreSelection,
 }: CardSelectionChallengeProps) {
-  const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const [showFeedback, setShowFeedback] = useState(false);
+  const [selectedCard, setSelectedCard] = useState<string | null>(initialSelection ?? null);
+  const [showFeedback, setShowFeedback] = useState(initialConfirmed);
 
   const defaultCards: CardOption[] = [
     {
@@ -81,6 +87,7 @@ export function CardSelectionChallenge({
 
   const handleCardClick = (cardId: string) => {
     setSelectedCard(cardId);
+    onStoreSelection?.(cardId);
   };
 
   const handleContinue = () => {
@@ -89,7 +96,8 @@ export function CardSelectionChallenge({
     if (!showFeedback) {
       // Show feedback and record answer
       setShowFeedback(true);
-      onAnswerSubmit?.(isCorrect, selectedCard);
+      const selectedCardData = cards.find(c => c.id === selectedCard);
+      onAnswerSubmit?.(isCorrect, selectedCardData?.text ?? selectedCard);
     } else {
       // Move to next question
       onNext?.();
@@ -267,13 +275,15 @@ export function CardSelectionChallenge({
             {/* Action Buttons */}
             <div className="flex items-center justify-between pt-8 border-t border-gray-100">
               <div className="flex flex-col gap-2">
-                <Button
-                  variant="ghost"
-                  onClick={onBack}
-                  className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                >
-                  Zpět na příběh
-                </Button>
+                {!showFeedback && (
+                  <Button
+                    variant="ghost"
+                    onClick={onBack}
+                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                  >
+                    Zpět na příběh
+                  </Button>
+                )}
                 {!showFeedback && onSkip && (
                   <Button
                     variant="ghost"
@@ -289,20 +299,20 @@ export function CardSelectionChallenge({
               <div className="flex items-center gap-3">
                 <Button
                   onClick={handleContinue}
-                  disabled={!selectedCard}
+                  disabled={!showFeedback && !selectedCard}
                   className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] transition-all shadow-md hover:shadow-lg group"
                   style={
-                    selectedCard
+                    (selectedCard || showFeedback)
                       ? { backgroundColor: '#AE54FF', color: 'white', borderRadius: '12px' }
                       : { borderRadius: '12px' }
                   }
                   onMouseEnter={(e) => {
-                    if (selectedCard) {
+                    if (selectedCard || showFeedback) {
                       e.currentTarget.style.backgroundColor = 'rgba(174, 84, 255, 0.9)';
                     }
                   }}
                   onMouseLeave={(e) => {
-                    if (selectedCard) {
+                    if (selectedCard || showFeedback) {
                       e.currentTarget.style.backgroundColor = '#AE54FF';
                     }
                   }}

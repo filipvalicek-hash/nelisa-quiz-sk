@@ -12,6 +12,7 @@ export interface QuizAnswer {
   isCorrect: boolean;
   skipped: boolean;
   answeredAt: string;   // ISO timestamp
+  attemptNumber: number; // 1 = first attempt, 2+ = retry attempts
 }
 
 export interface QuizSession {
@@ -48,6 +49,7 @@ interface AnswerRow {
   is_correct: boolean;
   skipped: boolean;
   answered_at: string;
+  attempt_number: number;
 }
 
 // ── mappers ─────────────────────────────────────────────────────────────────
@@ -70,6 +72,7 @@ function mapSession(row: SessionRow): QuizSession {
       isCorrect: a.is_correct,
       skipped: a.skipped,
       answeredAt: a.answered_at,
+      attemptNumber: a.attempt_number ?? 1,
     })),
   };
 }
@@ -116,6 +119,7 @@ export async function recordAnswer(
     correct_answer: answer.correctAnswer,
     is_correct: answer.isCorrect,
     skipped: answer.skipped,
+    attempt_number: answer.attemptNumber ?? 1,
   });
   if (error) console.error('[recordAnswer]', error.message);
 }

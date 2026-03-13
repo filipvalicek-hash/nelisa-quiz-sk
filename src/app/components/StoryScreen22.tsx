@@ -9,7 +9,7 @@ interface StoryScreen22Props {
 export function StoryScreen22({ onContinue, onLogoClick }: StoryScreen22Props) {
   const storyContent = (
     <p>
-      Schůzka se pomalu chýlí ke konci. Klient to shrne jednou větou: „Hele, my ty portály vlastně máme <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>docela vychytané</span>. Zatím nám fungují.\" Nechce se hádat ani nic bourat. Spíš čeká, <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>jak do toho Nelisa zapadá</span>, když už jeden kanál mají.
+      Schůzka se pomalu chýlí ke konci. Klient to shrne jednou větou: „Hele, my ty portály vlastně máme docela vychytané. Zatím nám fungují." Nechce se hádat ani nic bourat.
     </p>
   );
 

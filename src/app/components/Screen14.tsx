@@ -11,6 +11,9 @@ interface Screen14Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Array<{ leftId: string; rightId: string }>;
+  onStoreSelection?: (sel: Array<{ leftId: string; rightId: string }>) => void;
 }
 
 interface Pairing {
@@ -25,11 +28,11 @@ const PAIRING_COLORS = [
   { bg: '#FFFFFF', border: '#D1D5DB', line: '#9CA3AF' }, // Neutral grey
 ];
 
-export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen14Props) {
+export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen14Props) {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
-  const [pairings, setPairings] = useState<Pairing[]>([]);
-  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [pairings, setPairings] = useState<Pairing[]>(initialSelection ?? []);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   // Refs for position calculation
   const leftRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -191,6 +194,7 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
     newPairings.push({ leftId, rightId });
     
     setPairings(newPairings);
+    onStoreSelection?.(newPairings);
     setSelectedLeft(null);
     setSelectedRight(null);
   };
@@ -524,13 +528,15 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
               {/* Action Buttons */}
               <div className="flex items-center justify-between pt-8 border-t border-gray-100">
                 <div className="flex items-center gap-4">
-                  <Button
-                    variant="ghost"
-                    onClick={onBack}
-                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                  >
-                    Zpět na příběh
-                  </Button>
+                  {!isConfirmed && (
+                    <Button
+                      variant="ghost"
+                      onClick={onBack}
+                      className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                    >
+                      Zpět na příběh
+                    </Button>
+                  )}
                   {!isConfirmed && onSkip && (
                     <Button
                       variant="ghost"

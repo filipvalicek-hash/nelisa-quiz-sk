@@ -12,6 +12,9 @@ interface Screen4Props {
   onNext: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
 interface DialogueOption {
@@ -21,10 +24,9 @@ interface DialogueOption {
   isCorrect: boolean;
 }
 
-export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit }: Screen4Props) {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
+export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen4Props) {
+  const [selectedOption, setSelectedOption] = useState<string | null>(initialSelection ?? null);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const options: DialogueOption[] = [
     {
@@ -58,14 +60,16 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
     
     // Just select, don't confirm yet
     setSelectedOption(optionId);
+    onStoreSelection?.(optionId);
   };
+
+  const isCorrect = selectedOption ? (options.find(o => o.id === selectedOption)?.isCorrect ?? false) : false;
 
   const handleCheck = () => {
     if (!selectedOption) return;
 
     const selected = options.find(o => o.id === selectedOption);
     if (selected) {
-      setIsCorrect(selected.isCorrect);
       setIsConfirmed(true);
       onAnswerSubmit?.(selected.isCorrect, selected.text);
     }
@@ -214,7 +218,7 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                       Klient často porovnává cenu kampaně s inzercí, protože obě věci „vypadají jako nábor". Rozdíl je v mechanismu i rozsahu: u inzerátu typicky platíš za 1 místo na job boardu a čekáš, kdo přijde.
                     </p>
                     <p>
-                      Kampaň je naopak aktivní distribuce napříč zhruba 16 kanály a průběžné řízení doručování na výkon.
+                      Kampaň je naopak aktivní distribuce napříč minimálně 16 kanály a průběžné řízení doručování na výkon.
                     </p>
                     <p>
                       Proto to nejde srovnávat 1:1 – klient nekupuje jen „prostor" nebo nástroj na CVčka, ale řízenou HR marketingovou kampaň (se sekundárním efektem na employer branding) včetně optimalizace.
@@ -226,13 +230,15 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
               {/* Action Buttons - Moved inside card like Screen3 */}
               <div className="flex items-center justify-between pt-8 border-t border-gray-100">
                 <div className="flex items-center gap-4">
-                  <Button
-                    variant="ghost"
-                    onClick={onBackToStory}
-                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                  >
-                    Zpět na příběh
-                  </Button>
+                  {!isConfirmed && (
+                    <Button
+                      variant="ghost"
+                      onClick={onBackToStory}
+                      className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                    >
+                      Zpět na příběh
+                    </Button>
+                  )}
                   {!isConfirmed && (
                     <Button
                       variant="ghost"

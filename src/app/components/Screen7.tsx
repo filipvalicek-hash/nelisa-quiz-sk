@@ -6,9 +6,12 @@ interface Screen7Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen7Props) {
+export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen7Props) {
   const options = [
     {
       id: 'A',
@@ -46,7 +49,7 @@ export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
     <>
       Nejlépe funguje <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>ukázat jednu konkrétní cestu kandidáta</span> například formou <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>krátkého příběhu</span>. Je to rychlejší a účinnější než vysvětlovat technologii nebo cílení:
       <br /><br />
-      <em>„Představte si kandidáta, který je zrovna v tramvaji nebo na lanovce, scrolluje Facebook a práci aktivně neřeší. Najednou vidí banner → klikne na nabídku, která ho chytne za srdce → má pozitivní emoci a během pár vteřin jednoduše odpoví → a reakce se rovnou propíše do Teamia / ATS, kde s ním HR začne komunikovat."</em>
+      <em>„Představte si kandidáta, který je zrovna v tramvaji nebo v čekárně a scrolluje Facebook. Najednou vidí banner → klikne na nabídku, která ho zaujme → má pozitivní emoci a během pár vteřin jednoduše odpoví → a reakce se rovnou propíše do Teamia / ATS, kde s ním HR začne komunikovat."</em>
     </>
   );
 
@@ -62,6 +65,9 @@ export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

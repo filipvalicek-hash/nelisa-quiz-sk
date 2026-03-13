@@ -11,6 +11,9 @@ interface Screen25Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Record<string, Answer | null>;
+  onStoreSelection?: (sel: Record<string, Answer | null>) => void;
 }
 
 type Answer = 'ANO' | 'NE';
@@ -25,18 +28,22 @@ const items: { id: string; text: string; correct: Answer }[] = [
   { id: '7', text: 'Průběžně sleduju výsledky a včas detekuju, když je potřeba optimalizovat.', correct: 'ANO' },
 ];
 
-export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit }: Screen25Props) {
-  const [answers, setAnswers] = useState<Record<string, Answer | null>>({
-    '1': null, '2': null, '3': null, '4': null, '5': null, '6': null, '7': null,
-  });
-  const [isConfirmed, setIsConfirmed] = useState(false);
+export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen25Props) {
+  const [answers, setAnswers] = useState<Record<string, Answer | null>>(
+    initialSelection ?? { '1': null, '2': null, '3': null, '4': null, '5': null, '6': null, '7': null }
+  );
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const allAnswered = Object.values(answers).every(a => a !== null);
   const allCorrect = items.every(item => answers[item.id] === item.correct);
 
   const handleAnswer = (id: string, answer: Answer) => {
     if (isConfirmed) return;
-    setAnswers(prev => ({ ...prev, [id]: answer }));
+    setAnswers(prev => {
+      const next = { ...prev, [id]: answer };
+      onStoreSelection?.(next);
+      return next;
+    });
   };
 
   const handleConfirm = () => {
@@ -154,7 +161,7 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit }: Screen25Pro
                   Retenci nejvíc zvyšuje to, že klient má průběžně jistotu, že je o kampaň postaráno a že existuje jasný rytmus komunikace. Nastavení očekávání na startu je základ, průběžná kontrola a domluvený check-in brání tomu, aby klient dělal závěry po pár dnech.
                 </p>
                 <p>
-                  Nově je to ještě jednodušší udržet i procesně: s průběžným vyhodnocením kampaně aktivně pomáhá i Nelisa – klientům posíláme e-mail s dotazem na spokojenost a sbíráme zpětnou vazbu, kterou můžeme rychle promítnout do dalšího postupu.
+                  <strong>Nově je to ještě jednodušší udržet i procesně: s průběžným vyhodnocením kampaně aktivně pomáhá i Nelisa – klientům posíláme e-mail s dotazem na spokojenost a sbíráme zpětnou vazbu, kterou můžeme rychle promítnout do dalšího postupu.</strong>
                 </p>
                 <p>
                   Vyhodnocovací schůzka po kampani uzavírá spolupráci profesionálně a otevírá prostor pro další krok – ideálně by měla být standard/povinný krok po každém pilotu, aby se výsledky správně interpretovaly a navázalo se retencí. Naopak „nechat to být, když to jde dobře" je nejrychlejší cesta, jak ztratit vztah a příležitost pro další objednávku. A změny copy nebo prodej jiného brandingu nejsou automaticky retence, pokud nenavazují na potřebu klienta a cíl kampaně.

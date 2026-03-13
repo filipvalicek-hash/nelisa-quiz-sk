@@ -35,11 +35,11 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
     }
   ];
 
-  // Auto-rotate every 4 seconds
+  // Auto-rotate every 7 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -193,7 +193,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                         x: currentSlide === index ? 0 : currentSlide > index ? -20 : 20,
                         pointerEvents: currentSlide === index ? 'auto' : 'none'
                       }}
-                      transition={{ duration: 0.5, ease: 'easeInOut' }}
+                      transition={{ duration: 0.8, ease: 'easeInOut' }}
                     >
                       <div className="flex items-start gap-3">
                         <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(174, 84, 255, 0.15)' }}>
@@ -259,7 +259,15 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                     <span className="text-blue-600 text-sm">📖</span>
                   </div>
                   <span className="text-gray-700 text-sm leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    24 praktických otázek založených na reálných příbězích klientů
+                    <strong>Test postavený na příbězích z praxe:</strong> nejdřív si přečteš krátkou situaci ze schůzky s klientem a hned potom na ni navazuje otázka.
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-blue-600 text-sm">🎯</span>
+                  </div>
+                  <span className="text-gray-700 text-sm leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    25 praktických otázek založených na reálných příbězích klientů
                   </span>
                 </div>
                 <div className="flex items-start gap-3">

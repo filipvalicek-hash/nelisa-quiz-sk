@@ -7,9 +7,10 @@ import nelissaLogo from 'figma:asset/df61b6f2193a78afb780969de31b920fd241cf00.pn
 interface UserInfoScreenProps {
   onContinue: (name: string, email: string) => void;
   onAdminClick?: () => void;
+  onModuleClick?: () => void;
 }
 
-export function UserInfoScreen({ onContinue, onAdminClick }: UserInfoScreenProps) {
+export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: UserInfoScreenProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -434,6 +435,27 @@ export function UserInfoScreen({ onContinue, onAdminClick }: UserInfoScreenProps
 
         </div>
       </div>
+
+      {/* Module button — above Admin */}
+      {onModuleClick && (
+        <button
+          onClick={onModuleClick}
+          className="absolute z-10 flex items-center gap-2 text-xs font-semibold text-white transition-all hover:opacity-90"
+          style={{
+            bottom: onAdminClick ? '36px' : '16px',
+            right: '24px',
+            background: 'linear-gradient(135deg, #AE54FF 0%, #8B35D6 100%)',
+            border: 'none',
+            borderRadius: '20px',
+            padding: '7px 16px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 12px rgba(174,84,255,0.35)',
+            fontFamily: 'Poppins, sans-serif'
+          }}
+        >
+          📱 Jak fungují reklamy na soc. sítích
+        </button>
+      )}
 
       {/* Admin access — subtle link in bottom-right corner */}
       {onAdminClick && (

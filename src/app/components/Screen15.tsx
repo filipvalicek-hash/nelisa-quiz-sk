@@ -6,9 +6,12 @@ interface Screen15Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Array<{ leftId: string; rightId: string }>;
+  onStoreSelection?: (sel: Array<{ leftId: string; rightId: string }>) => void;
 }
 
-export function Screen15({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen15Props) {
+export function Screen15({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen15Props) {
   return (
     <AutoAdvanceMatchingChallenge
       questionNumber={15}
@@ -40,6 +43,9 @@ export function Screen15({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

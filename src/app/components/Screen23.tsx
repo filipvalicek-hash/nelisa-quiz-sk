@@ -18,17 +18,20 @@ interface Screen23Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen23Props) {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [isConfirmed, setIsConfirmed] = useState(false);
+export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen23Props) {
+  const [selectedOption, setSelectedOption] = useState<string | null>(initialSelection ?? null);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const options: Option[] = [
     {
       id: 'A',
       label: 'A',
-      text: '„Portály řeší lidi, kteří už práci aktivně hledají. Kampaně pomáhají oslovit i ty, kteří práci neřeší, ale mohou o změně uvažovat."',
+      text: '„Portály řeší lidi, kteří práci aktivně hledají. Kampaně pomáhají oslovit i ty, kteří aktivně nehledají, ale o změně uvažují. Fungují výhradně jako doplněk na sociálních sítích."',
       isCorrect: false
     },
     {
@@ -129,6 +132,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
                     onClick={() => {
                       if (!isConfirmed) {
                         setSelectedOption(option.id);
+                        onStoreSelection?.(option.id);
                       }
                     }}
                     className={`
@@ -196,13 +200,15 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
             {/* Action Buttons */}
             <div className="flex items-center justify-between pt-8 border-t border-gray-100">
               <div className="flex flex-col gap-2">
-                <Button
-                  variant="ghost"
-                  onClick={onBack}
-                  className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                >
-                  Zpět na příběh
-                </Button>
+                {!isConfirmed && (
+                  <Button
+                    variant="ghost"
+                    onClick={onBack}
+                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                  >
+                    Zpět na příběh
+                  </Button>
+                )}
                 {!isConfirmed && onSkip && (
                   <Button
                     variant="ghost"

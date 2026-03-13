@@ -42,6 +42,9 @@ interface MatchingChallengeProps {
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
   singleAttempt?: boolean; // NEW: Enable single-attempt mode
+  initialConfirmed?: boolean;
+  initialSelection?: Array<{ leftId: string; rightId: string }>;
+  onStoreSelection?: (selection: Array<{ leftId: string; rightId: string }>) => void;
 }
 
 interface Pairing {
@@ -49,11 +52,11 @@ interface Pairing {
   rightId: string;
 }
 
-// Define color palette for pairings
+// Define color palette for pairings — neutral gray while pairing, green/red only after confirm
 const PAIRING_COLORS = [
-  { bg: '#E0F2FE', border: '#0EA5E9', line: '#ff7400' }, // Sky blue bg with orange line
-  { bg: '#FCE7F3', border: '#EC4899', line: '#ff7400' }, // Pink bg with orange line
-  { bg: '#D1FAE5', border: '#10B981', line: '#ff7400' }, // Green bg with orange line
+  { bg: '#F3F4F6', border: '#9CA3AF', line: '#9CA3AF' },
+  { bg: '#F3F4F6', border: '#9CA3AF', line: '#9CA3AF' },
+  { bg: '#F3F4F6', border: '#9CA3AF', line: '#9CA3AF' },
 ];
 
 export function MatchingChallenge({
@@ -71,13 +74,23 @@ export function MatchingChallenge({
   onBack,
   onLogoClick,
   onAnswerSubmit,
-  singleAttempt
+  singleAttempt,
+  initialConfirmed = false,
+  initialSelection,
+  onStoreSelection,
 }: MatchingChallengeProps) {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
-  const [pairings, setPairings] = useState<Pairing[]>([]);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [feedback, setFeedback] = useState<'correct' | 'partial' | 'incorrect' | null>(null);
+  const [pairings, setPairings] = useState<Pairing[]>(initialSelection ?? []);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
+  const [feedback, setFeedback] = useState<'correct' | 'partial' | 'incorrect' | null>(() => {
+    if (!initialConfirmed || !initialSelection || initialSelection.length === 0) return null;
+    const correctCount = initialSelection.filter(p => correctPairs[p.leftId] === p.rightId).length;
+    const allCorrect = correctCount === initialSelection.length;
+    if (allCorrect) return 'correct';
+    if (correctCount > 0 && partialFeedback) return 'partial';
+    return 'incorrect';
+  });
 
   // Refs for position calculation
   const leftRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -190,36 +203,65 @@ export function MatchingChallenge({
   // Click handlers
   const handleLeftClick = (id: string) => {
     if (isConfirmed) return;
-    
-    setSelectedLeft(id);
-    
-    // If right is already selected, create pairing
-    if (selectedRight) {
-      createPairing(id, selectedRight);
-      setSelectedRight(null);
+
+    // Toggle deselect if already selected
+    if (selectedLeft === id) {
+      setSelectedLeft(null);
+      return;
     }
+
+    // If right is already pending, try to pair or disconnect
+    if (selectedRight) {
+      const existingPairing = pairings.find(p => p.leftId === id && p.rightId === selectedRight);
+      if (existingPairing) {
+        // Same combo clicked again → disconnect
+        setPairings(prev => prev.filter(p => !(p.leftId === id && p.rightId === selectedRight)));
+      } else {
+        createPairing(id, selectedRight);
+      }
+      setSelectedLeft(null);
+      setSelectedRight(null);
+      return;
+    }
+
+    setSelectedLeft(id);
   };
 
   const handleRightClick = (id: string) => {
     if (isConfirmed) return;
-    
-    setSelectedRight(id);
-    
-    // If left is already selected, create pairing
-    if (selectedLeft) {
-      createPairing(selectedLeft, id);
-      setSelectedLeft(null);
+
+    // Toggle deselect if already selected
+    if (selectedRight === id) {
+      setSelectedRight(null);
+      return;
     }
+
+    // If left is already pending, try to pair or disconnect
+    if (selectedLeft) {
+      const existingPairing = pairings.find(p => p.leftId === selectedLeft && p.rightId === id);
+      if (existingPairing) {
+        // Same combo clicked again → disconnect
+        setPairings(prev => prev.filter(p => !(p.leftId === selectedLeft && p.rightId === id)));
+      } else {
+        createPairing(selectedLeft, id);
+      }
+      setSelectedLeft(null);
+      setSelectedRight(null);
+      return;
+    }
+
+    setSelectedRight(id);
   };
 
   const createPairing = (leftId: string, rightId: string) => {
     // Remove any existing pairings with these items
     const newPairings = pairings.filter(p => p.leftId !== leftId && p.rightId !== rightId);
-    
+
     // Add new pairing
     newPairings.push({ leftId, rightId });
-    
+
     setPairings(newPairings);
+    onStoreSelection?.(newPairings);
     setSelectedLeft(null);
     setSelectedRight(null);
   };
@@ -272,6 +314,7 @@ export function MatchingChallenge({
 
   const handleReset = () => {
     setPairings([]);
+    onStoreSelection?.([]);
     setSelectedLeft(null);
     setSelectedRight(null);
     setIsConfirmed(false);
@@ -505,7 +548,7 @@ export function MatchingChallenge({
                           }
                         >
                           {rightItem.icon && <div className="flex-shrink-0">{rightItem.icon}</div>}
-                          <span className={`text-sm leading-relaxed flex-1 ${
+                          <span className={`text-sm leading-relaxed flex-1 whitespace-pre-wrap ${
                             isConfirmed && isRightCorrect === true ? 'text-green-900' :
                             isConfirmed && isRightCorrect === false ? 'text-red-900' :
                             'text-gray-900'
@@ -652,7 +695,7 @@ export function MatchingChallenge({
                       Potvrdit
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
-                  ) : singleAttempt ? (
+                  ) : (singleAttempt || initialConfirmed) ? (
                     // Single-attempt mode: Always proceed to next regardless of correct/incorrect
                     <Button
                       onClick={onNext}

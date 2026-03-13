@@ -12,6 +12,9 @@ interface Screen13Props {
   onNext: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
 interface Option {
@@ -20,9 +23,9 @@ interface Option {
   isCorrect: boolean;
 }
 
-export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit }: Screen13Props) {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [isConfirmed, setIsConfirmed] = useState(false);
+export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen13Props) {
+  const [selectedOption, setSelectedOption] = useState<string | null>(initialSelection ?? null);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const options: Option[] = [
     {
@@ -51,6 +54,7 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
     if (isConfirmed) return;
 
     setSelectedOption(optionId);
+    onStoreSelection?.(optionId);
   };
 
   const handleCheck = () => {
@@ -233,13 +237,15 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
             {/* Action Buttons */}
             <div className="flex items-center justify-between pt-8 border-t border-gray-100">
               <div className="flex items-center gap-4">
-                <Button
-                  variant="ghost"
-                  onClick={onBackToStory}
-                  className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                >
-                  Zpět na příběh
-                </Button>
+                {!isConfirmed && (
+                  <Button
+                    variant="ghost"
+                    onClick={onBackToStory}
+                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                  >
+                    Zpět na příběh
+                  </Button>
+                )}
                 {!isConfirmed && (
                   <Button
                     variant="ghost"

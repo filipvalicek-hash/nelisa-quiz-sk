@@ -6,9 +6,12 @@ interface Screen16Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen16({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen16Props) {
+export function Screen16({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen16Props) {
   return (
     <CardSelectionChallenge
       questionNumber={16}
@@ -27,7 +30,7 @@ export function Screen16({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
         {
           id: 'B',
           label: 'B',
-          text: 'Nadstandardní formáty umožňují cíleně posílit zásah tam, kde základní řešení nepokrývá konkrétní potřebu.',
+          text: 'Nadstandardní formáty umožňují cíleně posílit zásah a rozšířit konkrétní potřebu.',
           isCorrect: true
         },
         {
@@ -49,6 +52,9 @@ export function Screen16({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

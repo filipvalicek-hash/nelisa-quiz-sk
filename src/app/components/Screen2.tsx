@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { ChevronRight, TrendingUp, ArrowUp, ArrowRight, ArrowDown, Check, X } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
 import { QuizButton } from '@/app/components/ui/quiz-button';
@@ -13,6 +13,9 @@ interface Screen2Props {
   onSkip?: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Record<string, 'HIGH' | 'MID' | 'LOW' | null>;
+  onStoreSelection?: (sel: Record<string, 'HIGH' | 'MID' | 'LOW' | null>) => void;
 }
 
 interface SituationCard {
@@ -22,10 +25,9 @@ interface SituationCard {
   correctPriorities: ('HIGH' | 'MID' | 'LOW')[];
 }
 
-export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }: Screen2Props) {
-  const [assignments, setAssignments] = useState<Record<string, 'HIGH' | 'MID' | 'LOW' | null>>({});
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [showSecondBatch, setShowSecondBatch] = useState(false);
+export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen2Props) {
+  const [assignments, setAssignments] = useState<Record<string, 'HIGH' | 'MID' | 'LOW' | null>>(initialSelection ?? {});
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const situations: SituationCard[] = [
     {
@@ -43,8 +45,8 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
     {
       id: 'C',
       label: 'C',
-      text: 'Velká firma s HR týmem, spolupracuje s agenturami, má vlastní interní kampaně a chce „zkusit něco navíc".',
-      correctPriorities: ['MID']
+      text: 'Velká firma s HR týmem, spolupracuje s personálními agenturami, má vlastní interní kampaně a chce „zkusit něco navíc".',
+      correctPriorities: ['MID', 'HIGH']
     },
     {
       id: 'D',
@@ -55,30 +57,12 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
     {
       id: 'E',
       label: 'E',
-      text: 'Klient říká: „My nejsme velká firma jako Lidl nebo PPF, to pro nás nebude."',
-      correctPriorities: ['HIGH', 'MID']
-    },
-    {
-      id: 'F',
-      label: 'F',
       text: 'Firma obsazuje jednu juniorní pozici ročně, portály jí fungují a nechce měnit zavedený postup.',
       correctPriorities: ['LOW']
     }
   ];
 
-  const firstBatch = situations.slice(0, 3);
-  const secondBatch = situations.slice(3, 6);
-  const visibleSituations = showSecondBatch ? situations : firstBatch;
-
-  // Auto-reveal second batch when first 3 are all answered
-  useEffect(() => {
-    if (!showSecondBatch) {
-      const firstThreeAnswered = firstBatch.every(card => assignments[card.id]);
-      if (firstThreeAnswered) {
-        setShowSecondBatch(true);
-      }
-    }
-  }, [assignments, firstBatch, showSecondBatch]);
+  const visibleSituations = situations;
 
   const allAssigned = useMemo(() => 
     situations.every(card => assignments[card.id]), 
@@ -92,9 +76,13 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
 
   const handlePrioritySelect = useCallback((cardId: string, priority: 'HIGH' | 'MID' | 'LOW') => {
     if (isConfirmed) return;
-    
-    setAssignments(prev => ({ ...prev, [cardId]: priority }));
-  }, [isConfirmed]);
+
+    setAssignments(prev => {
+      const next = { ...prev, [cardId]: priority };
+      onStoreSelection?.(next);
+      return next;
+    });
+  }, [isConfirmed, onStoreSelection]);
 
   const handleConfirm = useCallback(() => {
     if (!allAssigned) return;
@@ -181,21 +169,21 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
             {/* Progress Label */}
             <div className="mb-3">
               <span className="text-sm font-semibold text-gray-600">
-                {assignedCount}/6 tvrzení
+                {assignedCount}/5 tvrzení
               </span>
             </div>
 
             {/* Question Text - MANDATORY: 24px SemiBold with purple underline */}
-            <h3 
-              className="text-gray-900 mb-4" 
-              style={{ 
-                fontSize: '24px', 
-                fontWeight: 600, 
-                lineHeight: '1.58', 
+            <h3
+              className="text-gray-900 mb-4"
+              style={{
+                fontSize: '24px',
+                fontWeight: 600,
+                lineHeight: '1.58',
                 letterSpacing: 0
               }}
             >
-              Přiřaď ke každé situaci úroveň <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>obchodní příležitosti</span>: HIGH / MID / LOW
+              Přiřaď ke každé situaci úroveň <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>obchodní příležitosti pro prodej Nelisy</span>: HIGH / MID / LOW
             </h3>
 
             {/* Priority Legend */}
@@ -360,13 +348,15 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }:
             {/* Action Buttons */}
             <div className="flex items-center justify-between pt-8 border-t border-gray-100">
               <div className="flex items-center gap-4">
-                <Button
-                  variant="ghost"
-                  onClick={onBack}
-                  className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                >
-                  Zpět na příběh
-                </Button>
+                {!isConfirmed && (
+                  <Button
+                    variant="ghost"
+                    onClick={onBack}
+                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                  >
+                    Zpět na příběh
+                  </Button>
+                )}
                 {!isConfirmed && onSkip && (
                   <Button
                     variant="ghost"

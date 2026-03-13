@@ -13,6 +13,9 @@ interface Screen6Props {
   onNext: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
 interface DialogueOption {
@@ -22,10 +25,9 @@ interface DialogueOption {
   isCorrect: boolean;
 }
 
-export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit }: Screen6Props) {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
+export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen6Props) {
+  const [selectedOption, setSelectedOption] = useState<string | null>(initialSelection ?? null);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const options: DialogueOption[] = [
     {
@@ -54,9 +56,12 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
     }
   ];
 
+  const isCorrect = selectedOption ? (options.find(o => o.id === selectedOption)?.isCorrect ?? false) : false;
+
   const handleOptionClick = (optionId: string) => {
     if (isConfirmed) return;
     setSelectedOption(optionId);
+    onStoreSelection?.(optionId);
   };
 
   const handleCheck = () => {
@@ -64,7 +69,6 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
 
     const selected = options.find(o => o.id === selectedOption);
     if (selected) {
-      setIsCorrect(selected.isCorrect);
       setIsConfirmed(true);
       onAnswerSubmit?.(selected.isCorrect, selected.text);
     }
@@ -225,13 +229,15 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
             {/* Action Buttons */}
             <div className="flex items-center justify-between pt-8 border-t border-gray-100">
               <div className="flex items-center gap-4">
-                <Button
-                  variant="ghost"
-                  onClick={onBackToStory}
-                  className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                >
-                  Zpět na příběh
-                </Button>
+                {!isConfirmed && (
+                  <Button
+                    variant="ghost"
+                    onClick={onBackToStory}
+                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                  >
+                    Zpět na příběh
+                  </Button>
+                )}
                 {!isConfirmed && (
                   <Button
                     variant="ghost"

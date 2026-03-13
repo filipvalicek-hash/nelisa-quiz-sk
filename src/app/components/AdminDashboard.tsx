@@ -70,37 +70,71 @@ function SessionRow({ session }: { session: QuizSession }) {
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="border-t border-gray-100 px-6 py-4 bg-gray-50 space-y-2">
+            <div className="border-t border-gray-100 px-6 py-4 bg-gray-50">
               {session.answers.length === 0 ? (
                 <p className="text-sm text-gray-400 italic">Žádné zaznamenané odpovědi.</p>
-              ) : (
-                session.answers.map((ans, i) => (
-                  <div key={i} className="flex items-start gap-3 py-2 border-b border-gray-100 last:border-0">
-                    <div className="shrink-0 mt-0.5">
-                      {ans.skipped
-                        ? <Minus className="w-4 h-4 text-gray-400" />
-                        : ans.isCorrect
-                          ? <Check className="w-4 h-4 text-green-500" />
-                          : <X className="w-4 h-4 text-red-500" />}
+              ) : (() => {
+                // Group answers by attempt_number
+                const byAttempt = new Map<number, typeof session.answers>();
+                session.answers.forEach(ans => {
+                  const attempt = ans.attemptNumber ?? 1;
+                  if (!byAttempt.has(attempt)) byAttempt.set(attempt, []);
+                  byAttempt.get(attempt)!.push(ans);
+                });
+                const attempts = Array.from(byAttempt.entries()).sort(([a], [b]) => a - b);
+
+                return attempts.map(([attemptNum, answers]) => (
+                  <div key={attemptNum} className="mb-4 last:mb-0">
+                    {/* Attempt header */}
+                    <div className="flex items-center gap-2 mb-2">
+                      <span
+                        className="text-xs font-bold px-2 py-0.5 rounded-full"
+                        style={{
+                          backgroundColor: attemptNum === 1 ? '#EEF2FF' : '#FFF7ED',
+                          color: attemptNum === 1 ? '#4F46E5' : '#C2410C'
+                        }}
+                      >
+                        {attemptNum === 1 ? '1. pokus' : `${attemptNum}. pokus (oprava)`}
+                      </span>
+                      <span className="text-xs text-gray-400">
+                        {answers.filter(a => a.isCorrect).length}/{answers.length} správně
+                      </span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-semibold text-gray-500 mb-0.5">Otázka {ans.questionNumber}</p>
-                      <p className="text-sm text-gray-800 mb-1 line-clamp-2">{ans.questionText}</p>
-                      {!ans.skipped && (
-                        <div className="flex flex-wrap gap-x-4 gap-y-0.5 text-xs">
-                          <span className={ans.isCorrect ? 'text-green-600' : 'text-red-500'}>
-                            Odpověď: <strong>{ans.selectedAnswer}</strong>
-                          </span>
-                          {!ans.isCorrect && (
-                            <span className="text-gray-500">Správně: <strong>{ans.correctAnswer}</strong></span>
-                          )}
-                        </div>
-                      )}
+                    {/* Answers in this attempt */}
+                    <div className="space-y-1">
+                      {answers
+                        .slice()
+                        .sort((a, b) => a.questionNumber - b.questionNumber)
+                        .map((ans, i) => (
+                          <div key={i} className="flex items-start gap-3 py-2 border-b border-gray-100 last:border-0">
+                            <div className="shrink-0 mt-0.5">
+                              {ans.skipped
+                                ? <Minus className="w-4 h-4 text-gray-400" />
+                                : ans.isCorrect
+                                  ? <Check className="w-4 h-4 text-green-500" />
+                                  : <X className="w-4 h-4 text-red-500" />}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-xs font-semibold text-gray-500 mb-0.5">Otázka {ans.questionNumber}</p>
+                              <p className="text-sm text-gray-800 mb-1 line-clamp-2">{ans.questionText}</p>
+                              {!ans.skipped && (
+                                <div className="flex flex-wrap gap-x-4 gap-y-0.5 text-xs">
+                                  <span className={ans.isCorrect ? 'text-green-600' : 'text-red-500'}>
+                                    Odpověď: <strong>{ans.selectedAnswer}</strong>
+                                  </span>
+                                  {!ans.isCorrect && (
+                                    <span className="text-gray-500">Správně: <strong>{ans.correctAnswer}</strong></span>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                            <span className="shrink-0 text-xs text-gray-400 hidden sm:block">{formatDate(ans.answeredAt)}</span>
+                          </div>
+                        ))}
                     </div>
-                    <span className="shrink-0 text-xs text-gray-400 hidden sm:block">{formatDate(ans.answeredAt)}</span>
                   </div>
-                ))
-              )}
+                ));
+              })()}
             </div>
           </motion.div>
         )}

@@ -6,9 +6,12 @@ interface Screen3Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen3({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen3Props) {
+export function Screen3({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen3Props) {
   const options = [
     {
       id: 'A',
@@ -44,7 +47,7 @@ export function Screen3({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
 
   const explanationText = `Zájem vzniká, když klient pozná, že řešíme jeho problém a že to dává obchodní smysl. Proto se vyplatí postupovat v pořadí Proč – Co – Jak: nejdřív ukázat Proč (reálné užitky a dopad na nábor: kvalita, rychlost, rozšíření zásahu, úspora času), potom vysvětlit Co (že toho dosahujeme pomocí řízených kampaní, které oslovují i pasivní kandidáty mimo portály), a teprve nakonec ukázat Jak (Admin a procesy, jak se to zadává, sleduje a zapadá do ATS).
 
-Pokud začneš funkcemi, klient si to neumí zařadit a vnímá to jako další nástroj; když začneš dopadem, má důvod poslouchat a „Co" a „Jak" už pak logicky zapadnou.`;
+Pokud začneš funkcemi, klient si to neumí zařadit a vnímá to jako další nástroj; když začneš dopadem, má důvod poslouchat a „Co" a „Jak" už pak logicky zaklapne.`;
 
   return (
     <CardSelectionChallenge
@@ -59,6 +62,9 @@ Pokud začneš funkcemi, klient si to neumí zařadit a vnímá to jako další 
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

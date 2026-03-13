@@ -37,6 +37,9 @@ interface ChecklistChallengeProps {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string[]; // Restore previously selected IDs
+  onStoreSelection?: (selection: string[]) => void;
 }
 
 export function ChecklistChallenge({
@@ -51,14 +54,19 @@ export function ChecklistChallenge({
   onBack,
   onAnswerSubmit,
   onLogoClick,
-  onSkip
+  onSkip,
+  initialConfirmed = false,
+  initialSelection,
+  onStoreSelection,
 }: ChecklistChallengeProps) {
-  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(
+    initialSelection ? new Set(initialSelection) : new Set()
+  );
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const handleToggle = (optionId: string) => {
     if (isConfirmed) return;
-    
+
     const newSelected = new Set(selectedIds);
     if (newSelected.has(optionId)) {
       newSelected.delete(optionId);
@@ -66,6 +74,7 @@ export function ChecklistChallenge({
       newSelected.add(optionId);
     }
     setSelectedIds(newSelected);
+    onStoreSelection?.(Array.from(newSelected));
   };
 
   const checkAnswer = () => {
@@ -276,20 +285,20 @@ export function ChecklistChallenge({
                 <div className="flex items-center gap-3">
                   <Button
                     onClick={handleContinue}
-                    disabled={selectedIds.size === 0}
+                    disabled={!isConfirmed && selectedIds.size === 0}
                     className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] transition-all shadow-md hover:shadow-lg group"
                     style={
-                      selectedIds.size > 0
+                      (selectedIds.size > 0 || isConfirmed)
                         ? { backgroundColor: '#AE54FF', color: 'white', borderRadius: '12px' }
                         : { borderRadius: '12px' }
                     }
                     onMouseEnter={(e) => {
-                      if (selectedIds.size > 0) {
+                      if (selectedIds.size > 0 || isConfirmed) {
                         e.currentTarget.style.backgroundColor = 'rgba(174, 84, 255, 0.9)';
                       }
                     }}
                     onMouseLeave={(e) => {
-                      if (selectedIds.size > 0) {
+                      if (selectedIds.size > 0 || isConfirmed) {
                         e.currentTarget.style.backgroundColor = '#AE54FF';
                       }
                     }}

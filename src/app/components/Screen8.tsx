@@ -6,9 +6,12 @@ interface Screen8Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen8({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen8Props) {
+export function Screen8({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen8Props) {
   const options = [
     {
       id: 'A',
@@ -39,6 +42,9 @@ export function Screen8({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
   const questionText = (
     <>
       Klikni na argument, který nejlépe vysvětlí <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>význam firemního profilu</span>.
+      <span style={{ display: 'block', marginTop: '6px', fontSize: '16px', fontWeight: 400, color: '#64748B' }}>
+        Má to ale reálně vliv na to, jestli se člověk rozhodne reagovat?
+      </span>
     </>
   );
 
@@ -59,6 +65,9 @@ Kvalitní profil zvyšuje konverzi, protože odpovídá na základní otázky a 
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

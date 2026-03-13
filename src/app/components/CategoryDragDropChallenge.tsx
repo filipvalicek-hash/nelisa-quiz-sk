@@ -11,6 +11,8 @@ interface MaterialCard {
   label: string;
   text: string;
   correctCategory: string;
+  /** If set, any of these category IDs is accepted as correct (in addition to correctCategory). */
+  correctCategories?: string[];
 }
 
 interface Category {
@@ -30,18 +32,23 @@ interface CategoryDragDropChallengeProps {
   onSkip?: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Record<string, string>;
+  onStoreSelection?: (selection: Record<string, string>) => void;
 }
 
-const DraggableMaterial = ({ 
-  material, 
-  isInCategory, 
+const DraggableMaterial = ({
+  material,
+  isInCategory,
   status,
-  locked
-}: { 
-  material: MaterialCard; 
-  isInCategory: boolean; 
+  locked,
+  correctCategoryTitle
+}: {
+  material: MaterialCard;
+  isInCategory: boolean;
   status: 'correct' | 'incorrect' | 'normal';
   locked?: boolean;
+  correctCategoryTitle?: string;
 }) => {
   const [{ isDragging }, drag] = useDrag({
     type: 'material',
@@ -90,27 +97,36 @@ const DraggableMaterial = ({
         >
           {material.label}
         </div>
-        <p className="text-gray-700 leading-relaxed flex-1" style={{ fontSize: '14px', fontWeight: 400, lineHeight: '1.3' }}>
-          {material.text}
-        </p>
+        <div className="flex-1">
+          <p className="text-gray-700 leading-relaxed" style={{ fontSize: '14px', fontWeight: 400, lineHeight: '1.3' }}>
+            {material.text}
+          </p>
+          {status === 'incorrect' && correctCategoryTitle && (
+            <p className="mt-1.5 text-xs font-semibold" style={{ color: '#DC2626' }}>
+              → Správně patří do: {correctCategoryTitle}
+            </p>
+          )}
+        </div>
       </div>
     </motion.div>
   );
 };
 
-const DropZone = ({ 
-  category, 
-  materials, 
-  onDrop, 
+const DropZone = ({
+  category,
+  materials,
+  onDrop,
   checked,
   allMaterials,
+  allCategories,
   locked
-}: { 
-  category: Category; 
-  materials: string[]; 
+}: {
+  category: Category;
+  materials: string[];
   onDrop: (categoryId: string, materialId: string) => void;
   checked: boolean;
   allMaterials: MaterialCard[];
+  allCategories: Category[];
   locked?: boolean;
 }) => {
   const [{ isOver }, drop] = useDrop({
@@ -128,11 +144,25 @@ const DropZone = ({
 
   const getMaterialById = (id: string) => allMaterials.find(m => m.id === id);
 
+  const isMaterialCorrectInCategory = (material: MaterialCard, catId: string): boolean => {
+    if (material.correctCategories) {
+      return material.correctCategories.includes(catId);
+    }
+    return material.correctCategory === catId;
+  };
+
   const getCardStatus = (materialId: string): 'correct' | 'incorrect' | 'normal' => {
     if (!checked) return 'normal';
     const material = getMaterialById(materialId);
     if (!material) return 'normal';
-    return material.correctCategory === category.id ? 'correct' : 'incorrect';
+    return isMaterialCorrectInCategory(material, category.id) ? 'correct' : 'incorrect';
+  };
+
+  const getCorrectCategoryTitle = (materialId: string): string | undefined => {
+    const material = getMaterialById(materialId);
+    if (!material) return undefined;
+    const correctCatId = material.correctCategory;
+    return allCategories.find(c => c.id === correctCatId)?.title;
   };
 
   return (
@@ -149,7 +179,7 @@ const DropZone = ({
           const material = getMaterialById(materialId);
           if (!material) return null;
           const status = getCardStatus(materialId);
-          
+
           return (
             <DraggableMaterial
               key={materialId}
@@ -157,6 +187,7 @@ const DropZone = ({
               isInCategory={true}
               status={status}
               locked={locked}
+              correctCategoryTitle={status === 'incorrect' ? getCorrectCategoryTitle(materialId) : undefined}
             />
           );
         })}
@@ -176,23 +207,35 @@ export function CategoryDragDropChallenge({
   onSkip,
   onLogoClick,
   onAnswerSubmit,
+  initialConfirmed = false,
+  initialSelection,
+  onStoreSelection,
 }: CategoryDragDropChallengeProps) {
-  const [assignments, setAssignments] = useState<Record<string, string>>({});
-  const [checked, setChecked] = useState(false);
+  const [assignments, setAssignments] = useState<Record<string, string>>(initialSelection ?? {});
+  const [checked, setChecked] = useState(initialConfirmed);
 
   const handleDrop = (categoryId: string, materialId: string) => {
     if (checked) return; // Lock after checking
-    setAssignments(prev => ({ ...prev, [materialId]: categoryId }));
+    const newAssignments = { ...assignments, [materialId]: categoryId };
+    setAssignments(newAssignments);
+    onStoreSelection?.(newAssignments);
   };
 
   const allAssigned = materials.every(material => assignments[material.id]);
+
+  const isMaterialCorrect = (m: { id: string; correctCategory: string; correctCategories?: string[] }) => {
+    const assigned = assignments[m.id];
+    if (!assigned) return false;
+    if (m.correctCategories) return m.correctCategories.includes(assigned);
+    return assigned === m.correctCategory;
+  };
 
   const handleContinue = () => {
     if (!checked) {
       // First click: Check answer
       if (!allAssigned) return;
       setChecked(true);
-      const allCorrect = materials.every(m => assignments[m.id] === m.correctCategory);
+      const allCorrect = materials.every(m => isMaterialCorrect(m));
       const assignmentLabel = materials.map(m => `${m.label}→${assignments[m.id] ?? '?'}`).join(', ');
       onAnswerSubmit?.(allCorrect, assignmentLabel);
     } else {
@@ -203,10 +246,7 @@ export function CategoryDragDropChallenge({
 
   const unassignedMaterials = materials.filter(m => !assignments[m.id]);
 
-  const isAllCorrect = materials.every(material => {
-    const assignedCategory = assignments[material.id];
-    return assignedCategory && assignedCategory === material.correctCategory;
-  });
+  const isAllCorrect = materials.every(m => isMaterialCorrect(m));
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -265,6 +305,7 @@ export function CategoryDragDropChallenge({
                       onDrop={handleDrop}
                       checked={checked}
                       allMaterials={materials}
+                      allCategories={categories}
                       locked={checked}
                     />
                   );

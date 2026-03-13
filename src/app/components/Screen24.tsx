@@ -18,11 +18,14 @@ interface Screen24Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen24Props) {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [isConfirmed, setIsConfirmed] = useState(false);
+export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen24Props) {
+  const [selectedOption, setSelectedOption] = useState<string | null>(initialSelection ?? null);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const options: Option[] = [
     {
@@ -92,20 +95,23 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border mb-6" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <MessageSquare className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    VÝBĚR ODPOVĚDI
+                    VÝBĚR JEDNÉ ODPOVĚDI
                   </span>
                 </div>
-                <h3 
-                  className="text-gray-900 mb-4 leading-tight" 
-                  style={{ 
-                    fontSize: '24px', 
-                    fontWeight: 600, 
-                    lineHeight: '130%', 
+                <h3
+                  className="text-gray-900 mb-4 leading-tight"
+                  style={{
+                    fontSize: '24px',
+                    fontWeight: 600,
+                    lineHeight: '130%',
                     letterSpacing: 0
                   }}
                 >
                   Vyber, na co se máš ve follow-upu zaměřit jako na hlavní osu sdělení, aby interní diskuze u klienta měla šanci dojít k rozhodnutí.
                 </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  Situace se může řešit podle potřeby HR klienta, ale zajímá nás hlavní osa.
+                </p>
               </div>
 
               <div className="space-y-4 mb-10">
@@ -119,7 +125,7 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
                   return (
                     <motion.button
                       key={option.id}
-                      onClick={() => !isConfirmed && setSelectedOption(option.id)}
+                      onClick={() => { if (!isConfirmed) { setSelectedOption(option.id); onStoreSelection?.(option.id); } }}
                       disabled={isConfirmed}
                       whileHover={!isConfirmed ? { scale: 1.01, y: -2 } : {}}
                       whileTap={!isConfirmed ? { scale: 0.99 } : {}}

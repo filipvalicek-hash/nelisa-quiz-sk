@@ -13,6 +13,9 @@ interface Screen18Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string[];
+  onStoreSelection?: (sel: string[]) => void;
 }
 
 interface Option {
@@ -21,9 +24,11 @@ interface Option {
   isCorrect: boolean;
 }
 
-export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen18Props) {
-  const [selectedOptions, setSelectedOptions] = useState<Set<string>>(new Set());
-  const [isConfirmed, setIsConfirmed] = useState(false);
+export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen18Props) {
+  const [selectedOptions, setSelectedOptions] = useState<Set<string>>(
+    initialSelection ? new Set(initialSelection) : new Set()
+  );
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   const options: Option[] = [
     {
@@ -58,6 +63,7 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
       newSelected.add(optionId);
     }
     setSelectedOptions(newSelected);
+    onStoreSelection?.(Array.from(newSelected));
   };
 
   const handleConfirm = () => {
@@ -214,14 +220,15 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
               {/* Action Buttons */}
               <div className="flex items-center justify-between pt-8 border-t border-gray-100">
                 <div className="flex flex-col gap-2">
-                  <Button
-                    variant="ghost"
-                    onClick={onBack}
-                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                    disabled={isConfirmed}
-                  >
-                    Zpět na příběh
-                  </Button>
+                  {!isConfirmed && (
+                    <Button
+                      variant="ghost"
+                      onClick={onBack}
+                      className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                    >
+                      Zpět na příběh
+                    </Button>
+                  )}
                 </div>
                 <div className="flex items-center gap-3">
                   {!isConfirmed && (

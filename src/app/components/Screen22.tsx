@@ -9,6 +9,9 @@ interface Screen22Props {
   onBack?: () => void;
   onLogoClick?: () => void;
   onSkip?: () => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Array<{ leftId: string; rightId: string }>;
+  onStoreSelection?: (sel: Array<{ leftId: string; rightId: string }>) => void;
 }
 
 interface MatchItem {
@@ -21,7 +24,7 @@ interface Pairing {
   rightId: string;
 }
 
-export function Screen22({ onNext, onBack, onLogoClick, onSkip }: Screen22Props) {
+export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed = false, initialSelection, onStoreSelection }: Screen22Props) {
   // Define matching pairs (correct answers)
   const correctPairs: Record<string, string> = {
     'namitka1': 'arg-a',
@@ -82,9 +85,13 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip }: Screen22Props)
   const [rightItems] = useState<MatchItem[]>(() => shuffleArray(rightItemsOriginal));
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
-  const [pairings, setPairings] = useState<Pairing[]>([]);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [feedback, setFeedback] = useState<'correct' | 'partial' | null>(null);
+  const [pairings, setPairings] = useState<Pairing[]>(initialSelection ?? []);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
+  const [feedback, setFeedback] = useState<'correct' | 'partial' | null>(() => {
+    if (!initialConfirmed || !initialSelection || initialSelection.length === 0) return null;
+    const correctCount = initialSelection.filter(p => correctPairs[p.leftId] === p.rightId).length;
+    return correctCount === initialSelection.length ? 'correct' : 'partial';
+  });
 
   // Orange color theme for objection handling
   const PRIMARY_COLOR = {
@@ -132,6 +139,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip }: Screen22Props)
     newPairings.push({ leftId, rightId });
     
     setPairings(newPairings);
+    onStoreSelection?.(newPairings);
     setSelectedLeft(null);
     setSelectedRight(null);
   };

@@ -6,9 +6,12 @@ interface Screen9Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen9({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen9Props) {
+export function Screen9({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen9Props) {
   const options = [
     {
       id: 'A',
@@ -19,7 +22,7 @@ export function Screen9({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
     {
       id: 'B',
       label: 'B',
-      text: '„Banner není jen obrázek, v kampani běží dvě vizuální varianty současně, jsou dělané pro konkrétní prostředí (feed, display) a průběžně se optimalizují podle toho, co na kandidáty reálně funguje."',
+      text: '„Banner není jen obrázek, v kampani běží dvě vizuální varianty souběžně - tzn. maximální míra proklikovosti. Navíc jsou dělané pro konkrétní prostředí - feed a display."',
       isCorrect: true
     },
     {
@@ -57,6 +60,9 @@ export function Screen9({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }:
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

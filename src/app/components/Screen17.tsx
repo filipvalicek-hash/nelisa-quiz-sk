@@ -12,6 +12,9 @@ interface Screen17Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Array<{ leftId: string; rightId: string }>;
+  onStoreSelection?: (sel: Array<{ leftId: string; rightId: string }>) => void;
 }
 
 interface Pairing {
@@ -26,11 +29,11 @@ const PAIRING_COLORS = [
   { bg: '#FFFFFF', border: '#E5E7EB', line: '#9CA3AF' }, // Neutral grey
 ];
 
-export function Screen17({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen17Props) {
+export function Screen17({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen17Props) {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [selectedRight, setSelectedRight] = useState<string | null>(null);
-  const [pairings, setPairings] = useState<Pairing[]>([]);
-  const [isConfirmed, setIsConfirmed] = useState(false);
+  const [pairings, setPairings] = useState<Pairing[]>(initialSelection ?? []);
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
 
   // Refs for position calculation
   const leftRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -192,6 +195,7 @@ export function Screen17({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
     newPairings.push({ leftId, rightId });
     
     setPairings(newPairings);
+    onStoreSelection?.(newPairings);
     setSelectedLeft(null);
     setSelectedRight(null);
   };
@@ -542,14 +546,15 @@ export function Screen17({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
               {/* Action Buttons */}
               <div className="flex items-center justify-between pt-8 border-t border-gray-100">
                 <div className="flex flex-col gap-2">
-                  <Button
-                    variant="ghost"
-                    onClick={onBack}
-                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                    disabled={isConfirmed}
-                  >
-                    Zpět na příběh
-                  </Button>
+                  {!isConfirmed && (
+                    <Button
+                      variant="ghost"
+                      onClick={onBack}
+                      className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                    >
+                      Zpět na příběh
+                    </Button>
+                  )}
                   {!isConfirmed && onSkip && (
                     <Button
                       variant="ghost"

@@ -25,6 +25,9 @@ interface Screen12Props {
   onNext: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Record<string, { wordId: string; wordText: string }>;
+  onStoreSelection?: (sel: Record<string, { wordId: string; wordText: string }>) => void;
 }
 
 interface DraggableWordProps {
@@ -153,14 +156,14 @@ function DropSlot({ blankId, filledWord, correctWord, onRemove, isOver, showResu
   );
 }
 
-export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit }: Screen12Props) {
-  const [filledBlanks, setFilledBlanks] = useState<Record<string, { wordId: string; wordText: string }>>({});
-  const [isConfirmed, setIsConfirmed] = useState(false);
+export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen12Props) {
+  const [filledBlanks, setFilledBlanks] = useState<Record<string, { wordId: string; wordText: string }>>(initialSelection ?? {});
+  const [isConfirmed, setIsConfirmed] = useState(initialConfirmed);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [overBlankId, setOverBlankId] = useState<string | null>(null);
 
   const wordOptions = [
-    { id: 'opt1', text: 'vyfakturování služeb' },
+    { id: 'opt1', text: 'podpisu závazné objednávky' },
     { id: 'opt2', text: 'podpisu pracovní smlouvy' },
     { id: 'opt3', text: 'prvním měsíci kampaně' },
     { id: 'opt4', text: 'základní nastavení a orientaci v Nelisa Adminu' },
@@ -169,7 +172,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   ];
 
   const blanks = [
-    { id: 'blank1', correctWord: 'vyfakturování služeb' },
+    { id: 'blank1', correctWord: 'podpisu závazné objednávky' },
     { id: 'blank2', correctWord: 'základní nastavení a orientaci v Nelisa Adminu' }
   ];
 
@@ -206,16 +209,21 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
     const wordText = active.data.current?.wordText as string;
     
     if (wordText && blankId) {
-      setFilledBlanks((prev) => ({ ...prev, [blankId]: { wordId, wordText } }));
+      setFilledBlanks((prev) => {
+        const next = { ...prev, [blankId]: { wordId, wordText } };
+        onStoreSelection?.(next);
+        return next;
+      });
     }
   };
 
   const handleRemove = (blankId: string) => {
     if (isConfirmed) return;
-    
+
     setFilledBlanks((prev) => {
       const newFilled = { ...prev };
       delete newFilled[blankId];
+      onStoreSelection?.(newFilled);
       return newFilled;
     });
   };
@@ -233,7 +241,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   const allFilled = blanks.every(blank => filledBlanks[blank.id]);
   const activeWord = wordOptions.find(w => w.id === activeId);
 
-  const blank1Correct = filledBlanks['blank1']?.wordText === 'vyfakturování služeb';
+  const blank1Correct = filledBlanks['blank1']?.wordText === 'podpisu závazné objednávky';
   const blank2Correct = filledBlanks['blank2']?.wordText === 'základní nastavení a orientaci v Nelisa Adminu';
 
   return (
@@ -294,7 +302,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                     <DropSlot
                       blankId="blank1"
                       filledWord={filledBlanks['blank1']?.wordText || null}
-                      correctWord="vyfakturování služeb"
+                      correctWord="podpisu závazné objednávky"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank1'}
                       showResult={isConfirmed}
@@ -345,13 +353,15 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
               {/* Action Buttons */}
               <div className="flex items-center justify-between pt-8 border-t border-gray-100">
                 <div className="flex flex-col gap-2">
-                  <Button
-                    variant="ghost"
-                    onClick={onBackToStory}
-                    className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
-                  >
-                    Zpět na příběh
-                  </Button>
+                  {!isConfirmed && (
+                    <Button
+                      variant="ghost"
+                      onClick={onBackToStory}
+                      className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
+                    >
+                      Zpět na příběh
+                    </Button>
+                  )}
                   {!isConfirmed && onSkipTask && (
                     <Button
                       variant="ghost"

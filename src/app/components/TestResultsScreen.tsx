@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Button } from '@/app/components/ui/button';
 import { CertificateModal } from '@/app/components/CertificateModal';
-import { ReviewModal } from '@/app/components/ReviewModal';
 import { Award, CheckCircle, XCircle, Trophy, Target, Eye, ChevronRight, FileCheck, Check, X, AlertTriangle, ArrowRight } from 'lucide-react';
 import logoImage from 'figma:asset/df61b6f2193a78afb780969de31b920fd241cf00.png';
 
@@ -22,6 +21,10 @@ interface TestResultsScreenProps {
   skippedQuestions?: number[]; // Array of skipped question numbers
   onRetry?: () => void;
   questionsData?: QuestionData[]; // Optional detailed question data for review
+  selectedAnswers?: Record<number, string>; // Actual answers submitted by the user (keyed by 1-based question number)
+  onModuleClick?: () => void;
+  retryMode?: boolean; // Whether this is a retry attempt
+  retryQuestions?: number[]; // Question numbers that were retried in this round
 }
 
 export function TestResultsScreen({
@@ -30,10 +33,13 @@ export function TestResultsScreen({
   questionResults,
   skippedQuestions = [],
   onRetry,
-  questionsData
+  questionsData,
+  selectedAnswers = {},
+  onModuleClick,
+  retryMode = false,
+  retryQuestions = [],
 }: TestResultsScreenProps) {
   const [showCertificate, setShowCertificate] = useState(false);
-  const [reviewQuestionNumber, setReviewQuestionNumber] = useState<number | null>(null);
   const [animateProgress, setAnimateProgress] = useState(false);
 
   // Calculate total correct answers
@@ -50,12 +56,18 @@ export function TestResultsScreen({
     return () => clearTimeout(timer);
   }, []);
 
+  // Auto-show certificate when 100% is reached
+  useEffect(() => {
+    if (percentage === 100) {
+      const timer = setTimeout(() => {
+        setShowCertificate(true);
+      }, 2800); // wait for animations to finish
+      return () => clearTimeout(timer);
+    }
+  }, [percentage]);
+
   // Determine success message based on score
   const getSuccessMessage = () => {
-    if (hasSkippedQuestions) {
-      return 'Test máš dokončený, ale některé otázky byly přeskočeny. Pro získání certifikátu musíš všechny otázky zodpovědět správně.';
-    }
-    
     if (percentage === 100) {
       return 'Milá kolegyně, milý kolego, gratulujeme k úspěšnému splnění certifikace od Nelisy. Díky tomu máš v ruce jasný rámec, jak Nelisu vysvětlovat, prodávat a nastavovat očekávání na reálných schůzkách s klienty.';
     } else {
@@ -108,20 +120,30 @@ export function TestResultsScreen({
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-center mb-12"
             >
-              <h2 
+              <h2
                 className="text-3xl font-bold mb-6"
                 style={{ color: '#192550' }}
               >
                 Výsledek testu
               </h2>
-              <p 
-                className="text-lg leading-relaxed max-w-2xl mx-auto"
-                style={{ color: '#475569' }}
-              >
-                Milá kolegyně, milý kolego,<br />
-                díky, že ses do certifikace pustil/a.<br />
-                Vidíme, že část principů máš zvládnutou, ale u některých témat Ti to ještě u klienta „ujet" (hlavně v argumentaci a očekáváních). To je v pohodě. Certifikace slouží i jako trénink.
-              </p>
+              {percentage === 100 ? (
+                <p
+                  className="text-lg leading-relaxed max-w-2xl mx-auto"
+                  style={{ color: '#475569' }}
+                >
+                  {getSuccessMessage()}
+                </p>
+              ) : (
+                <p
+                  className="text-lg leading-relaxed max-w-2xl mx-auto"
+                  style={{ color: '#475569' }}
+                >
+                  {getSuccessMessage()}
+                  {getScoreSubtext() && (
+                    <><br /><br /><span style={{ color: '#94A3B8', fontSize: '0.95em' }}>{getScoreSubtext()}</span></>
+                  )}
+                </p>
+              )}
             </motion.div>
 
             {/* Circular Progress Ring */}
@@ -197,8 +219,8 @@ export function TestResultsScreen({
               transition={{ duration: 0.5, delay: 1.2 }}
               className="text-center mb-8"
             >
-              <h2 
-                className="text-3xl font-bold mb-4"
+              <h2
+                className="text-3xl font-bold"
                 style={{
                   color: '#192550',
                   textShadow: performanceLevel === 'excellent' ? '0 0 20px rgba(255, 117, 88, 0.3)' : 'none'
@@ -206,153 +228,116 @@ export function TestResultsScreen({
               >
                 {percentage === 100 ? 'Výborně!' : percentage >= 90 ? 'Skvělá práce!' : percentage >= 70 ? 'Dobrý výkon!' : 'Zkus to znovu!'}
               </h2>
-              <motion.p 
-                className="text-lg leading-relaxed max-w-2xl mx-auto"
-                style={{ color: '#475569' }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.4 }}
-              >
-                {getSuccessMessage()}
-              </motion.p>
-              {getScoreSubtext() && (
-                <motion.p 
-                  className="text-sm leading-relaxed max-w-2xl mx-auto mt-3"
-                  style={{ color: '#64748B' }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.6 }}
-                >
-                  {getScoreSubtext()}
-                </motion.p>
-              )}
             </motion.div>
 
-            {/* Skipped Questions Warning */}
-            {hasSkippedQuestions && (
+            {/* Wrong Answers Review Section */}
+            {questionsData && (() => {
+              // In retry mode: show only questions that were retried AND still wrong
+              // In normal mode: show all wrong questions
+              const wrongInThisRound = retryMode
+                ? questionsData.filter(q => retryQuestions.includes(q.questionNumber) && !questionResults[q.questionNumber - 1])
+                : questionsData.filter((_, i) => !questionResults[i]);
+              return wrongInThisRound.length > 0;
+            })() && (
               <motion.div
-                className="mb-8 p-5 rounded-xl"
-                style={{
-                  backgroundColor: 'rgba(251, 191, 36, 0.1)',
-                  border: '2px solid rgba(251, 191, 36, 0.3)'
-                }}
+                className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 1.8 }}
+                transition={{ duration: 0.4, delay: 2.15 }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-yellow-400 flex items-center justify-center flex-shrink-0">
-                    <XCircle className="w-5 h-5 text-yellow-900" />
+                <div
+                  className="rounded-2xl overflow-hidden"
+                  style={{ border: '1px solid #FEE2E2', backgroundColor: '#FFFBFB' }}
+                >
+                  <div
+                    className="px-5 py-3 flex items-center gap-2"
+                    style={{ backgroundColor: '#FEF2F2', borderBottom: '1px solid #FEE2E2' }}
+                  >
+                    <XCircle className="w-4 h-4" style={{ color: '#DC2626' }} />
+                    <h3 className="text-base font-bold" style={{ color: '#991B1B' }}>Přehled výsledků</h3>
+                    <span className="ml-auto text-xs font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: '#FEE2E2', color: '#DC2626' }}>
+                      {(() => {
+                        const cnt = retryMode
+                          ? questionsData.filter(q => retryQuestions.includes(q.questionNumber) && !questionResults[q.questionNumber - 1]).length
+                          : questionsData.filter((_, i) => !questionResults[i]).length;
+                        return `${cnt} ${cnt === 1 ? 'otázka' : cnt < 5 ? 'otázky' : 'otázek'}`;
+                      })()}
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-base text-yellow-900 mb-1">
-                      Některé otázky byly přeskočeny
-                    </h4>
-                    <p className="text-yellow-800 text-sm leading-relaxed">
-                      Pro získání certifikátu musíš zodpovědět všechny otázky správně.
-                      Přeskočené otázky: {skippedQuestions.join(', ')}
-                    </p>
+                  <div className="divide-y" style={{ borderColor: '#FEE2E2' }}>
+                    {(retryMode
+                      ? questionsData.filter(q => retryQuestions.includes(q.questionNumber) && !questionResults[q.questionNumber - 1])
+                      : questionsData.filter((_, i) => !questionResults[i])
+                    )
+                      .map((q, animIdx) => {
+                        const userAnswer = selectedAnswers[q.questionNumber];
+                        return (
+                          <motion.div
+                            key={q.questionNumber}
+                            className="p-5"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.25, delay: 2.2 + animIdx * 0.06 }}
+                          >
+                            {/* Question header */}
+                            <div className="flex items-center gap-2 mb-3">
+                              <div
+                                className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold flex-shrink-0"
+                                style={{ backgroundColor: '#FEE2E2', color: '#DC2626' }}
+                              >
+                                {q.questionNumber}
+                              </div>
+                              <p className="text-sm font-semibold leading-snug" style={{ color: '#192550' }}>
+                                {q.questionText}
+                              </p>
+                            </div>
+
+                            {/* User answer */}
+                            {userAnswer && (
+                              <div
+                                className="flex items-start gap-2 mb-2 px-3 py-2 rounded-lg"
+                                style={{ backgroundColor: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)' }}
+                              >
+                                <X className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#DC2626' }} />
+                                <div>
+                                  <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#DC2626' }}>Tvoje odpověď</span>
+                                  <p className="text-sm mt-0.5 leading-relaxed" style={{ color: '#7F1D1D', whiteSpace: 'pre-wrap' }}>{userAnswer}</p>
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Correct answer */}
+                            <div
+                              className="flex items-start gap-2 mb-3 px-3 py-2 rounded-lg"
+                              style={{ backgroundColor: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.2)' }}
+                            >
+                              <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#059669' }} />
+                              <div>
+                                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#059669' }}>Správná odpověď</span>
+                                <p className="text-sm mt-0.5 leading-relaxed" style={{ color: '#064E3B', whiteSpace: 'pre-wrap' }}>{q.correctAnswer}</p>
+                              </div>
+                            </div>
+
+                            {/* Explanation */}
+                            {q.explanation && (
+                              <div
+                                className="flex items-start gap-2 px-3 py-2 rounded-lg"
+                                style={{ backgroundColor: 'rgba(99,102,241,0.05)', border: '1px solid rgba(99,102,241,0.12)' }}
+                              >
+                                <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#6366F1' }} />
+                                <div>
+                                  <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#6366F1' }}>Vysvětlení</span>
+                                  <p className="text-sm mt-0.5 leading-relaxed" style={{ color: '#3730A3', whiteSpace: 'pre-wrap' }}>{q.explanation}</p>
+                                </div>
+                              </div>
+                            )}
+                          </motion.div>
+                        );
+                      })}
                   </div>
                 </div>
               </motion.div>
             )}
-
-            {/* Results Overview - Minimal Clean List */}
-            <motion.div
-              className="mb-8 rounded-2xl overflow-hidden"
-              style={{
-                backgroundColor: '#FFFFFF',
-                border: '1px solid #E2E8F0'
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 2 }}
-            >
-              {/* Simple Header */}
-              <div 
-                className="px-5 py-3 flex items-center gap-2"
-                style={{ 
-                  backgroundColor: '#F8FAFC',
-                  borderBottom: '1px solid #E2E8F0'
-                }}
-              >
-                <h3 className="text-base font-bold" style={{ color: '#192550' }}>Přehled úkolů</h3>
-              </div>
-              
-              {/* Clean Task List */}
-              <div className="divide-y" style={{ borderColor: '#F1F5F9' }}>
-                {(() => {
-                  // Display questions in strict numerical order 1-24
-                  // No grouping by status, no sorting by correctness
-                  const allQuestions = questionResults.map((_, index) => index + 1);
-
-                  return allQuestions.map((questionNumber, animationIndex) => {
-                    const index = questionNumber - 1;
-                    const isCorrect = questionResults[index];
-                    const isSkipped = skippedQuestions.includes(questionNumber);
-                    
-                    return (
-                      <motion.div
-                        key={questionNumber}
-                        className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-3.5 hover:bg-gray-50/50 transition-colors"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.2, delay: 2 + animationIndex * 0.03, ease: "easeOut" }}
-                      >
-                        {/* Task Number & Title */}
-                        <div className="flex items-center gap-2.5" style={{ color: '#192550', fontWeight: 600 }}>
-                          <div 
-                            className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold"
-                            style={{
-                              backgroundColor: '#F1F5F9',
-                              color: '#64748B'
-                            }}
-                          >
-                            {questionNumber}
-                          </div>
-                          <span className="text-sm">ÚKOL {questionNumber}</span>
-                        </div>
-
-                        {/* Minimal Status - Just Icon + Text */}
-                        <div className="flex items-center gap-2">
-                          {isSkipped ? (
-                            <div className="inline-flex items-center gap-1.5">
-                              <XCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#94A3B8', opacity: 0.7 }} strokeWidth={2} />
-                              <span className="font-medium text-xs" style={{ color: '#64748B' }}>Přeskočeno</span>
-                            </div>
-                          ) : isCorrect ? (
-                            <div className="inline-flex items-center gap-1.5">
-                              <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#10B981', opacity: 0.8 }} strokeWidth={2} />
-                              <span className="font-medium text-xs" style={{ color: '#059669' }}>Správně</span>
-                            </div>
-                          ) : (
-                            <div className="inline-flex items-center gap-1.5">
-                              <XCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#F87171', opacity: 0.8 }} strokeWidth={2} />
-                              <span className="font-medium text-xs" style={{ color: '#DC2626' }}>Nesprávně</span>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* View Link */}
-                        <div className="flex items-center">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => setReviewQuestionNumber(questionNumber)}
-                            className="hover:bg-indigo-50 gap-1 text-xs"
-                            style={{ color: '#64748B' }}
-                            title={isCorrect ? "Zobrazit vysvětlení" : "Zobrazit vysvětlení a zopakovat"}
-                          >
-                            <Eye className="w-4 h-4" />
-                            <span className="hidden md:inline">Zobrazit</span>
-                          </Button>
-                        </div>
-                      </motion.div>
-                    );
-                  });
-                })()}
-              </div>
-            </motion.div>
 
             {/* Action Buttons */}
             <motion.div
@@ -806,6 +791,30 @@ export function TestResultsScreen({
                   </div>
                 </a>
               </div>
+
+              {/* Module CTA Button */}
+              {onModuleClick && (
+                <div className="mt-10 pt-8" style={{ borderTop: '1px solid #F1F5F9' }}>
+                  <p className="text-sm mb-4" style={{ color: '#475569', fontFamily: 'Poppins, sans-serif' }}>
+                    Chceš lépe pochopit, jak fungují reklamy na sociálních sítích?
+                  </p>
+                  <button
+                    onClick={onModuleClick}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-white transition-all hover:opacity-90"
+                    style={{
+                      background: 'linear-gradient(135deg, #AE54FF 0%, #8B35D6 100%)',
+                      border: 'none',
+                      borderRadius: '20px',
+                      padding: '10px 22px',
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 12px rgba(174,84,255,0.35)',
+                      fontFamily: 'Poppins, sans-serif'
+                    }}
+                  >
+                    📱 Jak fungují reklamy na soc. sítích
+                  </button>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
@@ -860,16 +869,7 @@ export function TestResultsScreen({
         />
       )}
 
-      {/* Review Modal */}
-      {reviewQuestionNumber !== null && (
-        <ReviewModal
-          questionNumber={reviewQuestionNumber}
-          totalQuestions={totalQuestions}
-          onClose={() => setReviewQuestionNumber(null)}
-          onNavigate={(newQuestionNumber) => setReviewQuestionNumber(newQuestionNumber)}
-          questionsData={questionsData}
-        />
-      )}
+
     </>
   );
 }

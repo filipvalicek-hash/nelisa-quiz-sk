@@ -11,7 +11,7 @@ export function StoryScreen20({ onContinue, onBack, onLogoClick }: StoryScreen20
   const storyContent = (
     <p>
       Po vysvětlení, jak Meta pracuje s doručováním, klient naváže další otázkou.<br />
-      „A můžeme si to nějak <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>víc zpřesnit</span>?\" ptá se. „Třeba cílit jen na ženy 35–45 v Praze?"<br />
+      „A můžeme si to nějak víc zpřesnit?" ptá se. „Třeba cílit jen na ženy 35–45 v Praze?"<br />
       <br />
       Je to logická otázka, padá skoro pokaždé. Musíš říct pravdu, ale <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nezabít tím hodnotu řešení</span>.
     </p>

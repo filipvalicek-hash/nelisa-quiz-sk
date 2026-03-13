@@ -6,14 +6,17 @@ interface Screen3NewProps {
   onSkip?: () => void;
   onLogoClick?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: Record<string, string>;
+  onStoreSelection?: (sel: Record<string, string>) => void;
 }
 
-export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit }: Screen3NewProps) {
+export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen3NewProps) {
   const categories = [
     {
       id: 'essential',
       title: '1️⃣ Bez toho se neobejdu',
-      subtitle: 'Na schůzce to fakt použiju nebo to musím umět poslat hned po schůzce.'
+      subtitle: 'Během přípravy na schůzku, nebo během samotné schůzky tyto materiály potřebuji.'
     },
     {
       id: 'useful',
@@ -47,22 +50,18 @@ export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit
       correctCategory: 'essential'
     },
     {
-      id: 'D',
-      label: 'D',
-      text: 'Odkaz na onboarding schůzku (Calendly) + podmínky onboardingu',
-      correctCategory: 'essential'
-    },
-    {
       id: 'E',
       label: 'E',
       text: 'Přístupy do ATS klienta (Teamio apod.)',
-      correctCategory: 'ignore'
+      correctCategory: 'ignore',
+      correctCategories: ['ignore', 'useful']
     },
     {
       id: 'F',
       label: 'F',
       text: 'Interní ceník všech produktů Alma + slevová politika',
-      correctCategory: 'ignore'
+      correctCategory: 'ignore',
+      correctCategories: ['ignore', 'useful']
     },
     {
       id: 'G',
@@ -74,7 +73,8 @@ export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit
       id: 'H',
       label: 'H',
       text: 'Kalkulačka / modelace výkonu',
-      correctCategory: 'useful'
+      correctCategory: 'useful',
+      correctCategories: ['useful', 'essential']
     }
   ];
 
@@ -90,12 +90,15 @@ export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit
       questionText={questionText}
       categories={categories}
       materials={materials}
-      correctFeedback="Schůzka bývá úspěšná tehdy, když klient rychle pochopí princip a vidí konkrétní ukázky. Připravené materiály zvyšují důvěryhodnost, protože obchodník nepůsobí nejistě a nemusí dohledávat věci za běhu.\n\nZároveň klient po schůzce potřebuje podklady pro interní rozhodnutí a jasné další kroky, jinak se schvalování rozpadne nebo se k tomu nikdo nevrátí."
+      correctFeedback="Schůzka bývá úspěšná tehdy, když klient rychle pochopí princip a vidí konkrétní ukázky. Připravené materiály zvyšují důvěryhodnost, protože obchodník nepůsobí nejistě a nemusí dohledávat věci za běhu. Zároveň klient po schůzce potřebuje podklady pro interní rozhodnutí a jasné další kroky, jinak se schvalování rozpadne nebo se k tomu nikdo nevrátí."
       onNext={onNext}
       onBack={onBack}
       onSkip={onSkip}
       onLogoClick={onLogoClick}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }

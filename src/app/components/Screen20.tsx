@@ -6,9 +6,12 @@ interface Screen20Props {
   onLogoClick?: () => void;
   onSkip?: () => void;
   onAnswerSubmit?: (isCorrect: boolean, selectedAnswer: string) => void;
+  initialConfirmed?: boolean;
+  initialSelection?: string | null;
+  onStoreSelection?: (sel: string | null) => void;
 }
 
-export function Screen20({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }: Screen20Props) {
+export function Screen20({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen20Props) {
   const options = [
     {
       id: 'A',
@@ -57,6 +60,9 @@ export function Screen20({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit }
       onLogoClick={onLogoClick}
       onSkip={onSkip}
       onAnswerSubmit={onAnswerSubmit}
+      initialConfirmed={initialConfirmed}
+      initialSelection={initialSelection}
+      onStoreSelection={onStoreSelection}
     />
   );
 }
