@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { LogOut, Users, ChevronDown, ChevronUp, Check, X, Minus, Trash2, RefreshCw, Wifi, WifiOff } from 'lucide-react';
+import { LogOut, Users, ChevronDown, ChevronUp, Check, X, Minus, Trash2, RefreshCw, Wifi, WifiOff, BarChart2, TrendingUp, TrendingDown } from 'lucide-react';
 import { getAllSessions, clearAllSessions, type QuizSession } from '@/app/utils/quizStorage';
 import { supabase } from '@/app/utils/supabaseClient';
 
@@ -143,11 +143,197 @@ function SessionRow({ session }: { session: QuizSession }) {
   );
 }
 
+// ─── Report Tab ──────────────────────────────────────────────────────────────
+
+interface QuestionStat {
+  questionNumber: number;
+  questionText: string;
+  totalAttempts: number;
+  correct: number;
+  wrong: number;
+  skipped: number;
+  retries: number;
+  errorRate: number; // 0–1, excludes skipped
+  mostCommonWrong: string | null;
+}
+
+function buildQuestionStats(sessions: QuizSession[]): QuestionStat[] {
+  const completed = sessions.filter(s => s.completedAt);
+  const map = new Map<number, {
+    questionText: string;
+    correct: number; wrong: number; skipped: number; retries: number;
+    wrongAnswers: string[];
+  }>();
+
+  for (const session of completed) {
+    for (const ans of session.answers) {
+      if (ans.attemptNumber > 1) {
+        // count as retry on the question
+        const entry = map.get(ans.questionNumber);
+        if (entry) entry.retries++;
+        continue;
+      }
+      if (!map.has(ans.questionNumber)) {
+        map.set(ans.questionNumber, {
+          questionText: ans.questionText,
+          correct: 0, wrong: 0, skipped: 0, retries: 0, wrongAnswers: [],
+        });
+      }
+      const entry = map.get(ans.questionNumber)!;
+      if (ans.skipped) entry.skipped++;
+      else if (ans.isCorrect) entry.correct++;
+      else { entry.wrong++; entry.wrongAnswers.push(ans.selectedAnswer); }
+    }
+  }
+
+  return Array.from(map.entries()).map(([qNum, e]) => {
+    const answered = e.correct + e.wrong;
+    const errorRate = answered > 0 ? e.wrong / answered : 0;
+
+    // most frequent wrong answer
+    const freq = new Map<string, number>();
+    for (const a of e.wrongAnswers) freq.set(a, (freq.get(a) ?? 0) + 1);
+    let mostCommonWrong: string | null = null;
+    let maxFreq = 0;
+    freq.forEach((count, ans) => { if (count > maxFreq) { maxFreq = count; mostCommonWrong = ans; } });
+
+    return {
+      questionNumber: qNum,
+      questionText: e.questionText,
+      totalAttempts: e.correct + e.wrong + e.skipped,
+      correct: e.correct,
+      wrong: e.wrong,
+      skipped: e.skipped,
+      retries: e.retries,
+      errorRate,
+      mostCommonWrong,
+    };
+  });
+}
+
+function QuestionCard({ stat, rank, variant }: { stat: QuestionStat; rank: number; variant: 'bad' | 'good' }) {
+  const answered = stat.correct + stat.wrong;
+  const correctPct = answered > 0 ? Math.round((stat.correct / answered) * 100) : 0;
+  const errorPct = Math.round(stat.errorRate * 100);
+
+  const badColor = '#ef4444';
+  const goodColor = '#22c55e';
+  const accentColor = variant === 'bad' ? badColor : goodColor;
+
+  return (
+    <div className="bg-white border border-gray-100 rounded-2xl p-5 flex gap-4">
+      {/* Rank */}
+      <div
+        className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 mt-0.5"
+        style={{ backgroundColor: `${accentColor}18`, color: accentColor }}
+      >
+        #{rank}
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-xs font-semibold text-gray-400 mb-0.5">Otázka {stat.questionNumber}</p>
+        <p className="text-sm font-medium text-gray-800 mb-3 line-clamp-2">{stat.questionText}</p>
+        <div className="flex flex-wrap gap-3">
+          {variant === 'bad' ? (
+            <>
+              <Pill color={badColor} label="Chybovost" value={`${errorPct}%`} />
+              <Pill color="#f59e0b" label="Opakování" value={stat.retries > 0 ? `${stat.retries}×` : '0×'} />
+              {stat.skipped > 0 && <Pill color="#94a3b8" label="Přeskočeno" value={`${stat.skipped}×`} />}
+              {stat.mostCommonWrong && (
+                <Pill color="#9ca3af" label="Nejčastější chyba" value={`„${stat.mostCommonWrong}"`} />
+              )}
+            </>
+          ) : (
+            <>
+              <Pill color={goodColor} label="Správně" value={`${correctPct}%`} />
+              <Pill color="#94a3b8" label="Odpovědí" value={`${answered}`} />
+              {stat.retries === 0 && <Pill color="#22c55e" label="Bez opakování" value="✓" />}
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Pill({ color, label, value }: { color: string; label: string; value: string }) {
+  return (
+    <span className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-lg font-medium"
+      style={{ backgroundColor: `${color}14`, color }}>
+      <span className="text-gray-400 font-normal">{label}:</span> {value}
+    </span>
+  );
+}
+
+function ReportTab({ sessions }: { sessions: QuizSession[] }) {
+  const completed = sessions.filter(s => s.completedAt);
+  if (completed.length === 0) {
+    return (
+      <div className="text-center py-16 text-gray-400">
+        <BarChart2 className="w-10 h-10 mx-auto mb-3 opacity-30" />
+        <p className="text-sm">Zatím žádná dokončená testování.</p>
+      </div>
+    );
+  }
+
+  const stats = buildQuestionStats(sessions);
+  if (stats.length === 0) {
+    return <div className="text-center py-16 text-gray-400 text-sm">Nedostatek dat pro analýzu.</div>;
+  }
+
+  const byError = [...stats].sort((a, b) => b.errorRate - a.errorRate || b.retries - a.retries);
+  const byCorrect = [...stats].sort((a, b) => {
+    const aCorrectPct = (a.correct + a.wrong) > 0 ? a.correct / (a.correct + a.wrong) : 0;
+    const bCorrectPct = (b.correct + b.wrong) > 0 ? b.correct / (b.correct + b.wrong) : 0;
+    return bCorrectPct - aCorrectPct || a.retries - b.retries;
+  });
+
+  const top5Bad = byError.slice(0, 5);
+  const top5Good = byCorrect.slice(0, 5);
+
+  return (
+    <div className="space-y-10">
+      {/* Meta */}
+      <p className="text-xs text-gray-400">
+        Analýza z <strong className="text-gray-600">{completed.length}</strong> dokončených testů · {stats.length} otázek
+      </p>
+
+      {/* Problematic */}
+      <section>
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingDown className="w-4 h-4 text-red-400" />
+          <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Top 5 nejhorších otázek</h3>
+        </div>
+        <div className="space-y-3">
+          {top5Bad.map((stat, i) => (
+            <QuestionCard key={stat.questionNumber} stat={stat} rank={i + 1} variant="bad" />
+          ))}
+        </div>
+      </section>
+
+      {/* Easy */}
+      <section>
+        <div className="flex items-center gap-2 mb-4">
+          <TrendingUp className="w-4 h-4 text-green-400" />
+          <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Top 5 nejlepších otázek</h3>
+        </div>
+        <div className="space-y-3">
+          {top5Good.map((stat, i) => (
+            <QuestionCard key={stat.questionNumber} stat={stat} rank={i + 1} variant="good" />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 export function AdminDashboard({ onLogout }: AdminDashboardProps) {
   const [sessions, setSessions] = useState<QuizSession[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [live, setLive] = useState(false);
+  const [activeTab, setActiveTab] = useState<'sessions' | 'report'>('sessions');
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -252,28 +438,50 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
           ))}
         </div>
 
-        {/* Sessions list */}
-        <h2 className="text-sm font-semibold text-gray-600 uppercase tracking-wider mb-4">Účastníci</h2>
+        {/* Tabs */}
+        <div className="flex gap-1 bg-gray-100 p-1 rounded-xl mb-6 w-fit">
+          {([
+            { id: 'sessions', label: 'Účastníci', icon: <Users className="w-3.5 h-3.5" /> },
+            { id: 'report',   label: 'Report',     icon: <BarChart2 className="w-3.5 h-3.5" /> },
+          ] as const).map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-medium transition-colors"
+              style={activeTab === tab.id
+                ? { backgroundColor: 'white', color: '#111827', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }
+                : { color: '#6b7280' }}
+            >
+              {tab.icon}{tab.label}
+            </button>
+          ))}
+        </div>
 
-        {error && (
-          <div className="text-center py-8 text-red-500 bg-red-50 rounded-2xl mb-4 px-4">
-            <p className="text-sm font-medium">{error}</p>
-            <button onClick={refresh} className="mt-2 text-xs underline hover:no-underline">Zkusit znovu</button>
-          </div>
-        )}
-
-        {loading && sessions.length === 0 ? (
-          <div className="text-center py-16 text-gray-400">
-            <RefreshCw className="w-8 h-8 mx-auto mb-3 animate-spin opacity-40" />
-            <p className="text-sm">Načítání dat…</p>
-          </div>
-        ) : !error && sessions.length === 0 ? (
-          <div className="text-center py-16 text-gray-400">
-            <Users className="w-10 h-10 mx-auto mb-3 opacity-30" />
-            <p className="text-sm">Zatím žádní účastníci.</p>
-          </div>
+        {/* Tab content */}
+        {activeTab === 'sessions' ? (
+          <>
+            {error && (
+              <div className="text-center py-8 text-red-500 bg-red-50 rounded-2xl mb-4 px-4">
+                <p className="text-sm font-medium">{error}</p>
+                <button onClick={refresh} className="mt-2 text-xs underline hover:no-underline">Zkusit znovu</button>
+              </div>
+            )}
+            {loading && sessions.length === 0 ? (
+              <div className="text-center py-16 text-gray-400">
+                <RefreshCw className="w-8 h-8 mx-auto mb-3 animate-spin opacity-40" />
+                <p className="text-sm">Načítání dat…</p>
+              </div>
+            ) : !error && sessions.length === 0 ? (
+              <div className="text-center py-16 text-gray-400">
+                <Users className="w-10 h-10 mx-auto mb-3 opacity-30" />
+                <p className="text-sm">Zatím žádní účastníci.</p>
+              </div>
+            ) : (
+              sessions.map(session => <SessionRow key={session.id} session={session} />)
+            )}
+          </>
         ) : (
-          sessions.map(session => <SessionRow key={session.id} session={session} />)
+          <ReportTab sessions={sessions} />
         )}
       </main>
     </div>
