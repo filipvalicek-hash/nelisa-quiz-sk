@@ -149,7 +149,7 @@ function DropSlot({ blankId, filledWord, correctWord, onRemove, isOver, showResu
             transform: isOver ? 'scale(1.05)' : 'scale(1)',
           }}
         >
-          {isOver ? '↓ Pusť zde' : '________'}
+          {isOver ? '↓ Pusti sem' : '________'}
         </span>
       )}
     </span>
@@ -164,11 +164,11 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
 
   const wordOptions = [
     { id: 'w1', text: 'aktivní' },
-    { id: 'w2', text: 'nespokojení' },
+    { id: 'w2', text: 'nespokojní' },
     { id: 'w3', text: 'pasivní' },
-    { id: 'w4', text: 'zaměstnaní' },
+    { id: 'w4', text: 'zamestnaní' },
     { id: 'w5', text: 'stabilní' },
-    { id: 'w6', text: 'stávající' },
+    { id: 'w6', text: 'súčasní' },
   ];
 
   const blanks = [
@@ -273,7 +273,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <PenLine className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    DOPLŇ SLOVA
+                    DOPLŇ SLOVÁ
                   </span>
                 </div>
               </div>
@@ -288,7 +288,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                   letterSpacing: 0
                 }}
               >
-                Doplň dvě klíčová slova tak, aby vysvětlení bylo <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>stručné a obchodně použitelné</span>.
+                Doplň dve kľúčové slová tak, aby vysvetlenie bolo <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>stručné a obchodne použiteľné</span>.
               </h3>
 
               {/* Drag-to-fill hint */}
@@ -298,7 +298,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
               <div className="mb-8 p-10 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-100">
                 <div className="text-gray-900 space-y-4 font-normal" style={{ fontSize: '16px', lineHeight: '1.58' }}>
                   <p className="flex flex-wrap items-center gap-2">
-                    <span>„Zhruba 30 % trhu tvoří</span>
+                    <span>„Zhruba 30 % trhu tvoria</span>
                     <DropSlot
                       blankId="blank1"
                       filledWord={filledBlanks['blank1']?.wordText || null}
@@ -307,15 +307,15 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                       isOver={overBlankId === 'blank1'}
                       showResult={isConfirmed}
                     />
-                    <span>kandidáti — hledají práci, cílí na ně portály.</span>
+                    <span>kandidáti — hľadajú prácu, cielia na nich portály.</span>
                   </p>
 
                   <p>
-                    70 % práci aktivně nehledá, ale může být otevřeno změně.
+                    70 % prácu aktívne nehľadá, ale môže byť otvorených zmene.
                   </p>
 
                   <p className="flex flex-wrap items-center gap-2">
-                    <span>My rozšiřujeme zásah i na</span>
+                    <span>My rozširujeme zásah aj na</span>
                     <DropSlot
                       blankId="blank2"
                       filledWord={filledBlanks['blank2']?.wordText || null}
@@ -324,7 +324,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                       isOver={overBlankId === 'blank2'}
                       showResult={isConfirmed}
                     />
-                    <span>část trhu, takže zvyšujeme šanci najít lidi mimo běžnou konkurenci."</span>
+                    <span>časť trhu, takže zvyšujeme šancu nájsť ľudí mimo bežnú konkurenciu."</span>
                   </p>
                 </div>
               </div>
@@ -350,10 +350,10 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
               {isConfirmed && (
                 <ExplanationBlock>
                   <p>
-                    Cílem není odrecitovat procenta, ale ukázat logiku trhu práce. Portály typicky zachytí hlavně část lidí, kteří aktivně hledají. Velká část trhu práci aktivně neřeší, ale může být otevřená změně, když uvidí relevantní nabídku ve správný moment – a právě tam kampaně rozšiřují zásah mimo „rybník" portálů a přinášejí jiný typ reakcí.
+                    Cieľom nie je odrecitovať percentá, ale ukázať logiku trhu práce. Portály typicky zachytia hlavne časť ľudí, ktorí aktívne hľadajú. Veľká časť trhu prácu aktívne nerieši, ale môže byť otvorená zmene, keď uvidí relevantnú ponuku v správny moment – a práve tam kampane rozširujú zásah mimo „rybník" portálov a prinášajú iný typ reakcií.
                   </p>
                   <p>
-                    Zároveň je dobré nezapomenout, že v online prostoru, kde kampaně Nelisy běží (sociální sítě, vyhledávače, agregátory), se pohybují i aktivní kandidáti: kampaně je umí „pushnout" ke konkrétní nabídce včas. Prakticky tak klient kampaní zasahuje pasivní i aktivní část trhu – tedy mnohem blíž k „100 % trhu", ne jen k té pasivní části.
+                    Zároveň je dobré nezabudnúť, že v online priestore, kde kampane Nelisy bežia (sociálne siete, vyhľadávače, agregátory), sa pohybujú aj aktívni kandidáti: kampane ich vedia „pushnúť" ku konkrétnej ponuke včas. Prakticky tak klient kampaňami zasahuje pasívnu aj aktívnu časť trhu – teda oveľa bližšie k „100 % trhu", nie len k tej pasívnej časti.
                   </p>
                 </ExplanationBlock>
               )}
@@ -367,7 +367,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                       onClick={onBack}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Zpět na příběh
+                      Späť na príbeh
                     </Button>
                   )}
                   {!isConfirmed && onSkip && (
@@ -376,7 +376,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                       onClick={onSkip}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Přeskočit úkol
+                      Preskočiť úlohu
                     </Button>
                   )}
                 </div>
@@ -387,14 +387,14 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
                       onClick={handleCheck}
                       disabled={!allFilled}
                     >
-                      Zkontrolovat
+                      Skontrolovať
                     </QuizButton>
                   )}
                   {isConfirmed && (
                     <QuizButton
                       onClick={onNext}
                     >
-                      Pokračovat
+                      Pokračovať
                     </QuizButton>
                   )}
                 </div>
@@ -403,7 +403,7 @@ export function Screen5({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
           </motion.div>
         </div>
 
-        {/* DragOverlay - zobrazuje tag, který se pohybuje s kurzorem */}
+        {/* DragOverlay - zobrazuje tag, ktory sa pohybuje s kurzorom */}
         <DragOverlay dropAnimation={null}>
           {activeId && activeWord ? (
             <DragOverlayContent text={activeWord.text} />

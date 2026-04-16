@@ -10,9 +10,9 @@ interface StoryScreen17Props {
 export function StoryScreen17({ onContinue, onBack, onLogoClick }: StoryScreen17Props) {
   const storyContent = (
     <p>
-      Klient přikývne.<br />
-      „Dobře," řekne. „Tak když už víme, u kterých pozic chceme přidat plyn… co konkrétně bys tam dal?"<br />
-      Chce <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>srozumitelné doporučení</span>, kde konkrétně hledat <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>jaký typ pozic</span>.
+      Klient prikývne.<br />
+      „Dobre," povie. „Tak keď už vieme, pri ktorých pozíciách chceme pridať plyn… čo konkrétne by si tam dal?"<br />
+      Chce <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>zrozumiteľné odporúčanie</span>, kde konkrétne hľadať <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>aký typ pozícií</span>.
     </p>
   );
 
@@ -30,7 +30,7 @@ export function StoryScreen17({ onContinue, onBack, onLogoClick }: StoryScreen17
   return (
     <StoryScreen
       questionNumber={17}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

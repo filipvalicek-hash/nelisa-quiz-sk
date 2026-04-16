@@ -15,18 +15,18 @@ export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit
   const categories = [
     {
       id: 'essential',
-      title: '1️⃣ Bez toho se neobejdu',
-      subtitle: 'Během přípravy na schůzku, nebo během samotné schůzky tyto materiály potřebuji.'
+      title: '1️⃣ Bez toho sa nezaobídem',
+      subtitle: 'Počas prípravy na schôdzku alebo počas samotnej schôdzky tieto materiály potrebujem.'
     },
     {
       id: 'useful',
-      title: '2️⃣ Hodí se mít po ruce',
-      subtitle: 'Může padnout dotaz, ale není to povinný základ.'
+      title: '2️⃣ Hodí sa mať po ruke',
+      subtitle: 'Môže padnúť otázka, ale nie je to povinný základ.'
     },
     {
       id: 'ignore',
-      title: '3️⃣ Teď neřeším',
-      subtitle: 'Typicky zbytečná odbočka na prezentační schůzce.'
+      title: '3️⃣ Teraz neriešim',
+      subtitle: 'Typicky zbytočná odbočka na prezentačnej schôdzke.'
     }
   ];
 
@@ -34,45 +34,45 @@ export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit
     {
       id: 'A',
       label: 'A',
-      text: 'Základní + nadstavbová prezentace Nelisy (pro poslání klientovi po schůzce)',
+      text: 'Základná + nadstavbová prezentácia Nelisy (na poslanie klientovi po schôdzke)',
       correctCategory: 'essential'
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Ukázky formátů / nadstandardních reklamních formátů',
+      text: 'Ukážky formátov / nadštandardných reklamných formátov',
       correctCategory: 'essential'
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Demo Firemního Adminu (nebo připravené screenshoty)',
+      text: 'Demo Firemného Adminu (alebo pripravené screenshoty)',
       correctCategory: 'essential'
     },
     {
       id: 'E',
       label: 'E',
-      text: 'Přístupy do ATS klienta (Teamio apod.)',
+      text: 'Prístupy do ATS klienta (Teamio a pod.)',
       correctCategory: 'ignore',
       correctCategories: ['ignore', 'useful']
     },
     {
       id: 'F',
       label: 'F',
-      text: 'Interní ceník všech produktů Alma + slevová politika',
+      text: 'Interný cenník všetkých produktov Alma + zľavová politika',
       correctCategory: 'ignore',
       correctCategories: ['ignore', 'useful']
     },
     {
       id: 'G',
       label: 'G',
-      text: 'Obchodní pomocník: Desatero prezentační schůzky + rozcestník na materiály',
+      text: 'Obchodný pomocník: Desatoro prezentačnej schôdzky + rozcestník na materiály',
       correctCategory: 'essential'
     },
     {
       id: 'H',
       label: 'H',
-      text: 'Kalkulačka / modelace výkonu',
+      text: 'Kalkulačka / modelácia výkonu',
       correctCategory: 'useful',
       correctCategories: ['useful', 'essential']
     }
@@ -80,7 +80,7 @@ export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit
 
   const questionText = (
     <>
-      Přetáhni materiály do <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správné kategorie</span> podle toho, jak nutné je mít je připravené před prezentační schůzkou o Nelise.
+      Pretiahni materiály do <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správnej kategórie</span> podľa toho, ako nutné je mať ich pripravené pred prezentačnou schôdzkou o Nelise.
     </>
   );
 
@@ -90,7 +90,7 @@ export function Screen3New({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit
       questionText={questionText}
       categories={categories}
       materials={materials}
-      correctFeedback="Schůzka bývá úspěšná tehdy, když klient rychle pochopí princip a vidí konkrétní ukázky. Připravené materiály zvyšují důvěryhodnost, protože obchodník nepůsobí nejistě a nemusí dohledávat věci za běhu. Zároveň klient po schůzce potřebuje podklady pro interní rozhodnutí a jasné další kroky, jinak se schvalování rozpadne nebo se k tomu nikdo nevrátí."
+      correctFeedback="Schôdzka býva úspešná vtedy, keď klient rýchlo pochopí princíp a vidí konkrétne ukážky. Pripravené materiály zvyšujú dôveryhodnosť, pretože obchodník nepôsobí neisto a nemusí dohľadávať veci za behu. Zároveň klient po schôdzke potrebuje podklady pre interné rozhodnutie a jasné ďalšie kroky, inak sa schvaľovanie rozpadne alebo sa k tomu nikto nevráti."
       onNext={onNext}
       onBack={onBack}
       onSkip={onSkip}

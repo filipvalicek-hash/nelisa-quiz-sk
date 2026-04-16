@@ -27,9 +27,9 @@ export function HotspotChallenge({ questionNumber, onNext, onLogoClick, onBack }
   const [showFeedback, setShowFeedback] = useState(false);
 
   const hotspots: Hotspot[] = [
-    { id: 'pracovni-nabidky', x: 2, y: 36, width: 18, height: 6, correct: true, label: 'Pracovní nabídky' },
-    { id: 'prehled', x: 2, y: 28, width: 18, height: 6, correct: false, label: 'Přehled' },
-    { id: 'zajemci', x: 2, y: 44, width: 18, height: 6, correct: false, label: 'Zájemci' }
+    { id: 'pracovni-nabidky', x: 2, y: 36, width: 18, height: 6, correct: true, label: 'Pracovne ponuky' },
+    { id: 'prehled', x: 2, y: 28, width: 18, height: 6, correct: false, label: 'Prehlad' },
+    { id: 'zajemci', x: 2, y: 44, width: 18, height: 6, correct: false, label: 'Zaujemcovia' }
   ];
 
   const handleHotspotClick = (hotspot: Hotspot) => {
@@ -77,7 +77,7 @@ export function HotspotChallenge({ questionNumber, onNext, onLogoClick, onBack }
             </div>
 
             <h3 className="text-3xl font-bold text-gray-900 mb-3 leading-tight">
-              Kde v Nelise najdeš seznam všech tvých pracovních nabídek?
+              Kde v Nelise najdes zoznam vsetkych tvojich pracovnych ponuk?
             </h3>
 
             <div className="relative mb-8 rounded-2xl overflow-hidden border-2 border-gray-200">
@@ -106,7 +106,7 @@ export function HotspotChallenge({ questionNumber, onNext, onLogoClick, onBack }
                 onClick={onBack}
                 className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
               >
-                Vrátit se na přehled
+                Vratit sa na prehlad
               </Button>
 
               <div className="flex items-center gap-3">
@@ -130,7 +130,7 @@ export function HotspotChallenge({ questionNumber, onNext, onLogoClick, onBack }
                     }
                   }}
                 >
-                  {showFeedback ? 'Přejít na další úkol' : 'Pokračovat'}
+                  {showFeedback ? 'Prejst na dalsiu ulohu' : 'Pokracovat'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

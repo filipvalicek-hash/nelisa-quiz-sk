@@ -12,7 +12,7 @@ export function QuizTopNavigation({ onLogoClick }: QuizTopNavigationProps) {
         onClick={onLogoClick}
         className="flex items-center cursor-pointer transition-opacity hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 rounded-lg px-2 py-1"
         style={{ gap: '14px' }}
-        aria-label="Vrátit se na úvodní stránku"
+        aria-label="Vrátiť sa na úvodnú stránku"
         disabled={!onLogoClick}
       >
         <img src={logoImage} alt="Nelisa" className="h-8" />

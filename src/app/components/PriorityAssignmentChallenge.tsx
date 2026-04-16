@@ -25,9 +25,9 @@ interface PriorityAssignmentChallengeProps {
 
 export function PriorityAssignmentChallenge({ 
   questionNumber = 1, 
-  questionText = "Přiřaď ke každé situaci úroveň obchodní příležitosti:",
+  questionText = "Prirad ku kazdej situacii uroven obchodnej prilezitosti:",
   situations,
-  correctFeedback = "Výborně! Správně jsi identifikoval/a priority pro jednotlivé obchodní příležitosti.",
+  correctFeedback = "Vyborne! Spravne si identifikoval/a priority pre jednotlive obchodne prilezitosti.",
   onNext,
   onBack,
   onSkip,
@@ -41,37 +41,37 @@ export function PriorityAssignmentChallenge({
     {
       id: 'A',
       label: 'A',
-      text: 'Výrobní firma, 180 zaměstnanců. Jedna HR generalistka řeší nábor, onboarding i administrativu.',
+      text: 'Vyrobna firma, 180 zamestnancov. Jedna HR generalistka riesi nabor, onboarding aj administrativu.',
       correctPriority: 'HIGH'
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Startup o 15 lidech. Hledá jednoho seniorního specialistu ročně.',
+      text: 'Startup o 15 ludoch. Hlada jedneho seniorneho specialistu rocne.',
       correctPriority: 'HIGH'
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Velká firma s HR týmem, spolupracuje s agenturami.',
+      text: 'Velka firma s HR timom, spolupracuje s agenturami.',
       correctPriority: 'MID'
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Firma aktuálně nenabírá, ale chce si dlouhodobě budovat databázi kandidátů.',
+      text: 'Firma aktualne nenabera, ale chce si dlhodobo budovat databazu kandidatov.',
       correctPriority: 'MID'
     },
     {
       id: 'E',
       label: 'E',
-      text: 'Klient říká: „My nejsme velká firma jako Lidl nebo PPF.\"',
+      text: 'Klient hovori: „My nie sme velka firma ako Lidl alebo PPF.\"',
       correctPriority: 'HIGH'
     },
     {
       id: 'F',
       label: 'F',
-      text: 'Firma obsazuje jednu juniorní pozici ročně, portály jí fungují.',
+      text: 'Firma obsadzuje jednu juniornu poziciu rocne, portaly jej funguju.',
       correctPriority: 'LOW'
     }
   ];
@@ -197,7 +197,7 @@ export function PriorityAssignmentChallenge({
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                 <TrendingUp className="w-4 h-4" style={{ color: '#AE54FF' }} />
                 <span className="text-xs font-semibold tracking-wider" style={{ color: '#AE54FF' }}>
-                  PŘIŘAZOVÁNÍ
+                  PRIRAĎOVANIE
                 </span>
               </div>
               
@@ -251,7 +251,7 @@ export function PriorityAssignmentChallenge({
               {!showFeedback && (
                 <div className="ml-auto flex items-center gap-2 px-3 py-2">
                   <span className="text-sm font-semibold text-gray-600">
-                    {answeredCount} / {cards.length} vyplněno
+                    {answeredCount} / {cards.length} vyplnenych
                   </span>
                 </div>
               )}
@@ -356,7 +356,7 @@ export function PriorityAssignmentChallenge({
                   onClick={onBack}
                   className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                 >
-                  Zpět na příběh
+                  Spat na pribeh
                 </Button>
                 {!showFeedback && onSkip && (
                   <Button
@@ -364,7 +364,7 @@ export function PriorityAssignmentChallenge({
                     onClick={onSkip}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Přeskočit úkol
+                    Preskocit ulohu
                   </Button>
                 )}
               </div>
@@ -390,7 +390,7 @@ export function PriorityAssignmentChallenge({
                     }
                   }}
                 >
-                  {showFeedback ? 'Pokračovat' : 'Zkontrolovat'}
+                  {showFeedback ? 'Pokracovat' : 'Skontrolovat'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

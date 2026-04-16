@@ -43,7 +43,7 @@ export function TileSelectionChallenge({
   options,
   correctFeedback,
   incorrectFeedback,
-  questionTypeTag = 'VÝBĚR UKÁZKY',
+  questionTypeTag = 'VYBER UKAZKY',
   tagColor = {
     bg: 'bg-green-50',
     border: 'border-green-300',
@@ -287,7 +287,7 @@ export function TileSelectionChallenge({
                   onClick={onBack}
                   className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                 >
-                  Zpět
+                  Spat
                 </Button>
               )}
               {showFeedback && <div></div>}
@@ -313,7 +313,7 @@ export function TileSelectionChallenge({
                     }
                   }}
                 >
-                  {showFeedback ? 'Pokračovat' : 'Pokračovat'}
+                  {showFeedback ? 'Pokracovat' : 'Pokracovat'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

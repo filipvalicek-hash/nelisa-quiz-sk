@@ -11,16 +11,16 @@ export function StoryScreen15({ onContinue, onBack, onLogoClick }: StoryScreen15
   const storyContent = (
     <>
       <p className="mb-4">
-        V prezentaci posuneš slide dál a na obrazovce se objeví přehled kanálů.
+        V prezentácii posunieš slide ďalej a na obrazovke sa objaví prehľad kanálov.
       </p>
       <p className="mb-4">
-        Klient se na chvíli zadívá, pak zvedne obočí:
+        Klient sa na chvíľu zahľadí, potom zdvihne obočie:
       </p>
       <p className="mb-4">
-        „Takže Facebook, Instagram, Google… To už začíná být dost věcí najednou."
+        „Takže Facebook, Instagram, Google… To už začína byť dosť vecí naraz."
       </p>
       <p>
-        Teď potřebuješ vysvětlit, proč to ve skutečnosti není složité řešení, ale jeden propojený celek, který dává smysl právě dohromady.
+        Teraz potrebuješ vysvetliť, prečo to v skutočnosti nie je zložité riešenie, ale jeden prepojený celok, ktorý dáva zmysel práve dohromady.
       </p>
     </>
   );
@@ -37,7 +37,7 @@ export function StoryScreen15({ onContinue, onBack, onLogoClick }: StoryScreen15
   return (
     <StoryScreen
       questionNumber={15}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

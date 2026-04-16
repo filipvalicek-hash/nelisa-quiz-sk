@@ -31,32 +31,32 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
     {
       id: 'A',
       label: 'A',
-      text: '„Portály řeší lidi, kteří práci aktivně hledají. Kampaně pomáhají oslovit i ty, kteří aktivně nehledají, ale o změně uvažují. Fungují výhradně jako doplněk na sociálních sítích."',
+      text: '„Portály riešia ľudí, ktorí prácu aktívne hľadajú. Kampane pomáhajú osloviť aj tých, ktorí aktívne nehľadajú, ale o zmene uvažujú. Fungujú výhradne ako doplnok na sociálnych sieťach."',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: '„Portály jsou dnes základ a kampaně jsou jejich modernější náhrada."',
+      text: '„Portály sú dnes základ a kampane sú ich modernejšia náhrada."',
       isCorrect: false
     },
     {
       id: 'C',
       label: 'C',
-      text: '„Pokud vám portály fungují, dává smysl je zachovat a Nelisu využít tam, kde samotná inzerce nestačí."',
+      text: '„Ak vám portály fungujú, dáva zmysel ich zachovať a Nelisu využiť tam, kde samotná inzercia nestačí."',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: '„Portály pracují s existující poptávkou. Kampaně pomáhají tu poptávku aktivně vytvářet a rozšiřovat mimo portály."',
+      text: '„Portály pracujú s existujúcim dopytom. Kampane pomáhajú ten dopyt aktívne vytvárať a rozširovať mimo portály."',
       isCorrect: true
     }
   ];
 
-  const questionText = 'Klient říká: „Hele, my ty portály máme docela vychytané. Zatím nám fungují." Vyber odpověď, která nejlépe vysvětluje, kde Nelisa doplní portály.';
+  const questionText = 'Klient hovorí: „Hele, my tie portály máme celkom vychytané. Zatiaľ nám fungujú." Vyber odpoveď, ktorá najlepšie vysvetľuje, kde Nelisa doplní portály.';
 
-  const explanationText = `Klient nechce slyšet, že jeho současné řešení je špatně. Když začneš shazovat portály, vyvoláš odpor a obrannou reakci. Správný přístup je portály respektovat a vysvětlit doplnění. Kampaně rozšiřují zásah mimo existující poptávku, a tím přivádí jiné publikum i jiné reakce. Díky tomu se klient cítí pochopený a zároveň vidí důvod, proč přidat další vrstvu.`;
+  const explanationText = `Klient nechce počuť, že jeho súčasné riešenie je zlé. Keď začneš zhadzovať portály, vyvoláš odpor a obrannú reakciu. Správny prístup je portály rešpektovať a vysvetliť doplnenie. Kampane rozširujú zásah mimo existujúci dopyt, a tým privádzajú iné publikum aj iné reakcie. Vďaka tomu sa klient cíti pochopený a zároveň vidí dôvod, prečo pridať ďalšiu vrstvu.`;
 
   const handleCheck = () => {
     if (selectedOption) {
@@ -97,7 +97,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                 <MessageSquare className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                 <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                  VÝBĚR JEDNÉ ODPOVĚDI
+                  VÝBER JEDNEJ ODPOVEDE
                 </span>
               </div>
             </div>
@@ -112,7 +112,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                 letterSpacing: 0
               }}
             >
-              Vyber odpověď, která nejlépe vysvětlí, jak <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Nelisa doplní portály</span>.
+              Vyber odpoveď, ktorá najlepšie vysvetlí, ako <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Nelisa doplní portály</span>.
             </h3>
 
             {/* Context paragraph */}
@@ -206,7 +206,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                     onClick={onBack}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Späť na príbeh
                   </Button>
                 )}
                 {!isConfirmed && onSkip && (
@@ -215,7 +215,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                     onClick={onSkip}
                     className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                   >
-                    Přeskočit otázku
+                    Preskočiť otázku
                   </Button>
                 )}
               </div>
@@ -242,7 +242,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       }
                     }}
                   >
-                    Zkontrolovat
+                    Skontrolovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}
@@ -258,7 +258,7 @@ export function Screen23({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       e.currentTarget.style.backgroundColor = '#AE54FF';
                     }}
                   >
-                    Pokračovat
+                    Pokračovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}

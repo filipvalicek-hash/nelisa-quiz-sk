@@ -10,10 +10,10 @@ interface StoryScreen20Props {
 export function StoryScreen20({ onContinue, onBack, onLogoClick }: StoryScreen20Props) {
   const storyContent = (
     <p>
-      Po vysvětlení, jak Meta pracuje s doručováním, klient naváže další otázkou.<br />
-      „A můžeme si to nějak víc zpřesnit?" ptá se. „Třeba cílit jen na ženy 35–45 v Praze?"<br />
+      Po vysvetlení, ako Meta pracuje s doručovaním, klient nadviaže ďalšou otázkou.<br />
+      „A môžeme si to nejako viac spresniť?" pýta sa. „Napríklad cieliť len na ženy 35–45 v Bratislave?"<br />
       <br />
-      Je to logická otázka, padá skoro pokaždé. Musíš říct pravdu, ale <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nezabít tím hodnotu řešení</span>.
+      Je to logická otázka, padá skoro zakaždým. Musíš povedať pravdu, ale <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nezabiť tým hodnotu riešenia</span>.
     </p>
   );
 
@@ -31,7 +31,7 @@ export function StoryScreen20({ onContinue, onBack, onLogoClick }: StoryScreen20
   return (
     <StoryScreen
       questionNumber={20}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

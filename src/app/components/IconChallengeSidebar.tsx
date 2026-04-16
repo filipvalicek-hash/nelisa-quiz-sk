@@ -34,24 +34,24 @@ export function IconChallengeSidebar({
         className="flex items-center gap-2 text-gray-500 hover:text-gray-700 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
-        <span className="text-sm">Zpět na moduly</span>
+        <span className="text-sm">Spat na moduly</span>
       </button>
 
       {/* Badge */}
       <div>
         <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 text-xs font-bold tracking-wider px-3 py-1 border-0">
-          SIMULACE KLIENTA
+          SIMULACIA KLIENTA
         </Badge>
       </div>
 
       {/* Title */}
       <div>
-        <div className="text-xs font-semibold text-gray-500 tracking-wide mb-2">TÉMA</div>
+        <div className="text-xs font-semibold text-gray-500 tracking-wide mb-2">TEMA</div>
         <h1 className="text-3xl font-bold text-gray-900 mb-3">
-          Sociální sítě
+          Socialne siete
         </h1>
         <p className="text-gray-600 leading-relaxed">
-          Váš klient potřebuje poradit, jak nejlépe oslovit kandidáty, kteří aktivně nepátrají po nových příležitostech.
+          Vas klient potrebuje poradit, ako najlepsie oslovit kandidatov, ktori aktivne nehladaju nove prilezitosti.
         </p>
       </div>
 
@@ -73,7 +73,7 @@ export function IconChallengeSidebar({
             <span className="text-sm font-semibold text-gray-700">Pokrok</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-xs font-medium text-gray-500">Otázka</span>
+            <span className="text-xs font-medium text-gray-500">Otazka</span>
             <span className="text-sm font-bold text-gray-900">2</span>
             <span className="text-xs text-gray-400">z</span>
             <span className="text-sm text-gray-500">12</span>
@@ -88,21 +88,21 @@ export function IconChallengeSidebar({
         {/* Phase Badge */}
         <div className="flex items-center gap-2 pt-1">
           <div className="flex-1 h-px bg-gray-200"></div>
-          <span className="text-xs font-bold text-blue-600 tracking-wide">FÁZE 1: POCHOPENÍ KLIENTA</span>
+          <span className="text-xs font-bold text-blue-600 tracking-wide">FAZA 1: POCHOPENIE KLIENTA</span>
           <div className="flex-1 h-px bg-gray-200"></div>
         </div>
       </div>
 
       {/* Game State Indicators */}
       <div className="space-y-3">
-        <div className="text-xs font-semibold text-gray-500 tracking-wide">STAV SITUACE</div>
+        <div className="text-xs font-semibold text-gray-500 tracking-wide">STAV SITUACIE</div>
         
         {/* Client Trust */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">Důvěra klienta</span>
+              <span className="text-sm font-medium text-gray-700">Dovera klienta</span>
             </div>
             <span className="text-xs font-semibold text-gray-600">{getIndicatorLabel(clientTrust)}</span>
           </div>
@@ -119,7 +119,7 @@ export function IconChallengeSidebar({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">Jistota shody</span>
+              <span className="text-sm font-medium text-gray-700">Istota zhody</span>
             </div>
             <span className="text-xs font-semibold text-gray-600">{getIndicatorLabel(fitConfidence)}</span>
           </div>
@@ -136,7 +136,7 @@ export function IconChallengeSidebar({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MessageCircle className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">Zapojení</span>
+              <span className="text-sm font-medium text-gray-700">Zapojenie</span>
             </div>
             <span className="text-xs font-semibold text-gray-600">{getIndicatorLabel(engagement)}</span>
           </div>
@@ -161,7 +161,7 @@ export function IconChallengeSidebar({
             <span className="text-xs font-bold text-blue-900 tracking-wide">💡 TIP</span>
           </div>
           <p className="text-sm text-blue-900 leading-relaxed">
-            Nelisa se zaměřuje na fázi náboru, nikoli na správu po nástupu. Pasivní kandidáti jsou profesionálové, kteří momentálně aktivně nehledají novou pozici.
+            Nelisa sa zameriava na fazu naboru, nie na spravu po nastupe. Pasivni kandidati su profesionali, ktori momentalne aktivne nehladaju novu poziciu.
           </p>
         </div>
       </div>

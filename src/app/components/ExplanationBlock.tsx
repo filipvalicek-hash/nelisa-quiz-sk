@@ -26,7 +26,7 @@ export function ExplanationBlock({ children }: ExplanationBlockProps) {
           <Lightbulb className="w-5 h-5" style={{ color: '#4f46e5' }} />
         </div>
         <div className="flex-1">
-          <h4 className="font-bold text-gray-900 mb-2 text-lg">Vysvětlení</h4>
+          <h4 className="font-bold text-gray-900 mb-2 text-lg">Vysvetlenie</h4>
           <div className="text-gray-700 space-y-3" style={{ lineHeight: '1.58' }}>
             {children}
           </div>

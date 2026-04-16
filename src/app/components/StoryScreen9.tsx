@@ -10,9 +10,9 @@ interface StoryScreen9Props {
 export function StoryScreen9({ onContinue, onBack, onLogoClick }: StoryScreen9Props) {
   const storyContent = (
     <p>
-      Klient se zastaví u banneru v ukázce kampaně. Chvíli si ho prohlíží, pak se na tebe podívá a lehce ironickým tónem řekne: „Hele… tohle by nám grafik udělal taky." Na první pohled má pravdu. Obrázek dnes zvládne udělat skoro každý.
+      Klient sa zastaví pri banneri v ukážke kampane. Chvíľu si ho prezerá, potom sa na teba pozrie a mierne ironickým tónom povie: „Počuj... toto by nám grafik urobil tiež." Na prvý pohľad má pravdu. Obrázok dnes zvládne urobiť skoro každý.
       <br /><br />
-      Ty ale víš, že tady nejde o to, jak banner vypadá, ale <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>jak funguje v kampani</span> a co má udělat během těch pár vteřin, když ho někdo zahlédne ve feedu.
+      Ty ale vieš, že tu nejde o to, ako banner vyzerá, ale <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>ako funguje v kampani</span> a čo má urobiť počas tých pár sekúnd, keď ho niekto zazrie vo feede.
     </p>
   );
 
@@ -21,7 +21,7 @@ export function StoryScreen9({ onContinue, onBack, onLogoClick }: StoryScreen9Pr
   return (
     <StoryScreen
       questionNumber={9}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

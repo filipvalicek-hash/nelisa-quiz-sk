@@ -83,7 +83,7 @@ export function SentenceBuilderChallenge({
             <div className="mb-8 p-6 rounded-2xl border-2 border-dashed border-gray-300 bg-white min-h-[100px]">
               <div className="flex flex-wrap gap-2">
                 {selectedWords.length === 0 ? (
-                  <p className="text-gray-400 text-base">Klikni na slova níže pro sestavení věty...</p>
+                  <p className="text-gray-400 text-base">Klikni na slova nizsie pre zostavenie vety...</p>
                 ) : (
                   selectedWords.map((wordId, index) => {
                     const word = wordOptions.find(w => w.id === wordId);
@@ -132,7 +132,7 @@ export function SentenceBuilderChallenge({
                 onClick={onBack}
                 className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
               >
-                Vrátit se na přehled
+                Vratit sa na prehlad
               </Button>
 
               <div className="flex items-center gap-3">
@@ -156,7 +156,7 @@ export function SentenceBuilderChallenge({
                     }
                   }}
                 >
-                  {showFeedback ? 'Přejít na další úkol' : 'Pokračovat'}
+                  {showFeedback ? 'Prejst na dalsiu ulohu' : 'Pokracovat'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

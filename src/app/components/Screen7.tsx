@@ -16,40 +16,40 @@ export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
     {
       id: 'A',
       label: 'A',
-      text: 'Detailní nastavení cílení v Meta Business Manageru.',
+      text: 'Detailné nastavenie cielenia v Meta Business Manageri.',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Ukázku kandidátské cesty (banner → nabídka → formulář), aby pochopil „co uvidí člověk venku".',
+      text: 'Ukážku kandidátskej cesty (banner → ponuka → formulár), aby pochopil „čo uvidí človek vonku".',
       isCorrect: true
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Přehled všech nadstandardních formátů.',
+      text: 'Prehľad všetkých nadštandardných formátov.',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Ceník.',
+      text: 'Cenník.',
       isCorrect: false
     }
   ];
 
   const questionText = (
     <>
-      Klikni na <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>tu ukázku</span>, kterou otevřeš jako první.
+      Klikni na <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>tú ukážku</span>, ktorú otvoríš ako prvú.
     </>
   );
 
   const explanationText = (
     <>
-      Nejlépe funguje <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>ukázat jednu konkrétní cestu kandidáta</span> například formou <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>krátkého příběhu</span>. Je to rychlejší a účinnější než vysvětlovat technologii nebo cílení:
+      Najlepšie funguje <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>ukázať jednu konkrétnu cestu kandidáta</span> napríklad formou <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>krátkeho príbehu</span>. Je to rýchlejšie a účinnejšie než vysvetľovať technológiu alebo cielenie:
       <br /><br />
-      <em>„Představte si kandidáta, který je zrovna v tramvaji nebo v čekárně a scrolluje Facebook. Najednou vidí banner → klikne na nabídku, která ho zaujme → má pozitivní emoci a během pár vteřin jednoduše odpoví → a reakce se rovnou propíše do Teamia / ATS, kde s ním HR začne komunikovat."</em>
+      <em>„Predstavte si kandidáta, ktorý je práve v električke alebo v čakárni a scrolluje Facebook. Zrazu uvidí banner → klikne na ponuku, ktorá ho zaujme → má pozitívnu emóciu a počas pár sekúnd jednoducho odpovie → a reakcia sa rovno prepíše do Teamia / ATS, kde s ním HR začne komunikovať."</em>
     </>
   );
 
@@ -59,7 +59,7 @@ export function Screen7({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
       questionText={questionText}
       options={options}
       explanationText={explanationText}
-      questionTypeTag="VÝBĚR JEDNÉ ODPOVĚDI"
+      questionTypeTag="VÝBER JEDNEJ ODPOVEDE"
       onNext={onNext}
       onBack={onBack}
       onLogoClick={onLogoClick}

@@ -34,27 +34,27 @@ export function SentenceBuilderSidebar({
         className="flex items-center gap-2 text-gray-500 hover:text-gray-700 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
-        <span className="text-sm">Zpět na moduly</span>
+        <span className="text-sm">Spat na moduly</span>
       </button>
 
       {/* Badge */}
       <div>
         <Badge className="bg-purple-100 text-purple-800 hover:bg-purple-100 text-xs font-bold tracking-wider px-3 py-1 border-0" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          PŘÍBĚH
+          PRIBEH
         </Badge>
       </div>
 
       {/* Title */}
       <div>
-        <div className="text-xs font-semibold text-gray-500 tracking-wide mb-2">CVIČENÍ</div>
+        <div className="text-xs font-semibold text-gray-500 tracking-wide mb-2">CVICENIE</div>
         <h1 className="text-3xl font-bold text-gray-900 mb-3">
-          Mini doplňovačka
+          Mini doplnovacka
         </h1>
         <p className="text-gray-600 leading-relaxed mb-4">
-          Klient zvedne obočí: „Jako by mu to konečně došlo. Ale kampaně lovi lidi přímo… Takže... myslíš další kandidáty?"
+          Klient zdvihne obocie: „Akoby mu to konecne doslo. Ale kampane lovia ludi priamo... Takze... myslis dalsich kandidatov?"
         </p>
         <p className="text-gray-600 leading-relaxed italic text-sm">
-          „Takže... najít čelá. Ale kampaně lovi lidi přímo…Takže... najít čelá přímo. Přesně. A ty mu to teď strhneš jedinou větou."
+          „Takze... najst ludi. Ale kampane lovia ludi priamo... Takze... najst ludi priamo. Presne. A ty mu to teraz strhnes jedinou vetou."
         </p>
       </div>
 
@@ -68,7 +68,7 @@ export function SentenceBuilderSidebar({
             <span className="text-sm font-semibold text-gray-700">Pokrok</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="text-xs font-medium text-gray-500">Konverzace</span>
+            <span className="text-xs font-medium text-gray-500">Konverzacia</span>
             <span className="text-sm font-bold text-gray-900">3</span>
             <span className="text-xs text-gray-400">z</span>
             <span className="text-sm text-gray-500">12</span>
@@ -83,21 +83,21 @@ export function SentenceBuilderSidebar({
         {/* Phase Badge */}
         <div className="flex items-center gap-2 pt-1">
           <div className="flex-1 h-px bg-gray-200"></div>
-          <span className="text-xs font-bold text-purple-600 tracking-wide">FÁZE 1: POCHOPENÍ KLIENTA</span>
+          <span className="text-xs font-bold text-purple-600 tracking-wide">FAZA 1: POCHOPENIE KLIENTA</span>
           <div className="flex-1 h-px bg-gray-200"></div>
         </div>
       </div>
 
       {/* Game State Indicators */}
       <div className="space-y-3">
-        <div className="text-xs font-semibold text-gray-500 tracking-wide">STAV SITUACE</div>
+        <div className="text-xs font-semibold text-gray-500 tracking-wide">STAV SITUACIE</div>
         
         {/* Client Trust */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">Důvěra klienta</span>
+              <span className="text-sm font-medium text-gray-700">Dovera klienta</span>
             </div>
             <span className="text-xs font-semibold text-gray-600">{getIndicatorLabel(clientTrust)}</span>
           </div>
@@ -114,7 +114,7 @@ export function SentenceBuilderSidebar({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">Jistota shody</span>
+              <span className="text-sm font-medium text-gray-700">Istota zhody</span>
             </div>
             <span className="text-xs font-semibold text-gray-600">{getIndicatorLabel(fitConfidence)}</span>
           </div>
@@ -131,7 +131,7 @@ export function SentenceBuilderSidebar({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MessageCircle className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700">Zapojení</span>
+              <span className="text-sm font-medium text-gray-700">Zapojenie</span>
             </div>
             <span className="text-xs font-semibold text-gray-600">{getIndicatorLabel(engagement)}</span>
           </div>
@@ -153,10 +153,10 @@ export function SentenceBuilderSidebar({
         </div>
         <div>
           <div className="flex items-center gap-1.5 mb-1">
-            <span className="text-xs font-bold text-blue-900 tracking-wide">💡 NÁPOVĚDA</span>
+            <span className="text-xs font-bold text-blue-900 tracking-wide">💡 NAPOVEDA</span>
           </div>
           <p className="text-sm text-blue-900 leading-relaxed">
-            Pasivní kandidáti aktivně nehledají práci — musíš je sám najít a oslovit. Aktivní kandidáti už něco hledají sami.
+            Pasivni kandidati aktivne nehladaju pracu — musis ich sam najst a oslovit. Aktivni kandidati uz nieco hladaju sami.
           </p>
         </div>
       </div>

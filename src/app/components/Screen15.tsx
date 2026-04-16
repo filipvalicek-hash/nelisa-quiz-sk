@@ -17,27 +17,27 @@ export function Screen15({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
       questionNumber={15}
       questionText={
         <>
-          Přiřaď <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správnou reakci</span> k tomu, co klient tímhle komentářem otevírá.
+          Priraď <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správnu reakciu</span> k tomu, čo klient týmto komentárom otvára.
         </>
       }
-      leftColumnTitle="CO KLIENT ŘEŠÍ"
+      leftColumnTitle="ČO KLIENT RIEŠI"
       rightColumnTitle="ARGUMENTY"
       leftItems={[
-        { id: '1', text: '1) Nechce řešit více nástrojů a reportů.' },
-        { id: '2', text: '2) Chce, aby byla pracovní nabídka cílena na různé kanály, avšak jednoduše a se stejným obsahem.' },
-        { id: '3', text: '3) Chce rozšířit zásah, ale jednoduše, bez složitého procesu na jednotlivých kanálech.' }
+        { id: '1', text: '1) Nechce riešiť viac nástrojov a reportov.' },
+        { id: '2', text: '2) Chce, aby bola pracovná ponuka cielená na rôzne kanály, avšak jednoducho a s rovnakým obsahom.' },
+        { id: '3', text: '3) Chce rozšíriť zásah, ale jednoducho, bez zložitého procesu na jednotlivých kanáloch.' }
       ]}
       rightItems={[
-        { id: 'A', text: 'A) Každý kanál má jinou roli – někde budujeme povědomí, jinde sbíráme reakce, ale vždy u stejné cílové skupiny.' },
-        { id: 'B', text: 'B) Reporting i řízení a optimalizace kampaní je na straně Nelisy, klient dodává jen pracovní nabídku.' },
-        { id: 'C', text: 'C) Na Nelise kombinujeme kanály automatizovaným systémem bez náročného procesu na straně klienta.' }
+        { id: 'A', text: 'A) Každý kanál má inú rolu – niekde budujeme povedomie, inde zbierame reakcie, ale vždy u rovnakej cieľovej skupiny.' },
+        { id: 'B', text: 'B) Reporting aj riadenie a optimalizácia kampaní je na strane Nelisy, klient dodáva len pracovnú ponuku.' },
+        { id: 'C', text: 'C) Na Nelise kombinujeme kanály automatizovaným systémom bez náročného procesu na strane klienta.' }
       ]}
       correctPairs={{
-        '1': 'B',  // Nechce řešit více nástrojů → Reporting/řízení je na Nelise
-        '2': 'A',  // Chce různé kanály ale stejný obsah → Každý kanál má jinou roli
-        '3': 'C'   // Chce rozšířit zásah jednoduše → kombinujeme kanály automatizovaně
+        '1': 'B',  // Nechce riešiť viac nástrojov → Reporting/riadenie je na Nelise
+        '2': 'A',  // Chce rôzne kanály ale rovnaký obsah → Každý kanál má inú rolu
+        '3': 'C'   // Chce rozšíriť zásah jednoducho → kombinujeme kanály automatizovane
       }}
-      explanationText={'Multi-channel není samoúčelný seznam kanálů. Smysl je v tom, že systém hledá, kde a jak doručit nabídku co nejefektivněji, a průběžně optimizuje doručování. Klient tak nekupuje „budeme všude", ale strategii doručování a řízení výkonu. To je rozdíl oproti jednorázovému nákupu prostoru.'}
+      explanationText={'Multi-channel nie je samoúčelný zoznam kanálov. Zmysel je v tom, že systém hľadá, kde a ako doručiť ponuku čo najefektívnejšie, a priebežne optimalizuje doručovanie. Klient tak nekupuje „budeme všade", ale stratégiu doručovania a riadenia výkonu. To je rozdiel oproti jednorazovému nákupu priestoru.'}
       onNext={onNext}
       onBack={onBack}
       onLogoClick={onLogoClick}

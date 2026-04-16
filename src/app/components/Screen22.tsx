@@ -36,39 +36,39 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
   };
 
   const leftItems: MatchItem[] = [
-    { id: 'namitka1', text: '„Oproti běžné inzerci je to moc drahé"' },
-    { id: 'namitka2', text: '„Aktuálně nemáme náborovou potřebu"' },
-    { id: 'namitka3', text: '„Inzerci přes sociální sítě řešíme s agenturou nebo interně"' },
-    { id: 'namitka4', text: '„Je to další systém navíc, už teď jich máme příliš / To bude moc složité"' },
-    { id: 'namitka5', text: '„Už jsme to zkoušeli a nefungovalo to"' },
-    { id: 'namitka6', text: '„Stačí nám inzerovat přes jobboardy"' }
+    { id: 'namitka1', text: '„Oproti bežnej inzercii je to príliš drahé"' },
+    { id: 'namitka2', text: '„Aktuálne nemáme náborovú potrebu"' },
+    { id: 'namitka3', text: '„Inzerciu cez sociálne siete riešime s agentúrou alebo interne"' },
+    { id: 'namitka4', text: '„Je to ďalší systém navyše, už teraz ich máme príliš veľa / To bude príliš zložité"' },
+    { id: 'namitka5', text: '„Už sme to skúšali a nefungovalo to"' },
+    { id: 'namitka6', text: '„Stačí nám inzerovať cez jobboardy"' }
   ];
 
   // Shuffle right items for randomization
   const rightItemsOriginal: MatchItem[] = [
     { 
-      id: 'arg-a', 
-      text: 'Kampaně běží na více kanálech a oslovují i cca 70 % pasivních kandidátů (nejen 30 % aktivních). V ceně jsou navíc služby jako firemní profil, tvorba bannerů a statistiky, takže šetříte čas i peníze – ideálně to pojďme ověřit pilotně na jedné roli a pak se rozhodnout.' 
+      id: 'arg-a',
+      text: 'Kampane bežia na viacerých kanáloch a oslovujú aj cca 70 % pasívnych kandidátov (nielen 30 % aktívnych). V cene sú navyše služby ako firemný profil, tvorba bannerov a štatistiky, takže šetríte čas aj peniaze – ideálne to poďme overiť pilotne na jednej role a potom sa rozhodnúť.' 
     },
     { 
-      id: 'arg-b', 
-      text: 'Právě teď je nejlepší chvíle řešit nábor s předstihem: můžete si vybudovat databázi kandidátů, podpořit employer branding a kampaň připravit tak, aby šla spustit ve chvíli, kdy potřeba reálně vznikne.' 
+      id: 'arg-b',
+      text: 'Práve teraz je najlepšia chvíľa riešiť nábor s predstihom: môžete si vybudovať databázu kandidátov, podporiť employer branding a kampaň pripraviť tak, aby sa dala spustiť vo chvíli, keď potreba reálne vznikne.' 
     },
     { 
-      id: 'arg-c', 
-      text: 'Nelisa je hotové hiringové řešení se specializovaným know-how, které se rychle optimalizuje podle dat. Oproti interní nebo agenturní správě šetří čas a ve výsledku i náklady.' 
+      id: 'arg-c',
+      text: 'Nelisa je hotové hiringové riešenie so špecializovaným know-how, ktoré sa rýchlo optimalizuje podľa dát. Oproti internej alebo agentúrnej správe šetrí čas a vo výsledku aj náklady.' 
     },
     { 
-      id: 'arg-d', 
-      text: 'Proces je jednoduchý: od založení profilu umíme spustit kampaň do 3 pracovních dnů a díky integracím chodí kandidáti přímo do ATS, takže nejlepší je si to vyzkoušet v praxi.' 
+      id: 'arg-d',
+      text: 'Proces je jednoduchý: od založenia profilu vieme spustiť kampaň do 3 pracovných dní a vďaka integráciám chodia kandidáti priamo do ATS, takže najlepšie je si to vyskúšať v praxi.' 
     },
     { 
-      id: 'arg-e', 
-      text: 'U těchto kampaní typicky rozhoduje cílen, region, samotná nabídka (včetně mzdy) nebo text inzerátu. Byl problém v počtu reakcí? Kampaň běžela interně, přes agenturu, nebo přes Nelisu?' 
+      id: 'arg-e',
+      text: 'Pri týchto kampaniach typicky rozhoduje cielenie, región, samotná ponuka (vrátane mzdy) alebo text inzerátu. Bol problém v počte reakcií? Kampaň bežala interne, cez agentúru, alebo cez Nelisu?' 
     },
     { 
-      id: 'arg-f', 
-      text: 'Nejlépe funguje kombinace: jobboardy pokryjí aktivní kandidáty, kampaně doplní pasivní trh (cca 70 %), kde bývá často i vyšší kvalita uchazečů.' 
+      id: 'arg-f',
+      text: 'Najlepšie funguje kombinácia: jobboardy pokryjú aktívnych kandidátov, kampane doplnia pasívny trh (cca 70 %), kde býva často aj vyššia kvalita uchádzačov.' 
     }
   ];
 
@@ -217,7 +217,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                 <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border mb-6`} style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <Shuffle className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    PŘIŘAZENÍ
+                    PRIRADENIE
                   </span>
                 </div>
                 <h3 
@@ -229,7 +229,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                     letterSpacing: 0
                   }}
                 >
-                  Přiřaď <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správnou argumentaci</span> ke každé námitce
+                  Priraď <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správnu argumentáciu</span> ku každej námietke
                 </h3>
                 
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
@@ -241,7 +241,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                 {/* Left Column - Objections */}
                 <div className="space-y-3">
                   <div className="text-xs font-bold text-gray-500 tracking-wider mb-3">
-                    NÁMITKY
+                    NÁMIETKY
                   </div>
                   {leftItems.map((item) => {
                     const isPaired = isLeftPaired(item.id);
@@ -318,7 +318,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                 {/* Right Column - Arguments */}
                 <div className="space-y-3">
                   <div className="text-xs font-bold text-gray-500 tracking-wider mb-3">
-                    ARGUMENTACE
+                    ARGUMENTÁCIA
                   </div>
                   {rightItems.map((item) => {
                     const isPaired = isRightPaired(item.id);
@@ -420,16 +420,16 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                           feedback === 'correct' ? 'text-green-900' : 'text-orange-900'
                         }`}>
                           {feedback === 'correct' 
-                            ? 'Perfektní! Zvládl/a jsi to.' 
-                            : 'Některé páry nesedí'
+                            ? 'Perfektné! Zvládol/zvládla si to.'
+                            : 'Niektoré páry nesedia'
                           }
                         </p>
                         <p className={`text-sm mt-1 ${
                           feedback === 'correct' ? 'text-green-800' : 'text-orange-700'
                         }`}>
                           {feedback === 'correct'
-                            ? 'Umíš reagovat na námitky přirozeně, věcně a s konkrétními daty. Na schůzce to bude znát – klient uvidí, že to myslíš vážně a nevymýšlíš si. To je rozdíl mezi „další prodavač" a „poradce, kterému věřím".'
-                            : 'Zkontroluj své odpovědi – některá spojení neodpovídají situaci klienta. Příště si vždy připomeň: Jakou obavu klient reálně má? A co potřebuje slyšet, aby se rozhodl zkusit to?'
+                            ? 'Vieš reagovať na námietky prirodzene, vecne a s konkrétnymi dátami. Na schôdzke to bude znať – klient uvidí, že to myslíš vážne a nevymýšľaš si. To je rozdiel medzi „ďalší predavač" a „poradca, ktorému verím".'
+                            : 'Skontroluj svoje odpovede – niektoré spojenia nezodpovedajú situácii klienta. Nabudúce si vždy pripomeň: Akú obavu klient reálne má? A čo potrebuje počuť, aby sa rozhodol skúsiť to?'
                           }
                         </p>
                       </div>
@@ -449,7 +449,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                         className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                       >
                         <ArrowLeft className="w-4 h-4" />
-                        Zpět na příběh
+                        Späť na príbeh
                       </Button>
                       {onSkip && (
                         <Button
@@ -457,7 +457,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                           onClick={onSkip}
                           className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                         >
-                          Přeskočit úkol
+                          Preskočiť úlohu
                         </Button>
                       )}
                     </>
@@ -473,7 +473,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                       variant="ghost"
                       className="text-gray-500 hover:text-gray-900 font-medium disabled:opacity-30"
                     >
-                      Začít znovu
+                      Začať odznova
                     </Button>
                   )}
 
@@ -498,7 +498,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                         }
                       }}
                     >
-                      Zkontrolovat
+                      Skontrolovať
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   ) : (
@@ -513,7 +513,7 @@ export function Screen22({ onNext, onBack, onLogoClick, onSkip, initialConfirmed
                         e.currentTarget.style.backgroundColor = '#AE54FF';
                       }}
                     >
-                      Pokračovat
+                      Pokračovať
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   )}

@@ -10,8 +10,8 @@ interface StoryScreen8Props {
 export function StoryScreen8({ onContinue, onBack, onLogoClick }: StoryScreen8Props) {
   const storyContent = (
     <p>
-      Otevřeš ukázku nabídky a posuneš notebook trochu blíž ke klientovi. Necháš ho v klidu projít stránku tak, jak by ji viděl kandidát. Klient chvíli scrolluje, zastaví se u nadpisu, pak u fotek firmy. Na chvilku přejede kurzorem přes <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>firemní profil</span> a znovu se vrátí nahoru.
-      „Vypadá to hezky," poznamená. „Má to ale reálně vliv na to, jestli se člověk <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>rozhodne reagovat</span>?"
+      Otvoríš ukážku ponuky a posunieš notebook trochu bližšie ku klientovi. Necháš ho v pokoji prejsť stránku tak, ako by ju videl kandidát. Klient chvíľu scrolluje, zastaví sa pri nadpise, potom pri fotkách firmy. Na chvíľu prejde kurzorom cez <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>firemný profil</span> a znova sa vráti nahor.
+      „Vyzerá to pekne," poznamená. „Má to ale reálne vplyv na to, či sa človek <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>rozhodne reagovať</span>?"
     </p>
   );
 
@@ -29,7 +29,7 @@ export function StoryScreen8({ onContinue, onBack, onLogoClick }: StoryScreen8Pr
   return (
     <StoryScreen
       questionNumber={8}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

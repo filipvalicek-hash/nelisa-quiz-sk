@@ -34,7 +34,7 @@ export function BlankSelectionChallenge({
   questionText,
   blanks,
   explanationText,
-  questionTypeTag = "ÚKOL · DOPLŇ VĚTY",
+  questionTypeTag = "ULOHA · DOPLN VETY",
   onNext,
   onBack,
   onLogoClick,
@@ -213,7 +213,7 @@ export function BlankSelectionChallenge({
                 onClick={onBack}
                 className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
               >
-                Vrátit se na přehled
+                Vratit sa na prehlad
               </Button>
 
               <div className="flex items-center gap-3">
@@ -237,7 +237,7 @@ export function BlankSelectionChallenge({
                     }
                   }}
                 >
-                  {showFeedback ? 'Pokračovat' : 'Zkontrolovat'}
+                  {showFeedback ? 'Pokracovat' : 'Skontrolovat'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

@@ -15,23 +15,23 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
   const slides = [
     {
       icon: CheckCircle,
-      text: 'Pro úspěšné splnění certifikace je potřeba zodpovědět všechny otázky správně.'
+      text: 'Na úspešné splnenie certifikácie je potrebné zodpovedať všetky otázky správne.'
     },
     {
       icon: RefreshCw,
-      text: 'Počet pokusů není omezený – certifikaci můžeš projít tolikrát, kolikrát budeš potřebovat.'
+      text: 'Počet pokusov nie je obmedzený – certifikáciou môžeš prejsť toľkokrát, koľkokrát budeš potrebovať.'
     },
     {
       icon: Lightbulb,
-      text: 'Každá otázka obsahuje vysvětlení, takže i pokud se netrefíš napoprvé, slouží test zároveň jako learning.'
+      text: 'Každá otázka obsahuje vysvetlenie, takže aj keď sa netrafíš napoprvé, test slúži zároveň ako learning.'
     },
     {
       icon: Users,
-      text: 'Odpovídej tak, jak bys reagoval/a při reálné schůzce s klientem, ne podle učebnice.'
+      text: 'Odpovedaj tak, ako by si reagoval/a na reálnej schôdzke s klientom, nie podľa učebnice.'
     },
     {
       icon: Shield,
-      text: 'Cílem není rychlost ani stres, ale pochopení principů a jistota v argumentech. Držíme Ti palce!'
+      text: 'Cieľom nie je rýchlosť ani stres, ale pochopenie princípov a istota v argumentoch. Držíme Ti palce!'
     }
   ];
 
@@ -74,7 +74,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                 transition={{ delay: 0.2 }}
               >
                 <span className="inline-block relative pb-3">
-                  Vítej v&nbsp;certifikaci
+                  Vitaj v&nbsp;certifikácii
                   {/* Premium modern underline accent */}
                   <motion.svg 
                     className="absolute left-0 w-full" 
@@ -136,8 +136,8 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                Tato certifikace vznikla proto, aby Ti pomohla lépe fungovat při <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>reálných schůzkách s klienty</span>.
-                Nejde o zkoušení z detailů ani o chytání za slovíčka – cílem je ujasnit si, jak Nelisu správně vysvětlovat, prodávat a nastavovat očekávání.
+                Táto certifikácia vznikla preto, aby Ti pomohla lepšie fungovať pri <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>reálnych schôdzkach s klientmi</span>.
+                Nejde o skúšanie z detailov ani o chytanie za slovíčka – cieľom je ujasniť si, ako Nelisu správne vysvetľovať, predávať a nastavovať očakávania.
               </motion.p>
               
               <motion.p 
@@ -147,7 +147,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 }}
               >
-                Otázky vycházejí z <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>běžné praxe a typických situací</span>, které řešíme dnes a denně.
+                Otázky vychádzajú z <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>bežnej praxe a typických situácií</span>, ktoré riešime zo dňa na deň.
               </motion.p>
             </div>
 
@@ -162,7 +162,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                 <Award className="w-6 h-6 text-white" />
               </div>
               <h2 className="text-lg font-bold text-gray-900 pt-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                Jak k tomu přistupovat
+                Ako k tomu pristupovať
               </h2>
             </motion.div>
 
@@ -250,7 +250,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
               transition={{ delay: 0.5 }}
             >
               <h3 className="text-xs font-bold text-gray-500 tracking-wider" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                CO TĚ ČEKÁ
+                ČO ŤA ČAKÁ
               </h3>
               
               <div className="space-y-2">
@@ -259,7 +259,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                     <span className="text-blue-600 text-sm">📖</span>
                   </div>
                   <span className="text-gray-700 text-sm leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    <strong>Test postavený na příbězích z praxe:</strong> nejdřív si přečteš krátkou situaci ze schůzky s klientem a hned potom na ni navazuje otázka.
+                    <strong>Test postavený na príbehoch z praxe:</strong> najprv si prečítaš krátku situáciu zo schôdzky s klientom a hneď potom na ňu nadväzuje otázka.
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
@@ -267,7 +267,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                     <span className="text-blue-600 text-sm">🎯</span>
                   </div>
                   <span className="text-gray-700 text-sm leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    25 praktických otázek založených na reálných příbězích klientů
+                    25 praktických otázok založených na reálnych príbehoch klientov
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
@@ -275,7 +275,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
                     <span className="text-blue-600 text-sm">🎯</span>
                   </div>
                   <span className="text-gray-700 text-sm leading-relaxed" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    Různé typy úkolů (výběr odpovědi, více správných možností, přiřazování)
+                    Rôzne typy úloh (výber odpovede, viac správnych možností, priraďovanie)
                   </span>
                 </div>
               </div>
@@ -288,7 +288,7 @@ export function CertificationIntro({ onStart }: CertificationIntroProps) {
               transition={{ delay: 0.7 }}
             >
               <QuizButton onClick={onStart}>
-                Začít certifikaci
+                Začať certifikáciu
               </QuizButton>
             </motion.div>
           </motion.div>

@@ -31,25 +31,25 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
     {
       id: 'A',
       label: 'A',
-      text: 'Cena a rozpočtové varianty – aby finance měly hned jasno, kolik řešení stojí a v jakých mantinelech se rozhoduje.',
+      text: 'Cena a rozpočtové varianty – aby financie mali hneď jasno, koľko riešenie stojí a v akých mantineloch sa rozhoduje.',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Hlavní užitek kampaní – jaký konkrétní náborový problém Nelisa řeší, proč portály samy nestačí a co klient získá navíc (zásah mimo aktivní kandidáty, menší konkurence).',
+      text: 'Hlavný úžitok kampaní – aký konkrétny náborový problém Nelisa rieši, prečo portály samé nestačia a čo klient získa navyše (zásah mimo aktívnych kandidátov, menšia konkurencia).',
       isCorrect: true
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Zařazení Nelisy do ekosystému Alma Career – vysvětlení, že jde o součást širšího portfolia a dlouhodobého partnerství, ne o izolovaný nástroj.',
+      text: 'Zaradenie Nelisy do ekosystému Alma Career – vysvetlenie, že ide o súčasť širšieho portfólia a dlhodobého partnerstva, nie o izolovaný nástroj.',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Technický popis fungování kampaní a kanálů – aby si marketing mohl interně posoudit, jak se kampaně nasazují a optimalizují.',
+      text: 'Technický popis fungovania kampaní a kanálov – aby si marketing mohol interne posúdiť, ako sa kampane nasadzujú a optimalizujú.',
       isCorrect: false
     }
   ];
@@ -95,7 +95,7 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border mb-6" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <MessageSquare className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    VÝBĚR JEDNÉ ODPOVĚDI
+                    VÝBER JEDNEJ ODPOVEDE
                   </span>
                 </div>
                 <h3
@@ -107,10 +107,10 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                     letterSpacing: 0
                   }}
                 >
-                  Vyber, na co se máš ve follow-upu zaměřit jako na hlavní osu sdělení, aby interní diskuze u klienta měla šanci dojít k rozhodnutí.
+                  Vyber, na čo sa máš vo follow-upe zamerať ako na hlavnú os oznámenia, aby interná diskusia u klienta mala šancu dospieť k rozhodnutiu.
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  Situace se může řešit podle potřeby HR klienta, ale zajímá nás hlavní osa.
+                  Situácia sa môže riešiť podľa potreby HR klienta, ale zaujíma nás hlavná os.
                 </p>
               </div>
 
@@ -187,7 +187,7 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
               {isConfirmed && (
                 <ExplanationBlock>
                   <p>
-                    Na konci klient často nemá problém s produktem, ale s tím, že neví, co teď konkrétně udělat. Dobré shrnutí a jasný další krok zvyšují šanci, že se schvalování a start opravdu stane. Když klient odchází bez "next steps", schůzka často vyšumí a rozhodnutí se odkládá. V průběhu kampaně je důležité s klientem průběžně kampaň vyhodnocovat, což může vést k úspěšné retenci.
+                    Na konci klient často nemá problém s produktom, ale s tým, že nevie, čo teraz konkrétne urobiť. Dobré zhrnutie a jasný ďalší krok zvyšujú šancu, že sa schvaľovanie a štart naozaj stanú. Keď klient odchádza bez "next steps", stretnutie často vyšumí a rozhodnutie sa odkladá. V priebehu kampane je dôležité s klientom priebežne kampaň vyhodnocovať, čo môže viesť k úspešnej retencii.
                   </p>
                 </ExplanationBlock>
               )}
@@ -202,7 +202,7 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                         className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                       >
                         <ArrowLeft className="w-4 h-4" />
-                        Zpět na příběh
+                        Späť na príbeh
                       </Button>
                       {onSkip && (
                         <Button
@@ -210,7 +210,7 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                           onClick={onSkip}
                           className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                         >
-                          Přeskočit úkol
+                          Preskočiť úlohu
                         </Button>
                       )}
                     </>
@@ -240,7 +240,7 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                         }
                       }}
                     >
-                      Zkontrolovat
+                      Skontrolovať
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   ) : (
@@ -255,7 +255,7 @@ export function Screen24({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                         e.currentTarget.style.backgroundColor = '#AE54FF';
                       }}
                     >
-                      Pokračovat
+                      Pokračovať
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   )}

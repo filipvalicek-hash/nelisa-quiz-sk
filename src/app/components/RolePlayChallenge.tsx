@@ -148,7 +148,7 @@ export function RolePlayChallenge({
               >
                 <CircleDot className="w-4 h-4" style={{ color: '#AE54FF' }} />
                 <span className="text-xs font-semibold tracking-wider" style={{ color: '#AE54FF' }}>
-                  JEDNA ODPOVĚĎ
+                  JEDNA ODPOVED
                 </span>
               </div>
             </div>
@@ -292,7 +292,7 @@ export function RolePlayChallenge({
                   onClick={onBack}
                   className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                 >
-                  Zpět
+                  Spat
                 </Button>
               )}
               {isConfirmed && <div></div>}
@@ -318,7 +318,7 @@ export function RolePlayChallenge({
                     }
                   }}
                 >
-                  {isConfirmed ? 'Pokračovat' : 'Potvrdit'}
+                  {isConfirmed ? 'Pokracovat' : 'Potvrdit'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

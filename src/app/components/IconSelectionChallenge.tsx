@@ -37,7 +37,7 @@ export function IconSelectionChallenge({
   options,
   correctFeedback,
   incorrectFeedback,
-  questionTypeTag = 'VÝBĚR IKONY',
+  questionTypeTag = 'VYBER IKONY',
   onNext,
   onLogoClick,
   onBack
@@ -142,11 +142,11 @@ export function IconSelectionChallenge({
                 onClick={onBack}
                 className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
               >
-                Vrátit se na přehled
+                Vratit sa na prehlad
               </Button>
 
               <div className="flex items-center gap-3">
-                {/* Pokračovat Button - ALWAYS VISIBLE */}
+                {/* Pokracovat Button - ALWAYS VISIBLE */}
                 <Button
                   onClick={handleContinue}
                   disabled={!selectedIcon}
@@ -167,7 +167,7 @@ export function IconSelectionChallenge({
                     }
                   }}
                 >
-                  {showFeedback ? 'Přejít na další úkol' : 'Pokračovat'}
+                  {showFeedback ? 'Prejst na dalsiu ulohu' : 'Pokracovat'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

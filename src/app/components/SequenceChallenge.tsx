@@ -104,7 +104,7 @@ export function SequenceChallenge({
   correctOrder,
   correctFeedback,
   incorrectFeedback,
-  questionTypeTag = 'SEŘAZENÍ',
+  questionTypeTag = 'ZORADENIE',
   onNext,
   onBack,
   onLogoClick
@@ -255,11 +255,11 @@ export function SequenceChallenge({
                   onClick={onBack}
                   className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                 >
-                  Vrátit se na přehled
+                  Vratit sa na prehlad
                 </Button>
 
                 <div className="flex items-center gap-3">
-                  {/* Pokračovat Button - ALWAYS VISIBLE */}
+                  {/* Pokracovat Button - ALWAYS VISIBLE */}
                   <Button
                     onClick={handleContinue}
                     className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] transition-all shadow-md hover:shadow-lg"
@@ -271,7 +271,7 @@ export function SequenceChallenge({
                       e.currentTarget.style.backgroundColor = 'var(--primary-brand)';
                     }}
                   >
-                    {showFeedback ? 'Přejít na další úkol' : 'Pokračovat'}
+                    {showFeedback ? 'Prejst na dalsiu ulohu' : 'Pokracovat'}
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 </div>

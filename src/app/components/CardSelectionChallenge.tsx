@@ -36,12 +36,12 @@ interface CardSelectionChallengeProps {
 
 export function CardSelectionChallenge({ 
   questionNumber = 1, 
-  questionText = "Klikni na kartu klienta, kterého má největší smysl oslovit s Nelisou jako hlavním řešením.",
+  questionText = "Klikni na kartu klienta, ktorého ma najvacsi zmysel oslovit s Nelisou ako hlavnym riesenim.",
   options,
-  correctFeedback = "Přesně. Nelisa funguje nejlépe tam, kde je třeba aktivně oslovovat kandidáty na těžko obsaditelné pozice.",
-  incorrectFeedback = "Tato firma má jiné potřeby. Zamysli se, kdy je Nelisa nejužitečnější.",
+  correctFeedback = "Presne. Nelisa funguje najlepsie tam, kde treba aktivne oslovovat kandidatov na tazko obsaditelne pozicie.",
+  incorrectFeedback = "Tato firma ma ine potreby. Zamysli sa, kedy je Nelisa najuzitocnejsia.",
   explanationText, // New prop for unified explanation
-  questionTypeTag = "VÝBĚR JEDNÉ ODPOVĚDI",
+  questionTypeTag = "VYBER JEDNEJ ODPOVEDE",
   onNext,
   onBack,
   onLogoClick,
@@ -60,25 +60,25 @@ export function CardSelectionChallenge({
     {
       id: 'A',
       label: 'A',
-      text: 'Firma má přebytek reakcí, HR nestíhá selekci.',
+      text: 'Firma ma prebytok reakcii, HR nestiha selekciu.',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Firma nabírá těžko obsaditelné pozice, reakce z portálů jsou slabé.',
+      text: 'Firma nabera tazko obsaditelne pozicie, reakcie z portalov su slabe.',
       isCorrect: true
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Firma nenabírá, jen mapuje trh.',
+      text: 'Firma nenabera, len mapuje trh.',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Firma hledá brigádníky na krátké směny, vysoký počet reakcí nevadí.',
+      text: 'Firma hlada brigadnikov na kratke zmeny, vysoky pocet reakcii nevadi.',
       isCorrect: false
     }
   ];
@@ -281,7 +281,7 @@ export function CardSelectionChallenge({
                     onClick={onBack}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Spat na pribeh
                   </Button>
                 )}
                 {!showFeedback && onSkip && (
@@ -290,7 +290,7 @@ export function CardSelectionChallenge({
                     onClick={onSkip}
                     className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                   >
-                    Přeskočit úkol
+                    Preskocit ulohu
                   </Button>
                 )}
               </div>
@@ -318,7 +318,7 @@ export function CardSelectionChallenge({
                   }}
                 >
                   <span className="flex items-center justify-center gap-2">
-                    {showFeedback ? 'Pokračovat' : 'Zkontrolovat'}
+                    {showFeedback ? 'Pokracovat' : 'Skontrolovat'}
                     <ChevronRight className="w-5 h-5 transition-transform duration-150 ease-out group-hover:translate-x-0.5" />
                   </span>
                 </Button>

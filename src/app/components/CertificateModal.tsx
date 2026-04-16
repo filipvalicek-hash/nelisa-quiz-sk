@@ -14,28 +14,28 @@ interface CertificateModalProps {
 const MATERIAL_LINKS = [
   {
     emoji: '🌐',
-    title: 'Oficiální web Nelisy',
+    title: 'Oficiálny web Nelisy',
     url: 'https://nelisa.com/cs-cz',
   },
   {
     emoji: '📘',
-    title: 'Obchodní podklady a prezentace',
+    title: 'Obchodné podklady a prezentácie',
     url: 'https://nelisacom.notion.site/',
   },
   {
     emoji: '🧠',
-    title: 'Interní knowledge base',
+    title: 'Interná knowledge base',
     url: 'https://www.notion.so/almacareer/Nelisa-30cabb65fca54aa2ba430a46f553e613',
     highlight: true,
   },
   {
     emoji: '🤝',
-    title: 'Obchodní pomocník',
+    title: 'Obchodný pomocník',
     url: 'https://nelisa-obchodni-pomocnik.netlify.app/',
   },
   {
     emoji: '💰',
-    title: 'Ceník 2026',
+    title: 'Cenník 2026',
     url: 'https://www.notion.so/almacareer/Cen-k-2026-2836f3e88bc280aa8dc2d07fed941bc9',
   },
 ];
@@ -125,7 +125,7 @@ export function CertificateModal({
           >
             <X className="w-6 h-6" />
           </button>
-          <h2 className="text-2xl font-bold text-gray-900">Certifikát o absolvování</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Certifikát o absolvovaní</h2>
         </div>
 
         {/* Certificate Content */}
@@ -154,14 +154,14 @@ export function CertificateModal({
             {/* Certificate Title */}
             <div className="text-center mb-8">
               <h3 className="text-4xl font-bold mb-2" style={{ color: '#7C3AED' }}>
-                Certifikát o absolvování
+                Certifikát o absolvovaní
               </h3>
               <div className="w-32 h-1 mx-auto rounded-full" style={{ backgroundColor: '#AE54FF' }} />
             </div>
 
             {/* Content */}
             <div className="text-center space-y-6">
-              <p className="text-lg text-gray-700">Tento certifikát potvrzuje, že</p>
+              <p className="text-lg text-gray-700">Tento certifikát potvrdzuje, že</p>
 
               <div
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-xl"
@@ -171,7 +171,7 @@ export function CertificateModal({
                 <span className="text-2xl font-bold text-gray-900">{userName}</span>
               </div>
 
-              <p className="text-lg text-gray-700">úspěšně absolvoval(a) test</p>
+              <p className="text-lg text-gray-700">úspešne absolvoval(a) test</p>
 
               <div className="py-4">
                 <h4 className="text-3xl font-bold text-gray-900">HR Recruit Certification</h4>
@@ -186,7 +186,7 @@ export function CertificateModal({
               >
                 <CheckCircle className="w-6 h-6" style={{ color: percentage >= 80 ? '#10B981' : '#EF4444' }} />
                 <div className="text-left">
-                  <div className="text-sm text-gray-600">Výsledek</div>
+                  <div className="text-sm text-gray-600">Výsledok</div>
                   <div className="text-2xl font-bold text-gray-900">
                     {correctAnswers} / {totalQuestions} ({percentage}%)
                   </div>
@@ -197,7 +197,7 @@ export function CertificateModal({
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg" style={{ backgroundColor: 'white' }}>
                   <Calendar className="w-4 h-4 text-gray-600" />
                   <span className="text-sm text-gray-600">
-                    Datum dokončení: <strong>{getCurrentDate()}</strong>
+                    Dátum dokončenia: <strong>{getCurrentDate()}</strong>
                   </span>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export function CertificateModal({
             {/* Footer Text */}
             <div className="mt-8 pt-6 border-t border-purple-300 text-center">
               <p className="text-sm text-gray-600">
-                Tento certifikát je dokladem o úspěšném dokončení testu HR Recruit Certification
+                Tento certifikát je dokladom o úspešnom dokončení testu HR Recruit Certification
               </p>
             </div>
           </div>
@@ -219,8 +219,8 @@ export function CertificateModal({
           <div className="border-t border-gray-100 pt-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-3">Odkazy na materiály</h3>
             <p className="text-gray-600 mb-6">
-              Chceš si projít argumenty detailněji nebo mít podklady po ruce při obchodních jednáních?
-              Níže najdeš všechny důležité materiály na jednom místě.
+              Chceš si prejsť argumenty detailnejšie alebo mať podklady po ruke pri obchodných rokovaniach?
+              Nižšie nájdeš všetky dôležité materiály na jednom mieste.
             </p>
             <div className="grid gap-3 mb-8">
               {MATERIAL_LINKS.map((link) => (
@@ -244,7 +244,7 @@ export function CertificateModal({
               ))}
             </div>
 
-            <p className="text-gray-600 mb-4">Chceš lépe pochopit, jak fungují reklamy na sociálních sítích?</p>
+            <p className="text-gray-600 mb-4">Chceš lepšie pochopiť, ako fungujú reklamy na sociálnych sieťach?</p>
             <a
               href="https://nelisa-obchodni-pomocnik.netlify.app/"
               target="_blank"
@@ -253,7 +253,7 @@ export function CertificateModal({
               style={{ backgroundColor: '#5B3AE8' }}
             >
               <span>📱</span>
-              Jak fungují reklamy na soc. sítích
+              Ako fungujú reklamy na soc. sieťach
             </a>
           </div>
         </div>
@@ -265,7 +265,7 @@ export function CertificateModal({
             onClick={onClose}
             className="text-gray-500 hover:text-gray-900 font-medium"
           >
-            Zavřít
+            Zavrieť
           </Button>
           <Button
             onClick={handleDownloadPDF}
@@ -275,7 +275,7 @@ export function CertificateModal({
             onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#AE54FF'; }}
           >
             <Download className="w-4 h-4" />
-            Stáhnout jako PDF
+            Stiahnuť ako PDF
           </Button>
         </div>
       </motion.div>

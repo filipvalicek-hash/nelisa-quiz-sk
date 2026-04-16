@@ -16,36 +16,36 @@ export function Screen20({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
     {
       id: 'A',
       label: 'A',
-      text: '„Ano, nastavíme přesně věk i pohlaví."',
+      text: '„Áno, nastavíme presne vek aj pohlavie."',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: '„Ne, v HR kampaních to nejde, takže Meta nemá smysl."',
+      text: '„Nie, v HR kampaniach to nejde, takže Meta nemá zmysel."',
       isCorrect: false
     },
     {
       id: 'C',
       label: 'C',
-      text: '„V HR kampaních jsou omezení, nelze cílit věk/pohlaví; pracujeme s jinými signály a lokalitou a optimalizací, aby se reklama dostala k relevantním lidem."',
+      text: '„V HR kampaniach sú obmedzenia, nemožno cieliť vek/pohlavie; pracujeme s inými signálmi a lokalitou a optimalizáciou, aby sa reklama dostala k relevantným ľuďom."',
       isCorrect: true
     },
     {
       id: 'D',
       label: 'D',
-      text: '„To záleží, někdy to jde."',
+      text: '„To záleží, niekedy to ide."',
       isCorrect: false
     }
   ];
 
   const questionText = (
     <>
-      Vyber odpověď, která je <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správná a obchodně použitelná</span>.
+      Vyber odpoveď, ktorá je <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>správna a obchodne použiteľná</span>.
     </>
   ); 
 
-  const explanationText = 'Platformy mají pravidla a omezení, která se v HR dotýkají cílení i formátů. Klient si to může vyložit jako „nejde to", proto je důležité vysvětlit, že se jen volí jiné způsoby cílení a práce s publikem. Správná reakce je taková, která nastaví realistické možnosti a nezpůsobí přehnané sliby.';
+  const explanationText = 'Platformy majú pravidlá a obmedzenia, ktoré sa v HR dotýkajú cielenia aj formátov. Klient si to môže vyložiť ako „nejde to", preto je dôležité vysvetliť, že sa len volia iné spôsoby cielenia a práce s publikom. Správna reakcia je taká, ktorá nastaví realistické možnosti a nespôsobí prehnané sľuby.';
 
   return (
     <CardSelectionChallenge
@@ -53,7 +53,7 @@ export function Screen20({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
       questionText={questionText}
       options={options}
       explanationText={explanationText}
-      questionTypeTag="VÝBĚR JEDNÉ ODPOVĚDI"
+      questionTypeTag="VÝBER JEDNEJ ODPOVEDE"
       singleColumn={true}
       onNext={onNext}
       onBack={onBack}

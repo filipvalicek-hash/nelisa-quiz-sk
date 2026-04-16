@@ -82,7 +82,7 @@ export function StoryWithQuestion({
               boxShadow: '0 1px 3px rgba(0, 0, 0, 0.06)'
             }}
           >
-            {/* PŘÍBĚH Tag - Unified style */}
+            {/* PRÍBEH Tag - Unified style */}
             <div 
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 border"
               style={{ 
@@ -93,7 +93,7 @@ export function StoryWithQuestion({
             >
               <MessageCircle className="w-4 h-4" style={{ color: '#6B21A8' }} strokeWidth={2} />
               <span className="text-sm font-bold uppercase tracking-wide" style={{ color: '#6B21A8' }}>
-                PŘÍBĚH
+                PRÍBEH
               </span>
             </div>
 
@@ -121,7 +121,7 @@ export function StoryWithQuestion({
               <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-xl border-2 border-blue-300 mb-6">
                 <ListChecks className="w-4 h-4 text-blue-700" />
                 <span className="text-xs font-bold text-blue-800 tracking-wider">
-                  VÝBĚR ODPOVĚDI
+                  VÝBER ODPOVEDE
                 </span>
               </div>
 
@@ -224,7 +224,7 @@ export function StoryWithQuestion({
                       <p className={`font-semibold mb-1 ${
                         feedback === 'correct' ? 'text-green-900' : 'text-orange-900'
                       }`}>
-                        {feedback === 'correct' ? 'Správně!' : 'Zkus to znovu'}
+                        {feedback === 'correct' ? 'Správne!' : 'Skús to znovu'}
                       </p>
                       <p className={`text-sm ${
                         feedback === 'correct' ? 'text-green-800' : 'text-orange-800'
@@ -251,7 +251,7 @@ export function StoryWithQuestion({
                     }
                   `}
                 >
-                  Zkontrolovat
+                  Skontrolovať
                   <Check className="w-5 h-5 ml-2" />
                 </Button>
               )}
@@ -261,13 +261,13 @@ export function StoryWithQuestion({
                     onClick={handleTryAgain}
                     className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-6 rounded-xl"
                   >
-                    Zkusit znovu
+                    Skúsiť znovu
                   </Button>
                   <Button
                     onClick={onNext}
                     className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-6 rounded-xl"
                   >
-                    Pokračovat
+                    Pokračovať
                   </Button>
                 </>
               )}

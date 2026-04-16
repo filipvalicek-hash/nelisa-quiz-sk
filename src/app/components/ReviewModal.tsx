@@ -34,15 +34,15 @@ const getQuestionData = (questionNum: number) => {
   const mockQuestions = [
     {
       id: 1,
-      question: "Která z následujících situací je nejlepší pro nasazení Nelisy?",
+      question: "Ktorá z nasledujúcich situácií je najlepšia pre nasadenie Nelisy?",
       options: [
-        { id: 'A', text: 'Firma má přebytek reakcí, HR nestíhá selekci.', isCorrect: false },
-        { id: 'B', text: 'Firma nabírá těžko obsaditelné pozice, reakce z portálů jsou slabé.', isCorrect: true },
-        { id: 'C', text: 'Firma nenabírá, jen mapuje trh.', isCorrect: false },
-        { id: 'D', text: 'Firma hledá brigádníky na krátké směny.', isCorrect: false }
+        { id: 'A', text: 'Firma má prebytok reakcií, HR nestíha selekciu.', isCorrect: false },
+        { id: 'B', text: 'Firma nabíra ťažko obsaditeľné pozície, reakcie z portálov sú slabé.', isCorrect: true },
+        { id: 'C', text: 'Firma nenabíra, len mapuje trh.', isCorrect: false },
+        { id: 'D', text: 'Firma hľadá brigádnikov na krátke zmeny.', isCorrect: false }
       ],
       userAnswer: 'B',
-      explanation: "Nelisa funguje nejlépe tam, kde je třeba aktivně oslovovat kandidáty na těžko obsaditelné pozice a klasické portály nedodávají dostatek kvalitních reakcí."
+      explanation: "Nelisa funguje najlepšie tam, kde je potrebné aktívne oslovovať kandidátov na ťažko obsaditeľné pozície a klasické portály nedodávajú dostatok kvalitných reakcií."
     },
     // Add more questions here...
   ];
@@ -111,10 +111,10 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
             >
               <div>
                 <h2 className="text-2xl font-bold mb-1" style={{ color: '#192550' }}>
-                  Přehled odpovědí
+                  Prehľad odpovedí
                 </h2>
                 <p className="text-sm" style={{ color: '#64748B' }}>
-                  Celkem {totalQuestions} úkolů
+                  Celkom {totalQuestions} úloh
                 </p>
               </div>
               <Button
@@ -167,7 +167,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                         {q.questionNumber}
                       </div>
                       <span className="font-semibold text-sm" style={{ color: '#192550' }}>
-                        ÚKOL {q.questionNumber}
+                        ÚLOHA {q.questionNumber}
                       </span>
                     </div>
                     
@@ -184,12 +184,12 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                       {userSelectedCorrect ? (
                         <>
                           <Check className="w-4 h-4" />
-                          <span>Správně</span>
+                          <span>Správne</span>
                         </>
                       ) : (
                         <>
                           <XIcon className="w-4 h-4" />
-                          <span>Špatně</span>
+                          <span>Nesprávne</span>
                         </>
                       )}
                     </div>
@@ -281,7 +281,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                                       }}
                                     >
                                       <Check className="w-3 h-3" />
-                                      Vaše odpověď (správná)
+                                      Vaša odpoveď (správna)
                                     </div>
                                   )}
                                   {showAsWrong && (
@@ -293,7 +293,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                                       }}
                                     >
                                       <XIcon className="w-3 h-3" />
-                                      Vaše odpověď
+                                      Vaša odpoveď
                                     </div>
                                   )}
                                   {showAsRightAnswer && (
@@ -305,7 +305,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                                       }}
                                     >
                                       <Check className="w-3 h-3" />
-                                      Správná odpověď
+                                      Správna odpoveď
                                     </div>
                                   )}
                                 </div>
@@ -320,7 +320,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                           <div className="flex items-start gap-3">
                             <div className="flex-1">
                               <p className="text-sm font-semibold mb-2" style={{ color: '#475569' }}>
-                                Vaše odpověď:
+                                Vaša odpoveď:
                               </p>
                               <p 
                                 className="text-sm leading-relaxed mb-3 px-3 py-2 rounded-lg"
@@ -335,7 +335,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                               {!userSelectedCorrect && (
                                 <>
                                   <p className="text-sm font-semibold mb-2 mt-4" style={{ color: '#475569' }}>
-                                    Správná odpověď:
+                                    Správna odpoveď:
                                   </p>
                                   <p 
                                     className="text-sm leading-relaxed px-3 py-2 rounded-lg"
@@ -374,7 +374,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                           className="font-semibold text-sm"
                           style={{ color: '#192550' }}
                         >
-                          {isExpanded ? 'Skrýt vysvětlení' : 'Zobrazit vysvětlení'}
+                          {isExpanded ? 'Skryť vysvetlenie' : 'Zobraziť vysvetlenie'}
                         </span>
                         <motion.div
                           animate={{ rotate: isExpanded ? 180 : 0 }}
@@ -453,7 +453,7 @@ export function ReviewModal({ questionNumber, totalQuestions, onClose, onNavigat
                   e.currentTarget.style.boxShadow = '0 4px 16px rgba(255, 117, 88, 0.3)';
                 }}
               >
-                Zavřít přehled
+                Zavrieť prehľad
               </Button>
             </div>
           </motion.div>

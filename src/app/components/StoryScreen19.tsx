@@ -10,10 +10,10 @@ interface StoryScreen19Props {
 export function StoryScreen19({ onContinue, onBack, onLogoClick }: StoryScreen19Props) {
   const storyContent = (
     <p>
-      Dostanete se k tomu, kde kampaně běží. Padne téma Meta.<br />
-      Klient se krátce podívá na obrazovku a řekne:<br />
-      „Dobře, chápu kanály. Ale když to běží na Metě… <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>kdo to vlastně vidí</span>? <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Jak se rozhoduje</span>, komu se ta nabídka ukáže?"<br /><br />
-      Chceš mu jednoduše vysvětlit fungování Meta kampaní.
+      Dostanete sa k tomu, kde kampane bežia. Padne téma Meta.<br />
+      Klient sa nakrátko pozrie na obrazovku a povie:<br />
+      „Dobre, chápem kanály. Ale keď to beží na Mete… <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>kto to vlastne vidí</span>? <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Ako sa rozhoduje</span>, komu sa tá ponuka ukáže?"<br /><br />
+      Chceš mu jednoducho vysvetliť fungovanie Meta kampaní.
     </p>
   );
 
@@ -29,7 +29,7 @@ export function StoryScreen19({ onContinue, onBack, onLogoClick }: StoryScreen19
   return (
     <StoryScreen
       questionNumber={19}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

@@ -11,7 +11,7 @@ interface ProgressSectionProps {
 }
 
 export function ProgressSection({ currentQuestion, totalQuestions = 20, screenType = 'task', onNavigate, answeredQuestions, correctQuestions }: ProgressSectionProps) {
-  const label = screenType === 'story' ? 'PŘÍBĚH' : 'ÚKOL';
+  const label = screenType === 'story' ? 'PRÍBEH' : 'ÚLOHA';
   
   // Calculate progress percentage for the background line
   const progressPercentage = ((currentQuestion - 1) / (totalQuestions - 1)) * 100;
@@ -90,7 +90,7 @@ export function ProgressSection({ currentQuestion, totalQuestions = 20, screenTy
                   className="relative flex items-center justify-center"
                   style={{ cursor: isClickable ? 'pointer' : 'default', opacity: isAlreadyCorrect ? 0.45 : 1 }}
                   onClick={() => isClickable && onNavigate?.(stepNumber)}
-                  title={isAlreadyCorrect ? `Otázka ${stepNumber} — správně zodpovězena` : isClickable ? `Přejít na otázku ${stepNumber}` : undefined}
+                  title={isAlreadyCorrect ? `Otázka ${stepNumber} — správne zodpovedaná` : isClickable ? `Prejsť na otázku ${stepNumber}` : undefined}
                 >
                   {/* Invisible larger hit area for easier clicking */}
                   {isClickable && (

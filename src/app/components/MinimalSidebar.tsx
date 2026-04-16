@@ -33,7 +33,7 @@ export function MinimalSidebar({
           className="text-gray-600 hover:text-gray-900 gap-2 -ml-2 font-medium"
         >
           <ArrowLeft className="w-4 h-4" />
-          Zpět
+          Spat
         </Button>
       </div>
 
@@ -68,13 +68,13 @@ export function MinimalSidebar({
         {/* Progress Info */}
         <div className="pt-8 border-t border-gray-200">
           <div className="text-xs font-bold text-gray-500 tracking-wider mb-4">
-            PRŮBĚH
+            PRIEBEH
           </div>
           
           {/* Horizontal Progress Bar */}
           <div className="space-y-3">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-700 font-semibold">Otázka {questionNumber}</span>
+              <span className="text-gray-700 font-semibold">Otazka {questionNumber}</span>
               <span className="text-gray-400 font-medium">/ 12</span>
             </div>
             <div className="h-2.5 bg-gray-200 rounded-full overflow-hidden">

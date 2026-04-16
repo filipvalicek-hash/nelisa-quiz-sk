@@ -16,7 +16,7 @@ interface StoryScreenProps {
 
 export function StoryScreen({
   questionNumber,
-  storyLabel = "PŘÍBĚH",
+  storyLabel = "PRÍBEH",
   storyContent,
   illustration,
   onContinue,
@@ -186,7 +186,7 @@ export function StoryScreen({
             >
               {/* Vertical Layout: Badge on top, Story Text below */}
               <div className="flex flex-col" style={{ gap: '24px', marginBottom: '32px' }}>
-                {/* Header Label - PŘÍBĚH Tag */}
+                {/* Header Label - PRÍBEH Tag */}
                 <div 
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border self-start"
                   style={{ 
@@ -212,7 +212,7 @@ export function StoryScreen({
               {/* Button Inside Card - Right aligned */}
               <div className="flex items-center justify-end">
                 <QuizButton onClick={onContinue}>
-                  Pokračovat
+                  Pokračovať
                 </QuizButton>
               </div>
             </div>

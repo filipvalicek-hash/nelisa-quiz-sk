@@ -26,7 +26,7 @@ export function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
       if (email.trim().toLowerCase() === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
         onLogin();
       } else {
-        setError('Nesprávné přihlašovací údaje.');
+        setError('Nesprávne prihlasovacie údaje.');
       }
       setLoading(false);
     }, 400);
@@ -54,7 +54,7 @@ export function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
               className="text-2xl font-bold text-gray-900 mb-1"
               style={{ fontFamily: 'Poppins, sans-serif' }}
             >
-              Admin přístup
+              Admin prístup
             </h1>
             <p className="text-sm text-gray-500">Nelisa Certification Dashboard</p>
           </div>
@@ -113,7 +113,7 @@ export function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
               className="w-full py-3 rounded-xl text-white font-semibold text-sm transition-opacity disabled:opacity-60"
               style={{ backgroundColor: '#AE54FF', fontFamily: 'Poppins, sans-serif' }}
             >
-              {loading ? 'Přihlašování…' : 'Přihlásit se'}
+              {loading ? 'Prihlasovanie…' : 'Prihlásiť sa'}
             </button>
           </form>
         </div>
@@ -124,7 +124,7 @@ export function AdminLogin({ onLogin, onBack }: AdminLoginProps) {
           className="mt-6 flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mx-auto transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          Zpět na certifikaci
+          Späť na certifikáciu
         </button>
       </motion.div>
     </div>

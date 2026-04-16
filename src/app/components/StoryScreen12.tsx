@@ -11,13 +11,13 @@ export function StoryScreen12({ onContinue, onBack, onLogoClick }: StoryScreen12
   const storyContent = (
     <>
       <p className="mb-4">
-        Klient si zapíše pár poznámek a pak se podívá zpátky na Tebe.
+        Klient si zapíše pár poznámok a potom sa pozrie späť na Teba.
       </p>
       <p className="mb-4">
-        „A kdo nám s tím pomůže <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>na začátku</span>?" ptá se. „Nechci, aby se organizační pokyny ztratily mezi e-maily."
+        „A kto nám s tým pomôže <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>na začiatku</span>?" pýta sa. „Nechcem, aby sa organizačné pokyny stratili medzi e-mailmi."
       </p>
       <p>
-        Neřeší technické detaily. Chce si ujasnit, jak ten start bude vypadat v reálu a kdo u toho bude sedět.
+        Nerieši technické detaily. Chce si ujasniť, ako ten štart bude vyzerať v realite a kto pri tom bude sedieť.
       </p>
     </>
   );
@@ -36,7 +36,7 @@ export function StoryScreen12({ onContinue, onBack, onLogoClick }: StoryScreen12
   return (
     <StoryScreen
       questionNumber={12}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

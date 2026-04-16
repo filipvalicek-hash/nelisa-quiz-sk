@@ -146,7 +146,7 @@ export function ChecklistChallenge({
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <ListChecks className="w-4 h-4" style={{ color: '#AE54FF' }} />
                   <span className="text-xs font-semibold tracking-wider" style={{ color: '#AE54FF' }}>
-                    VÍCE ODPOVĚDÍ
+                    VIAC ODPOVEDI
                   </span>
                 </div>
               </div>
@@ -268,7 +268,7 @@ export function ChecklistChallenge({
                     onClick={onBack}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Spat na pribeh
                   </Button>
                   {!isConfirmed && onSkip && (
                     <Button
@@ -276,7 +276,7 @@ export function ChecklistChallenge({
                       onClick={onSkip}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Přeskočit úkol
+                      Preskocit ulohu
                     </Button>
                   )}
                 </div>
@@ -304,7 +304,7 @@ export function ChecklistChallenge({
                     }}
                   >
                     <span className="flex items-center justify-center gap-2">
-                      {isConfirmed ? 'Pokračovat' : 'Zkontrolovat'}
+                      {isConfirmed ? 'Pokracovat' : 'Skontrolovat'}
                       <ChevronRight className="w-5 h-5 transition-transform duration-150 ease-out group-hover:translate-x-0.5" />
                     </span>
                   </Button>

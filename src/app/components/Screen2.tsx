@@ -33,31 +33,31 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
     {
       id: 'A',
       label: 'A',
-      text: 'Výrobní firma, 180 zaměstnanců. Jedna HR generalistka řeší nábor, onboarding i administrativu. Ví, že by měla pracovat s pasivními kandidáty, ale nemá na to čas ani know-how.',
+      text: 'Výrobná firma, 180 zamestnancov. Jedna HR generalistka rieši nábor, onboarding aj administratívu. Vie, že by mala pracovať s pasívnymi kandidátmi, ale nemá na to čas ani know-how.',
       correctPriorities: ['HIGH']
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Startup o 15 lidech. Hledá jednoho seniorního specialistu ročně. Portály nefungují, potřebují oslovit pasivní kandidáty.',
+      text: 'Startup s 15 ľuďmi. Hľadá jedného seniorného špecialistu ročne. Portály nefungujú, potrebujú osloviť pasívnych kandidátov.',
       correctPriorities: ['HIGH', 'MID']
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Velká firma s HR týmem, spolupracuje s personálními agenturami, má vlastní interní kampaně a chce „zkusit něco navíc".',
+      text: 'Veľká firma s HR tímom, spolupracuje s personálnymi agentúrami, má vlastné interné kampane a chce „skúsiť niečo navyše".',
       correctPriorities: ['MID', 'HIGH']
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Firma aktuálně nenabírá, ale chce si dlouhodobě budovat databázi kandidátů a employer brand.',
+      text: 'Firma aktuálne nenabíra, ale chce si dlhodobo budovať databázu kandidátov a employer brand.',
       correctPriorities: ['MID', 'HIGH']
     },
     {
       id: 'E',
       label: 'E',
-      text: 'Firma obsazuje jednu juniorní pozici ročně, portály jí fungují a nechce měnit zavedený postup.',
+      text: 'Firma obsadzuje jednu juniorskú pozíciu ročne, portály jej fungujú a nechce meniť zavedený postup.',
       correctPriorities: ['LOW']
     }
   ];
@@ -161,7 +161,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                 <TrendingUp className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                 <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                  ÚKOL · PŘIŘAZOVÁNÍ
+                  ÚLOHA · PRIRAĎOVANIE
                 </span>
               </div>
             </div>
@@ -169,7 +169,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
             {/* Progress Label */}
             <div className="mb-3">
               <span className="text-sm font-semibold text-gray-600">
-                {assignedCount}/5 tvrzení
+                {assignedCount}/5 tvrdení
               </span>
             </div>
 
@@ -183,7 +183,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
                 letterSpacing: 0
               }}
             >
-              Přiřaď ke každé situaci úroveň <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>obchodní příležitosti pro prodej Nelisy</span>: HIGH / MID / LOW
+              Priraď ku každej situácii úroveň <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>obchodnej príležitosti pre predaj Nelisy</span>: HIGH / MID / LOW
             </h3>
 
             {/* Priority Legend */}
@@ -326,7 +326,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
                         animate={{ opacity: 1, height: 'auto' }}
                         className="mt-3 pl-11 text-sm text-green-700 font-medium"
                       >
-                        Správná odpověď: {card.correctPriorities.join(' nebo ')}
+                        Správna odpoveď: {card.correctPriorities.join(' alebo ')}
                       </motion.div>
                     )}
                   </motion.div>
@@ -339,7 +339,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
               {isConfirmed && (
                 <ExplanationBlock>
                   <p>
-                    Nejde o velikost firmy, ale o situaci HR. Největší přínos má Nelisa tam, kde HR nestíhá, je na vše sama a potřebuje kompletní řešení bez další práce navíc.
+                    Nejde o veľkosť firmy, ale o situáciu HR. Najväčší prínos má Nelisa tam, kde HR nestíha, je na všetko sama a potrebuje kompletné riešenie bez ďalšej práce navyše.
                   </p>
                 </ExplanationBlock>
               )}
@@ -354,7 +354,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
                     onClick={onBack}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Späť na príbeh
                   </Button>
                 )}
                 {!isConfirmed && onSkip && (
@@ -363,7 +363,7 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
                     onClick={onSkip}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Přeskočit úkol
+                    Preskočiť úlohu
                   </Button>
                 )}
               </div>
@@ -374,14 +374,14 @@ export function Screen2({ onBack, onNext, onSkip, onLogoClick, onAnswerSubmit, i
                     onClick={handleConfirm}
                     disabled={!allAssigned}
                   >
-                    Zkontrolovat
+                    Skontrolovať
                   </QuizButton>
                 )}
                 {isConfirmed && (
                   <QuizButton
                     onClick={onNext}
                   >
-                    Pokračovat
+                    Pokračovať
                   </QuizButton>
                 )}
               </div>

@@ -11,10 +11,10 @@ export function StoryScreen25({ onContinue, onBack, onLogoClick }: StoryScreen25
   const storyContent = (
     <>
       <p>
-        Kampaň běží už pár dní. První kandidáti se ozývají, čísla se postupně skládají a klient je v klidu. Vypadá to, že všechno šlape tak, jak jste si na začátku nastavili.
+        Kampaň beží už pár dní. Prví kandidáti sa ozývajú, čísla sa postupne skladajú a klient je v pokoji. Vyzerá to, že všetko šliape tak, ako ste si na začiatku nastavili.
       </p>
       <p>
-        Než se rozloučíme úplně, pojďme si ještě jednou projít nejčastější námitky, které v podobných schůzkách zaznívají – a ověřit, že na ně dokážeš reagovat klidně, věcně a s jistotou.
+        Než sa rozlúčime úplne, poďme si ešte raz prejsť najčastejšie námietky, ktoré na podobných stretnutiach zaznievajú – a overiť, že na ne dokážeš reagovať pokojne, vecne a s istotou.
       </p>
     </>
   );
@@ -31,7 +31,7 @@ export function StoryScreen25({ onContinue, onBack, onLogoClick }: StoryScreen25
   return (
     <StoryScreen
       questionNumber={25}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

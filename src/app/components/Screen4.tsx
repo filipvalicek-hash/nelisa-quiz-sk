@@ -32,25 +32,25 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
     {
       id: 'A',
       label: 'A',
-      text: 'Portály dnes už moc nefungují, proto je lepší jet kampaně.',
+      text: 'Portály dnes už veľmi nefungujú, preto je lepšie ísť do kampaní.',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Inzerát funguje hlavně na lidi, kteří práci aktivně hledají. Kampaně k tomu přidávají zásah i na kandidáty, kteří teď nehledají, ale mohou být otevření změně.',
+      text: 'Inzerát funguje hlavne na ľudí, ktorí prácu aktívne hľadajú. Kampane k tomu pridávajú zásah aj na kandidátov, ktorí teraz nehľadajú, ale môžu byť otvorení zmene.',
       isCorrect: true
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Kampaně jsou vždy levnější než portály.',
+      text: 'Kampane sú vždy lacnejšie ako portály.',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Tohle je špatný inzerát, musíte ho přepsat.',
+      text: 'Toto je zlý inzerát, musíte ho prepísať.',
       isCorrect: false
     }
   ];
@@ -106,7 +106,7 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <CheckCircle className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    VÝBĚR ODPOVĚDI
+                    VÝBER ODPOVEDE
                   </span>
                 </div>
               </div>
@@ -122,7 +122,7 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                   marginBottom: '28px'
                 }}
               >
-                Vyber nejlepší reakci, která <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>respektuje portály</span> a zároveň <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>vysvětlí přidanou hodnotu kampaní</span>.
+                Vyber najlepšiu reakciu, ktorá <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>rešpektuje portály</span> a zároveň <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>vysvetlí pridanú hodnotu kampaní</span>.
               </h3>
 
               {/* Options Grid - Two Column Layout */}
@@ -215,13 +215,13 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                 {isConfirmed && (
                   <ExplanationBlock>
                     <p>
-                      Klient často porovnává cenu kampaně s inzercí, protože obě věci „vypadají jako nábor". Rozdíl je v mechanismu i rozsahu: u inzerátu typicky platíš za 1 místo na job boardu a čekáš, kdo přijde.
+                      Klient často porovnáva cenu kampane s inzerciou, pretože obe veci „vyzerajú ako nábor". Rozdiel je v mechanizme aj rozsahu: pri inzeráte typicky platíš za 1 miesto na job boarde a čakáš, kto príde.
                     </p>
                     <p>
-                      Kampaň je naopak aktivní distribuce napříč minimálně 16 kanály a průběžné řízení doručování na výkon.
+                      Kampaň je naopak aktívna distribúcia naprieč minimálne 16 kanálmi a priebežné riadenie doručovania na výkon.
                     </p>
                     <p>
-                      Proto to nejde srovnávat 1:1 – klient nekupuje jen „prostor" nebo nástroj na CVčka, ale řízenou HR marketingovou kampaň (se sekundárním efektem na employer branding) včetně optimalizace.
+                      Preto to nejde porovnávať 1:1 – klient nekupuje len „priestor" alebo nástroj na CVčka, ale riadenú HR marketingovú kampaň (so sekundárnym efektom na employer branding) vrátane optimalizácie.
                     </p>
                   </ExplanationBlock>
                 )}
@@ -236,7 +236,7 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                       onClick={onBackToStory}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Zpět na příběh
+                      Späť na príbeh
                     </Button>
                   )}
                   {!isConfirmed && (
@@ -245,7 +245,7 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                       onClick={onSkipTask}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Přeskočit úkol
+                      Preskočiť úlohu
                     </Button>
                   )}
                 </div>
@@ -256,14 +256,14 @@ export function Screen4({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                       onClick={handleCheck}
                       disabled={!selectedOption}
                     >
-                      Zkontrolovat
+                      Skontrolovať
                     </QuizButton>
                   )}
                   {isConfirmed && (
                     <QuizButton
                       onClick={onNext}
                     >
-                      Pokračovat
+                      Pokračovať
                     </QuizButton>
                   )}
                 </div>

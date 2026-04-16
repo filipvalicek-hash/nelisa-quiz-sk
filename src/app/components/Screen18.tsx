@@ -33,22 +33,22 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
   const options: Option[] = [
     {
       id: '1',
-      text: '„Nadstandard navrhujeme jen, když má jasný cíl; není to \'zkusíme\', ale řízené rozšíření zásahu k publiku, které základ nemusí pokrýt."',
+      text: '„Nadštandard navrhujeme len vtedy, keď má jasný cieľ; nie je to \'skúsime\', ale riadené rozšírenie zásahu k publiku, ktoré základ nemusí pokryť."',
       isCorrect: true
     },
     {
       id: '2',
-      text: '„Nebojte, tohle funguje každému."',
+      text: '„Nebojte, toto funguje každému."',
       isCorrect: false
     },
     {
       id: '3',
-      text: '„Když to nevyjde, zkusíme něco jiného."',
+      text: '„Keď to nevyjde, skúsime niečo iné."',
       isCorrect: false
     },
     {
       id: '4',
-      text: '„Nejde o to dělat víc věcí, ale udělat přesně to, co odpovídá cíli pozice."',
+      text: '„Nejde o to robiť viac vecí, ale urobiť presne to, čo zodpovedá cieľu pozície."',
       isCorrect: true
     }
   ];
@@ -101,7 +101,7 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                 <div className="inline-flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-xl border-2 border-purple-300 mb-6">
                   <CheckSquare className="w-4 h-4 text-purple-700" />
                   <span className="text-xs font-bold tracking-wider text-purple-700">
-                    MULTI-VÝBĚR
+                    MULTI-VÝBER
                   </span>
                 </div>
                 <h3 
@@ -113,15 +113,15 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                     letterSpacing: 0
                   }}
                 >
-                  Stručně klientovi vysvětli, jak se u Nelisy s <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>nadstandardem pracuje</span>, aby bylo jasné:
+                  Stručne klientovi vysvetli, ako sa u Nelisy s <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>nadštandardom pracuje</span>, aby bolo jasné:
                 </h3>
                 <ul className="text-lg text-gray-700 mb-4 ml-6 space-y-1">
-                  <li>• proč se volí,</li>
-                  <li>• co má přinést,</li>
-                  <li>• jak se pozná, zda splnil svůj účel.</li>
+                  <li>• prečo sa volí,</li>
+                  <li>• čo má priniesť,</li>
+                  <li>• ako sa pozná, či splnil svoj účel.</li>
                 </ul>
                 <p className="text-lg text-gray-600">
-                  Vyber odpovědi, které by v takovém vysvětlení měly zaznít.
+                  Vyber odpovede, ktoré by v takom vysvetlení mali zaznieť.
                 </p>
               </div>
 
@@ -211,7 +211,7 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                 {isConfirmed && (
                   <ExplanationBlock>
                     <p>
-                      Klient se bojí, že platí za pokus. Proto musí být nadstandard vysvětlený jako řízená volba s logikou, co tím získáme a jak poznáme úspěch. Když obchodník neumí říct proč, zní to jako drahá hračka. Když umí popsat přínos a měřítko, klient vnímá nadstandard jako chytrou investici.
+                      Klient sa bojí, že platí za pokus. Preto musí byť nadštandard vysvetlený ako riadená voľba s logikou, čo tým získame a ako poznáme úspech. Keď obchodník nevie povedať prečo, znie to ako drahá hračka. Keď vie popísať prínos a meradlo, klient vníma nadštandard ako chytrú investíciu.
                     </p>
                   </ExplanationBlock>
                 )}
@@ -226,7 +226,7 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       onClick={onBack}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Zpět na příběh
+                      Späť na príbeh
                     </Button>
                   )}
                 </div>
@@ -252,13 +252,13 @@ export function Screen18({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       }}
                       className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] shadow-lg hover:shadow-xl transition-all"
                     >
-                      Zkontrolovat
+                      Skontrolovať
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   )}
                   {isConfirmed && (
                     <QuizButton onClick={onNext}>
-                      Pokračovat
+                      Pokračovať
                     </QuizButton>
                   )}
                 </div>

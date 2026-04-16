@@ -11,7 +11,7 @@ interface StoryScreen16Props {
 export function StoryScreen16({ onContinue, onBack, onLogoClick }: StoryScreen16Props) {
   const storyContent = (
     <p>
-      Základní koncept sedl. Klient už nepolemizuje, spíš se ptá: „A dá se to udělat i výrazněji? Máme jednu roli, která je pro nás kritická." Teď se láme chleba: když <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nadstandard</span> vytáhneš moc brzy, působíš jako <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>upsell</span>. Když pozdě, propásneš šanci.
+      Základný koncept sedel. Klient už nepolemizuje, skôr sa pýta: „A dá sa to urobiť aj výraznejšie? Máme jednu rolu, ktorá je pre nás kritická." Teraz sa láme chlieb: keď <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nadštandard</span> vytiahneš príliš skoro, pôsobíš ako <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>upsell</span>. Keď neskoro, prepásneš šancu.
     </p>
   );
 
@@ -30,7 +30,7 @@ export function StoryScreen16({ onContinue, onBack, onLogoClick }: StoryScreen16
   return (
     <StoryScreen
       questionNumber={16}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

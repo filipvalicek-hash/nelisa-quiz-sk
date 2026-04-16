@@ -13,10 +13,10 @@ export function StoryScreen5({ onContinue, onBack, onLogoClick }: StoryScreen5Pr
   const storyContent = (
     <>
       <p>
-        Klient se opře: ‚<span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Pasivní kandidáti</span>… to zní hezky, ale já potřebuju nabrat teď. Ne čekat půl roku.'
+        Klient sa oprie: ‚<span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Pasívni kandidáti</span>… to znie pekne, ale ja potrebujem nabrať teraz. Nie čakať pol roka.'
       </p>
       <p>
-        Teď dává smysl vytáhnout <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>jednoduché číslo</span>, které rychle vysvětlí, proč se firmy často točí dokola kolem stejných lidí – a proč samotné portály přestávají stačit.
+        Teraz dáva zmysel vytiahnuť <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>jednoduché číslo</span>, ktoré rýchlo vysvetlí, prečo sa firmy často točia dokola okolo tých istých ľudí – a prečo samotné portály prestávajú stačiť.
       </p>
     </>
   );
@@ -145,7 +145,7 @@ export function StoryScreen5({ onContinue, onBack, onLogoClick }: StoryScreen5Pr
   return (
     <StoryScreen
       questionNumber={5}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

@@ -77,7 +77,7 @@ function DraggableWord({ word, isUsed, disabled }: DraggableWordProps) {
   );
 }
 
-// Komponenta pro drag overlay - tag který se pohybuje s kurzorem
+// Komponenta pre drag overlay - tag ktory sa pohybuje s kurzorom
 function DragOverlayContent({ text }: { text: string }) {
   return (
     <motion.div
@@ -114,11 +114,11 @@ function DropSlot({ blankId, filledWord, correctWord, onRemove, isOver, showResu
     id: blankId,
   });
 
-  // Zjistit, jestli je odpověď správná
+  // Zistit, ci je odpoved spravna
   const isCorrect = filledWord === correctWord;
   
-  // Po zobrazení výsledku - pokud je odpověď špatná, zobrazit jak špatnou, tak správnou
-  // Pokud je správná nebo prázdná, zobrazit správnou
+  // Po zobrazeni vysledku - ak je odpoved nespravna, zobrazit nespravnu aj spravnu
+  // Ak je spravna alebo prazdna, zobrazit spravnu
   const shouldShowIncorrect = showResult && filledWord && !isCorrect;
 
   return (
@@ -169,7 +169,7 @@ function DropSlot({ blankId, filledWord, correctWord, onRemove, isOver, showResu
             transform: isOver ? 'scale(1.05)' : 'scale(1)',
           }}
         >
-          {isOver ? '↓ Pusť zde' : '______'}
+          {isOver ? '↓ Pusti sem' : '______'}
         </span>
       )}
     </span>
@@ -235,7 +235,7 @@ export function FillInBlankChallenge({
   };
 
   const handleRemove = (blankId: string) => {
-    if (showFeedback) return; // Po zobrazení feedbacku nelze upravovat
+    if (showFeedback) return; // Po zobrazeni feedbacku nemozno upravovat
     
     setFilledBlanks((prev) => {
       const newFilled = { ...prev };
@@ -267,7 +267,7 @@ export function FillInBlankChallenge({
   };
 
   const handleContinue = () => {
-    // Zkontrolovat, jestli jsou vyplněné všechny sloty
+    // Skontrolovat, ci su vyplnene vsetky sloty
     const allFilled = blanks.every(blank => filledBlanks[blank.id]);
     
     if (!allFilled) return;
@@ -283,7 +283,7 @@ export function FillInBlankChallenge({
 
   const activeWord = wordOptions.find(w => w.id === activeId);
 
-  // Zjistit, jestli jsou vyplněné všechny sloty
+  // Zistit, ci su vyplnene vsetky sloty
   const allFilled = blanks.every(blank => filledBlanks[blank.id]);
 
   return (
@@ -311,7 +311,7 @@ export function FillInBlankChallenge({
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <PenLine className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    DOPLŇ SLOVA
+                    DOPLN SLOVA
                   </span>
                 </div>
               </div>
@@ -320,12 +320,12 @@ export function FillInBlankChallenge({
                 {questionText}
               </h3>
 
-              {/* Instrukce pro uživatele */}
+              {/* Instrukcie pre pouzivatela */}
               {!showFeedback && (
                 <div className="mb-5 flex items-center gap-2 text-gray-600">
                   <GripVertical className="w-4 h-4" style={{ color: '#ff7400' }} />
                   <p className="text-sm font-medium">
-                    Přetáhni slova myší na správné místo.
+                    Pretiahni slova mysou na spravne miesto.
                   </p>
                 </div>
               )}
@@ -381,7 +381,7 @@ export function FillInBlankChallenge({
                     onClick={onBack}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Spat na pribeh
                   </Button>
                   {!showFeedback && onSkip && (
                     <Button
@@ -389,7 +389,7 @@ export function FillInBlankChallenge({
                       onClick={onSkip}
                       className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                     >
-                      Přeskočit otázku
+                      Preskocit otazku
                     </Button>
                   )}
                 </div>
@@ -416,7 +416,7 @@ export function FillInBlankChallenge({
                       }
                     }}
                   >
-                    {showFeedback ? 'Přejít na další úkol' : 'Pokračovat'}
+                    {showFeedback ? 'Prejst na dalsiu ulohu' : 'Pokracovat'}
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 </div>
@@ -425,7 +425,7 @@ export function FillInBlankChallenge({
           </motion.div>
         </div>
 
-        {/* DragOverlay - zobrazuje tag, který se pohybuje s kurzorem */}
+        {/* DragOverlay - zobrazuje tag, ktory sa pohybuje s kurzorom */}
         <DragOverlay dropAnimation={null}>
           {activeId && activeWord ? (
             <DragOverlayContent text={activeWord.text} />

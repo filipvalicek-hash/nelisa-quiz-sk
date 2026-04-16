@@ -12,13 +12,13 @@ export function StoryScreen4({ onContinue, onBack, onLogoClick }: StoryScreen4Pr
   const storyContent = (
     <>
       <p>
-        Chvíli mluvíte o jejich náboru, o tom, jaké role řeší teď a které se jim <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>dlouhodobě nedaří obsadit</span>. Klient Tě chvíli poslouchá, pak se otočí k notebooku, párkrát klikne a ukáže Ti otevřený inzerát.
+        Chvíľu sa rozprávate o ich nábore, o tom, aké roly riešia teraz a ktoré sa im <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>dlhodobo nedarí obsadiť</span>. Klient Ťa chvíľu počúva, potom sa otočí k notebooku, párkrát klikne a ukáže Ti otvorený inzerát.
       </p>
       <p>
-        „My už inzerujeme," říká. „Tohle je naše aktuální nabídka, takhle to děláme už roky. Takže… <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>v čem je rozdíl</span>?"
+        „My už inzerujeme," hovorí. „Toto je naša aktuálna ponuka, takto to robíme už roky. Takže… <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>v čom je rozdiel</span>?"
       </p>
       <p>
-        Je důležité se teď nezaseknout u nástrojů – ale elegantně přesměrovat debatu k tomu, koho tenhle inzerát vůbec nezasáhne.
+        Je dôležité sa teraz nezaseknúť pri nástrojoch – ale elegantne presmerovať debatu k tomu, koho tento inzerát vôbec nezasiahne.
       </p>
     </>
   );
@@ -38,7 +38,7 @@ export function StoryScreen4({ onContinue, onBack, onLogoClick }: StoryScreen4Pr
   return (
     <StoryScreen
       questionNumber={4}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

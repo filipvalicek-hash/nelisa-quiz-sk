@@ -11,14 +11,14 @@ interface StoryScreen14Props {
 export function StoryScreen14({ onContinue, onBack, onLogoClick }: StoryScreen14Props) {
   const storyContent = (
     <p>
-      Klient se po Tvých otázkách na chvíli zamyslí. „No… vlastně asi moc nevíme, jak by měl text mluvit na někoho, kdo práci nehledá," připustí. „Ale pořád nevím,{' '}
-      <span style={{ 
+      Klient sa po Tvojich otázkach na chvíľu zamyslí. „No… vlastne asi veľmi nevieme, ako by mal text hovoriť na niekoho, kto prácu nehľadá," pripustí. „Ale stále neviem,{' '}
+      <span style={{
         background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)',
         padding: '0 2px'
       }}>
-        co přesně tím copywritingem získáme
+        čo presne tým copywritingom získame
       </span>
-      ." Chceš mu vysvětlit, jaké konkrétní benefity mu služba copywritingu přinese.
+      ." Chceš mu vysvetliť, aké konkrétne benefity mu služba copywritingu prinesie.
     </p>
   );
 
@@ -37,7 +37,7 @@ export function StoryScreen14({ onContinue, onBack, onLogoClick }: StoryScreen14
   return (
     <StoryScreen
       questionNumber={14}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

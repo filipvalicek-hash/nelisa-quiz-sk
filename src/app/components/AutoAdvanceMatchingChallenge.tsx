@@ -107,11 +107,11 @@ export function AutoAdvanceMatchingChallenge({
 
           const color = PAIRING_COLORS[index % PAIRING_COLORS.length];
 
-          // Start point: střed pravého okraje levé karty
+          // Start point: stred praveho okraja lavej karty
           const x1 = leftRect.right - containerRect.left;
           const y1 = leftRect.top + leftRect.height / 2 - containerRect.top;
           
-          // End point: střed levého okraje pravé karty
+          // End point: stred laveho okraja pravej karty
           const x2 = rightRect.left - containerRect.left;
           const y2 = rightRect.top + rightRect.height / 2 - containerRect.top;
 
@@ -300,7 +300,7 @@ export function AutoAdvanceMatchingChallenge({
                   <div className="inline-flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-xl border-2 border-purple-300 mb-6">
                     <Link2 className="w-4 h-4 text-purple-700" />
                     <span className="text-xs font-bold tracking-wider text-purple-700">
-                      PŘIŘAZENÍ
+                      PRIRADENIE
                     </span>
                   </div>
                   <h3 
@@ -523,7 +523,7 @@ export function AutoAdvanceMatchingChallenge({
                       onClick={onBack}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Zpět na příběh
+                      Spat na pribeh
                     </Button>
                     {!isConfirmed && onSkip && (
                       <Button
@@ -531,7 +531,7 @@ export function AutoAdvanceMatchingChallenge({
                         onClick={onSkip}
                         className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                       >
-                        Přeskočit úkol
+                        Preskocit ulohu
                       </Button>
                     )}
                   </div>
@@ -553,7 +553,7 @@ export function AutoAdvanceMatchingChallenge({
                         }}
                         className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] shadow-lg hover:shadow-xl transition-all"
                       >
-                        Zkontrolovat
+                        Skontrolovat
                         <ChevronRight className="w-5 h-5 ml-2" />
                       </Button>
                     )}
@@ -572,7 +572,7 @@ export function AutoAdvanceMatchingChallenge({
                         }}
                         className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] shadow-lg hover:shadow-xl transition-all"
                       >
-                        Pokračovat
+                        Pokracovat
                         <ChevronRight className="w-5 h-5 ml-2" />
                       </Button>
                     )}

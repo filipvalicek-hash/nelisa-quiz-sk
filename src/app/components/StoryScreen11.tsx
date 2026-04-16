@@ -11,7 +11,7 @@ export function StoryScreen11({ onContinue, onBack, onLogoClick }: StoryScreen11
   const storyContent = (
     <>
       <p>
-        Schůzka se přehoupne z „dává to smysl" do „jak by to vypadalo v praxi". Klient si dělá poznámky a pak se zeptá: „Když do toho půjdeme, co od nás budete potřebovat, aby se to mohlo spustit?" Nečeká detailní plán. Chce vědět, co je <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nutné hned</span> a co se řeší až potom.
+        Stretnutie sa prehupne z „dáva to zmysel" do „ako by to vyzeralo v praxi". Klient si robí poznámky a potom sa opýta: „Keď do toho pôjdeme, čo od nás budete potrebovať, aby sa to mohlo spustiť?" Nečaká detailný plán. Chce vedieť, čo je <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nutné hneď</span> a čo sa rieši až potom.
       </p>
     </>
   );
@@ -30,7 +30,7 @@ export function StoryScreen11({ onContinue, onBack, onLogoClick }: StoryScreen11
   return (
     <StoryScreen
       questionNumber={11}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

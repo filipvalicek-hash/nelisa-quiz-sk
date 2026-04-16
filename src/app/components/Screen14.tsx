@@ -49,22 +49,22 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
   const rafRef = useRef<number | null>(null);
 
   const leftItems = [
-    { id: '1', text: '1. Pasivní kandidát se u nabídky zastaví, ale neví, proč by měl reagovat.' },
-    { id: '2', text: '2. Text zní jako interní HR popis, ne jako zpráva pro člověka „venku".' },
-    { id: '3', text: '3. Firma chce, aby nabídka působila srozumitelně a důvěryhodně i mimo portály.' }
+    { id: '1', text: '1. Pasívny kandidát sa pri ponuke zastaví, ale nevie, prečo by mal reagovať.' },
+    { id: '2', text: '2. Text znie ako interný HR popis, nie ako správa pre človeka „vonku".' },
+    { id: '3', text: '3. Firma chce, aby ponuka pôsobila zrozumiteľne a dôveryhodne aj mimo portálov.' }
   ];
 
   const rightItems = [
-    { id: 'A', text: 'A) Copywriting překládá HR jazyk do řeči cílové skupiny.' },
-    { id: 'B', text: 'B) Copywriting pomáhá vysvětlit smysl role a firmy dřív, než se řeší detaily.' },
-    { id: 'C', text: 'C) Copywriting zvyšuje důvěru a ochotu reagovat u lidí, kteří původně změnu práce neřešili.' }
+    { id: 'A', text: 'A) Copywriting prekladá HR jazyk do reči cieľovej skupiny.' },
+    { id: 'B', text: 'B) Copywriting pomáha vysvetliť zmysel role a firmy skôr, než sa riešia detaily.' },
+    { id: 'C', text: 'C) Copywriting zvyšuje dôveru a ochotu reagovať u ľudí, ktorí pôvodne zmenu práce neriešili.' }
   ];
 
-  // Correct mapping: 1→B nebo C, 2→A, 3→C nebo B
+  // Correct mapping: 1→B alebo C, 2→A, 3→C alebo B
   const correctPairs: Record<string, string[]> = {
-    '1': ['B', 'C'], // Copywriting pomáhá vysvětlit smysl role NEBO zvyšuje důvěru
-    '2': ['A'],      // Copywriting překládá HR jazyk
-    '3': ['C', 'B']  // Copywriting zvyšuje důvěru NEBO pomáhá vysvětlit smysl role
+    '1': ['B', 'C'], // Copywriting pomáha vysvetliť zmysel role ALEBO zvyšuje dôveru
+    '2': ['A'],      // Copywriting prekladá HR jazyk
+    '3': ['C', 'B']  // Copywriting zvyšuje dôveru ALEBO pomáha vysvetliť zmysel role
   };
 
   // Calculate line positions when pairings change
@@ -92,11 +92,11 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
 
           const color = PAIRING_COLORS[index % PAIRING_COLORS.length];
 
-          // Start point: střed pravého okraje levé karty
+          // Start point: stred pravého okraja ľavej karty
           const x1 = leftRect.right - containerRect.left;
           const y1 = leftRect.top + leftRect.height / 2 - containerRect.top;
           
-          // End point: střed levého okraje pravé karty
+          // End point: stred ľavého okraja pravej karty
           const x2 = rightRect.left - containerRect.left;
           const y2 = rightRect.top + rightRect.height / 2 - containerRect.top;
 
@@ -259,7 +259,7 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border mb-6" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <Link2 className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    PŘIŘAZENÍ
+                    PRIRADENIE
                   </span>
                 </div>
                 <h3 
@@ -271,7 +271,7 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                     letterSpacing: 0
                   }}
                 >
-                  V čem je <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>copywriting přínosný</span>? Spáruj situaci klienta s argumentem.
+                  V čom je <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>copywriting prínosný</span>? Spáruj situáciu klienta s argumentom.
                 </h3>
               </div>
 
@@ -317,10 +317,10 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                 {/* Column Headers */}
                 <div className="grid grid-cols-2 gap-8 mb-4" style={{ position: 'relative', zIndex: 2 }}>
                   <div className="text-xs font-bold text-gray-500 tracking-wider">
-                    CO KLIENT ŘEŠÍ
+                    ČO KLIENT RIEŠI
                   </div>
                   <div className="text-xs font-bold text-gray-500 tracking-wider">
-                    ŘEŠENÍ COPYWRITINGU
+                    RIEŠENIE COPYWRITINGU
                   </div>
                 </div>
 
@@ -527,10 +527,10 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                 {isConfirmed && (
                   <ExplanationBlock>
                     <p>
-                      Když klient vnímá copy jako kosmetiku, nebude do něj investovat. Hodnota copy je v tom, že zvyšuje relevanci, srozumitelnost a důvěru, a tím zvedá konverzi.
+                      Keď klient vníma copy ako kozmetiku, nebude doň investovať. Hodnota copy je v tom, že zvyšuje relevanciu, zrozumiteľnosť a dôveru, a tým zdvíha konverziu.
                     </p>
                     <p>
-                      U kampaní, které oslovují i pasivnější publikum, je obsah často rozhodující. Proto se copy prodává jako výkonová součást kampaně, ne jako grafická úprava.
+                      Pri kampaniach, ktoré oslovujú aj pasívnejšie publikum, je obsah často rozhodujúci. Preto sa copy predáva ako výkonová súčasť kampane, nie ako grafická úprava.
                     </p>
                   </ExplanationBlock>
                 )}
@@ -545,7 +545,7 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       onClick={onBack}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Zpět na příběh
+                      Späť na príbeh
                     </Button>
                   )}
                   {!isConfirmed && onSkip && (
@@ -554,7 +554,7 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       onClick={onSkip}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Přeskočit úkol
+                      Preskočiť úlohu
                     </Button>
                   )}
                 </div>
@@ -580,7 +580,7 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       }}
                       className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] shadow-lg hover:shadow-xl transition-all"
                     >
-                      Zkontrolovat
+                      Skontrolovať
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   )}
@@ -599,7 +599,7 @@ export function Screen14({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
                       }}
                       className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] shadow-lg hover:shadow-xl transition-all"
                     >
-                      Pokračovat
+                      Pokračovať
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   )}

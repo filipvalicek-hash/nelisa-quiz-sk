@@ -42,7 +42,7 @@ export function MultiSelectCardChallenge({
   correctFeedback,
   incorrectFeedback,
   explanationText,
-  questionTypeTag = "VÍCE ODPOVĚDÍ",
+  questionTypeTag = "VIAC ODPOVEDI",
   onNext,
   onBack,
   onLogoClick,
@@ -317,7 +317,7 @@ export function MultiSelectCardChallenge({
                   onClick={onBack}
                   className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                 >
-                  Zpět
+                  Spat
                 </Button>
               )}
               {showFeedback && <div></div>}
@@ -343,7 +343,7 @@ export function MultiSelectCardChallenge({
                     }
                   }}
                 >
-                  {showFeedback ? 'Pokračovat' : 'Zkontrolovat'}
+                  {showFeedback ? 'Pokracovat' : 'Skontrolovat'}
                   <ChevronRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

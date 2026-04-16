@@ -9,7 +9,7 @@ interface StoryScreen21Props {
 export function StoryScreen21({ onContinue, onLogoClick }: StoryScreen21Props) {
   const storyContent = (
     <p>
-      Během debaty o kampaních klient poznamená: „My jsme nabídku jednou dali na Facebook. Pár dní to běželo, nikdo se neozval, tak jsme to vypnuli." Na chvíli se vrátíte k tomu, jak ta kampaň tehdy vypadala – kde přesně běžela, jaký měla cíl, jak dlouho byla spuštěná. Postupně se ukazuje, že šlo spíš o jeden post než o řízenou kampaň. Teď je prostor vysvětlit, v čem se liší přístup Nelisy a proč u kampaní na sociálních sítích hraje roli čas a optimalizace.
+      Počas debaty o kampaniach klient poznamená: „My sme ponuku raz dali na Facebook. Pár dní to bežalo, nikto sa neozval, tak sme to vypli." Na chvíľu sa vrátite k tomu, ako tá kampaň vtedy vyzerala – kde presne bežala, aký mala cieľ, ako dlho bola spustená. Postupne sa ukazuje, že šlo skôr o jeden post než o riadenú kampaň. Teraz je priestor vysvetliť, v čom sa líši prístup Nelisy a prečo pri kampaniach na sociálnych sieťach hrá rolu čas a optimalizácia.
     </p>
   );
 
@@ -25,7 +25,7 @@ export function StoryScreen21({ onContinue, onLogoClick }: StoryScreen21Props) {
   return (
     <StoryScreen
       questionNumber={21}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

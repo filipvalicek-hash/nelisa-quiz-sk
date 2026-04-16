@@ -14,7 +14,7 @@ interface Screen11Props {
 export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen11Props) {
   const questionText = (
     <>
-      Vyber položky, které je potřeba mít <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>připravené před spuštěním</span> kampaně.
+      Vyber položky, ktoré je potrebné mať <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>pripravené pred spustením</span> kampane.
     </>
   );
 
@@ -25,17 +25,17 @@ export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
       options={[
         {
           id: 'option-c',
-          text: 'Základní podklady k pozici (název, lokalita, typ role)',
+          text: 'Základné podklady k pozícii (názov, lokalita, typ role)',
           isCorrect: true
         },
         {
           id: 'option-a',
-          text: 'Registrace',
+          text: 'Registrácia',
           isCorrect: true
         },
         {
           id: 'option-f',
-          text: 'Finálně schválený text nabídky',
+          text: 'Finálne schválený text ponuky',
           isCorrect: true
         },
         {
@@ -45,45 +45,45 @@ export function Screen11({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
         },
         {
           id: 'option-g',
-          text: 'Dohodnutá očekávání a cíle kampaně',
+          text: 'Dohodnuté očakávania a ciele kampane',
           isCorrect: true
         },
         {
           id: 'option-d',
-          text: 'Fakturační údaje',
+          text: 'Fakturačné údaje',
           isCorrect: true
         },
         {
           id: 'option-b',
-          text: 'Vyplněný firemní profil',
+          text: 'Vyplnený firemný profil',
           isCorrect: true
         }
       ]}
       correctFeedback={{
         emoji: '✅',
-        message: 'Přesně tak!',
-        encouragement: 'Vybrals všechny položky, které jsou potřeba před spuštěním.'
+        message: 'Presne tak!',
+        encouragement: 'Vybral si všetky položky, ktoré sú potrebné pred spustením.'
       }}
       partialFeedback={{
         emoji: '🤔',
-        message: 'Máš část správně.',
-        encouragement: 'Část položek je správně, ale zkus se zamyslet nad tím, co je skutečně nutné PŘED spuštěním a co lze doladit i potom.'
+        message: 'Máš časť správne.',
+        encouragement: 'Časť položiek je správne, ale skús sa zamyslieť nad tým, čo je skutočne nutné PRED spustením a čo sa dá doladiť aj potom.'
       }}
       incorrectFeedback={{
         emoji: '💭',
-        message: 'Zkus to ještě jednou.',
-        encouragement: 'Zamysli se nad tím, co je opravdu nutné před spuštěním kampaně.'
+        message: 'Skús to ešte raz.',
+        encouragement: 'Zamysli sa nad tým, čo je naozaj nutné pred spustením kampane.'
       }}
       explanationText={
         <>
           <p>
-            Zklamání většinou nevzniká z toho, že by kampaň neměla žádný dopad, ale z toho, že si klient představoval něco jiného. Proto je dobré držet 3 základní kroky:
+            Sklamanie väčšinou nevzniká z toho, že by kampaň nemala žiadny dopad, ale z toho, že si klient predstavoval niečo iné. Preto je dobré dodržiavať 3 základné kroky:
           </p>
           <p>
-            <strong>Nastavení očekávání a ujasnění cílovky</strong> – vyjasnit role, vstupy, harmonogram a hlavně koho klient skutečně hledá a co bude považovat za úspěch. <strong>Průběžné vyhodnocení</strong> – domluvit si kontrolní body, sbírat zpětnou vazbu na kvalitu kandidátů a mít prostor na případnou úpravu kampaně. <strong>Závěrečné vyhodnocení</strong> – společně uzavřít kampaň, shrnout co fungovalo a co zlepšit příště; to je často začátek retence a navazující spolupráce.
+            <strong>Nastavenie očakávaní a ujasnenie cieľovky</strong> – vyjasniť role, vstupy, harmonogram a hlavne koho klient skutočne hľadá a čo bude považovať za úspech. <strong>Priebežné vyhodnotenie</strong> – dohodnúť si kontrolné body, zbierať spätnú väzbu na kvalitu kandidátov a mať priestor na prípadnú úpravu kampane. <strong>Záverečné vyhodnotenie</strong> – spoločne uzavrieť kampaň, zhrnúť čo fungovalo a čo zlepšiť nabudúce; to je často začiatok retencie a nadväzujúcej spolupráce.
           </p>
           <p>
-            Když se toto neudělá, klient čeká okamžitý výsledek, nedodá podklady nebo hodnotí podle špatné metriky. Dobře vedený proces snižuje tření a zvyšuje spokojenost.
+            Keď sa toto neurobí, klient čaká okamžitý výsledok, nedodá podklady alebo hodnotí podľa zlej metriky. Dobre vedený proces znižuje trenie a zvyšuje spokojnosť.
           </p>
         </>
       }

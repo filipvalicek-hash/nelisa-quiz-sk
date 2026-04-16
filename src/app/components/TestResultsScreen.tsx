@@ -69,9 +69,9 @@ export function TestResultsScreen({
   // Determine success message based on score
   const getSuccessMessage = () => {
     if (percentage === 100) {
-      return 'Milá kolegyně, milý kolego, gratulujeme k úspěšnému splnění certifikace od Nelisy. Díky tomu máš v ruce jasný rámec, jak Nelisu vysvětlovat, prodávat a nastavovat očekávání na reálných schůzkách s klienty.';
+      return 'Milá kolegyňa, milý kolega, gratulujeme k úspešnému splneniu certifikácie od Nelisy. Vďaka tomu máš v ruke jasný rámec, ako Nelisu vysvetľovať, predávať a nastavovať očakávania na reálnych schôdzkach s klientmi.';
     } else {
-      return 'Milá kolegyně, milý kolego, díky, že ses do certifikace pustil/a. Vidíme, že část principů máš zvládnutou, ale u některých témat Ti to ještě u klienta „ujet" (hlavně v argumentaci a očekáváních). To je v pohodě. Certifikace slouží i jako trénink.';
+      return 'Milá kolegyňa, milý kolega, ďakujeme, že si sa do certifikácie pustil/a. Vidíme, že časť princípov máš zvládnutú, ale pri niektorých témach Ti to ešte môže u klienta „ujsť" (hlavne v argumentácii a očakávaniach). To je v poriadku. Certifikácia slúži aj ako tréning.';
     }
   };
 
@@ -79,7 +79,7 @@ export function TestResultsScreen({
     if (percentage === 100) {
       return null; // No additional text needed for perfect score
     } else {
-      return 'Pro úspěšné dokončení je potřeba mít správně všechny otázky, máš ale neomezený počet pokusů na splnění.';
+      return 'Pre úspešné dokončenie je potrebné mať správne všetky otázky, máš ale neobmedzený počet pokusov na splnenie.';
     }
   };
 
@@ -124,7 +124,7 @@ export function TestResultsScreen({
                 className="text-3xl font-bold mb-6"
                 style={{ color: '#192550' }}
               >
-                Výsledek testu
+                Výsledok testu
               </h2>
               {percentage === 100 ? (
                 <p
@@ -226,7 +226,7 @@ export function TestResultsScreen({
                   textShadow: performanceLevel === 'excellent' ? '0 0 20px rgba(255, 117, 88, 0.3)' : 'none'
                 }}
               >
-                {percentage === 100 ? 'Výborně!' : percentage >= 90 ? 'Skvělá práce!' : percentage >= 70 ? 'Dobrý výkon!' : 'Zkus to znovu!'}
+                {percentage === 100 ? 'Výborne!' : percentage >= 90 ? 'Skvelá práca!' : percentage >= 70 ? 'Dobrý výkon!' : 'Skús to znova!'}
               </h2>
             </motion.div>
 
@@ -254,13 +254,13 @@ export function TestResultsScreen({
                     style={{ backgroundColor: '#FEF2F2', borderBottom: '1px solid #FEE2E2' }}
                   >
                     <XCircle className="w-4 h-4" style={{ color: '#DC2626' }} />
-                    <h3 className="text-base font-bold" style={{ color: '#991B1B' }}>Přehled výsledků</h3>
+                    <h3 className="text-base font-bold" style={{ color: '#991B1B' }}>Prehľad výsledkov</h3>
                     <span className="ml-auto text-xs font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: '#FEE2E2', color: '#DC2626' }}>
                       {(() => {
                         const cnt = retryMode
                           ? questionsData.filter(q => retryQuestions.includes(q.questionNumber) && !questionResults[q.questionNumber - 1]).length
                           : questionsData.filter((_, i) => !questionResults[i]).length;
-                        return `${cnt} ${cnt === 1 ? 'otázka' : cnt < 5 ? 'otázky' : 'otázek'}`;
+                        return `${cnt} ${cnt === 1 ? 'otázka' : cnt < 5 ? 'otázky' : 'otázok'}`;
                       })()}
                     </span>
                   </div>
@@ -300,7 +300,7 @@ export function TestResultsScreen({
                               >
                                 <X className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#DC2626' }} />
                                 <div>
-                                  <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#DC2626' }}>Tvoje odpověď</span>
+                                  <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#DC2626' }}>Tvoja odpoveď</span>
                                   <p className="text-sm mt-0.5 leading-relaxed" style={{ color: '#7F1D1D', whiteSpace: 'pre-wrap' }}>{userAnswer}</p>
                                 </div>
                               </div>
@@ -313,7 +313,7 @@ export function TestResultsScreen({
                             >
                               <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#059669' }} />
                               <div>
-                                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#059669' }}>Správná odpověď</span>
+                                <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#059669' }}>Správna odpoveď</span>
                                 <p className="text-sm mt-0.5 leading-relaxed" style={{ color: '#064E3B', whiteSpace: 'pre-wrap' }}>{q.correctAnswer}</p>
                               </div>
                             </div>
@@ -326,7 +326,7 @@ export function TestResultsScreen({
                               >
                                 <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#6366F1' }} />
                                 <div>
-                                  <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#6366F1' }}>Vysvětlení</span>
+                                  <span className="text-xs font-semibold uppercase tracking-wide" style={{ color: '#6366F1' }}>Vysvetlenie</span>
                                   <p className="text-sm mt-0.5 leading-relaxed" style={{ color: '#3730A3', whiteSpace: 'pre-wrap' }}>{q.explanation}</p>
                                 </div>
                               </div>
@@ -368,7 +368,7 @@ export function TestResultsScreen({
                   }}
                 >
                   <FileCheck className="w-5 h-5 mr-2" />
-                  Získat certifikát
+                  Získať certifikát
                   <ChevronRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
               ) : (
@@ -394,7 +394,7 @@ export function TestResultsScreen({
                         e.currentTarget.style.boxShadow = '0 4px 16px rgba(255, 117, 88, 0.3)';
                       }}
                     >
-                      Zopakovat test
+                      Zopakovať test
                       <ChevronRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                     </Button>
                   )}
@@ -414,8 +414,8 @@ export function TestResultsScreen({
               transition={{ duration: 0.4, delay: 2.4 }}
             >
               <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>
-                Tady máš na jednom místě všechny zdroje, ke kterým se můžeš kdykoliv vrátit, když si nebudeš jistý/á (prezentace, ukázky formátů, desatero, FAQ a další).
-                A pokud chceš jít ještě víc do hloubky, čeká na Tebe navazující test zaměřený na fungování Meta kampaní.
+                Tu máš na jednom mieste všetky zdroje, ku ktorým sa môžeš kedykoľvek vrátiť, keď si nebudeš istý/á (prezentácie, ukážky formátov, desatoro, FAQ a ďalšie).
+                A ak chceš ísť ešte viac do hĺbky, čaká na Teba nadväzujúci test zameraný na fungovanie Meta kampaní.
               </p>
             </motion.div>
           </motion.div>
@@ -435,10 +435,10 @@ export function TestResultsScreen({
                   className="text-2xl font-bold text-center mb-2"
                   style={{ color: '#192550' }}
                 >
-                  Detailní přehled všech otázek
+                  Detailný prehľad všetkých otázok
                 </h3>
                 <p className="text-center text-sm" style={{ color: '#64748B' }}>
-                  Zkontroluj si své odpovědi a vysvětlení ke všem úkolům
+                  Skontroluj si svoje odpovede a vysvetlenia ku všetkým úlohám
                 </p>
               </div>
 
@@ -503,7 +503,7 @@ export function TestResultsScreen({
                     {/* Selected Answer */}
                     <div className="mb-3">
                       <div className="text-xs font-bold mb-1" style={{ color: '#64748B' }}>
-                        TVOJE ODPOVĚĎ:
+                        TVOJA ODPOVEĎ:
                       </div>
                       <div
                         className="p-3 rounded-lg border-2"
@@ -525,7 +525,7 @@ export function TestResultsScreen({
                     {!question.isCorrect && (
                       <div className="mb-3">
                         <div className="text-xs font-bold mb-1" style={{ color: '#64748B' }}>
-                          SPRÁVNÁ ODPOVĚĎ:
+                          SPRÁVNA ODPOVEĎ:
                         </div>
                         <div
                           className="p-3 rounded-lg border-2"
@@ -547,7 +547,7 @@ export function TestResultsScreen({
                     {/* Explanation */}
                     <div>
                       <div className="text-xs font-bold mb-1" style={{ color: '#64748B' }}>
-                        VYSVĚTLENÍ:
+                        VYSVETLENIE:
                       </div>
                       <div
                         className="p-3 rounded-lg"
@@ -574,12 +574,12 @@ export function TestResultsScreen({
                         {question.isCorrect ? (
                           <>
                             <CheckCircle className="w-3.5 h-3.5" strokeWidth={2.5} />
-                            Správně
+                            Správne
                           </>
                         ) : (
                           <>
                             <XCircle className="w-3.5 h-3.5" strokeWidth={2.5} />
-                            Nesprávně
+                            Nesprávne
                           </>
                         )}
                       </div>
@@ -619,6 +619,7 @@ export function TestResultsScreen({
                 Odkazy na materiály
               </h3>
 
+
               {/* Intro Text */}
               <p 
                 className="text-base leading-relaxed mb-8"
@@ -627,7 +628,7 @@ export function TestResultsScreen({
                   fontFamily: 'Poppins, sans-serif'
                 }}
               >
-                Chceš si projít argumenty detailněji nebo mít podklady po ruce při obchodních jednáních? Níže najdeš všechny důležité materiály na jednom místě.
+                Chceš si prejsť argumenty detailnejšie alebo mať podklady po ruke pri obchodných rokovaniach? Nižšie nájdeš všetky dôležité materiály na jednom mieste.
               </p>
 
               {/* Links List */}
@@ -638,7 +639,7 @@ export function TestResultsScreen({
               >
                 {/* Link 1 */}
                 <a
-                  href="https://nelisa.com/cs-cz"
+                  href="https://nelisa.com/sk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 p-4 rounded-xl border transition-all hover:shadow-md"
@@ -659,10 +660,10 @@ export function TestResultsScreen({
                   <span className="text-xl flex-shrink-0">🌐</span>
                   <div className="flex-1">
                     <div className="font-semibold text-base mb-1" style={{ color: '#192550' }}>
-                      Oficiální web Nelisy
+                      Oficiálny web Nelisy
                     </div>
                     <div className="text-sm" style={{ color: '#AE54FF' }}>
-                      https://nelisa.com/cs-cz
+                      https://nelisa.com/sk
                     </div>
                   </div>
                 </a>
@@ -690,7 +691,7 @@ export function TestResultsScreen({
                   <span className="text-xl flex-shrink-0">📘</span>
                   <div className="flex-1">
                     <div className="font-semibold text-base mb-1" style={{ color: '#192550' }}>
-                      Obchodní podklady a prezentace
+                      Obchodné podklady a prezentácie
                     </div>
                     <div className="text-sm" style={{ color: '#AE54FF' }}>
                       https://nelisacom.notion.site/
@@ -721,7 +722,7 @@ export function TestResultsScreen({
                   <span className="text-xl flex-shrink-0">🧠</span>
                   <div className="flex-1">
                     <div className="font-semibold text-base mb-1" style={{ color: '#192550' }}>
-                      Interní knowledge base
+                      Interná knowledge base
                     </div>
                     <div className="text-sm" style={{ color: '#AE54FF' }}>
                       https://www.notion.so/almacareer/Nelisa-30cabb65fca54aa2ba430a46f553e613
@@ -752,7 +753,7 @@ export function TestResultsScreen({
                   <span className="text-xl flex-shrink-0">🤝</span>
                   <div className="flex-1">
                     <div className="font-semibold text-base mb-1" style={{ color: '#192550' }}>
-                      Obchodní pomocník
+                      Obchodný pomocník
                     </div>
                     <div className="text-sm" style={{ color: '#AE54FF' }}>
                       https://nelisa-obchodni-pomocnik.netlify.app/
@@ -783,7 +784,7 @@ export function TestResultsScreen({
                   <span className="text-xl flex-shrink-0">💰</span>
                   <div className="flex-1">
                     <div className="font-semibold text-base mb-1" style={{ color: '#192550' }}>
-                      Ceník 2026
+                      Cenník 2026
                     </div>
                     <div className="text-sm" style={{ color: '#AE54FF' }}>
                       https://www.notion.so/almacareer/Cen-k-2026-2836f3e88bc280aa8dc2d07fed941bc9
@@ -796,7 +797,7 @@ export function TestResultsScreen({
               {onModuleClick && (
                 <div className="mt-10 pt-8" style={{ borderTop: '1px solid #F1F5F9' }}>
                   <p className="text-sm mb-4" style={{ color: '#475569', fontFamily: 'Poppins, sans-serif' }}>
-                    Chceš lépe pochopit, jak fungují reklamy na sociálních sítích?
+                    Chceš lepšie pochopiť, ako fungujú reklamy na sociálnych sieťach?
                   </p>
                   <button
                     onClick={onModuleClick}
@@ -811,7 +812,7 @@ export function TestResultsScreen({
                       fontFamily: 'Poppins, sans-serif'
                     }}
                   >
-                    📱 Jak fungují reklamy na soc. sítích
+                    📱 Ako fungujú reklamy na soc. sieťach
                   </button>
                 </div>
               )}

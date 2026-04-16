@@ -10,9 +10,9 @@ interface StoryScreen18Props {
 export function StoryScreen18({ onContinue, onBack, onLogoClick }: StoryScreen18Props) {
   const storyContent = (
     <p>
-      Klient se vrátí k tomu, co padlo před chvílí.<br />
-      „My už jsme kdysi zkoušeli něco navíc," řekne. „Bylo to dražší, běželo to pár týdnů… a pak jsme vlastně nevěděli, jestli to pomohlo, nebo ne."<br /><br />
-      Chce slyšet, v čem je rozdíl mezi <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>náhodným rozšířením kampaně</span> a situací, kdy má smysl jít nad rámec základu – a jak se u toho <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>pracuje s výsledky</span>.
+      Klient sa vráti k tomu, čo padlo pred chvíľou.<br />
+      „My už sme kedysi skúšali niečo navyše," povie. „Bolo to drahšie, bežalo to pár týždňov… a potom sme vlastne nevedeli, či to pomohlo, alebo nie."<br /><br />
+      Chce počuť, v čom je rozdiel medzi <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>náhodným rozšírením kampane</span> a situáciou, kedy má zmysel ísť nad rámec základu – a ako sa pri tom <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>pracuje s výsledkami</span>.
     </p>
   );
 
@@ -30,7 +30,7 @@ export function StoryScreen18({ onContinue, onBack, onLogoClick }: StoryScreen18
   return (
     <StoryScreen
       questionNumber={18}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

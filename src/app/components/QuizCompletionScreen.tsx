@@ -45,13 +45,13 @@ export function QuizCompletionScreen({
   }, [correctAnswers, isPerfectScore]);
 
   const getHeadline = () => {
-    if (isPerfectScore) return "Perfektní výsledek!";
-    return "Výsledek testu";
+    if (isPerfectScore) return "Perfektný výsledok!";
+    return "Výsledok testu";
   };
 
   const getMessage = () => {
-    if (isPerfectScore) return "Gratulujeme! Zvládli jste všechny koncepty. Získáváte certifikát!";
-    return "Milá kolegyně, milý kolego,\ndíky, že ses do certifikace pustil/a.\nVidíme, že část principů máš zvládnutou, ale u některých témat Ti to ještě může u klienta „ujet" (hlavně v argumentaci a očekáváních). To je v pohodě. Certifikace slouží i jako trénink.";
+    if (isPerfectScore) return "Gratulujeme! Zvládli ste všetky koncepty. Získavate certifikát!";
+    return "Milá kolegyňa, milý kolega,\nďakujeme, že si sa do certifikácie pustil/a.\nVidíme, že časť princípov máš zvládnutú, ale pri niektorých témach Ti to ešte môže u klienta „ujsť" (hlavne v argumentácii a očakávaniach). To je v poriadku. Certifikácia slúži aj ako tréning.";
   };
 
   const getStarRating = () => {
@@ -196,7 +196,7 @@ export function QuizCompletionScreen({
                 transition={{ delay: 0.4 }}
               >
                 <div className="text-sm font-bold text-gray-500 tracking-wider mb-3">
-                  VÁŠ VÝSLEDEK
+                  VÁŠ VÝSLEDOK
                 </div>
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <motion.div
@@ -255,7 +255,7 @@ export function QuizCompletionScreen({
                   transition={{ delay: 0.8 }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  {percentage}% dokončeno
+                  {percentage}% dokončené
                 </motion.div>
 
                 {/* Additional text for unsuccessful scenario */}
@@ -267,7 +267,7 @@ export function QuizCompletionScreen({
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.9 }}
                   >
-                    Pro úspěšné dokončení je potřeba mít správně všechny otázky, máš ale neomezený počet pokusů na splnění.
+                    Pre úspešné dokončenie je potrebné mať správne všetky otázky, máš ale neobmedzený počet pokusov na splnenie.
                   </motion.p>
                 )}
               </motion.div>
@@ -282,7 +282,7 @@ export function QuizCompletionScreen({
                 >
                   <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-full font-bold text-base shadow-lg">
                     <Award className="w-5 h-5" />
-                    HR Poradce — Úroveň 1 Certifikováno
+                    HR Poradca — Úroveň 1 Certifikované
                   </div>
                 </motion.div>
               )}
@@ -301,7 +301,7 @@ export function QuizCompletionScreen({
                       className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold gap-3 px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
                     >
                       <Award className="w-6 h-6" />
-                      Získat certifikát
+                      Získať certifikát
                     </Button>
                     <Button
                       onClick={onRetry}
@@ -309,7 +309,7 @@ export function QuizCompletionScreen({
                       className="border-2 border-gray-300 hover:border-blue-500 hover:bg-blue-50 text-gray-700 hover:text-blue-700 font-semibold gap-2 px-8 py-6 text-base rounded-xl transition-all"
                     >
                       <RotateCcw className="w-5 h-5" />
-                      Zkusit znovu
+                      Skúsiť znova
                     </Button>
                   </>
                 ) : (
@@ -319,14 +319,14 @@ export function QuizCompletionScreen({
                       className="bg-blue-500 hover:bg-blue-600 text-white font-semibold gap-3 px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
                     >
                       <RotateCcw className="w-6 h-6" />
-                      Zopakovat test
+                      Zopakovať test
                     </Button>
                     <Button
                       variant="outline"
                       className="border-2 border-gray-300 hover:border-blue-500 hover:bg-blue-50 text-gray-700 hover:text-blue-700 font-semibold gap-2 px-8 py-6 text-base rounded-xl transition-all"
                     >
                       <FileText className="w-5 h-5" />
-                      Zobrazit vysvětlení k chybám
+                      Zobraziť vysvetlenie k chybám
                     </Button>
                   </>
                 )}
@@ -343,8 +343,8 @@ export function QuizCompletionScreen({
               transition={{ delay: 1.2 }}
             >
               <p className="text-sm text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                Tady máš na jednom místě všechny zdroje, ke kterým se můžeš kdykoliv vrátit, když si nebudeš jistý/á (prezentace, ukázky formátů, desatero, FAQ a další).
-                A pokud chceš jít ještě víc do hloubky, čeká na Tebe navazující test zaměřený na fungování Meta kampaní.
+                Tu máš na jednom mieste všetky zdroje, ku ktorým sa môžeš kedykoľvek vrátiť, keď si nebudeš istý/á (prezentácie, ukážky formátov, desatoro, FAQ a ďalšie).
+                A ak chceš ísť ešte viac do hĺbky, čaká na Teba nadväzujúci test zameraný na fungovanie Meta kampaní.
               </p>
             </motion.div>
           )}

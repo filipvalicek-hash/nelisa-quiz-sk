@@ -3,14 +3,14 @@ import { CheckCircle } from 'lucide-react';
 
 interface CorrectFeedbackProps {
   /** 
-   * The feedback text - must start with "Přesně tak."
+   * The feedback text - must start with "Presne tak."
    * The first sentence (ending with period) will be bolded automatically
    */
   text: string;
 }
 
 export function CorrectFeedback({ text }: CorrectFeedbackProps) {
-  // Split the text to make "Přesně tak." bold
+  // Split the text to make "Presne tak." bold
   const parts = text.split(/(\. )/);
   const firstSentence = parts[0] + (parts[1] || '');
   const remainingText = parts.slice(2).join('');

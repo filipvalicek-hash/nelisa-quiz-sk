@@ -160,7 +160,7 @@ export function QuizQuestion({ questionNumber, onNext, onPrevious, onStateUpdate
                 <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-xl border-2 border-blue-300 mb-6">
                   <Target className="w-4 h-4 text-blue-700" />
                   <span className="text-xs font-bold text-blue-800 tracking-wider">
-                    VÝBĚR ODPOVĚDI
+                    VÝBER ODPOVEDE
                   </span>
                 </div>
                 <h3 className="text-4xl font-bold text-blue-600 mb-4 leading-tight">

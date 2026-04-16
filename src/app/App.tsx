@@ -102,8 +102,8 @@ export default function App() {
   const [sessionId, setSessionId] = useState<string | null>(null);
 
   // User information
-  const [userName, setUserName] = useState('Jan Novák');
-  const [userEmail, setUserEmail] = useState('jan.novak@email.cz');
+  const [userName, setUserName] = useState('Ján Novák');
+  const [userEmail, setUserEmail] = useState('jan.novak@email.sk');
 
   // Track answers for all 25 questions (true = correct, false = incorrect)
   const [questionResults, setQuestionResults] = useState<boolean[]>(
@@ -131,203 +131,203 @@ export default function App() {
   const questionsData = [
     {
       questionNumber: 1,
-      questionText: 'Přiřaď ke každé situaci úroveň obchodní příležitosti pro prodej Nelisy: HIGH / MID / LOW',
+      questionText: 'Prirad ku každej situácii úroveň obchodnej príležitosti pre predaj Nelisy: HIGH / MID / LOW',
       selectedAnswer: selectedAnswers[1] ?? '',
-      correctAnswer: 'A→HIGH, B→HIGH nebo MID, C→MID nebo HIGH, D→MID nebo HIGH, E→LOW',
+      correctAnswer: 'A→HIGH, B→HIGH alebo MID, C→MID alebo HIGH, D→MID alebo HIGH, E→LOW',
       isCorrect: questionResults[0],
-      explanation: 'Nejde o velikost firmy, ale o situaci HR. Největší přínos má Nelisa tam, kde HR nestíhá, je na vše sama a potřebuje kompletní řešení bez další práce navíc.'
+      explanation: 'Nejde o veľkosť firmy, ale o situáciu HR. Najväčší prínos má Nelisa tam, kde HR nestíha, je na všetko sama a potrebuje kompletné riešenie bez ďalšej práce navyše.'
     },
     {
       questionNumber: 2,
-      questionText: 'Přetáhni materiály do správné kategorie podle toho, jak nutné je mít je připravené před prezentační schůzkou o Nelise.',
+      questionText: 'Pretiahni materiály do správnej kategórie podľa toho, ako nutné je mať ich pripravené pred prezentačnou schôdzkou o Nelise.',
       selectedAnswer: selectedAnswers[2] ?? '',
-      correctAnswer: 'Musí mít: Základní + nadstavbová prezentace (A), Ukázky formátů (B), Demo Adminu (C), Obchodní pomocník (G)\nHodí se / Není potřeba: D, E, F, H',
+      correctAnswer: 'Musí mať: Základná + nadstavbová prezentácia (A), Ukážky formátov (B), Demo Adminu (C), Obchodný pomocník (G)\nHodí sa / Nie je potreba: D, E, F, H',
       isCorrect: questionResults[1],
-      explanation: 'Schůzka bývá úspěšná tehdy, když klient rychle pochopí princip a vidí konkrétní ukázky. Připravené materiály zvyšují důvěryhodnost, protože obchodník nepůsobí nejistě a nemusí dohledávat věci za běhu. Zároveň klient po schůzce potřebuje podklady pro interní rozhodnutí a jasné další kroky, jinak se schvalování rozpadne nebo se k tomu nikdo nevrátí.'
+      explanation: 'Schôdzka býva úspešná vtedy, keď klient rýchlo pochopí princíp a vidí konkrétne ukážky. Pripravené materiály zvyšujú dôveryhodnosť, pretože obchodník nepôsobí neisto a nemusí dohľadávať veci za behu. Zároveň klient po schôdzke potrebuje podklady pre interné rozhodnutie a jasné ďalšie kroky, inak sa schvaľovanie rozpadne alebo sa k tomu nikto nevráti.'
     },
     {
       questionNumber: 3,
-      questionText: 'Vyber úvodní větu, která nejlépe nastaví rámec schůzky a nehodí Tě do škatulky „další portál/agentura".',
+      questionText: 'Vyber úvodnú vetu, ktorá najlepšie nastaví rámec schôdzky a nehodí Ťa do škatuľky „ďalší portál/agentúra".',
       selectedAnswer: selectedAnswers[3] ?? '',
-      correctAnswer: '„Nelisa pomáhá firmám oslovit i pasivní kandidáty mimo pracovní portály pomocí řízených kampaní."',
+      correctAnswer: '„Nelisa pomáha firmám osloviť aj pasívnych kandidátov mimo pracovné portály pomocou riadených kampaní."',
       isCorrect: questionResults[2],
-      explanation: 'Zájem vzniká, když klient pozná, že řešíme jeho problém a že to dává obchodní smysl. Proto se vyplatí postupovat v pořadí Proč – Co – Jak: nejdřív ukázat Proč (reálné užitky a dopad na nábor), potom vysvětlit Co (řízené kampaně oslovující pasivní kandidáty mimo portály), a teprve nakonec ukázat Jak (Admin a procesy). Pokud začneš funkcemi, klient si to neumí zařadit a vnímá to jako další nástroj; když začneš dopadem, má důvod poslouchat.'
+      explanation: 'Záujem vzniká, keď klient spozná, že riešime jeho problém a že to dáva obchodný zmysel. Preto sa oplatí postupovať v poradí Prečo – Čo – Ako: najprv ukázať Prečo (reálne úžitky a dopad na nábor), potom vysvetliť Čo (riadené kampane oslovujúce pasívnych kandidátov mimo portály), a až nakoniec ukázať Ako (Admin a procesy). Ak začneš funkciami, klient si to nevie zaradiť a vníma to ako ďalší nástroj; keď začneš dopadom, má dôvod počúvať.'
     },
     {
       questionNumber: 4,
-      questionText: 'Vyber nejlepší reakci, která respektuje portály a zároveň vysvětlí přidanou hodnotu kampaní.',
+      questionText: 'Vyber najlepšiu reakciu, ktorá rešpektuje portály a zároveň vysvetlí pridanú hodnotu kampaní.',
       selectedAnswer: selectedAnswers[4] ?? '',
-      correctAnswer: '„Inzerát funguje hlavně na lidi, kteří práci aktivně hledají. Kampaně k tomu přidávají zásah i na kandidáty, kteří teď nehledají, ale mohou být otevření změně."',
+      correctAnswer: '„Inzerát funguje hlavne na ľudí, ktorí prácu aktívne hľadajú. Kampane k tomu pridávajú zásah aj na kandidátov, ktorí teraz nehľadajú, ale môžu byť otvorení zmene."',
       isCorrect: questionResults[3],
-      explanation: 'Klient často porovnává cenu kampaně s inzercí, protože obě věci „vypadají jako nábor". Rozdíl je v mechanismu i rozsahu: u inzerátu typicky platíš za 1 místo na job boardu a čekáš, kdo přijde. Kampaň je naopak aktivní distribuce napříč zhruba 16 kanály a průběžné řízení doručování na výkon. Proto to nejde srovnávat 1:1 – klient nekupuje jen „prostor" nebo nástroj na CVčka, ale řízenou HR marketingovou kampaň včetně optimalizace.'
+      explanation: 'Klient často porovnáva cenu kampane s inzerciou, pretože obe veci „vyzerajú ako nábor". Rozdiel je v mechanizme aj rozsahu: pri inzeráte typicky platíš za 1 miesto na job boarde a čakáš, kto príde. Kampaň je naopak aktívna distribúcia naprieč zhruba 16 kanálmi a priebežné riadenie doručovania na výkon. Preto sa to nedá porovnávať 1:1 – klient nekupuje len „priestor" alebo nástroj na CVčka, ale riadenú HR marketingovú kampaň vrátane optimalizácie.'
     },
     {
       questionNumber: 5,
-      questionText: 'Doplň dvě klíčová slova tak, aby vysvětlení bylo stručné a obchodně použitelné.',
+      questionText: 'Doplň dve kľúčové slová tak, aby vysvetlenie bolo stručné a obchodne použiteľné.',
       selectedAnswer: selectedAnswers[5] ?? '',
-      correctAnswer: 'Blank 1: aktivních\nBlank 2: pasivní',
+      correctAnswer: 'Blank 1: aktívnych\nBlank 2: pasívni',
       isCorrect: questionResults[4],
-      explanation: 'Cílem není odrecitovat procenta, ale ukázat logiku trhu práce. Portály typicky zachytí hlavně část lidí, kteří aktivně hledají. Velká část trhu práci aktivně neřeší, ale může být otevřená změně, když uvidí relevantní nabídku ve správný moment – a právě tam kampaně rozšiřují zásah mimo „rybník" portálů. Prakticky tak klient kampaní zasahuje pasivní i aktivní část trhu – tedy mnohem blíž k „100 % trhu".'
+      explanation: 'Cieľom nie je odrecitovať percentá, ale ukázať logiku trhu práce. Portály typicky zachytia hlavne časť ľudí, ktorí aktívne hľadajú. Veľká časť trhu prácu aktívne nerieši, ale môže byť otvorená zmene, keď uvidí relevantnú ponuku v správny moment – a práve tam kampane rozširujú zásah mimo „rybník" portálov. Prakticky tak klient kampaňou zasahuje pasívnu aj aktívnu časť trhu – teda oveľa bližšie k „100 % trhu".'
     },
     {
       questionNumber: 6,
-      questionText: 'Vyber nejlepší reakci.',
+      questionText: 'Vyber najlepšiu reakciu.',
       selectedAnswer: selectedAnswers[6] ?? '',
-      correctAnswer: '„V ceně kampaně platíte za to, že nabídku aktivně doručíme napříč kanály a průběžně řídíme výkon. Součástí jsou i průběžné statistiky, konzultace a grafické zpracování bannerů, takže na to nemusíte mít vlastní marketingovou kapacitu."',
+      correctAnswer: '„V cene kampane platíte za to, že ponuku aktívne doručíme naprieč kanálmi a priebežne riadime výkon. Súčasťou sú aj priebežné štatistiky, konzultácie a grafické spracovanie bannerov, takže na to nemusíte mať vlastnú marketingovú kapacitu."',
       isCorrect: questionResults[5],
-      explanation: 'Klient nekupuje jen „zobrazení", ale službu jako celek: aktivní doručení kampaně a řízení výkonu, plus konkrétní servis kolem (statistiky, konzultace, grafika a bannery), který má u Nelisy standardně zahrnutý. Copywriting je navíc samostatná služba (není automaticky „vždy v ceně").'
+      explanation: 'Klient nekupuje len „zobrazenie", ale službu ako celok: aktívne doručenie kampane a riadenie výkonu, plus konkrétny servis okolo (štatistiky, konzultácie, grafika a bannery), ktorý má u Nelisy štandardne zahrnutý. Copywriting je navyše samostatná služba (nie je automaticky „vždy v cene").'
     },
     {
       questionNumber: 7,
-      questionText: 'Klikni na tu ukázku, kterou otevřeš jako první.',
+      questionText: 'Klikni na tú ukážku, ktorú otvoríš ako prvú.',
       selectedAnswer: selectedAnswers[7] ?? '',
-      correctAnswer: '„Ukázkou kandidátské cesty (banner → nabídka → formulář), aby pochopil „co uvidí člověk venku"."',
+      correctAnswer: '„Ukážkou kandidátskej cesty (banner → ponuka → formulár), aby pochopil „čo uvidí človek vonku"."',
       isCorrect: questionResults[6],
-      explanation: 'Nejlépe funguje ukázat jednu konkrétní cestu kandidáta formou krátkého příběhu. Je to rychlejší a účinnější než vysvětlovat technologii nebo cílení: „Představte si kandidáta, který je zrovna v tramvaji a scrolluje Facebook. Najednou vidí banner → klikne na nabídku → má pozitivní emoci a během pár vteřin jednoduše odpoví → a reakce se rovnou propíše do Teamia / ATS, kde s ním HR začne komunikovat."'
+      explanation: 'Najlepšie funguje ukázať jednu konkrétnu cestu kandidáta formou krátkeho príbehu. Je to rýchlejšie a účinnejšie než vysvetľovať technológiu alebo cielenie: „Predstavte si kandidáta, ktorý je práve v električke a scrolluje Facebook. Zrazu vidí banner → klikne na ponuku → má pozitívnu emóciu a počas pár sekúnd jednoducho odpovie → a reakcia sa rovnou prepíše do Teamia / ATS, kde s ním HR začne komunikovať."'
     },
     {
       questionNumber: 8,
-      questionText: 'Klikni na argument, který nejlépe vysvětlí význam firemního profilu. (Má to ale reálně vliv na to, jestli se člověk rozhodne reagovat?)',
+      questionText: 'Klikni na argument, ktorý najlepšie vysvetlí význam firemného profilu. (Má to ale reálne vplyv na to, či sa človek rozhodne reagovať?)',
       selectedAnswer: selectedAnswers[8] ?? '',
-      correctAnswer: '„Protože u pasivních kandidátů rozhoduje důvěra – profil doplňuje kontext a zvyšuje ochotu odpovědět."',
+      correctAnswer: '„Pretože u pasívnych kandidátov rozhoduje dôvera – profil dopĺňa kontext a zvyšuje ochotu odpovedať."',
       isCorrect: questionResults[7],
-      explanation: 'Profil není jen vizitka, ale důvěryhodnost. Kandidát si firmu ověřuje a profil často rozhodne, jestli udělá další krok, hlavně u pasivnějších lidí, kteří nepotřebují práci nutně. Kvalitní profil zvyšuje konverzi, protože odpovídá na základní otázky a snižuje nejistotu.'
+      explanation: 'Profil nie je len vizitka, ale dôveryhodnosť. Kandidát si firmu overuje a profil často rozhodne, či urobí ďalší krok, hlavne u pasívnejších ľudí, ktorí nepotrebujú prácu nutne. Kvalitný profil zvyšuje konverziu, pretože odpovedá na základné otázky a znižuje neistotu.'
     },
     {
       questionNumber: 9,
-      questionText: 'Vyber odpověď, která nejlépe vysvětluje práci s bannery v kampani od Nelisy.',
+      questionText: 'Vyber odpoveď, ktorá najlepšie vysvetľuje prácu s bannermi v kampani od Nelisy.',
       selectedAnswer: selectedAnswers[9] ?? '',
-      correctAnswer: '„Banner není jen obrázek, v kampani běží dvě vizuální varianty současně, jsou dělané pro konkrétní prostředí (feed, display) a průběžně se optimalizují podle toho, co na kandidáty reálně funguje."',
+      correctAnswer: '„Banner nie je len obrázok, v kampani bežia dve vizuálne varianty súčasne, sú robené pre konkrétne prostredie (feed, display) a priebežne sa optimalizujú podľa toho, čo na kandidátov reálne funguje."',
       isCorrect: questionResults[8],
-      explanation: 'Klient vidí obrázek, ale hodnota je v tom, jak banner funguje v kampani. Bannery jsou navržené pro konkrétní prostředí a pracuje se s nimi výkonově. V kampani běží více variant současně a systém vyhodnocuje, co přináší lepší reakce. Proto nejde jen o grafiku, ale o testování, optimalizaci a rychlé doručení sdělení.'
+      explanation: 'Klient vidí obrázok, ale hodnota je v tom, ako banner funguje v kampani. Bannery sú navrhnuté pre konkrétne prostredie a pracuje sa s nimi výkonovo. V kampani beží viac variantov súčasne a systém vyhodnocuje, čo prináša lepšie reakcie. Preto nejde len o grafiku, ale o testovanie, optimalizáciu a rýchle doručenie správy.'
     },
     {
       questionNumber: 10,
-      questionText: 'Doplň do věty správné možnosti: „Pozici a podklady nastavíme v ___, ale reakce kandidátů chodí do ___."',
+      questionText: 'Doplň do vety správne možnosti: „Pozíciu a podklady nastavíme v ___, ale reakcie kandidátov chodia do ___."',
       selectedAnswer: selectedAnswers[10] ?? '',
-      correctAnswer: 'Blank 1: Adminu Nelisy\nBlank 2: Teamio nebo jiného ATS',
+      correctAnswer: 'Blank 1: Adminu Nelisy\nBlank 2: Teamio alebo iného ATS',
       isCorrect: questionResults[9],
-      explanation: 'Tahle námitka je často o strachu z práce navíc. Správná odpověď musí uklidnit, že recruiter nedělá marketing a nepotřebuje další know-how. Jeho role je zadat pozici a připojit službu, zatímco optimalizaci kampaně řídí Nelisa. Klient tím získá výsledek bez toho, aby do týmu přidával další kompetenci nebo kapacitu.'
+      explanation: 'Táto námietka je často o strachu z práce navyše. Správna odpoveď musí upokojiť, že recruiter nerobí marketing a nepotrebuje ďalšie know-how. Jeho úloha je zadať pozíciu a pripojiť službu, zatiaľ čo optimalizáciu kampane riadi Nelisa. Klient tým získa výsledok bez toho, aby do tímu pridával ďalšiu kompetenciu alebo kapacitu.'
     },
     {
       questionNumber: 11,
-      questionText: 'Vyber položky, které je potřeba mít připravené před spuštěním kampaně.',
+      questionText: 'Vyber položky, ktoré je potrebné mať pripravené pred spustením kampane.',
       selectedAnswer: selectedAnswers[11] ?? '',
-      correctAnswer: 'Registrace | Vyplněný firemní profil | Základní podklady k pozici (název, lokalita, typ role) | Fakturační údaje | Dohodnutá očekávání a cíle kampaně',
+      correctAnswer: 'Registrácia | Vyplnený firemný profil | Základné podklady k pozícii (názov, lokalita, typ roly) | Fakturačné údaje | Dohodnuté očakávania a ciele kampane',
       isCorrect: questionResults[10],
-      explanation: 'Zklamání většinou nevzniká z toho, že by kampaň neměla žádný dopad, ale z toho, že si klient představoval něco jiného. Proto je důležité držet 3 základní kroky: nastavení očekávání a ujasnění cílovky, průběžné vyhodnocení a závěrečné vyhodnocení. Dobře vedený proces snižuje tření a zvyšuje spokojenost.'
+      explanation: 'Sklamanie väčšinou nevzniká z toho, že by kampaň nemala žiadny dopad, ale z toho, že si klient predstavoval niečo iné. Preto je dôležité dodržať 3 základné kroky: nastavenie očakávaní a ujasnenie cieľovky, priebežné vyhodnotenie a záverečné vyhodnotenie. Dobre vedený proces znižuje trenie a zvyšuje spokojnosť.'
     },
     {
       questionNumber: 12,
-      questionText: 'Doplň do věty správné možnosti: „Po spuštění spolupráce dáváme klientům onboarding schůzku po ___, kde společně projdeme ___."',
+      questionText: 'Doplň do vety správne možnosti: „Po spustení spolupráce dávame klientom onboarding schôdzku po ___, kde spoločne prejdeme ___."',
       selectedAnswer: selectedAnswers[12] ?? '',
-      correctAnswer: 'Blank 1: vyfakturování služeb\nBlank 2: základní nastavení a orientaci v Nelisa Adminu',
+      correctAnswer: 'Blank 1: vyfakturovaní služieb\nBlank 2: základné nastavenie a orientáciu v Nelisa Admine',
       isCorrect: questionResults[11],
-      explanation: 'Onboarding je zrychlení a pojistka. Pomáhá klientovi pochopit Admin, doplnit potřebné informace a nastavit spolupráci tak, aby nevznikaly chyby z neznalosti. Podmínky dávají smysl proto, aby onboarding probíhal ve chvíli, kdy už je objednávka vyřešená a klient je připravený.'
+      explanation: 'Onboarding je zrýchlenie a poistka. Pomáha klientovi pochopiť Admin, doplniť potrebné informácie a nastaviť spoluprácu tak, aby nevznikali chyby z neznalosti. Podmienky dávajú zmysel preto, aby onboarding prebiehal vo chvíli, keď už je objednávka vyriešená a klient je pripravený.'
     },
     {
       questionNumber: 13,
-      questionText: 'Vyber otázku/y, které bys v tuhle chvíli položil/a, aby sis ověřil/a, jestli současný způsob psaní inzerátů dokáže oslovit i pasivní kandidáty.',
+      questionText: 'Vyber otázku/y, ktoré by si v túto chvíľu položil/a, aby si si overil/a, či súčasný spôsob písania inzerátov dokáže osloviť aj pasívnych kandidátov.',
       selectedAnswer: selectedAnswers[13] ?? '',
-      correctAnswer: 'A) „Jak dnes přemýšlíte nad tím, aby byl text nabídky zajímavý i pro lidi, kteří práci aktivně nehledají?"\nB) „Máte zkušenost s tím, že by se vám na nabídku ozvali lidé, kteří původně změnu práce vůbec neřešili?"',
+      correctAnswer: 'A) „Ako dnes premýšľate nad tým, aby bol text ponuky zaujímavý aj pre ľudí, ktorí prácu aktívne nehľadajú?"\nB) „Máte skúsenosť s tým, že by sa vám na ponuku ozvali ľudia, ktorí pôvodne zmenu práce vôbec neriešili?"',
       isCorrect: questionResults[12],
-      explanation: 'Copy není přepsaný popis pozice, ale výkonový nástroj, který rozhoduje o tom, jestli relevantní člověk udělá další krok. U kampaní to platí dvojnásob: klient do nich investuje nemalé částky a bez správného copy se kampaň typicky „nechytí". Navíc pasivní kandidát se chová jinak než aktivní – potřebuješ ho zaujmout rychle a nadchnout pro myšlenku změny ještě dřív, než začne řešit detaily.'
+      explanation: 'Copy nie je prepísaný popis pozície, ale výkonový nástroj, ktorý rozhoduje o tom, či relevantný človek urobí ďalší krok. U kampaní to platí dvojnásobne: klient do nich investuje nemalé čiastky a bez správneho copy sa kampaň typicky „nechytí". Navyše pasívny kandidát sa správa inak než aktívny – potrebuješ ho zaujať rýchlo a nadchnúť pre myšlienku zmeny ešte skôr, než začne riešiť detaily.'
     },
     {
       questionNumber: 14,
-      questionText: 'V čem je copywriting přínosný? Spáruj situaci klienta s argumentem.',
+      questionText: 'V čom je copywriting prínosný? Spáruj situáciu klienta s argumentom.',
       selectedAnswer: selectedAnswers[14] ?? '',
-      correctAnswer: '1 → B nebo C | 2 → A | 3 → C nebo B',
+      correctAnswer: '1 → B alebo C | 2 → A | 3 → C alebo B',
       isCorrect: questionResults[13],
-      explanation: 'Když klient vnímá copy jako kosmetiku, nebude do něj investovat. Hodnota copy je v tom, že zvyšuje relevanci, srozumitelnost a důvěru, a tím zvedá konverzi. U kampaní, které oslovují i pasivnější publikum, je obsah často rozhodující. Proto se copy prodává jako výkonová součást kampaně, ne jako grafická úprava.'
+      explanation: 'Keď klient vníma copy ako kozmetiku, nebude doň investovať. Hodnota copy je v tom, že zvyšuje relevanciu, zrozumiteľnosť a dôveru, a tým zdvíha konverziu. U kampaní, ktoré oslovujú aj pasívnejšie publikum, je obsah často rozhodujúci. Preto sa copy predáva ako výkonová súčasť kampane, nie ako grafická úprava.'
     },
     {
       questionNumber: 15,
-      questionText: 'Přiřaď správnou reakci k tomu, co klient tímhle komentářem otevírá.',
+      questionText: 'Prirad správnu reakciu k tomu, čo klient týmto komentárom otvára.',
       selectedAnswer: selectedAnswers[15] ?? '',
-      correctAnswer: '1 → B | 2 → A nebo C | 3 → C nebo A',
+      correctAnswer: '1 → B | 2 → A alebo C | 3 → C alebo A',
       isCorrect: questionResults[14],
-      explanation: 'Multi-channel není samoúčelný seznam kanálů. Smysl je v tom, že systém hledá, kde a jak doručit nabídku co nejefektivněji, a průběžně optimalizuje doručování. Klient tak nekupuje „budeme všude", ale strategii doručování a řízení výkonu. To je rozdíl oproti jednorázovému nákupu prostoru.'
+      explanation: 'Multi-channel nie je samoúčelný zoznam kanálov. Zmysel je v tom, že systém hľadá, kde a ako doručiť ponuku čo najefektívnejšie, a priebežne optimalizuje doručovanie. Klient tak nekupuje „budeme všade", ale stratégiu doručovania a riadenie výkonu. To je rozdiel oproti jednorazovému nákupu priestoru.'
     },
     {
       questionNumber: 16,
-      questionText: 'Vyber odpověď, která nejlépe vystihuje princip práce s nadstandardními formáty u Nelisy.',
+      questionText: 'Vyber odpoveď, ktorá najlepšie vystihuje princíp práce s nadštandardnými formátmi u Nelisy.',
       selectedAnswer: selectedAnswers[16] ?? '',
-      correctAnswer: '„Nadstandardní formáty umožňují cíleně posílit zásah tam, kde základní řešení nepokrývá konkrétní potřebu."',
+      correctAnswer: '„Nadštandardné formáty umožňujú cielene posilniť zásah tam, kde základné riešenie nepokrýva konkrétnu potrebu."',
       isCorrect: questionResults[15],
-      explanation: 'Nadstandard má být odpověď na potřebu, ne první věta prezentace. Když s ním začneš moc brzy, klient to vnímá jako upsell a přestane věřit, že řešíš jeho problém. Správné načasování je po pochopení cíle a cílovky.'
+      explanation: 'Nadštandard má byť odpoveď na potrebu, nie prvá veta prezentácie. Keď s ním začneš príliš skoro, klient to vníma ako upsell a prestane veriť, že riešiš jeho problém. Správne načasovanie je po pochopení cieľa a cieľovky.'
     },
     {
       questionNumber: 17,
-      questionText: 'Přiřaď situaci ke správnému formátu.',
+      questionText: 'Prirad situáciu k správnemu formátu.',
       selectedAnswer: selectedAnswers[17] ?? '',
-      correctAnswer: '1 → C: LinkedIn Channels a banner (seniorní specialisté)\n2 → A: Google Demand Gen (širší publikum)\n3 → B: Seznam Native (zásah mimo sociální sítě)',
+      correctAnswer: '1 → C: LinkedIn Channels a banner (seniórni špecialisti)\n2 → A: Google Demand Gen (širšie publikum)\n3 → B: Pinterest reklama (kreatívne orientovaní používatelia hľadajúci inšpiráciu)',
       isCorrect: questionResults[16],
-      explanation: 'Formát se vybírá podle toho, co má kampaň udělat. Jiný formát pomáhá rychle přivést reakce, jiný posílit značku, jiný zasáhnout specifické publikum. Proto správná odpověď vždy váže formát na cíl, ne na osobní preference. Klient si z toho má odnést, že volba formátu je řízené rozhodnutí, ne náhoda.'
+      explanation: 'Formát sa vyberá podľa toho, čo má kampaň urobiť. Iný formát pomáha rýchlo priviesť reakcie, iný posilniť značku, iný zasiahnuť špecifické publikum. Preto správna odpoveď vždy viaže formát na cieľ, nie na osobné preferencie. Klient si z toho má odniesť, že voľba formátu je riadené rozhodnutie, nie náhoda.'
     },
     {
       questionNumber: 18,
-      questionText: 'Stručně klientovi vysvětli, jak se u Nelisy s nadstandardem pracuje. Vyber odpovědi, které by v takovém vysvětlení měly zaznít.',
+      questionText: 'Stručne klientovi vysvetli, ako sa u Nelisy s nadštandardom pracuje. Vyber odpovede, ktoré by v takom vysvetlení mali zaznieť.',
       selectedAnswer: selectedAnswers[18] ?? '',
-      correctAnswer: '1) „Nadstandard navrhujeme jen, když má jasný cíl; není to \'zkusíme\', ale řízené rozšíření zásahu k publiku, které základ nemusí pokrýt."\n4) „Nejde o to dělat víc věcí, ale udělat přesně to, co odpovídá cíli pozice."',
+      correctAnswer: '1) „Nadštandard navrhujeme len, keď má jasný cieľ; nie je to \'skúsime\', ale riadené rozšírenie zásahu k publiku, ktoré základ nemusí pokryť."\n4) „Nejde o to robiť viac vecí, ale urobiť presne to, čo zodpovedá cieľu pozície."',
       isCorrect: questionResults[17],
-      explanation: 'Klient se bojí, že platí za pokus. Proto musí být nadstandard vysvětlený jako řízená volba s logikou – co tím získáme a jak poznáme úspěch. Když obchodník neumí říct proč, zní to jako drahá hračka. Když umí popsat přínos a měřítko, klient vnímá nadstandard jako chytrou investici.'
+      explanation: 'Klient sa bojí, že platí za pokus. Preto musí byť nadštandard vysvetlený ako riadená voľba s logikou – čo tým získame a ako spoznáme úspech. Keď obchodník nevie povedať prečo, znie to ako drahá hračka. Keď vie popísať prínos a meradlo, klient vníma nadštandard ako chytrú investíciu.'
     },
     {
       questionNumber: 19,
-      questionText: 'Vyber jedno vysvětlení, které bys klientovi v tuhle chvíli řekl/a. Takové, které je pravdivé, srozumitelné a nezahlcuje detaily.',
+      questionText: 'Vyber jedno vysvetlenie, ktoré by si klientovi v túto chvíľu povedal/a. Také, ktoré je pravdivé, zrozumiteľné a nezahltí detailmi.',
       selectedAnswer: selectedAnswers[19] ?? '',
-      correctAnswer: '„Meta sleduje, jak lidé na reklamy reagují, a postupně podle toho upravuje, komu se zobrazují."',
+      correctAnswer: '„Meta sleduje, ako ľudia na reklamy reagujú, a postupne podľa toho upravuje, komu sa zobrazujú."',
       isCorrect: questionResults[18],
-      explanation: 'Klient potřebuje vědět, co se optimalizuje a proč. Správná odpověď ukazuje, že doručování není „ruční cílení" podle demografie, ale algoritmická optimalizace podle chování lidí v online prostoru – systém sleduje, jak uživatelé na reklamy reagují, a postupně upravuje, komu se nabídka zobrazuje, aby ji viděli co nejrelevantnější kandidáti.'
+      explanation: 'Klient potrebuje vedieť, čo sa optimalizuje a prečo. Správna odpoveď ukazuje, že doručovanie nie je „ručné cielenie" podľa demografie, ale algoritmická optimalizácia podľa správania ľudí v online priestore – systém sleduje, ako používatelia na reklamy reagujú, a postupne upravuje, komu sa ponuka zobrazuje, aby ju videli čo najrelevantnejší kandidáti.'
     },
     {
       questionNumber: 20,
-      questionText: 'Vyber odpověď, která je správná a obchodně použitelná.',
+      questionText: 'Vyber odpoveď, ktorá je správna a obchodne použiteľná.',
       selectedAnswer: selectedAnswers[20] ?? '',
-      correctAnswer: '„V HR kampaních jsou omezení, nelze cílit věk/pohlaví; pracujeme s jinými signály a lokalitou a optimalizací, aby se reklama dostala k relevantním lidem."',
+      correctAnswer: '„V HR kampaniach sú obmedzenia, nemožno cieliť vek/pohlavie; pracujeme s inými signálmi a lokalitou a optimalizáciou, aby sa reklama dostala k relevantným ľuďom."',
       isCorrect: questionResults[19],
-      explanation: 'Platformy mají pravidla a omezení, která se v HR dotýkají cílení i formátů. Klient si to může vyložit jako „nejde to", proto je důležité vysvětlit, že se jen volí jiné způsoby cílení a práce s publikem. Správná reakce nastaví realistické možnosti a nezpůsobí přehnané sliby.'
+      explanation: 'Platformy majú pravidlá a obmedzenia, ktoré sa v HR dotýkajú cielenia aj formátov. Klient si to môže vyložiť ako „nejde to", preto je dôležité vysvetliť, že sa len volia iné spôsoby cielenia a práce s publikom. Správna reakcia nastaví realistické možnosti a nespôsobí prehnané sľuby.'
     },
     {
       questionNumber: 21,
-      questionText: 'Vyber odpověď, pomocí které bys klientovi vysvětlil/a realitu fungování Meta kampaní.',
+      questionText: 'Vyber odpoveď, pomocou ktorej by si klientovi vysvetlil/a realitu fungovania Meta kampaní.',
       selectedAnswer: selectedAnswers[21] ?? '',
-      correctAnswer: '„To je poměrně častá zkušenost. U kampaní na Metě se první dny až zhruba týden sbírají data a systém se učí, komu nabídku zobrazovat. Když se kampaň vypne moc brzy, většinou se k té fázi, kdy začne fungovat, ani nedostane."',
+      correctAnswer: '„To je pomerne častá skúsenosť. U kampaní na Mete sa prvé dni až zhruba týždeň zbierajú dáta a systém sa učí, komu ponuku zobrazovať. Keď sa kampaň vypne príliš skoro, väčšinou sa k tej fáze, keď začne fungovať, ani nedostane."',
       isCorrect: questionResults[20],
-      explanation: 'Kampaň nemá stabilní výkon hned od začátku, protože systém se učí a ladí doručování. Klient je často zvyklý na inzerát, kde reakce přichází rychle a pak slábnou. U kampaní to může být opačně – výkon se může zlepšovat v čase. Proto je důležité říct, kdy dává smysl hodnotit a kdy je to předčasné.'
+      explanation: 'Kampaň nemá stabilný výkon hneď od začiatku, pretože systém sa učí a ladí doručovanie. Klient je často zvyknutý na inzerát, kde reakcie prichádzajú rýchlo a potom slabú. U kampaní to môže byť naopak – výkon sa môže zlepšovať v čase. Preto je dôležité povedať, kedy dáva zmysel hodnotiť a kedy je to predčasné.'
     },
     {
       questionNumber: 22,
-      questionText: 'Klient říká: „Hele, my ty portály máme docela vychytané. Zatím nám fungují." Vyber odpověď, která nejlépe vysvětluje, kde Nelisa doplní portály.',
+      questionText: 'Klient hovorí: „Počuj, my tie portály máme celkom vychytané. Zatiaľ nám fungujú." Vyber odpoveď, ktorá najlepšie vysvetľuje, kde Nelisa doplní portály.',
       selectedAnswer: selectedAnswers[22] ?? '',
-      correctAnswer: '„Portály pracují s existující poptávkou. Kampaně pomáhají tu poptávku aktivně vytvářet a rozšiřovat mimo portály."',
+      correctAnswer: '„Portály pracujú s existujúcim dopytom. Kampane pomáhajú ten dopyt aktívne vytvárať a rozširovať mimo portály."',
       isCorrect: questionResults[21],
-      explanation: 'Klient nechce slyšet, že jeho současné řešení je špatně. Když začneš shazovat portály, vyvoláš odpor a obrannou reakci. Správný přístup je portály respektovat a vysvětlit doplnění. Kampaně rozšiřují zásah mimo existující poptávku, a tím přivádí jiné publikum i jiné reakce. Klient se cítí pochopený a zároveň vidí důvod, proč přidat další vrstvu.'
+      explanation: 'Klient nechce počuť, že jeho súčasné riešenie je zlé. Keď začneš zhadzovať portály, vyvoláš odpor a obrannú reakciu. Správny prístup je portály rešpektovať a vysvetliť doplnenie. Kampane rozširujú zásah mimo existujúci dopyt, a tým privádzajú iné publikum aj iné reakcie. Klient sa cíti pochopený a zároveň vidí dôvod, prečo pridať ďalšiu vrstvu.'
     },
     {
       questionNumber: 23,
-      questionText: 'Vyber, na co se máš ve follow-upu zaměřit jako na hlavní osu sdělení, aby interní diskuze u klienta měla šanci dojít k rozhodnutí.',
+      questionText: 'Vyber, na čo sa máš vo follow-upe zamerať ako na hlavnú os správy, aby interná diskusia u klienta mala šancu dôjsť k rozhodnutiu.',
       selectedAnswer: selectedAnswers[23] ?? '',
-      correctAnswer: 'Hlavní užitek kampaní – jaký konkrétní náborový problém Nelisa řeší, proč portály samy nestačí a co klient získá navíc (zásah mimo aktivní kandidáty, menší konkurence).',
+      correctAnswer: 'Hlavný úžitok kampaní – aký konkrétny náborový problém Nelisa rieši, prečo portály samé nestačia a čo klient získa navyše (zásah mimo aktívnych kandidátov, menšia konkurencia).',
       isCorrect: questionResults[22],
-      explanation: 'Na konci klient často nemá problém s produktem, ale s tím, že neví, co teď konkrétně udělat. Dobré shrnutí a jasný další krok zvyšují šanci, že se schvalování a start opravdu stane. Když klient odchází bez „next steps", schůzka často vyšumí a rozhodnutí se odkládá.'
+      explanation: 'Na konci klient často nemá problém s produktom, ale s tým, že nevie, čo teraz konkrétne urobiť. Dobré zhrnutie a jasný ďalší krok zvyšujú šancu, že sa schvaľovanie a štart naozaj stane. Keď klient odchádza bez „next steps", schôdzka často vyšumí a rozhodnutie sa odkladá.'
     },
     {
       questionNumber: 24,
-      questionText: 'U každého kroku rozhodni, jestli zvyšuje šanci na retenci (ANO), nebo spíš ne (NE).',
+      questionText: 'Pri každom kroku rozhodni, či zvyšuje šancu na retenciu (ÁNO), alebo skôr nie (NIE).',
       selectedAnswer: selectedAnswers[24] ?? '',
-      correctAnswer: 'ANO: Nastavení očekávání | Průběžná schůzka o výsledcích | Vyhodnocovací schůzka po kampani | Průběžné sledování výsledků\nNE: Pravidelné změny copywritingu | Prodej brandingové reklamy | „Pokud jde dobře, nemusím s klientem nic řešit"',
+      correctAnswer: 'ÁNO: Nastavenie očakávaní | Priebežná schôdzka o výsledkoch | Vyhodnocovacia schôdzka po kampani | Priebežné sledovanie výsledkov\nNIE: Pravidelné zmeny copywritingu | Predaj brandingovej reklamy | „Ak ide dobre, nemusím s klientom nič riešiť"',
       isCorrect: questionResults[23],
-      explanation: 'Retenci nejvíc zvyšuje to, že klient má průběžně jistotu, že je o kampaň postaráno a existuje jasný rytmus komunikace. Nastavení očekávání na startu je základ, průběžná kontrola brání tomu, aby klient dělal závěry po pár dnech. Vyhodnocovací schůzka uzavírá spolupráci profesionálně a otevírá prostor pro další krok. Naopak „nechat to být, když to jde dobře" je nejrychlejší cesta, jak ztratit vztah a příležitost pro další objednávku.'
+      explanation: 'Retenciu najviac zvyšuje to, že klient má priebežne istotu, že je o kampaň postarané a existuje jasný rytmus komunikácie. Nastavenie očakávaní na štarte je základ, priebežná kontrola bráni tomu, aby klient robil závery po pár dňoch. Vyhodnocovacia schôdzka uzatvára spoluprácu profesionálne a otvára priestor pre ďalší krok. Naopak „nechať to byť, keď to ide dobre" je najrýchlejšia cesta, ako stratiť vzťah a príležitosť pre ďalšiu objednávku.'
     },
     {
       questionNumber: 25,
-      questionText: 'Ke každé námitce přiřaď nejvhodnější argumentaci, kterou bys použil/a při obchodním jednání.',
+      questionText: 'Ku každej námietke prirad najvhodnejšiu argumentáciu, ktorú by si použil/a pri obchodnom rokovaní.',
       selectedAnswer: selectedAnswers[25] ?? '',
-      correctAnswer: '1 (Moc drahé) → A\n2 (Nemáme náborovou potřebu) → B\n3 (Řešíme sami/s agenturou) → C\n4 (Další systém navíc) → D\n5 (Zkoušeli jsme, nefungovalo) → E\n6 (Stačí jobboardy) → F',
+      correctAnswer: '1 (Príliš drahé) → A\n2 (Nemáme náborovú potrebu) → B\n3 (Riešime sami/s agentúrou) → C\n4 (Ďalší systém navyše) → D\n5 (Skúšali sme, nefungovalo) → E\n6 (Stačia jobboardy) → F',
       isCorrect: questionResults[24],
-      explanation: 'Správná reakce na námitky nestojí jen na „protiargumentu", ale na pochopení kontextu klienta. Každá z uvedených odpovědí reaguje na konkrétní obavu a vrací debatu k hodnotě, kterou Nelisa přináší – ať už jde o širší zásah, specializované know-how, jednoduchost implementace nebo práci s pasivními kandidáty.'
+      explanation: 'Správna reakcia na námietky nestojí len na „protiargumente", ale na pochopení kontextu klienta. Každá z uvedených odpovedí reaguje na konkrétnu obavu a vracia debatu k hodnote, ktorú Nelisa prináša – či už ide o širší zásah, špecializované know-how, jednoduchosť implementácie alebo prácu s pasívnymi kandidátmi.'
     }
   ];
 

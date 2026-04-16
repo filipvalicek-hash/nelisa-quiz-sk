@@ -16,41 +16,41 @@ export function Screen8({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, i
     {
       id: 'A',
       label: 'A',
-      text: '„Ano, protože to vypadá profesionálně."',
+      text: '„Áno, pretože to vyzerá profesionálne."',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: '„Ano, zlepší to SEO a také zvedne estetický dojem z toho, jak se dá na webu prezentovat"',
+      text: '„Áno, zlepší to SEO a tiež zdvihne estetický dojem z toho, ako sa dá na webe prezentovať"',
       isCorrect: false
     },
     {
       id: 'C',
       label: 'C',
-      text: '„Protože u pasivních kandidátů rozhoduje důvěra - profil doplňuje kontext a zvyšuje ochotu odpovědět."',
+      text: '„Pretože u pasívnych kandidátov rozhoduje dôvera – profil dopĺňa kontext a zvyšuje ochotu odpovedať."',
       isCorrect: true
     },
     {
       id: 'D',
       label: 'D',
-      text: '„Hlavně to vyžaduje systém Nelisy a bez firemního profilu nenechá firmu zveřejnit kampaň."',
+      text: '„Hlavne to vyžaduje systém Nelisy a bez firemného profilu nedovolí firme zverejniť kampaň."',
       isCorrect: false
     }
   ];
 
   const questionText = (
     <>
-      Klikni na argument, který nejlépe vysvětlí <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>význam firemního profilu</span>.
+      Klikni na argument, ktorý najlepšie vysvetlí <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>význam firemného profilu</span>.
       <span style={{ display: 'block', marginTop: '6px', fontSize: '16px', fontWeight: 400, color: '#64748B' }}>
-        Má to ale reálně vliv na to, jestli se člověk rozhodne reagovat?
+        Má to ale reálne vplyv na to, či sa človek rozhodne reagovať?
       </span>
     </>
   );
 
-  const explanationText = `Profil není jen vizitka, ale důvěryhodnost. Kandidát si firmu ověřuje a profil často rozhodne, jestli udělá další krok, hlavně u pasivnějších lidí, kteří nepotřebují práci nutně.
+  const explanationText = `Profil nie je len vizitka, ale dôveryhodnosť. Kandidát si firmu overuje a profil často rozhodne, či urobí ďalší krok, hlavne u pasívnejších ľudí, ktorí nepotrebujú prácu nutne.
 
-Kvalitní profil zvyšuje konverzi, protože odpovídá na základní otázky a snižuje nejistotu. Proto se profil řeší jako jednoduchá věc s velkým dopadem, ne jako povinná byrokracie.`;
+Kvalitný profil zvyšuje konverziu, pretože odpovedá na základné otázky a znižuje neistotu. Preto sa profil rieši ako jednoduchá vec s veľkým dopadom, nie ako povinná byrokracia.`;
 
   return (
     <CardSelectionChallenge
@@ -58,7 +58,7 @@ Kvalitní profil zvyšuje konverzi, protože odpovídá na základní otázky a 
       questionText={questionText}
       options={options}
       explanationText={explanationText}
-      questionTypeTag="VÝBĚR JEDNÉ ODPOVĚDI"
+      questionTypeTag="VÝBER JEDNEJ ODPOVEDE"
       singleColumn={true}
       onNext={onNext}
       onBack={onBack}

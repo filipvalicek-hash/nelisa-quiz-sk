@@ -17,36 +17,36 @@ export function Screen16({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
       questionNumber={16}
       questionText={
         <>
-          Vyber odpověď, která nejlépe vystihuje princip práce s <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nadstandardními formáty</span> u Nelisy.
+          Vyber odpoveď, ktorá najlepšie vystihuje princíp práce s <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nadštandardnými formátmi</span> u Nelisy.
         </>
       }
       options={[
         {
           id: 'A',
           label: 'A',
-          text: 'Nadstandardní formáty se používají jako náhrada základních kampaní.',
+          text: 'Nadštandardné formáty sa používajú ako náhrada základných kampaní.',
           isCorrect: false
         },
         {
           id: 'B',
           label: 'B',
-          text: 'Nadstandardní formáty umožňují cíleně posílit zásah a rozšířit konkrétní potřebu.',
+          text: 'Nadštandardné formáty umožňujú cielene posilniť zásah a rozšíriť konkrétnu potrebu.',
           isCorrect: true
         },
         {
           id: 'C',
           label: 'C',
-          text: 'Nadstandardní formáty se doporučují plošně, aby měly všechny pozice stejnou podporu.',
+          text: 'Nadštandardné formáty sa odporúčajú plošne, aby mali všetky pozície rovnakú podporu.',
           isCorrect: false
         },
         {
           id: 'D',
           label: 'D',
-          text: 'Nadstandardní formáty se řeší až ve chvíli, kdy základní kampaně dlouhodobě nefungují.',
+          text: 'Nadštandardné formáty sa riešia až vo chvíli, keď základné kampane dlhodobo nefungujú.',
           isCorrect: false
         }
       ]}
-      explanationText="Nadstandard má být odpověď na potřebu, ne první věta prezentace. Když s ním začneš moc brzy, klient to vnímá jako upsell a přestane věřit, že řešíš jeho problém. Když s ním přijdeš moc pozdě, můžeš propásnout příležitost, protože klient si už vytvořil rámec rozpočtu a očekávání. Správné načasování je po pochopení cíle a cílovky."
+      explanationText="Nadštandard má byť odpoveď na potrebu, nie prvá veta prezentácie. Keď s ním začneš príliš skoro, klient to vníma ako upsell a prestane veriť, že riešiš jeho problém. Keď s ním prídeš príliš neskoro, môžeš prepásť príležitosť, pretože klient si už vytvoril rámec rozpočtu a očakávaní. Správne načasovanie je po pochopení cieľa a cieľovky."
       onNext={onNext}
       onBack={onBack}
       onLogoClick={onLogoClick}

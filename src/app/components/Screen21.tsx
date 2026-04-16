@@ -16,36 +16,36 @@ export function Screen21({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
     {
       id: 'A',
       label: 'A',
-      text: '„To je poměrně častá zkušenost. U kampaní na Metě se první dny až zhruba týden sbírají data a systém se učí, komu nabídku zobrazovat. Když se kampaň vypne moc brzy, většinou se k té fázi, kdy začne fungovat, ani nedostane."',
+      text: '„To je pomerne častá skúsenosť. Pri kampaniach na Mete sa prvé dni až zhruba týždeň zbierajú dáta a systém sa učí, komu ponuku zobrazovať. Keď sa kampaň vypne príliš skoro, väčšinou sa k tej fáze, kedy začne fungovať, ani nedostane."',
       isCorrect: true
     },
     {
       id: 'B',
       label: 'B',
-      text: '„Tohle se stává hlavně tehdy, když se kampaň špatně nastaví. U Nelisy je to udělané jinak, takže se vám to nestane."',
+      text: '„Toto sa stáva hlavne vtedy, keď sa kampaň zle nastaví. U Nelisy je to urobené inak, takže sa vám to nestane."',
       isCorrect: false
     },
     {
       id: 'C',
       label: 'C',
-      text: '„Sociální sítě jsou hodně o štěstí a načasování. Někdy to vyjde, někdy ne."',
+      text: '„Sociálne siete sú veľa o šťastí a načasovaní. Niekedy to vyjde, niekedy nie."',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: '„Proto my kampaně doporučujeme nevyhodnocovat hned, ale počkat, až se nasbírají výsledky."',
+      text: '„Preto my kampane odporúčame nevyhodnocovať hneď, ale počkať, kým sa nazbierajú výsledky."',
       isCorrect: false
     }
   ];
 
   const questionText = (
     <span style={{ lineHeight: '1.6' }}>
-      Vyber odpověď, pomocí které bys <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>klientovi vysvětlil/a</span> <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>realitu fungování Meta kampaní</span>.
+      Vyber odpoveď, pomocou ktorej by si <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>klientovi vysvetlil/a</span> <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>realitu fungovania Meta kampaní</span>.
     </span>
   );
 
-  const explanationText = 'Kampaň nemá stabilní výkon hned od začátku, protože systém se učí a ladí doručování. Klient je často zvyklý na inzerát, kde reakce přichází rychle a pak slábnou. U kampaní to může být opačně, výkon se může zlepšovat v čase. Proto je důležité říct, kdy dává smysl hodnotit a kdy je to předčasné.';
+  const explanationText = 'Kampaň nemá stabilný výkon hneď od začiatku, pretože systém sa učí a ladí doručovanie. Klient je často zvyknutý na inzerát, kde reakcie prichádzajú rýchlo a potom slabnú. Pri kampaniach to môže byť opačne, výkon sa môže zlepšovať v čase. Preto je dôležité povedať, kedy dáva zmysel hodnotiť a kedy je to predčasné.';
 
   return (
     <CardSelectionChallenge
@@ -53,7 +53,7 @@ export function Screen21({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
       questionText={questionText}
       options={options}
       explanationText={explanationText}
-      questionTypeTag="VÝBĚR JEDNÉ ODPOVĚDI"
+      questionTypeTag="VÝBER JEDNEJ ODPOVEDE"
       singleColumn={true}
       onNext={onNext}
       onBack={onBack}

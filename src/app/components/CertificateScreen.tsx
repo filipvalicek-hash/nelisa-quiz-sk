@@ -11,12 +11,12 @@ interface CertificateScreenProps {
 }
 
 export function CertificateScreen({
-  userName = "Vaše jméno",
-  courseName = "HR Poradenská Simulace",
+  userName = "Vaše meno",
+  courseName = "HR Poradenská Simulácia",
   onDownload,
   onClose
 }: CertificateScreenProps) {
-  const currentDate = new Date().toLocaleDateString('cs-CZ', {
+  const currentDate = new Date().toLocaleDateString('sk-SK', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -67,10 +67,10 @@ export function CertificateScreen({
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl font-bold text-gray-900 mb-3">
-              🎉 Gratuluji!
+              🎉 Gratulujem!
             </h1>
             <p className="text-lg text-gray-600">
-              Získali jste svůj certifikát o dokončení
+              Získali ste svoj certifikát o dokončení
             </p>
           </motion.div>
 
@@ -148,12 +148,12 @@ export function CertificateScreen({
                 </div>
                 
                 <h2 className="text-5xl font-bold mb-8" style={{ color: '#AE54FF' }}>
-                  Certifikát o absolvování
+                  Certifikát o absolvovaní
                 </h2>
 
                 <div className="max-w-2xl mx-auto mb-10">
                   <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                    Tento certifikát potvrzuje, že
+                    Tento certifikát potvrdzuje, že
                   </p>
                   
                   <motion.div
@@ -169,7 +169,7 @@ export function CertificateScreen({
                   </motion.div>
 
                   <p className="text-gray-600 text-lg mb-4 leading-relaxed">
-                    úspěšně dokončil/a
+                    úspešne dokončil/a
                   </p>
                   
                   <p className="text-2xl font-bold text-gray-900 mb-8">
@@ -177,7 +177,7 @@ export function CertificateScreen({
                   </p>
 
                   <p className="text-gray-600 text-lg mb-10">
-                    s perfektním skóre, ukazujícím komplexní porozumění konceptům HR poradenství a strategiím konzultací klientů.
+                    s perfektným skóre, preukazujúcim komplexné porozumenie konceptom HR poradenstva a stratégiám konzultácií klientov.
                   </p>
                 </div>
 
@@ -189,7 +189,7 @@ export function CertificateScreen({
                   transition={{ delay: 0.9 }}
                 >
                   <div className="text-left">
-                    <div className="text-sm text-gray-500 mb-2">Datum dokončení</div>
+                    <div className="text-sm text-gray-500 mb-2">Dátum dokončenia</div>
                     <div className="text-lg font-semibold text-gray-900">{currentDate}</div>
                   </div>
 
@@ -197,7 +197,7 @@ export function CertificateScreen({
                     <div className="mb-2">
                       <div className="h-0.5 w-48 bg-gray-300 mb-2" />
                     </div>
-                    <div className="text-sm text-gray-500">Oprávněný podpis</div>
+                    <div className="text-sm text-gray-500">Oprávnený podpis</div>
                     <div className="text-base font-semibold text-gray-700 mt-1">
                       Nelisa Learning Platform
                     </div>
@@ -208,7 +208,7 @@ export function CertificateScreen({
                       <Award className="w-5 h-5" style={{ color: '#AE54FF' }} />
                       <span className="text-lg font-bold" style={{ color: '#AE54FF' }}>100%</span>
                     </div>
-                    <div className="text-sm text-gray-500">Skóre dosažení</div>
+                    <div className="text-sm text-gray-500">Dosiahnuté skóre</div>
                   </div>
                 </motion.div>
 
@@ -242,7 +242,7 @@ export function CertificateScreen({
               className="font-semibold gap-3 px-10 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
               <Download className="w-6 h-6" />
-              Stáhnout certifikát
+              Stiahnuť certifikát
             </Button>
             <Button
               variant="outline"
@@ -259,7 +259,7 @@ export function CertificateScreen({
               }}
             >
               <Share2 className="w-5 h-5" />
-              Sdílet
+              Zdieľať
             </Button>
             {onClose && (
               <Button
@@ -267,7 +267,7 @@ export function CertificateScreen({
                 variant="ghost"
                 className="text-gray-500 hover:text-gray-900 font-medium px-6"
               >
-                Zavřít
+                Zavrieť
               </Button>
             )}
           </motion.div>
@@ -280,7 +280,7 @@ export function CertificateScreen({
             transition={{ delay: 1.4 }}
           >
             <p className="text-sm text-gray-500">
-              🎓 Sdílejte svůj úspěch na LinkedInu nebo ho přidejte do svého profesního portfolia
+              🎓 Zdieľajte svoj úspech na LinkedIne alebo ho pridajte do svojho profesijného portfólia
             </p>
           </motion.div>
         </div>

@@ -15,21 +15,21 @@ interface Screen26Props {
 
 export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit, initialConfirmed, initialSelection, onStoreSelection }: Screen26Props) {
   const leftItems = [
-    { id: '1', text: '„Oproti běžné inzerci je to moc drahé."' },
-    { id: '2', text: '„Aktuálně nemáme žádnou náborovou potřebu."' },
-    { id: '3', text: '„Inzerci přes sociální sítě řešíme s agenturou nebo interně."' },
-    { id: '4', text: '„Je to další systém navíc, už teď jich máme příliš / bude to složité."' },
-    { id: '5', text: '„Už jsme to zkoušeli a nefungovalo to."' },
-    { id: '6', text: '„Stačí nám inzerovat přes jobboardy."' },
+    { id: '1', text: '„Oproti bežnej inzercii je to príliš drahé."' },
+    { id: '2', text: '„Aktuálne nemáme žiadnu náborovú potrebu."' },
+    { id: '3', text: '„Inzerciu cez sociálne siete riešime s agentúrou alebo interne."' },
+    { id: '4', text: '„Je to ďalší systém navyše, už teraz ich máme príliš / bude to zložité."' },
+    { id: '5', text: '„Už sme to skúšali a nefungovalo to."' },
+    { id: '6', text: '„Stačí nám inzerovať cez jobboardy."' },
   ];
 
   const rightItems = [
-    { id: 'C', text: 'Agentury i interní marketing obvykle řeší hlavně produktové nebo brandové kampaně.\nNelisa má za sebou více než 4 roky praxe a tisíce HR kampaní, ze kterých vychází specializované know-how.\nDíky tomu optimalizujeme rychle podle dat a oproti interní nebo agenturní správě často šetříme čas i náklady.' },
-    { id: 'F', text: 'Jobboardy fungují primárně na aktivní kandidáty.\nNelisa oslovuje i pasivní publikum napříč sociálními sítěmi a dalšími kanály, čímž výrazně rozšiřuje zásah a šanci najít relevantní kandidáty.' },
-    { id: 'A', text: 'U běžné inzerce jste zvyklí platit za jeden měsíc na jednom jobboardu a čekat, kdo se ozve.\nU Nelisy běží po stejnou dobu aktivní kampaň napříč minimálně 16 kanály, která jde za výrazně větším publikem.\nSoučástí ceny jsou navíc služby jako firemní profil, tvorba bannerů a přehledné statistiky.\nDává smysl to ověřit pilotně na jedné roli a podle výsledků se rozhodnout dál.' },
-    { id: 'D', text: 'Proces je nastavený jednoduše – od založení profilu dokážeme spustit kampaň do 3 pracovních dnů.\nDíky integracím jdou kandidáti přímo do ATS, takže HR nepřibývá další nástroj ani manuální práce.\nNejlepší je vyzkoušet první kampaň pilotně.' },
-    { id: 'B', text: 'Právě období bez akutní potřeby je ideální chvíle řešit nábor s předstihem.\nMůžete budovat databázi kandidátů, posílit employer branding a mít kampaně připravené tak, aby šly rychle spustit ve chvíli, kdy potřeba reálně vznikne.' },
-    { id: 'E', text: 'Je důležité podívat se na to, proč předchozí pokus nefungoval – často chybí správné nastavení cílové skupiny nebo optimalizace v průběhu kampaně.\nDíky zkušenostem s tisíci kampaní víme, kde bývají slabá místa a jak je včas upravit.' },
+    { id: 'C', text: 'Agentúry aj interný marketing obvykle riešia hlavne produktové alebo brandové kampane.\nNelisa má za sebou viac než 4 roky praxe a tisíce HR kampaní, z ktorých vychádza špecializované know-how.\nVďaka tomu optimalizujeme rýchlo podľa dát a oproti internej alebo agentúrnej správe často šetríme čas aj náklady.' },
+    { id: 'F', text: 'Jobboardy fungujú primárne na aktívnych kandidátov.\nNelisa oslovuje aj pasívne publikum naprieč sociálnymi sieťami a ďalšími kanálmi, čím výrazne rozširuje zásah a šancu nájsť relevantných kandidátov.' },
+    { id: 'A', text: 'Pri bežnej inzercii ste zvyknutí platiť za jeden mesiac na jednom jobboarde a čakať, kto sa ozve.\nPri Nelise beží po rovnakú dobu aktívna kampaň naprieč minimálne 16 kanálmi, ktorá ide za výrazne väčším publikom.\nSúčasťou ceny sú navyše služby ako firemný profil, tvorba bannerov a prehľadné štatistiky.\nDáva zmysel to overiť pilotne na jednej roli a podľa výsledkov sa rozhodnúť ďalej.' },
+    { id: 'D', text: 'Proces je nastavený jednoducho – od založenia profilu dokážeme spustiť kampaň do 3 pracovných dní.\nVďaka integráciám idú kandidáti priamo do ATS, takže HR nepribúda ďalší nástroj ani manuálna práca.\nNajlepšie je vyskúšať prvú kampaň pilotne.' },
+    { id: 'B', text: 'Práve obdobie bez akútnej potreby je ideálna chvíľa riešiť nábor s predstihom.\nMôžete budovať databázu kandidátov, posilniť employer branding a mať kampane pripravené tak, aby sa dali rýchlo spustiť vo chvíli, keď potreba reálne vznikne.' },
+    { id: 'E', text: 'Je dôležité pozrieť sa na to, prečo predchádzajúci pokus nefungoval – často chýba správne nastavenie cieľovej skupiny alebo optimalizácia v priebehu kampane.\nVďaka skúsenostiam s tisícmi kampaní vieme, kde bývajú slabé miesta a ako ich včas upraviť.' },
   ];
 
   const correctPairs: Record<string, string> = {
@@ -44,7 +44,7 @@ export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit, 
   const questionText = (
     <div>
       <div className="mb-6">
-        <QuestionTypeTag text="PŘIŘAZOVÁNÍ" icon={Link2} />
+        <QuestionTypeTag text="PRIRAĎOVANIE" icon={Link2} />
       </div>
       <h3
         className="text-gray-900 mb-4 leading-tight"
@@ -54,38 +54,38 @@ export function Screen26({ onNext, onBack, onSkip, onLogoClick, onAnswerSubmit, 
           lineHeight: '130%'
         }}
       >
-        Ke každé námitce přiřaď nejvhodnější informaci, kterou bys zmínil/a při obchodním jednání.
+        Ku každej námietke priraď najvhodnejšiu informáciu, ktorú by si zmienil/a pri obchodnom jednaní.
       </h3>
       <p className="text-gray-500 text-sm leading-relaxed">
-        Argumentace se samozřejmě liší podle situace na obchodním jednání a přístupu protistrany. Během schůzky je při argumentování také potřeba myslet na principy „Nárazníku".
+        Argumentácia sa samozrejme líši podľa situácie na obchodnom jednaní a prístupu protistrany. Počas stretnutia je pri argumentovaní tiež potrebné myslieť na princípy „Nárazníka".
       </p>
     </div>
   );
 
-  const explanationText = 'Správná reakce na námitky nestojí jen na „protiargumentu", ale na pochopení kontextu klienta. Každá z uvedených odpovědí reaguje na konkrétní obavu a vrací debatu k hodnotě, kterou Nelisa přináší – ať už jde o širší zásah, specializované know-how, jednoduchost implementace nebo práci s pasivními kandidáty.';
+  const explanationText = 'Správna reakcia na námietky nestojí len na „protiargumente", ale na pochopení kontextu klienta. Každá z uvedených odpovedí reaguje na konkrétnu obavu a vracia debatu k hodnote, ktorú Nelisa prináša – či už ide o širší zásah, špecializované know-how, jednoduchosť implementácie alebo prácu s pasívnymi kandidátmi.';
 
   return (
     <MatchingChallenge
       questionNumber={25}
       questionText={questionText}
-      leftColumnTitle="NÁMITKY"
-      rightColumnTitle="Informace, které by měly zaznít"
+      leftColumnTitle="NÁMIETKY"
+      rightColumnTitle="Informácie, ktoré by mali zaznieť"
       leftItems={leftItems}
       rightItems={rightItems}
       correctPairs={correctPairs}
       correctFeedback={{
         emoji: '🎯',
-        message: 'Výborně! Všechny námitky jsi správně spároval/a.',
+        message: 'Výborne! Všetky námietky si správne spároval/a.',
         encouragement: explanationText,
       }}
       partialFeedback={{
         emoji: '📝',
-        message: 'Některé odpovědi nesedí.',
+        message: 'Niektoré odpovede nesedia.',
         encouragement: explanationText,
       }}
       incorrectFeedback={{
         emoji: '🔄',
-        message: 'Zkus to znovu.',
+        message: 'Skús to znova.',
         encouragement: explanationText,
       }}
       onNext={onNext}

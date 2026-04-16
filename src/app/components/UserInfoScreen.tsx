@@ -309,10 +309,10 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
             {/* Welcome Text */}
             <div className="space-y-4">
               <h1 className="text-5xl font-bold text-gray-900 leading-tight">
-                Začni zde
+                Začni tu
               </h1>
               <p className="text-lg text-gray-700 leading-relaxed max-w-md">
-                Pro pokračování v testu potřebujeme tvůj <span className="font-bold text-gray-900">pracovní (firemní) e-mail</span>. Slouží k identifikaci účastníka a přiřazení výsledků testu.
+                Na pokračovanie v teste potrebujeme tvoj <span className="font-bold text-gray-900">pracovný (firemný) e-mail</span>. Slúži na identifikáciu účastníka a priradenie výsledkov testu.
               </p>
             </div>
           </motion.div>
@@ -325,8 +325,8 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
           >
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-10">
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Přihlásit se do testu</h2>
-                <p className="text-sm text-gray-600">Vyplň prosím své údaje pro pokračování</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Prihlásiť sa do testu</h2>
+                <p className="text-sm text-gray-600">Vyplň prosím svoje údaje na pokračovanie</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -336,7 +336,7 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
                     htmlFor="name" 
                     className="block text-sm font-semibold text-gray-700 mb-2"
                   >
-                    Jméno
+                    Meno
                   </label>
                   <input
                     id="name"
@@ -360,7 +360,7 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
                       e.currentTarget.style.borderColor = '#E5E7EB';
                       e.currentTarget.style.boxShadow = 'none';
                     }}
-                    placeholder="Zadejte své jméno"
+                    placeholder="Zadajte svoje meno"
                   />
                 </div>
 
@@ -370,7 +370,7 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
                     htmlFor="email" 
                     className="block text-sm font-semibold text-gray-700 mb-2"
                   >
-                    Pracovní e-mail
+                    Pracovný e-mail
                   </label>
                   <input
                     id="email"
@@ -394,7 +394,7 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
                       e.currentTarget.style.borderColor = '#E5E7EB';
                       e.currentTarget.style.boxShadow = 'none';
                     }}
-                    placeholder="Zadejte pracovní e-mail (např. jmeno@firma.cz)"
+                    placeholder="Zadajte pracovný e-mail (napr. meno@firma.sk)"
                   />
                 </div>
 
@@ -420,7 +420,7 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
                       }
                     }}
                   >
-                    Pokračovat
+                    Pokračovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 </div>
@@ -428,7 +428,7 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
 
               {/* Privacy note */}
               <p className="text-xs text-gray-500 mt-6 text-center">
-                Tvé údaje používáme pouze pro účely tohoto kurzu.
+                Tvoje údaje používame iba na účely tohto kurzu.
               </p>
             </div>
           </motion.div>
@@ -453,7 +453,7 @@ export function UserInfoScreen({ onContinue, onAdminClick, onModuleClick }: User
             fontFamily: 'Poppins, sans-serif'
           }}
         >
-          📱 Jak fungují reklamy na soc. sítích
+          📱 Ako fungujú reklamy na soc. sieťach
         </button>
       )}
 

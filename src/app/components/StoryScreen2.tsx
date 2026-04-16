@@ -11,13 +11,13 @@ export function StoryScreen2({ onContinue, onBack, onLogoClick }: StoryScreen2Pr
   const storyContent = (
     <>
       <p>
-        Je ráno a právě jsi dorazil do práce s úsměvem. Otevíráš notebook a u prvního ranního kafe se připravuješ na dnešní schůzky. V kalendáři máš dvě setkání s klienty. Otevíráš CRM a díváš se na firmy, se kterými se dnes potkáš.
+        Je rano a práve si dorazil do práce s úsmevom. Otváraš notebook a pri prvom rannom kávičku sa pripravuješ na dnešné schôdzky. V kalendári máš dve stretnutia s klientmi. Otváraš CRM a pozeráš sa na firmy, s ktorými sa dnes stretneš.
       </p>
       <p>
-        Chtěl/a bys, aby právě Tebe tentokrát na Slacku vyhlásili jako Top obchodníka pro Nelisu, a přemýšlíš, kde by se Nelisa mohla hodit. Víš, že Nelisu lze nabídnout téměř každé firmě, ale největší přidanou hodnotu má v konkrétních situacích – tam, kde portály samy o sobě nestačí, kde dává smysl oslovit i pasivní kandidáty, nebo tam, kde HRista/HRistka nestíhá, je na všechno sám/sama, nemá čas ani know-how a Nelisa je pro něj/ni řešení bez další práce.
+        Chcel/a by si, aby práve Teba tentoraz na Slacku vyhlásili ako Top obchodníka pre Nelisu, a premýšľaš, kde by sa Nelisa mohla hodiť. Vieš, že Nelisu možno ponúknuť takmer každej firme, ale najväčšiu pridanú hodnotu má v konkrétnych situáciách – tam, kde portály samé o sebe nestačia, kde dáva zmysel osloviť aj pasívnych kandidátov, alebo tam, kde HRista/HRistka nestíha, je na všetko sám/sama, nemá čas ani know-how a Nelisa je pre neho/ňu riešenie bez ďalšej práce.
       </p>
       <p>
-        Potřebuješ si proto rychle ujasnit, kteří klienti jsou pro Nelisu ideální a mají nejvyšší prioritu.
+        Potrebuješ si preto rýchlo ujasniť, ktorí klienti sú pre Nelisu ideálni a majú najvyššiu prioritu.
       </p>
     </>
   );
@@ -33,7 +33,7 @@ export function StoryScreen2({ onContinue, onBack, onLogoClick }: StoryScreen2Pr
   return (
     <StoryScreen
       questionNumber={1}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

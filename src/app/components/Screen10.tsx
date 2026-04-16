@@ -149,7 +149,7 @@ function DropSlot({ blankId, filledWord, correctWord, onRemove, isOver, showResu
             transform: isOver ? 'scale(1.05)' : 'scale(1)',
           }}
         >
-          {isOver ? '↓ Pusť zde' : '________'}
+          {isOver ? '↓ Pusti sem' : '________'}
         </span>
       )}
     </span>
@@ -273,7 +273,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <PenLine className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    DOPLŇ SLOVA
+                    DOPLŇ SLOVÁ
                   </span>
                 </div>
               </div>
@@ -288,7 +288,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                   letterSpacing: 0
                 }}
               >
-                Doplň do věty <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>správné možnosti</span>:
+                Doplň do vety <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>správne možnosti</span>:
               </h3>
 
               {/* Drag-to-fill hint */}
@@ -298,7 +298,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
               <div className="mb-8 p-10 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-100">
                 <div className="text-gray-900" style={{ fontSize: '16px', lineHeight: '155%' }}>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span>„Pozici a podklady nastavíme v</span>
+                    <span>„Pozíciu a podklady nastavíme v</span>
                     
                     <DropSlot
                       blankId="blank1"
@@ -309,7 +309,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       showResult={isConfirmed}
                     />
 
-                    <span>, ale reakce kandidátů chodí do</span>
+                    <span>, ale reakcie kandidátov chodia do</span>
 
                     <DropSlot
                       blankId="blank2"
@@ -329,6 +329,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
               {!isConfirmed && (
                 <div className="mb-8">
                   <h4 className="text-sm font-bold text-gray-600 mb-3 uppercase tracking-wide">Možnosti:</h4>
+
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {wordOptions.map((word) => (
                       <DraggableWord
@@ -346,10 +347,10 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
               {isConfirmed && (
                 <ExplanationBlock>
                   <p>
-                    Tahle námitka je často o strachu z práce navíc. Správná odpověď musí uklidnit, že recruiter nedělá marketing a nepotřebuje další know-how. Jeho role je zadat pozici a připojit službu, zatímco optimalizaci kampaně řídí Nelisa.
+                    Táto námietka je často o strachu z práce navyše. Správna odpoveď musí upokojiť, že recruiter nerobí marketing a nepotrebuje ďalšie know-how. Jeho úloha je zadať pozíciu a pripojiť službu, zatiaľ čo optimalizáciu kampane riadi Nelisa.
                   </p>
                   <p>
-                    Klient tím získá výsledek bez toho, aby do týmu přidával další kompetenci nebo další kapacitu.
+                    Klient tým získa výsledok bez toho, aby do tímu pridával ďalšiu kompetenciu alebo ďalšiu kapacitu.
                   </p>
                 </ExplanationBlock>
               )}
@@ -363,7 +364,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       onClick={onBackToStory}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Zpět na příběh
+                      Späť na príbeh
                     </Button>
                   )}
                   {!isConfirmed && onSkipTask && (
@@ -372,7 +373,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       onClick={onSkipTask}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Přeskočit úkol
+                      Preskočiť úlohu
                     </Button>
                   )}
                 </div>
@@ -382,14 +383,14 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       onClick={handleCheck}
                       disabled={!allFilled}
                     >
-                      Zkontrolovat
+                      Skontrolovať
                     </QuizButton>
                   )}
                   {isConfirmed && (
                     <QuizButton
                       onClick={onNext}
                     >
-                      Pokračovat
+                      Pokračovať
                     </QuizButton>
                   )}
                 </div>
@@ -398,7 +399,7 @@ export function Screen10({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
           </motion.div>
         </div>
 
-        {/* DragOverlay - zobrazuje tag, který se pohybuje s kurzorem */}
+        {/* DragOverlay - zobrazuje tag, ktorý sa pohybuje s kurzorom */}
         <DragOverlay dropAnimation={null}>
           {activeId && activeWord ? (
             <DragOverlayContent text={activeWord.text} />

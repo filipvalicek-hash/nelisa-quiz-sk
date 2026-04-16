@@ -33,25 +33,25 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
     {
       id: 'A',
       label: 'A',
-      text: '„V ceně kampaně platíte za to, že nabídku aktivně doručíme napříč kanály a průběžně řídíme výkon. Součástí jsou i průběžné statistiky, konzultace a grafické zpracování bannerů, takže na to nemusíte mít vlastní marketingovou kapacitu."',
+      text: '„V cene kampane platíte za to, že ponuku aktívne doručíme naprieč kanálmi a priebežne riadime výkon. Súčasťou sú aj priebežné štatistiky, konzultácie a grafické spracovanie bannerov, takže na to nemusíte mať vlastnú marketingovú kapacitu."',
       isCorrect: true
     },
     {
       id: 'B',
       label: 'B',
-      text: '„Cena je vyšší, protože v tom máte i dopad na značku - firma je víc vidět a kandidáti si vás začnou pamatovat. To je dneska klíčové."',
+      text: '„Cena je vyššia, pretože v tom máte aj dopad na značku – firma je viac vidieť a kandidáti si vás začnú pamätať. To je dnes kľúčové."',
       isCorrect: false
     },
     {
       id: 'C',
       label: 'C',
-      text: '„Je to o rozsahu: nejdete jen na jedno místo, ale do více prostředí, kde lidé reálně tráví čas. Část ceny je prostě \'mediální prostor\' a část je práce systému, který hledá nejlepší kombinaci."',
+      text: '„Je to o rozsahu: nejdete len na jedno miesto, ale do viacerých prostredí, kde ľudia reálne trávia čas. Časť ceny je jednoducho \'mediálny priestor\' a časť je práca systému, ktorý hľadá najlepšiu kombináciu."',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: '„Je to dražší, protože to funguje i bez práce na vaší straně - vy jen zadáte pozici a my to celé odřídíme. Proto je to víc než inzerát."',
+      text: '„Je to drahšie, pretože to funguje aj bez práce na vašej strane – vy len zadáte pozíciu a my to celé odriadime. Preto je to viac než inzerát."',
       isCorrect: false
     }
   ];
@@ -94,7 +94,7 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
           >
             {/* Question Type Label */}
             <div className="mb-5">
-              <QuestionTypeTag text="VÝBĚR ODPOVĚDI" icon={CheckCircle} />
+              <QuestionTypeTag text="VÝBER ODPOVEDE" icon={CheckCircle} />
             </div>
 
             {/* Question Text - MANDATORY: 24px SemiBold with purple underline */}
@@ -106,7 +106,7 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                 letterSpacing: 0
               }}
             >
-              Vyber <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>nejlepší reakci</span>.
+              Vyber <span className="font-bold" style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>najlepšiu reakciu</span>.
             </h3>
 
             {/* Options Grid - Single Column Layout */}
@@ -210,15 +210,15 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                       <span className="text-xl">💡</span>
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-gray-900 mb-2 text-lg">Vysvětlení</h4>
+                      <h4 className="font-bold text-gray-900 mb-2 text-lg">Vysvetlenie</h4>
                       <p className="text-gray-700 leading-relaxed">
-                        Klient nekupuje jen „zobrazení", ale službu jako celek: aktivní doručení kampaně a řízení výkonu, plus konkrétní servis kolem (statistiky, konzultace, grafika a bannery), který má u Nelisy standardně zahrnutý.
+                        Klient nekupuje len „zobrazenie", ale službu ako celok: aktívne doručenie kampane a riadenie výkonu, plus konkrétny servis okolo (štatistiky, konzultácie, grafika a bannery), ktorý má u Nelisy štandardne zahrnutý.
                       </p>
                       <p className="text-gray-700 leading-relaxed mt-3">
-                        Employer branding, více kanálů i rozšíření zásahu mimo portály jsou pravdivé benefity, ale samy o sobě nevysvětlují, co všechno klient v ceně reálně dostává.
+                        Employer branding, viac kanálov aj rozšírenie zásahu mimo portály sú pravdivé benefity, ale samy o sebe nevysvetľujú, čo všetko klient v cene reálne dostáva.
                       </p>
                       <p className="text-gray-700 leading-relaxed mt-3">
-                        Copywriting je navíc samostatná služba (není automaticky „vždy v ceně").
+                        Copywriting je navyše samostatná služba (nie je automaticky „vždy v cene").
                       </p>
                     </div>
                   </div>
@@ -235,7 +235,7 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                     onClick={onBackToStory}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Späť na príbeh
                   </Button>
                 )}
                 {!isConfirmed && (
@@ -244,7 +244,7 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                     onClick={onSkipTask}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Přeskočit úkol
+                    Preskočiť úlohu
                   </Button>
                 )}
               </div>
@@ -265,7 +265,7 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                       e.currentTarget.style.backgroundColor = 'var(--primary-brand)';
                     }}
                   >
-                    Zkontrolovat
+                    Skontrolovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}
@@ -281,7 +281,7 @@ export function Screen6({ onBackToStory, onSkipTask, onNext, onLogoClick, onAnsw
                       e.currentTarget.style.backgroundColor = 'var(--primary-brand)';
                     }}
                   >
-                    Pokračovat
+                    Pokračovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}

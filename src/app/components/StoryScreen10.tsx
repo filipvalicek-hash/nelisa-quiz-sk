@@ -11,13 +11,13 @@ export function StoryScreen10({ onContinue, onBack, onLogoClick }: StoryScreen10
   const storyContent = (
     <>
       <p className="mb-4">
-        Po chvíli se dostanete k tomu, jak by spolupráce vypadala v praxi. Klient se opře v židli a ještě než otevřeš Admin, zvedne ruku. „Jen, prosím, ne další systém", řekne. „HR už teď jede v několika nástrojích. Všechno, co není <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>napojené na ATS</span>, je pro nás problém."
+        Po chvíli sa dostanete k tomu, ako by spolupráca vyzerala v praxi. Klient sa oprie v stoličke a ešte predtým, než otvoríš Admin, zdvihne ruku. „Len, prosím, nie ďalší systém," povie. „HR už teraz jazdí vo viacerých nástrojoch. Všetko, čo nie je <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>napojené na ATS</span>, je pre nás problém."
       </p>
       <p className="mb-4">
-        Je vidět, že řeší hlavně tok práce. Kam půjdou reakce. Kde s kandidáty budou pracovat. A kolik kliků navíc to celé přidá.
+        Je vidieť, že rieši hlavne tok práce. Kam pôjdu reakcie. Kde s kandidátmi budú pracovať. A koľko klikov navyše to celé pridá.
       </p>
       <p>
-        Vysvětluješ, že Nelisa s tímhle počítá – a že nová služba <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Kombo integrace</span> zajišťuje propojení s ATS systémy.
+        Vysvetľuješ, že Nelisa s týmto počíta – a že nová služba <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Kombo integrácia</span> zabezpečuje prepojenie s ATS systémami.
       </p>
     </>
   );
@@ -33,7 +33,7 @@ export function StoryScreen10({ onContinue, onBack, onLogoClick }: StoryScreen10
   return (
     <StoryScreen
       questionNumber={10}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

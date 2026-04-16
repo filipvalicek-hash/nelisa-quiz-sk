@@ -27,7 +27,7 @@ export function AutoAdvanceSelectionChallenge({
   questionText,
   options,
   explanationText,
-  questionTypeTag = "VÝBĚR ODPOVĚDI",
+  questionTypeTag = "VYBER ODPOVEDE",
   onNext,
   onBack,
   onLogoClick,
@@ -175,7 +175,7 @@ export function AutoAdvanceSelectionChallenge({
                   className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   disabled={showExplanation}
                 >
-                  Zpět na příběh
+                  Spat na pribeh
                 </Button>
               </div>
             </div>

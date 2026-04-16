@@ -16,16 +16,16 @@ interface Screen25Props {
   onStoreSelection?: (sel: Record<string, Answer | null>) => void;
 }
 
-type Answer = 'ANO' | 'NE';
+type Answer = 'ÁNO' | 'NIE';
 
 const items: { id: string; text: string; correct: Answer }[] = [
-  { id: '1', text: 'Správně jsem s klientem nastavil očekávání.', correct: 'ANO' },
-  { id: '2', text: 'V průběhu kampaně si domluvím s klientem schůzku, kde probereme jeho pohled na výsledky a případnou optimalizaci.', correct: 'ANO' },
-  { id: '3', text: 'Po skončení kampaně si s klientem domluvím vyhodnocovací schůzku.', correct: 'ANO' },
-  { id: '4', text: 'Budu pravidelně měnit copywriting v inzerátu.', correct: 'NE' },
-  { id: '5', text: 'Zaměřím se na branding a snažím se prodat Seznam.cz branding reklamu.', correct: 'NE' },
-  { id: '6', text: 'Pokud má kampaň uspokojivé výsledky, nemusím s klientem nic řešit.', correct: 'NE' },
-  { id: '7', text: 'Průběžně sleduju výsledky a včas detekuju, když je potřeba optimalizovat.', correct: 'ANO' },
+  { id: '1', text: 'Správne som s klientom nastavil očakávania.', correct: 'ÁNO' },
+  { id: '2', text: 'V priebehu kampane si dohodnem s klientom stretnutie, kde preberieme jeho pohľad na výsledky a prípadnú optimalizáciu.', correct: 'ÁNO' },
+  { id: '3', text: 'Po skončení kampane si s klientom dohodnem vyhodnocovacie stretnutie.', correct: 'ÁNO' },
+  { id: '4', text: 'Budem pravidelne meniť copywriting v inzeráte.', correct: 'NIE' },
+  { id: '5', text: 'Zameriam sa na branding a snažím sa predať Seznam.cz branding reklamu.', correct: 'NIE' },
+  { id: '6', text: 'Ak má kampaň uspokojivé výsledky, nemusím s klientom nič riešiť.', correct: 'NIE' },
+  { id: '7', text: 'Priebežne sledujem výsledky a včas detekujem, keď je potrebné optimalizovať.', correct: 'ÁNO' },
 ];
 
 export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfirmed = false, initialSelection, onStoreSelection }: Screen25Props) {
@@ -84,14 +84,14 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfir
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border mb-6" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                 <ToggleLeft className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                 <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                  ANO / NE
+                  ÁNO / NIE
                 </span>
               </div>
               <h3
                 className="text-gray-900 mb-4 leading-tight"
                 style={{ fontSize: '24px', fontWeight: 600, lineHeight: '130%', letterSpacing: 0 }}
               >
-                U každého kroku rozhodni, jestli zvyšuje šanci na retenci (ANO), nebo spíš ne (NE).
+                U každého kroku rozhodni, či zvyšuje šancu na retenciu (ÁNO), alebo skôr nie (NIE).
               </h3>
             </div>
 
@@ -121,7 +121,7 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfir
                       {item.text}
                     </span>
                     <div className="flex gap-2 flex-shrink-0">
-                      {(['ANO', 'NE'] as Answer[]).map(btn => (
+                      {(['ÁNO', 'NIE'] as Answer[]).map(btn => (
                         <button
                           key={btn}
                           onClick={() => handleAnswer(item.id, btn)}
@@ -158,13 +158,13 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfir
             {isConfirmed && (
               <ExplanationBlock>
                 <p>
-                  Retenci nejvíc zvyšuje to, že klient má průběžně jistotu, že je o kampaň postaráno a že existuje jasný rytmus komunikace. Nastavení očekávání na startu je základ, průběžná kontrola a domluvený check-in brání tomu, aby klient dělal závěry po pár dnech.
+                  Retenciu najviac zvyšuje to, že klient má priebežne istotu, že je o kampaň postarané a že existuje jasný rytmus komunikácie. Nastavenie očakávaní na štarte je základ, priebežná kontrola a dohodnutý check-in bránia tomu, aby klient robil závery po pár dňoch.
                 </p>
                 <p>
-                  <strong>Nově je to ještě jednodušší udržet i procesně: s průběžným vyhodnocením kampaně aktivně pomáhá i Nelisa – klientům posíláme e-mail s dotazem na spokojenost a sbíráme zpětnou vazbu, kterou můžeme rychle promítnout do dalšího postupu.</strong>
+                  <strong>Novo je to ešte jednoduchšie udržať aj procesne: s priebežným vyhodnotením kampane aktívne pomáha aj Nelisa – klientom posielame e-mail s otázkou na spokojnosť a zbierame spätnú väzbu, ktorú môžeme rýchlo premietnuť do ďalšieho postupu.</strong>
                 </p>
                 <p>
-                  Vyhodnocovací schůzka po kampani uzavírá spolupráci profesionálně a otevírá prostor pro další krok – ideálně by měla být standard/povinný krok po každém pilotu, aby se výsledky správně interpretovaly a navázalo se retencí. Naopak „nechat to být, když to jde dobře" je nejrychlejší cesta, jak ztratit vztah a příležitost pro další objednávku. A změny copy nebo prodej jiného brandingu nejsou automaticky retence, pokud nenavazují na potřebu klienta a cíl kampaně.
+                  Vyhodnocovacie stretnutie po kampani uzatvára spoluprácu profesionálne a otvára priestor pre ďalší krok – ideálne by malo byť štandard/povinný krok po každom pilote, aby sa výsledky správne interpretovali a nadviazalo sa retenciou. Naopak „nechať to byť, keď to ide dobre" je najrýchlejšia cesta, ako stratiť vzťah a príležitosť pre ďalšiu objednávku. A zmeny copy alebo predaj iného brandingu nie sú automaticky retencia, pokiaľ nenadväzujú na potrebu klienta a cieľ kampane.
                 </p>
               </ExplanationBlock>
             )}
@@ -180,7 +180,7 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfir
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
                       <ArrowLeft className="w-4 h-4" />
-                      Zpět na příběh
+                      Späť na príbeh
                     </Button>
                     {onSkip && (
                       <Button
@@ -188,7 +188,7 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfir
                         onClick={onSkip}
                         className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                       >
-                        Přeskočit úkol
+                        Preskočiť úlohu
                       </Button>
                     )}
                   </>
@@ -208,7 +208,7 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfir
                     onMouseLeave={(e) => { if (allAnswered) e.currentTarget.style.backgroundColor = '#AE54FF'; }}
                     className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] shadow-lg hover:shadow-xl transition-all"
                   >
-                    Zkontrolovat
+                    Skontrolovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}
@@ -220,7 +220,7 @@ export function Screen25({ onNext, onBack, onSkip, onAnswerSubmit, initialConfir
                     onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#AE54FF'; }}
                     className="w-[280px] h-[56px] px-8 rounded-xl font-semibold text-[16px] shadow-lg hover:shadow-xl transition-all"
                   >
-                    Pokračovat
+                    Pokračovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}

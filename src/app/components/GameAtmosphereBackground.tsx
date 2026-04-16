@@ -186,7 +186,7 @@ export function GameAtmosphereBackground() {
             letterSpacing: '0.01em'
           }}
         >
-          zpětná vazba
+          spätná väzba
         </div>
       </motion.div>
 

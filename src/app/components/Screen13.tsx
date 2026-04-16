@@ -30,22 +30,22 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   const options: Option[] = [
     {
       id: 'A',
-      text: '„Jak dnes přemýšlíte nad tím, aby byl text nabídky zajímavý i pro lidi, kteří práci aktivně nehledají?"',
+      text: '„Ako dnes rozmýšľate nad tým, aby bol text ponuky zaujímavý aj pre ľudí, ktorí prácu aktívne nehľadajú?"',
       isCorrect: true
     },
     {
       id: 'B',
-      text: '„Máte zkušenost s tím, že by se vám na nabídku ozvali lidé, kteří původně změnu práce vůbec neřešili?"',
+      text: '„Máte skúsenosť s tým, že by sa vám na ponuku ozvali ľudia, ktorí pôvodne zmenu práce vôbec neriešili?"',
       isCorrect: true
     },
     {
       id: 'C',
-      text: '„Kdo u vás texty finálně schvaluje?"',
+      text: '„Kto u vás texty finálne schvaľuje?"',
       isCorrect: false
     },
     {
       id: 'D',
-      text: '„Jak dlouho vám obvykle trvá text připravit?"',
+      text: '„Ako dlho vám obvykle trvá text pripraviť?"',
       isCorrect: false
     }
   ];
@@ -134,7 +134,7 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                 <CheckCircle2 className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                 <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                  VÝBĚR ODPOVĚDI
+                  VÝBER ODPOVEDE
                 </span>
               </div>
             </div>
@@ -148,7 +148,7 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                 lineHeight: '130%'
               }}
             >
-              Vyber otázku/y, které bys v tuhle chvíli položil/a, aby sis ověřil/a, jestli současný způsob psaní inzerátů dokáže oslovit i <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 700 }}>pasivní kandidáty</span>.
+              Vyber otázku/y, ktoré by si v túto chvíľu položil/a, aby si si overil/a, či súčasný spôsob písania inzerátov dokáže osloviť aj <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 700 }}>pasívnych kandidátov</span>.
             </h1>
 
             {/* Options Grid */}
@@ -223,13 +223,13 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
             {isConfirmed && (
               <ExplanationBlock>
                 <p>
-                  Copy není přepsaný popis pozice, ale výkonový nástroj, který rozhoduje o tom, jestli relevantní člověk udělá další krok. U kampaní to platí dvojnásob: klient do nich investuje nemalé částky a bez správného a kvalitního copy se kampaň typicky „nechytí" – rozpočet se může protočit na zobrazení a prokliky, ale nepřijde dost kvalitních reakcí.
+                  Copy nie je prepísaný popis pozície, ale výkonový nástroj, ktorý rozhoduje o tom, či relevantný človek urobí ďalší krok. Pri kampaniach to platí dvojnásobne: klient do nich investuje nemalé čiastky a bez správneho a kvalitného copy sa kampaň typicky „nechytí" – rozpočet sa môže pretočiť na zobrazenia a prekliky, ale nepríde dosť kvalitných reakcií.
                 </p>
                 <p>
-                  To nejde udělat bez kontextu, protože každá cílovka má jiné motivace, obavy a jazyk. Navíc pasivní kandidát se chová jinak než aktivní: práci aktivně nehledá, takže ho potřebuješ zaujmout rychle, „chytit za srdce" a nadchnout pro myšlenku změny ještě dřív, než začne řešit detaily.
+                  To sa nedá urobiť bez kontextu, pretože každá cieľovka má iné motivácie, obavy a jazyk. Navyše pasívny kandidát sa správa inak ako aktívny: prácu aktívne nehľadá, takže ho potrebuješ zaujať rýchlo, „chytiť za srdce" a nadchnúť pre myšlienku zmeny ešte skôr, než začne riešiť detaily.
                 </p>
                 <p>
-                  Proto je správný postup ten, který sbírá podklady a doptává se – kvalita vstupních informací od klienta často ovlivní výsledek kampaně víc než samotné „hezké věty".
+                  Preto je správny postup ten, ktorý zbiera podklady a dopytuje sa – kvalita vstupných informácií od klienta často ovplyvní výsledok kampane viac než samotné „pekné vety".
                 </p>
               </ExplanationBlock>
             )}
@@ -243,7 +243,7 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                     onClick={onBackToStory}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Späť na príbeh
                   </Button>
                 )}
                 {!isConfirmed && (
@@ -252,7 +252,7 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                     onClick={onSkipTask}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Přeskočit úkol
+                    Preskočiť úlohu
                   </Button>
                 )}
               </div>
@@ -279,7 +279,7 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       }
                     }}
                   >
-                    Zkontrolovat
+                    Skontrolovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}
@@ -295,7 +295,7 @@ export function Screen13({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       e.currentTarget.style.backgroundColor = 'var(--primary-brand)';
                     }}
                   >
-                    Pokračovat
+                    Pokračovať
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 )}

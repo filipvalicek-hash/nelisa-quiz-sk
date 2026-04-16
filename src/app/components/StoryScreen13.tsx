@@ -11,16 +11,16 @@ export function StoryScreen13({ onContinue, onBack, onLogoClick }: StoryScreen13
   const storyContent = (
     <>
       <p className="mb-4">
-        Klient má pořád otevřenou nabídku. Scrolluje nahoru a dolů, očima projíždí text, na chvíli se zastaví u nadpisu.
+        Klient má stále otvorenú ponuku. Scrolluje hore a dole, očami prechádza text, na chvíľu sa zastaví pri nadpise.
       </p>
       <p className="mb-4">
-        „Co se textu týče, ten si většinu píšeme sami," poznamená. „Mluví do toho HR, občas i marketing."
+        „Čo sa textu týka, ten si väčšinu píšeme sami," poznamenáva. „Hovorí do toho HR, občas aj marketing."
       </p>
       <p className="mb-4">
-        Ty si v hlavě potřebuješ rychle srovnat jednu věc:
+        Ty si v hlave potrebuješ rýchlo usporiadať jednu vec:
       </p>
       <p>
-        jestli způsob, jakým dnes mluví k lidem, odpovídá tomu, koho chtějí oslovit.
+        či spôsob, akým dnes hovoria k ľuďom, zodpovedá tomu, koho chcú osloviť.
       </p>
     </>
   );
@@ -39,7 +39,7 @@ export function StoryScreen13({ onContinue, onBack, onLogoClick }: StoryScreen13
   return (
     <StoryScreen
       questionNumber={13}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

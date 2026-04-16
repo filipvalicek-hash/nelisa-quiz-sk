@@ -11,7 +11,7 @@ interface StoryScreen7Props {
 export function StoryScreen7({ onContinue, onBack, onLogoClick }: StoryScreen7Props) {
   const storyContent = (
     <p>
-      Klient řekne: „Tak jo, ukažte mi to v praxi." Máš připravené všechno - Admin, bannery, příklady kampaní, copywriting… ale víš, že když začneš špatně, ztratí se. Potřebuješ zvolit <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>první ukázku</span>, která nejrychleji vysvětlí princip a nezahltí.
+      Klient povie: „Tak dobre, ukážte mi to v praxi." Máš pripravené všetko – Admin, bannery, príklady kampaní, copywriting... ale vieš, že keď začneš zle, stratí sa. Potrebuješ zvoliť <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>prvú ukážku</span>, ktorá najrýchlejšie vysvetlí princíp a nezahltí.
     </p>
   );
 
@@ -30,7 +30,7 @@ export function StoryScreen7({ onContinue, onBack, onLogoClick }: StoryScreen7Pr
   return (
     <StoryScreen
       questionNumber={7}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

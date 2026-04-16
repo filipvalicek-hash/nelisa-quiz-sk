@@ -7,7 +7,7 @@ import { GripVertical } from 'lucide-react';
  * Used in Questions 5, 10, and 12.
  * 
  * Displays a 9-dot grip icon with instruction text:
- * "Přetáhni slova myší na správné místo."
+ * "Pretiahni slová myšou na správne miesto."
  */
 export function HintRow_DragToFill() {
   return (
@@ -18,7 +18,7 @@ export function HintRow_DragToFill() {
         strokeWidth={2}
       />
       <p className="text-sm font-medium text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
-        Přetáhni slova myší na správné místo.
+        Pretiahni slová myšou na správne miesto.
       </p>
     </div>
   );

@@ -11,12 +11,12 @@ export function StoryScreen24({ onContinue, onBack, onLogoClick }: StoryScreen24
   const storyContent = (
     <>
       <p>
-        Pošleš mu prezentaci a domluvíte další kontakt. O pár dní později přichází zpráva:
+        Pošleš mu prezentáciu a dohodnete ďalší kontakt. O pár dní neskôr prichádza správa:
         <br />
-        „Schválili jsme to. Pojďme do toho."
+        „Schválili sme to. Poďme do toho."
       </p>
       <p>
-        Kampaň se spouští, ale tady se láme chleba. První týdny rozhodují o tom, jestli se z toho stane jednorázová akce, nebo dlouhodobá spolupráce. Tvoje práce teď není jen „nechat to běžet", ale nastavit rytmus péče a vyhodnocování tak, aby klient měl průběžně jistotu, že to máte pod kontrolou.
+        Kampaň sa spúšťa, ale tu sa láme chlieb. Prvé týždne rozhodujú o tom, či sa z toho stane jednorazová akcia, alebo dlhodobá spolupráca. Tvoja práca teraz nie je len „nechať to bežať", ale nastaviť rytmus starostlivosti a vyhodnocovania tak, aby mal klient priebežne istotu, že to máte pod kontrolou.
       </p>
     </>
   );
@@ -32,7 +32,7 @@ export function StoryScreen24({ onContinue, onBack, onLogoClick }: StoryScreen24
   return (
     <StoryScreen
       questionNumber={24}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

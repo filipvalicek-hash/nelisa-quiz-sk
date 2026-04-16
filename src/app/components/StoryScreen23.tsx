@@ -9,7 +9,7 @@ interface StoryScreen23Props {
 export function StoryScreen23({ onContinue, onLogoClick }: StoryScreen23Props) {
   const storyContent = (
     <p>
-      Klient si shrnuje poznámky, má pocit, že to dává smysl, ale nechce se rozhodnout hned. Řekne: „Pošlete mi podklady a já to proberu interně." Je klíčové uzavřít schůzku profesionálně a posunout ji, nebo to vyšumí.
+      Klient si zhrnuje poznámky, má pocit, že to dáva zmysel, ale nechce sa rozhodnúť hneď. Povie: „Pošlite mi podklady a ja to preberiem interne." Je kľúčové uzavrieť stretnutie profesionálne a posunúť ho, alebo to vyšumí.
     </p>
   );
 
@@ -25,7 +25,7 @@ export function StoryScreen23({ onContinue, onLogoClick }: StoryScreen23Props) {
   return (
     <StoryScreen
       questionNumber={23}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

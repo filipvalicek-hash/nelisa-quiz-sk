@@ -149,7 +149,7 @@ function DropSlot({ blankId, filledWord, correctWord, onRemove, isOver, showResu
             transform: isOver ? 'scale(1.05)' : 'scale(1)',
           }}
         >
-          {isOver ? '↓ Pusť zde' : '________'}
+          {isOver ? '↓ Pusti sem' : '________'}
         </span>
       )}
     </span>
@@ -163,17 +163,17 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   const [overBlankId, setOverBlankId] = useState<string | null>(null);
 
   const wordOptions = [
-    { id: 'opt1', text: 'podpisu závazné objednávky' },
-    { id: 'opt2', text: 'podpisu pracovní smlouvy' },
-    { id: 'opt3', text: 'prvním měsíci kampaně' },
-    { id: 'opt4', text: 'základní nastavení a orientaci v Nelisa Adminu' },
-    { id: 'opt5', text: 'detailní nastavení reklamních systémů' },
-    { id: 'opt6', text: 'vyhodnocení výkonu kampaně' }
+    { id: 'opt1', text: 'podpisu záväznej objednávky' },
+    { id: 'opt2', text: 'podpisu pracovnej zmluvy' },
+    { id: 'opt3', text: 'prvom mesiaci kampane' },
+    { id: 'opt4', text: 'základné nastavenie a orientáciu v Nelisa Admine' },
+    { id: 'opt5', text: 'detailné nastavenie reklamných systémov' },
+    { id: 'opt6', text: 'vyhodnotenie výkonu kampane' }
   ];
 
   const blanks = [
-    { id: 'blank1', correctWord: 'podpisu závazné objednávky' },
-    { id: 'blank2', correctWord: 'základní nastavení a orientaci v Nelisa Adminu' }
+    { id: 'blank1', correctWord: 'podpisu záväznej objednávky' },
+    { id: 'blank2', correctWord: 'základné nastavenie a orientáciu v Nelisa Admine' }
   ];
 
   const sensors = useSensors(
@@ -241,8 +241,8 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
   const allFilled = blanks.every(blank => filledBlanks[blank.id]);
   const activeWord = wordOptions.find(w => w.id === activeId);
 
-  const blank1Correct = filledBlanks['blank1']?.wordText === 'podpisu závazné objednávky';
-  const blank2Correct = filledBlanks['blank2']?.wordText === 'základní nastavení a orientaci v Nelisa Adminu';
+  const blank1Correct = filledBlanks['blank1']?.wordText === 'podpisu záväznej objednávky';
+  const blank2Correct = filledBlanks['blank2']?.wordText === 'základné nastavenie a orientáciu v Nelisa Admine';
 
   return (
     <DndContext 
@@ -272,7 +272,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <PenLine className="w-4 h-4" style={{ color: '#AE54FF' }} strokeWidth={2} />
                   <span className="text-xs tracking-wider uppercase" style={{ color: '#AE54FF', fontWeight: 600, fontFamily: 'Poppins, sans-serif' }}>
-                    DOPLŇ SLOVA
+                    DOPLŇ SLOVÁ
                   </span>
                 </div>
               </div>
@@ -287,7 +287,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                   letterSpacing: 0
                 }}
               >
-                Doplň do věty <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>správné možnosti</span>:
+                Doplň do vety <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px', fontWeight: 600 }}>správne možnosti</span>:
               </h3>
 
               {/* Drag-to-fill hint */}
@@ -297,23 +297,23 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
               <div className="mb-8 p-10 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-100">
                 <div className="text-lg text-gray-900" style={{ lineHeight: '155%' }}>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span>„Po spuštění spolupráce dáváme klientům onboarding schůzku po</span>
+                    <span>„Po spustení spolupráce dávame klientom onboarding stretnutie po</span>
                     
                     <DropSlot
                       blankId="blank1"
                       filledWord={filledBlanks['blank1']?.wordText || null}
-                      correctWord="podpisu závazné objednávky"
+                      correctWord="podpisu záväznej objednávky"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank1'}
                       showResult={isConfirmed}
                     />
 
-                    <span>, kde společně projdeme</span>
+                    <span>, kde spoločne prejdeme</span>
 
                     <DropSlot
                       blankId="blank2"
                       filledWord={filledBlanks['blank2']?.wordText || null}
-                      correctWord="základní nastavení a orientaci v Nelisa Adminu"
+                      correctWord="základné nastavenie a orientáciu v Nelisa Admine"
                       onRemove={handleRemove}
                       isOver={overBlankId === 'blank2'}
                       showResult={isConfirmed}
@@ -345,7 +345,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
               {isConfirmed && (
                 <ExplanationBlock>
                   <p>
-                    Onboarding je zrychlení a pojistka. Pomáhá klientovi pochopit Admin, doplnit potřebné informace a nastavit spolupráci tak, aby nevznikaly chyby z neznalosti. Podmínky dávají smysl proto, aby onboarding probíhal ve chvíli, kdy už je objednávka vyřešená a klient je připravený. Jinak by onboarding sklouzával do opakování prezentace nebo do řešení věcí, které ještě nejsou aktuální.
+                    Onboarding je zrýchlenie a poistka. Pomáha klientovi pochopiť Admin, doplniť potrebné informácie a nastaviť spoluprácu tak, aby nevznikali chyby z neznalosti. Podmienky dávajú zmysel preto, aby onboarding prebiehal vo chvíli, keď už je objednávka vybavená a klient je pripravený. Inak by onboarding skĺzaval do opakovania prezentácie alebo do riešenia vecí, ktoré ešte nie sú aktuálne.
                   </p>
                 </ExplanationBlock>
               )}
@@ -359,7 +359,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       onClick={onBackToStory}
                       className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                     >
-                      Zpět na příběh
+                      Späť na príbeh
                     </Button>
                   )}
                   {!isConfirmed && onSkipTask && (
@@ -368,7 +368,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       onClick={onSkipTask}
                       className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                     >
-                      Přeskočit úkol
+                      Preskočiť úlohu
                     </Button>
                   )}
                 </div>
@@ -379,14 +379,14 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
                       onClick={handleCheck}
                       disabled={!allFilled}
                     >
-                      Zkontrolovat
+                      Skontrolovať
                     </QuizButton>
                   )}
                   {isConfirmed && (
                     <QuizButton
                       onClick={onNext}
                     >
-                      Pokračovat
+                      Pokračovať
                     </QuizButton>
                   )}
                 </div>
@@ -395,7 +395,7 @@ export function Screen12({ onBackToStory, onSkipTask, onNext, onLogoClick, onAns
           </motion.div>
         </div>
 
-        {/* DragOverlay - zobrazuje tag, který se pohybuje s kurzorem */}
+        {/* DragOverlay - zobrazuje tag, ktorý sa pohybuje s kurzorom */}
         <DragOverlay dropAnimation={null}>
           {activeId && activeWord ? (
             <DragOverlayContent text={activeWord.text} />

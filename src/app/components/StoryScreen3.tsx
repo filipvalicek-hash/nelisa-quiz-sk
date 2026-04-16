@@ -11,11 +11,11 @@ export function StoryScreen3({ onContinue, onBack, onLogoClick }: StoryScreen3Pr
   const storyContent = (
     <>
       <p>
-        Vybral/a sis klienta, u kterého Ti Nelisa dává smysl.
-        Teď už sedíš u stolu v jejich kanceláři, notebook otevřený, poznámky připravené. Vyměníte si pár vět o tom, co je nového, a schůzka se přirozeně přesouvá k věci. <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Je čas otevřít téma Nelisy</span>.
+        Vybral/a si klienta, u ktorého Ti Nelisa dáva zmysel.
+        Teraz už sedíš za stolom v ich kancelárii, notebook otvorený, poznámky pripravené. Vymeníte si pár viet o tom, čo je nové, a schôdzka sa prirodzene presúva k veci. <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>Je čas otvoriť tému Nelisy</span>.
       </p>
       <p>
-        Právě teď se rozhoduje, <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>jak ji představíš</span> a jak zapůsobíš.
+        Práve teraz sa rozhoduje, <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>ako ju predstavíš</span> a ako zapôsobíš.
       </p>
     </>
   );
@@ -31,7 +31,7 @@ export function StoryScreen3({ onContinue, onBack, onLogoClick }: StoryScreen3Pr
   return (
     <StoryScreen
       questionNumber={3}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

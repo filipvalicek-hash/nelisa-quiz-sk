@@ -20,7 +20,7 @@ export function HotspotSidebar({ onBack, clientTrust, fitConfidence, engagement 
           className="text-gray-600 hover:text-gray-900 gap-2 -ml-2"
         >
           <ArrowLeft className="w-4 h-4" />
-          Zpět
+          Spat
         </Button>
       </div>
 
@@ -29,7 +29,7 @@ export function HotspotSidebar({ onBack, clientTrust, fitConfidence, engagement 
         {/* Story Label */}
         <div className="inline-block">
           <span className="text-xs font-bold text-purple-600 tracking-wider bg-purple-50 px-3 py-1 rounded-full" style={{ fontFamily: 'Poppins, sans-serif' }}>
-            PŘÍBĚH
+            PRIBEH
           </span>
         </div>
 
@@ -39,11 +39,11 @@ export function HotspotSidebar({ onBack, clientTrust, fitConfidence, engagement 
             <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
               <Briefcase className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">Nová pozice</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Nova pozicia</h2>
           </div>
 
           <p className="text-gray-600 leading-relaxed">
-            Klient už chápe rozdíl mezi inzerátem a kampaní. Teď chce vědět, jak se s Nelisou pracuje v praxi.
+            Klient uz chape rozdiel medzi inzeratom a kampanou. Teraz chce vediet, ako sa s Nelisou pracuje v praxi.
           </p>
 
           <motion.div 
@@ -53,7 +53,7 @@ export function HotspotSidebar({ onBack, clientTrust, fitConfidence, engagement 
             transition={{ delay: 0.3 }}
           >
             <p className="text-sm text-blue-900 font-medium">
-              "Ukážeš mi, kde se přidává nová pozice?"
+              "Ukazes mi, kde sa pridava nova pozicia?"
             </p>
             <p className="text-xs text-blue-700 mt-1">— Client</p>
           </motion.div>
@@ -75,10 +75,10 @@ export function HotspotSidebar({ onBack, clientTrust, fitConfidence, engagement 
         {/* Progress Info */}
         <div className="pt-6 border-t border-gray-200">
           <div className="text-xs font-semibold text-gray-500 tracking-wide mb-2">
-            PRŮBĚH KONZULTACE
+            PRIEBEH KONZULTACIE
           </div>
           <div className="text-sm text-gray-600">
-            Otázka <span className="font-bold text-gray-900">4</span> z <span className="font-bold">12</span>
+            Otazka <span className="font-bold text-gray-900">4</span> z <span className="font-bold">12</span>
           </div>
         </div>
       </div>

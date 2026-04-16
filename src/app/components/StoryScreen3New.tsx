@@ -11,7 +11,7 @@ export function StoryScreen3New({ onContinue, onBack, onLogoClick }: StoryScreen
   const storyContent = (
     <>
       <p>
-        Před schůzkou s klientem je důležité mít všechny potřebné materiály a nástroje připravené, aby schůzka probíhala hladce a efektivně. Máš k dispozici několik <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>interních nástrojů</span>, které Ti mohou pomoci v různých situacích: od odhadu výkonu kampaní po ukázky nadstandardních reklamních formátů. Jaké materiály bys měl/a mít připravené, než se pustíš do <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>představování Nelisy</span> klientovi?
+        Pred schôdzkou s klientom je dôležité mať všetky potrebné materiály a nástroje pripravené, aby schôdzka prebiehala hladko a efektívne. Máš k dispozícii niekoľko <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>interných nástrojov</span>, ktoré Ti môžu pomôcť v rôznych situáciách: od odhadu výkonu kampaní po ukážky nadštandardných reklamných formátov. Aké materiály by si mal/a mať pripravené, než sa pustíš do <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>predstavovania Nelisy</span> klientovi?
       </p>
     </>
   );
@@ -28,7 +28,7 @@ export function StoryScreen3New({ onContinue, onBack, onLogoClick }: StoryScreen
   return (
     <StoryScreen
       questionNumber={2}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

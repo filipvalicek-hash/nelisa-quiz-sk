@@ -16,36 +16,36 @@ export function Screen19({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
     {
       id: 'A',
       label: 'A',
-      text: 'Meta ukazuje reklamy hlavně podle věku, pohlaví a dalších demografických údajů.',
+      text: 'Meta ukazuje reklamy hlavne podľa veku, pohlavia a ďalších demografických údajov.',
       isCorrect: false
     },
     {
       id: 'B',
       label: 'B',
-      text: 'Meta sleduje, jak lidé na reklamy reagují, a postupně podle toho upravuje, komu se zobrazují.',
+      text: 'Meta sleduje, ako ľudia na reklamy reagujú, a postupne podľa toho upravuje, komu sa zobrazujú.',
       isCorrect: true
     },
     {
       id: 'C',
       label: 'C',
-      text: 'Meta rozděluje reklamy rovnoměrně, aby se dostaly ke všem v cílové oblasti.',
+      text: 'Meta rozdeľuje reklamy rovnomerne, aby sa dostali ku všetkým v cieľovej oblasti.',
       isCorrect: false
     },
     {
       id: 'D',
       label: 'D',
-      text: 'Meta cílí především podle zájmů, které si uživatelé nastaví ve svém profilu.',
+      text: 'Meta cieli predovšetkým podľa záujmov, ktoré si používatelia nastavia vo svojom profile.',
       isCorrect: false
     }
   ];
 
   const questionText = (
     <>
-      Vyber jedno <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>vysvětlení</span>, které bys klientovi v tuhle chvíli řekl/a. Takové, které je pravdivé, srozumitelné a nezahlcuje detaily.
+      Vyber jedno <span style={{ background: 'linear-gradient(180deg, transparent 60%, rgba(174, 84, 255, 0.18) 60%)', padding: '0 2px' }}>vysvetlenie</span>, ktoré by si klientovi v tejto chvíli povedal/a. Také, ktoré je pravdivé, zrozumiteľné a nezahlcuje detailmi.
     </>
   );
 
-  const explanationText = 'Klient potřebuje vědět, co se optimalizuje a proč. Když se to nevysvětlí, je těžké obhájit výsledek a vyhodnotit, co se vlastně stalo. Správná odpověď ukazuje, že doručování není „ruční cílení" podle demografie, ale algoritmická optimalizace podle chování lidí v online prostoru – podobně jako v e-commerce: systém sleduje, jak uživatelé na reklamy reagují, a postupně upravuje, komu se nabídka zobrazuje, aby ji viděli co nejrelevantnější kandidáti. Zároveň je důležité, že Nelisa nestaví jen na tom, co umí samotná platforma, ale využívá nejlepší dostupné cílení, které dnes technologie a trh nabízí, a k tomu i vlastní know-how a data z tisíců HR kampaní, díky kterým umíme kampaně rychleji správně nastavit, interpretovat a průběžně zlepšovat. Díky tomu je spolupráce čitelná, měřitelná a důvěryhodná.';
+  const explanationText = 'Klient potrebuje vedieť, čo sa optimalizuje a prečo. Keď sa to nevysvetlí, je ťažké obhájiť výsledok a vyhodnotiť, čo sa vlastne stalo. Správna odpoveď ukazuje, že doručovanie nie je „ručné cielenie" podľa demografie, ale algoritmická optimalizácia podľa správania ľudí v online priestore – podobne ako v e-commerce: systém sleduje, ako používatelia na reklamy reagujú, a postupne upravuje, komu sa ponuka zobrazuje, aby ju videli čo najrelevantnejší kandidáti. Zároveň je dôležité, že Nelisa nestavia len na tom, čo vie samotná platforma, ale využíva najlepšie dostupné cielenie, ktoré dnes technológie a trh ponúkajú, a k tomu aj vlastné know-how a dáta z tisícov HR kampaní, vďaka ktorým vieme kampane rýchlejšie správne nastaviť, interpretovať a priebežne zlepšovať. Vďaka tomu je spolupráca čitateľná, merateľná a dôveryhodná.';
 
   return (
     <CardSelectionChallenge
@@ -53,7 +53,7 @@ export function Screen19({ onBack, onNext, onLogoClick, onSkip, onAnswerSubmit, 
       questionText={questionText}
       options={options}
       explanationText={explanationText}
-      questionTypeTag="VÝBĚR JEDNÉ ODPOVĚDI"
+      questionTypeTag="VÝBER JEDNEJ ODPOVEDE"
       onNext={onNext}
       onBack={onBack}
       onLogoClick={onLogoClick}

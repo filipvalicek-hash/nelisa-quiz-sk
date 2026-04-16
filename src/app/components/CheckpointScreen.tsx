@@ -41,7 +41,7 @@ export function CheckpointScreen({ onContinue, onLogoClick }: CheckpointScreenPr
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.4 }}
           >
-            Část dokončena
+            Časť dokončená
           </motion.h1>
 
           {/* Supporting Text */}
@@ -52,10 +52,10 @@ export function CheckpointScreen({ onContinue, onLogoClick }: CheckpointScreenPr
             transition={{ delay: 0.4, duration: 0.4 }}
           >
             <p className="mb-3">
-              Máte za sebou další část scénáře.
+              Máte za sebou ďalšiu časť scenára.
             </p>
             <p>
-              Pokračujeme k dalším situacím z praxe.
+              Pokračujeme k ďalším situáciám z praxe.
             </p>
           </motion.div>
 
@@ -66,7 +66,7 @@ export function CheckpointScreen({ onContinue, onLogoClick }: CheckpointScreenPr
             transition={{ delay: 0.5, duration: 0.4 }}
           >
             <QuizButton onClick={onContinue}>
-              Pokračovat
+              Pokračovať
             </QuizButton>
           </motion.div>
         </motion.div>

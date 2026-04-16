@@ -103,7 +103,7 @@ const DraggableMaterial = ({
           </p>
           {status === 'incorrect' && correctCategoryTitle && (
             <p className="mt-1.5 text-xs font-semibold" style={{ color: '#DC2626' }}>
-              → Správně patří do: {correctCategoryTitle}
+              → Spravne patri do: {correctCategoryTitle}
             </p>
           )}
         </div>
@@ -272,7 +272,7 @@ export function CategoryDragDropChallenge({
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border" style={{ backgroundColor: 'rgba(174, 84, 255, 0.08)', borderColor: 'rgba(174, 84, 255, 0.2)' }}>
                   <FolderOpen className="w-4 h-4" style={{ color: '#AE54FF' }} />
                   <span className="text-xs font-semibold tracking-wider" style={{ color: '#AE54FF' }}>
-                    ÚKOL · PŘIŘAZOVÁNÍ
+                    ULOHA · PRIRAĎOVANIE
                   </span>
                 </div>
               </div>
@@ -315,7 +315,7 @@ export function CategoryDragDropChallenge({
               {/* Unassigned Materials Pool */}
               {unassignedMaterials.length > 0 && !checked && (
                 <div className="mb-8">
-                  <h4 className="font-bold text-gray-700 mb-4 text-sm uppercase tracking-wide">📦 Materiály k přiřazení</h4>
+                  <h4 className="font-bold text-gray-700 mb-4 text-sm uppercase tracking-wide">📦 Materialy na priradenie</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {unassignedMaterials.map(material => (
                       <DraggableMaterial 
@@ -345,7 +345,7 @@ export function CategoryDragDropChallenge({
                     onClick={onBack}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět na příběh
+                    Spat na pribeh
                   </Button>
                   {!checked && onSkip && (
                     <Button
@@ -353,7 +353,7 @@ export function CategoryDragDropChallenge({
                       onClick={onSkip}
                       className="text-gray-400 hover:text-gray-600 gap-2 font-medium text-sm"
                     >
-                      Přeskočit otázku
+                      Preskocit otazku
                     </Button>
                   )}
                 </div>
@@ -379,7 +379,7 @@ export function CategoryDragDropChallenge({
                       }
                     }}
                   >
-                    {checked ? 'Pokračovat' : 'Zkontrolovat'}
+                    {checked ? 'Pokracovat' : 'Skontrolovat'}
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 </div>

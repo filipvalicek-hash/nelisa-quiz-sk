@@ -9,7 +9,7 @@ interface AdminDashboardProps {
 }
 
 function formatDate(iso: string): string {
-  return new Date(iso).toLocaleString('cs-CZ', {
+  return new Date(iso).toLocaleString('sk-SK', {
     day: '2-digit', month: '2-digit', year: 'numeric',
     hour: '2-digit', minute: '2-digit',
   });
@@ -52,7 +52,7 @@ function SessionRow({ session }: { session: QuizSession }) {
         <div className="shrink-0">
           {session.completedAt
             ? <ScoreBadge correct={session.totalCorrect} total={session.totalQuestions} />
-            : <span className="text-xs text-amber-500 font-medium px-3 py-1 bg-amber-50 rounded-full">Nedokončeno</span>
+            : <span className="text-xs text-amber-500 font-medium px-3 py-1 bg-amber-50 rounded-full">Nedokončené</span>
           }
         </div>
         <div className="shrink-0 text-gray-400">
@@ -72,7 +72,7 @@ function SessionRow({ session }: { session: QuizSession }) {
           >
             <div className="border-t border-gray-100 px-6 py-4 bg-gray-50">
               {session.answers.length === 0 ? (
-                <p className="text-sm text-gray-400 italic">Žádné zaznamenané odpovědi.</p>
+                <p className="text-sm text-gray-400 italic">Žiadne zaznamenané odpovede.</p>
               ) : (() => {
                 // Group answers by attempt_number
                 const byAttempt = new Map<number, typeof session.answers>();
@@ -97,7 +97,7 @@ function SessionRow({ session }: { session: QuizSession }) {
                         {attemptNum === 1 ? '1. pokus' : `${attemptNum}. pokus (oprava)`}
                       </span>
                       <span className="text-xs text-gray-400">
-                        {answers.filter(a => a.isCorrect).length}/{answers.length} správně
+                        {answers.filter(a => a.isCorrect).length}/{answers.length} správne
                       </span>
                     </div>
                     {/* Answers in this attempt */}
@@ -120,10 +120,10 @@ function SessionRow({ session }: { session: QuizSession }) {
                               {!ans.skipped && (
                                 <div className="flex flex-wrap gap-x-4 gap-y-0.5 text-xs">
                                   <span className={ans.isCorrect ? 'text-green-600' : 'text-red-500'}>
-                                    Odpověď: <strong>{ans.selectedAnswer}</strong>
+                                    Odpoveď: <strong>{ans.selectedAnswer}</strong>
                                   </span>
                                   {!ans.isCorrect && (
-                                    <span className="text-gray-500">Správně: <strong>{ans.correctAnswer}</strong></span>
+                                    <span className="text-gray-500">Správne: <strong>{ans.correctAnswer}</strong></span>
                                   )}
                                 </div>
                               )}
@@ -235,18 +235,18 @@ function QuestionCard({ stat, rank, variant }: { stat: QuestionStat; rank: numbe
         <div className="flex flex-wrap gap-3">
           {variant === 'bad' ? (
             <>
-              <Pill color={badColor} label="Chybovost" value={`${errorPct}%`} />
-              <Pill color="#f59e0b" label="Opakování" value={stat.retries > 0 ? `${stat.retries}×` : '0×'} />
-              {stat.skipped > 0 && <Pill color="#94a3b8" label="Přeskočeno" value={`${stat.skipped}×`} />}
+              <Pill color={badColor} label="Chybovosť" value={`${errorPct}%`} />
+              <Pill color="#f59e0b" label="Opakovanie" value={stat.retries > 0 ? `${stat.retries}×` : '0×'} />
+              {stat.skipped > 0 && <Pill color="#94a3b8" label="Preskočené" value={`${stat.skipped}×`} />}
               {stat.mostCommonWrong && (
-                <Pill color="#9ca3af" label="Nejčastější chyba" value={`„${stat.mostCommonWrong}"`} />
+                <Pill color="#9ca3af" label="Najčastejšia chyba" value={`„${stat.mostCommonWrong}"`} />
               )}
             </>
           ) : (
             <>
-              <Pill color={goodColor} label="Správně" value={`${correctPct}%`} />
-              <Pill color="#94a3b8" label="Odpovědí" value={`${answered}`} />
-              {stat.retries === 0 && <Pill color="#22c55e" label="Bez opakování" value="✓" />}
+              <Pill color={goodColor} label="Správne" value={`${correctPct}%`} />
+              <Pill color="#94a3b8" label="Odpovedí" value={`${answered}`} />
+              {stat.retries === 0 && <Pill color="#22c55e" label="Bez opakovania" value="✓" />}
             </>
           )}
         </div>
@@ -270,14 +270,14 @@ function ReportTab({ sessions }: { sessions: QuizSession[] }) {
     return (
       <div className="text-center py-16 text-gray-400">
         <BarChart2 className="w-10 h-10 mx-auto mb-3 opacity-30" />
-        <p className="text-sm">Zatím žádná dokončená testování.</p>
+        <p className="text-sm">Zatiaľ žiadne dokončené testovanie.</p>
       </div>
     );
   }
 
   const stats = buildQuestionStats(sessions);
   if (stats.length === 0) {
-    return <div className="text-center py-16 text-gray-400 text-sm">Nedostatek dat pro analýzu.</div>;
+    return <div className="text-center py-16 text-gray-400 text-sm">Nedostatok dát na analýzu.</div>;
   }
 
   const byError = [...stats].sort((a, b) => b.errorRate - a.errorRate || b.retries - a.retries);
@@ -294,14 +294,14 @@ function ReportTab({ sessions }: { sessions: QuizSession[] }) {
     <div className="space-y-10">
       {/* Meta */}
       <p className="text-xs text-gray-400">
-        Analýza z <strong className="text-gray-600">{completed.length}</strong> dokončených testů · {stats.length} otázek
+        Analýza z <strong className="text-gray-600">{completed.length}</strong> dokončených testov · {stats.length} otázok
       </p>
 
       {/* Problematic */}
       <section>
         <div className="flex items-center gap-2 mb-4">
           <TrendingDown className="w-4 h-4 text-red-400" />
-          <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Top 5 nejhorších otázek</h3>
+          <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Top 5 najhorších otázok</h3>
         </div>
         <div className="space-y-3">
           {top5Bad.map((stat, i) => (
@@ -314,7 +314,7 @@ function ReportTab({ sessions }: { sessions: QuizSession[] }) {
       <section>
         <div className="flex items-center gap-2 mb-4">
           <TrendingUp className="w-4 h-4 text-green-400" />
-          <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Top 5 nejlepších otázek</h3>
+          <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Top 5 najlepších otázok</h3>
         </div>
         <div className="space-y-3">
           {top5Good.map((stat, i) => (
@@ -342,7 +342,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
       const data = await getAllSessions();
       setSessions(data);
     } catch (err) {
-      setError('Nepodařilo se načíst data. Zkontrolujte připojení.');
+      setError('Nepodarilo sa načítať dáta. Skontrolujte pripojenie.');
       console.error('[AdminDashboard] load error', err);
     } finally {
       setLoading(false);
@@ -364,12 +364,12 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
   }, [refresh]);
 
   const handleClear = async () => {
-    if (window.confirm('Opravdu smazat všechna data? Tato akce je nevratná.')) {
+    if (window.confirm('Naozaj zmazať všetky dáta? Táto akcia je nevratná.')) {
       try {
         await clearAllSessions();
         await refresh();
       } catch (err) {
-        alert('Smazání se nezdařilo. Zkuste to znovu.');
+        alert('Zmazanie sa nepodarilo. Skúste to znova.');
         console.error('[AdminDashboard] clear error', err);
       }
     }
@@ -392,7 +392,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
             <h1 className="text-base font-bold text-gray-900" style={{ fontFamily: 'Poppins, sans-serif' }}>
               Nelisa Admin
             </h1>
-            <p className="text-xs text-gray-400">Přehled certifikací</p>
+            <p className="text-xs text-gray-400">Prehľad certifikácií</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -402,15 +402,15 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
             style={live
               ? { backgroundColor: 'rgba(34,197,94,0.1)', color: '#16a34a' }
               : { backgroundColor: 'rgba(156,163,175,0.1)', color: '#9ca3af' }}
-            title={live ? 'Připojeno – data se aktualizují v reálném čase' : 'Čekání na připojení…'}
+            title={live ? 'Pripojené – dáta sa aktualizujú v reálnom čase' : 'Čakanie na pripojenie…'}
           >
             {live ? <Wifi className="w-3 h-3" /> : <WifiOff className="w-3 h-3" />}
             {live ? 'Live' : 'Offline'}
           </span>
-          <button onClick={refresh} className="p-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors" title="Obnovit">
+          <button onClick={refresh} className="p-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors" title="Obnoviť">
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
           </button>
-          <button onClick={handleClear} className="p-2 rounded-xl text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors" title="Smazat vše">
+          <button onClick={handleClear} className="p-2 rounded-xl text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors" title="Zmazať všetko">
             <Trash2 className="w-4 h-4" />
           </button>
           <button
@@ -418,7 +418,7 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
             className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-100 transition-colors"
           >
             <LogOut className="w-4 h-4" />
-            Odhlásit
+            Odhlásiť
           </button>
         </div>
       </header>
@@ -427,9 +427,9 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-8">
           {[
-            { label: 'Celkem pokusů', value: sessions.length },
-            { label: 'Dokončeno', value: completed.length },
-            { label: 'Průměrné skóre', value: completed.length ? `${avgScore}%` : '–' },
+            { label: 'Celkom pokusov', value: sessions.length },
+            { label: 'Dokončené', value: completed.length },
+            { label: 'Priemerné skóre', value: completed.length ? `${avgScore}%` : '–' },
           ].map(stat => (
             <div key={stat.label} className="bg-white rounded-2xl p-5 border border-gray-100">
               <p className="text-xs text-gray-500 mb-1">{stat.label}</p>
@@ -463,18 +463,18 @@ export function AdminDashboard({ onLogout }: AdminDashboardProps) {
             {error && (
               <div className="text-center py-8 text-red-500 bg-red-50 rounded-2xl mb-4 px-4">
                 <p className="text-sm font-medium">{error}</p>
-                <button onClick={refresh} className="mt-2 text-xs underline hover:no-underline">Zkusit znovu</button>
+                <button onClick={refresh} className="mt-2 text-xs underline hover:no-underline">Skúsiť znova</button>
               </div>
             )}
             {loading && sessions.length === 0 ? (
               <div className="text-center py-16 text-gray-400">
                 <RefreshCw className="w-8 h-8 mx-auto mb-3 animate-spin opacity-40" />
-                <p className="text-sm">Načítání dat…</p>
+                <p className="text-sm">Načítavanie dát…</p>
               </div>
             ) : !error && sessions.length === 0 ? (
               <div className="text-center py-16 text-gray-400">
                 <Users className="w-10 h-10 mx-auto mb-3 opacity-30" />
-                <p className="text-sm">Zatím žádní účastníci.</p>
+                <p className="text-sm">Zatiaľ žiadni účastníci.</p>
               </div>
             ) : (
               sessions.map(session => <SessionRow key={session.id} session={session} />)

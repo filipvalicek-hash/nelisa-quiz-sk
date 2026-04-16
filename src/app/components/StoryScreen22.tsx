@@ -9,7 +9,7 @@ interface StoryScreen22Props {
 export function StoryScreen22({ onContinue, onLogoClick }: StoryScreen22Props) {
   const storyContent = (
     <p>
-      Schůzka se pomalu chýlí ke konci. Klient to shrne jednou větou: „Hele, my ty portály vlastně máme docela vychytané. Zatím nám fungují." Nechce se hádat ani nic bourat.
+      Schôdzka sa pomaly chýli ku koncu. Klient to zhrnie jednou vetou: „Hele, my tie portály vlastne máme celkom vychytané. Zatiaľ nám fungujú." Nechce sa hádať ani nič búrať.
     </p>
   );
 
@@ -27,7 +27,7 @@ export function StoryScreen22({ onContinue, onLogoClick }: StoryScreen22Props) {
   return (
     <StoryScreen
       questionNumber={22}
-      storyLabel="PŘÍBĚH"
+      storyLabel="PRÍBEH"
       storyContent={storyContent}
       illustration={illustration}
       onContinue={onContinue}

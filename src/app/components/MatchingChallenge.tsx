@@ -131,11 +131,11 @@ export function MatchingChallenge({
 
           const color = PAIRING_COLORS[index % PAIRING_COLORS.length];
 
-          // Start point: střed pravého okraje levé karty
+          // Start point: stred praveho okraja lavej karty
           const x1 = leftRect.right - containerRect.left;
           const y1 = leftRect.top + leftRect.height / 2 - containerRect.top;
           
-          // End point: střed levého okraje pravé karty
+          // End point: stred laveho okraja pravej karty
           const x2 = rightRect.left - containerRect.left;
           const y2 = rightRect.top + rightRect.height / 2 - containerRect.top;
 
@@ -665,7 +665,7 @@ export function MatchingChallenge({
                     onClick={onBack}
                     className="text-gray-500 hover:text-gray-900 gap-2 font-medium"
                   >
-                    Zpět
+                    Spat
                   </Button>
                 )}
                 {isConfirmed && <div></div>}
@@ -708,7 +708,7 @@ export function MatchingChallenge({
                         e.currentTarget.style.backgroundColor = '#AE54FF';
                       }}
                     >
-                      Pokračovat
+                      Pokracovat
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   ) : feedback === 'correct' ? (
@@ -723,7 +723,7 @@ export function MatchingChallenge({
                         e.currentTarget.style.backgroundColor = '#AE54FF';
                       }}
                     >
-                      Pokračovat
+                      Pokracovat
                       <ChevronRight className="w-5 h-5 ml-2" />
                     </Button>
                   ) : (
@@ -738,7 +738,7 @@ export function MatchingChallenge({
                         e.currentTarget.style.backgroundColor = '#6B7280';
                       }}
                     >
-                      Zkusit znovu
+                      Skusit znova
                     </Button>
                   )}
                 </div>
