@@ -20,3 +20,4 @@ dist/
 
 # Local Netlify folder
 .netlify
+.vercel
